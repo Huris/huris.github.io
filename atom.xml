@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-02T05:26:38.299Z</updated>
+  <updated>2019-08-02T09:46:59.344Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,24 +17,304 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://huris.xyz/2019/08/02/hello-world/"/>
-    <id>http://huris.xyz/2019/08/02/hello-world/</id>
-    <published>2019-08-02T05:26:38.299Z</published>
-    <updated>2019-08-02T05:26:38.299Z</updated>
+    <title>vim速查表</title>
+    <link href="http://huris.xyz/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+    <id>http://huris.xyz/2019/08/02/vim速查表/</id>
+    <published>2019-08-02T09:22:48.000Z</published>
+    <updated>2019-08-02T09:46:59.344Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。&lt;/p&gt;
     
     </summary>
     
+      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="vim" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/vim/"/>
+    
+    
+      <category term="vim" scheme="http://huris.xyz/tags/vim/"/>
+    
+      <category term="速查表" scheme="http://huris.xyz/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数阶乘</title>
+    <link href="http://huris.xyz/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
+    <id>http://huris.xyz/2019/08/02/大数阶乘/</id>
+    <published>2019-08-02T09:22:48.000Z</published>
+    <updated>2019-08-02T09:49:58.656Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;求n!具体值c++实现&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法模板" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
+    
+    
+      <category term="大数" scheme="http://huris.xyz/tags/%E5%A4%A7%E6%95%B0/"/>
+    
+      <category term="算法模板" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>c++文件操作</title>
+    <link href="http://huris.xyz/2018/05/11/c++%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
+    <id>http://huris.xyz/2018/05/11/c++文件操作/</id>
+    <published>2018-05-11T02:37:26.000Z</published>
+    <updated>2019-08-02T09:47:07.057Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;c++的读取文件/输入方式总结&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="C++" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/"/>
+    
+    
+      <category term="C++" scheme="http://huris.xyz/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matlab学习笔记(8)</title>
+    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-8/"/>
+    <id>http://huris.xyz/2018/04/30/matlab学习笔记-8/</id>
+    <published>2018-04-30T13:08:53.000Z</published>
+    <updated>2019-08-02T09:54:32.740Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;matlab程序流程控制:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;M文件的概念与基本操作&lt;/li&gt;
+&lt;li&gt;matlab程序控制结构&lt;/li&gt;
+&lt;li&gt;matlab函数文件&lt;/li&gt;
+&lt;li&gt;matlab程序调试与优化&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matlab学习笔记(7)</title>
+    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-7/"/>
+    <id>http://huris.xyz/2018/04/30/matlab学习笔记-7/</id>
+    <published>2018-04-30T13:07:53.000Z</published>
+    <updated>2019-08-02T09:54:28.860Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;字符串&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matlab学习笔记(6)</title>
+    <link href="http://huris.xyz/2018/04/30/matalb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-6/"/>
+    <id>http://huris.xyz/2018/04/30/matalb学习笔记-6/</id>
+    <published>2018-04-30T13:06:53.000Z</published>
+    <updated>2019-08-02T09:54:06.681Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;matlab学习笔记(6)主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;矩阵分析&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对角阵与三角阵&lt;/li&gt;
+&lt;li&gt;矩阵的转置与旋转&lt;/li&gt;
+&lt;li&gt;矩阵的逆与伪逆&lt;/li&gt;
+&lt;li&gt;方阵的行列式&lt;/li&gt;
+&lt;li&gt;矩阵的秩与迹&lt;/li&gt;
+&lt;li&gt;向量和矩阵的范数&lt;/li&gt;
+&lt;li&gt;矩阵的条件数&lt;/li&gt;
+&lt;li&gt;矩阵的特征值与特征向量&lt;/li&gt;
+&lt;li&gt;矩阵的超越函数&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matlab学习笔记(5)</title>
+    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-5/"/>
+    <id>http://huris.xyz/2018/04/30/matlab学习笔记-5/</id>
+    <published>2018-04-30T13:05:53.000Z</published>
+    <updated>2019-08-02T09:54:25.199Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;matlab学习笔记(5)主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基本算术运算&lt;/li&gt;
+&lt;li&gt;点运算&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matlab学习笔记(4)</title>
+    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-4/"/>
+    <id>http://huris.xyz/2018/04/30/matlab学习笔记-4/</id>
+    <published>2018-04-30T13:04:53.000Z</published>
+    <updated>2019-08-02T09:54:22.399Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;matlab学习笔记(4)主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;矩阵&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matlab学习笔记(3)</title>
+    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-3/"/>
+    <id>http://huris.xyz/2018/04/30/matlab学习笔记-3/</id>
+    <published>2018-04-30T13:03:53.000Z</published>
+    <updated>2019-08-02T09:54:19.602Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;matlab学习笔记(3)注意介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;常用函数&lt;/li&gt;
+&lt;li&gt;常用数学函数&lt;/li&gt;
+&lt;li&gt;数据的输出格式&lt;/li&gt;
+&lt;li&gt;常用快捷键(mac系统)&lt;/li&gt;
+&lt;li&gt;预定义变量&lt;/li&gt;
+&lt;li&gt;注意点&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matlab学习笔记(2)</title>
+    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2/"/>
+    <id>http://huris.xyz/2018/04/30/matlab学习笔记-2/</id>
+    <published>2018-04-30T13:01:53.000Z</published>
+    <updated>2019-08-02T09:54:15.656Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;matlab学习笔记(2)主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;数值类型&lt;ul&gt;
+&lt;li&gt;整数类型&lt;/li&gt;
+&lt;li&gt;浮点数类型&lt;/li&gt;
+&lt;li&gt;复数&lt;/li&gt;
+&lt;li&gt;无穷量和非数值量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;逻辑类型&lt;/li&gt;
+&lt;li&gt;字符和字符串&lt;/li&gt;
+&lt;li&gt;函数句柄&lt;/li&gt;
+&lt;li&gt;结构体&lt;/li&gt;
+&lt;li&gt;数组类型&lt;/li&gt;
+&lt;li&gt;单元数组类型&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matlab学习笔记(1)</title>
+    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/"/>
+    <id>http://huris.xyz/2018/04/30/matlab学习笔记-1/</id>
+    <published>2018-04-30T13:00:53.000Z</published>
+    <updated>2019-08-02T09:53:02.740Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;matlab学习笔记(1)主要介绍了以下内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;matlab的命令行通用命令&lt;/li&gt;
+&lt;li&gt;如何设置matlab调用文件的搜索路径&lt;/li&gt;
+&lt;li&gt;matlab的帮助系统&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
     
   </entry>
   

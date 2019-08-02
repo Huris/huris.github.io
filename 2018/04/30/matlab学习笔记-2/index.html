@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>matlab学习笔记(2) | Huris' HeapStack - NEVER SAY NERVER.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">NEVER SAY NERVER.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2018/04/30/matlab学习笔记-2/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="I wish I were who I was when I wished I were who I am now.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">matlab学习笔记(2)</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-30T21:01:53+08:00">2018-04-30 21:01:53</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p><strong>matlab学习笔记(2)主要介绍了以下内容:</strong></p>
+<ol>
+<li>数值类型<ul>
+<li>整数类型</li>
+<li>浮点数类型</li>
+<li>复数</li>
+<li>无穷量和非数值量</li>
+</ul>
+</li>
+<li>逻辑类型</li>
+<li>字符和字符串</li>
+<li>函数句柄</li>
+<li>结构体</li>
+<li>数组类型</li>
+<li>单元数组类型</li>
+</ol>
+<a id="more"></a>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><table>
+<thead>
+<tr>
+<th align="center">数据格式</th>
+<th align="center">示例</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">int8,uint8<br>int16,uint16<br>int32,uint32<br>int64,uint64</td>
+<td align="center">int8(20)</td>
+<td align="left">有符号和无符号的整数类型<br>相同数值的整数类型比浮点数占更少内存<br>除了int64和uint64类型外的所有整数类型,都可以进行数学运算</td>
+</tr>
+<tr>
+<td align="center">single</td>
+<td align="center">single(128.1)</td>
+<td align="left">单精度浮点数<br>相同数值的单精度浮点数比双精度浮点数占更少内存<br>单精度浮点数类型能够表示的范围和精度都比双精度浮点数少</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">333.77<br>1.000-1.000i</td>
+<td align="left">双精度浮点数<br>matlab中默认的数值类型</td>
+</tr>
+</tbody></table>
+<p><strong>说明</strong></p>
+<ol>
+<li>matlab中数值类型的数据包括<strong>有符号</strong>和<strong>无符号</strong>整数,<strong>单精度浮点数</strong>和<strong>双精度浮点数</strong></li>
+<li>在未加说明与特殊定义时,<strong>matlab对所有数值按照双精度浮点数类型进行存储和操作</strong></li>
+<li>相对于双精度浮点数,整数和单精度浮点数的优点在于节省变量占用的内存空间</li>
+<li>matlab会自动进行记忆体的使用和回收,而不像c语言那样,必须由使用者一一指定</li>
+</ol>
+<h4 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h4><table>
+<thead>
+<tr>
+<th align="center">转换函数</th>
+<th align="center">数值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">int8</td>
+<td align="center">-2^7^~2^7^-1</td>
+</tr>
+<tr>
+<td align="center">uint8</td>
+<td align="center">0~2^8^-1</td>
+</tr>
+<tr>
+<td align="center">int16</td>
+<td align="center">-2^15^~2^15^-1</td>
+</tr>
+<tr>
+<td align="center">uint16</td>
+<td align="center">0~2^16^-1</td>
+</tr>
+<tr>
+<td align="center">int32</td>
+<td align="center">-2^31^~2^31^-1</td>
+</tr>
+<tr>
+<td align="center">uint32</td>
+<td align="center">0~2^32^-1</td>
+</tr>
+<tr>
+<td align="center">int64</td>
+<td align="center">-2^63^~2^63^-1</td>
+</tr>
+<tr>
+<td align="center">uint64</td>
+<td align="center">0~2^64^-1</td>
+</tr>
+</tbody></table>
+<p><strong>注意</strong></p>
+<ol>
+<li>由于<strong>matlab默认是double类型</strong>,将数值转化为整数时,遵循四舍六入,当小数部分为0.5时,则会转化为绝对值较大的那个整数</li>
+<li>这些转换函数也可以将其他数据类型转换为指定的整数类型</li>
+<li>在不超过数值范围的情况下,任意两个整数类型之间也可以通过转换函数进行互相转换</li>
+<li>由于不同的整数类型能够表示的数值范围不同,因此当结果超出相应的整数类型能够表示的范围时,就会出现一处错误,运算结果被置为该整数能够表示的最大值或最小值</li>
+</ol>
+<h5 id="取整函数"><a href="#取整函数" class="headerlink" title="取整函数"></a>取整函数</h5><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">运算法则</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">floor(x)</td>
+<td align="center">向下取整</td>
+<td align="center">floor(1.2)=1<br>floor(-1.2)=-2</td>
+</tr>
+<tr>
+<td align="center">ceil(x)</td>
+<td align="center">向上取整</td>
+<td align="center">ceil(1.2)=2<br>ceil(-1.2)=-1</td>
+</tr>
+<tr>
+<td align="center">round(x)</td>
+<td align="center">取最接近的整数<br>如果小数部分是0.5,则向绝对值大的方向取整</td>
+<td align="center">round(1.2)=1<br>round(1.6)=2<br>round(-1.2)=-1<br>round(-1.6)=-2<br>round(-1.5)=-2</td>
+</tr>
+<tr>
+<td align="center">fix(x)</td>
+<td align="center">向0取整</td>
+<td align="center">fix(1.2)=1<br>fix(1.6)=1<br>fix(-1.2)=-1<br>fix(-1.6)=-1</td>
+</tr>
+</tbody></table>
+<h4 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h4><table>
+<thead>
+<tr>
+<th align="center">浮点类型</th>
+<th align="center">存储位宽</th>
+<th align="center">各数位的含义</th>
+<th align="center">数值范围</th>
+<th align="center">转换函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">单精度</td>
+<td align="center">32</td>
+<td align="center">0<del>22位表示小数部分 <br>23</del>30位表示指数部分<br>31位表示符号(0正1负)</td>
+<td align="center">-3.40282e+038 ~ -1.17549e-038<br>1.17549e-038 ~ 3.40282e+038</td>
+<td align="center">single</td>
+</tr>
+<tr>
+<td align="center">双精度</td>
+<td align="center">64</td>
+<td align="center">0<del>51位表示小数部分 <br>52</del>62位表示指数部分<br>63位表示符号(0正1负)</td>
+<td align="center">-1.79769e+308 ~ -2.22507e-308<br>2.22507e-308 ~ 1.79769+308</td>
+<td align="center">Double</td>
+</tr>
+</tbody></table>
+<p><strong>注意</strong></p>
+<ol>
+<li>matlab中默认数值类型为双精度浮点类型,因此与创建整数类型数值一样,也可以通过转换函数来实现创建单精度浮点类型</li>
+<li>双精度浮点数参与运算时,返回值得类型依赖于参与运算的其他数据类型<ul>
+<li>参与运算的其他数据为<strong>逻辑型</strong>,<strong>字符型</strong>时,返回<strong>双精度浮点型</strong></li>
+<li>参与运算的其他数据为<strong>整数型</strong>时,返回相应的<strong>整数类型</strong></li>
+<li>参与运算的其他数据为<strong>单精度浮点型</strong>时,返回相应的<strong>单精度浮点型</strong></li>
+</ul>
+</li>
+<li><strong>matlab中,单精度浮点型不能与整数进行算数运算</strong></li>
+<li>由于浮点数只占用一定的存储位宽,其中只有有限位分别用来存储指数部分和小数部分,因此,浮点类型能够表示的实际数值是有限且离散的,任何两个最近相邻的浮点数之间都有微小间隙,而处在间隙中的数值都只能用这两个相邻的浮点数之中的一个来表示(matlab中提供eps函数:可以获得一个数值和最接近该数值的浮点数之间的间隙)</li>
+</ol>
+<h4 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h4><p>复数包括<strong>实部和虚部</strong>两部分,matlab中<strong>默认使用字符i或j作为虚部标志</strong>,创建复数时,可以直接按照复数形式进行输入或者利用complex函数</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">real(z)</td>
+<td align="center">返回复数z的实部</td>
+</tr>
+<tr>
+<td align="center">imag(z)</td>
+<td align="center">返回复数z的虚部</td>
+</tr>
+<tr>
+<td align="center">abs(z)</td>
+<td align="center">返回复数z的模</td>
+</tr>
+<tr>
+<td align="center">angle(z)</td>
+<td align="center">返回复数z的辐角</td>
+</tr>
+<tr>
+<td align="center">conj(z)</td>
+<td align="center">返回复数z的共轭复数</td>
+</tr>
+<tr>
+<td align="center">complex(a,b)</td>
+<td align="center">以a为实部,b为虚部创建复数</td>
+</tr>
+</tbody></table>
+<h4 id="无穷量-Inf-和非数值量-NaN"><a href="#无穷量-Inf-和非数值量-NaN" class="headerlink" title="无穷量(Inf)和非数值量(NaN)"></a>无穷量(Inf)和非数值量(NaN)</h4><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Inf</td>
+<td align="center">正无穷量</td>
+</tr>
+<tr>
+<td align="center">-Inf</td>
+<td align="center">负无穷量</td>
+</tr>
+<tr>
+<td align="center">NaN</td>
+<td align="center">非数值量</td>
+</tr>
+</tbody></table>
+<p><strong>注意</strong></p>
+<ol>
+<li>正负无穷量一般都是由于运算溢出,产生了超出双精度浮点数数值范围的结果</li>
+<li>非数值量一般都是由于0/0,Inf/Inf或者Inf-Inf造成的,这三个NaN彼此不相等</li>
+<li>除了异常运算结果外,matlab还提供了特定函数Inf和NaN来创建指定数值类型的无穷量和非数值量,生成结果默认为双精度浮点类型中还有一种特殊的指数类型的数据叫做非数,通常表示运算得到的数值结果超出了运算范围,非数的实部用NaN表示,虚部用Inf表示</li>
+</ol>
+<h3 id="逻辑类型"><a href="#逻辑类型" class="headerlink" title="逻辑类型"></a>逻辑类型</h3><p>matlab把任何非零数值当做真,把零当做假.</p>
+<p>所有关系和逻辑表达式的输出:对于真,输出1;对于假,输出0</p>
+<table>
+<thead>
+<tr>
+<th align="center">关系操作符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td align="center">小于等于</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">大于</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">大于等于</td>
+</tr>
+<tr>
+<td align="center">==</td>
+<td align="center">等于</td>
+</tr>
+<tr>
+<td align="center">~=</td>
+<td align="center">不等于</td>
+</tr>
+</tbody></table>
+<p>matlab关系操作符能用来比较两个同样大小的数组,或用来比较一个数组和一个标量,在后一种情况中,标量和数组中的每一个元素相比较,结果与数组大小一样</p>
+<table>
+<thead>
+<tr>
+<th align="center">逻辑运算符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&amp;</td>
+<td align="center">与</td>
+</tr>
+<tr>
+<td align="center">丨</td>
+<td align="center">或</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center">非</td>
+</tr>
+<tr>
+<td align="center">xor(x,y)</td>
+<td align="center">异或</td>
+</tr>
+<tr>
+<td align="center">any(x)</td>
+<td align="center">判断是否为零向量或者零矩阵</td>
+</tr>
+</tbody></table>
+<h3 id="字符和字符串"><a href="#字符和字符串" class="headerlink" title="字符和字符串"></a>字符和字符串</h3><ol>
+<li>在matlab中,<strong>文本</strong>当做特征字符串或简单地当做字符串</li>
+<li>字符串能够<strong>显示在屏幕上</strong>,也可以<strong>用来构成一些命令</strong>,这些命令在其他的命令中用于求值或者被执行</li>
+<li>一个字符串是存储在一个行向量中的文本,这个行向量中的每一个元素代表一个字符,实际上,元素中存放的是字符的ASCII码</li>
+<li>在屏幕上显示字符变量的值时,显示出来的是文本,而不是ASCII数字</li>
+<li>由于字符串是以向量的形式来存储的,因此可以通过它的下标对字符串中的任何一个元素进行访问,字符矩阵也可以通过下标索引进行访问,但是矩阵的每行字符数必须相同</li>
+<li>一个字符串是由<strong>单引号</strong>括起来的简单文本</li>
+<li>在字符串里的每个字符是数组里的一个元素,字符串的存储要求<strong>每个字符占8个字节</strong></li>
+<li>字符串基本操作(以s=‘123456789’ 为例)</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">操作</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">u=abs(s)</td>
+<td align="left">u =[49,50,51,52,53,54,55,56,57]</td>
+</tr>
+<tr>
+<td align="center">s=s+0</td>
+<td align="left">s =[49,50,51,52,53,54,55,56,57]</td>
+</tr>
+<tr>
+<td align="center">u=s(4:9)</td>
+<td align="left">u=‘456789’</td>
+</tr>
+<tr>
+<td align="center">u=s(9:-2:3)</td>
+<td align="left">u=‘9753’</td>
+</tr>
+<tr>
+<td align="center">输入s=I’’am Bob.</td>
+<td align="left">s=I’m Bob</td>
+</tr>
+<tr>
+<td align="center">u=[s ‘87654321’]</td>
+<td align="left">u=‘12345678987654321’</td>
+</tr>
+</tbody></table>
+<h3 id="函数句柄"><a href="#函数句柄" class="headerlink" title="函数句柄"></a>函数句柄</h3><p>在matlab中调用函数分为直接调用和间接调用</p>
+<ul>
+<li><p>直接调用</p>
+<ul>
+<li>被调函数被称为子函数</li>
+<li>子函数只能被与其M文件同名的主函数或在M文件中的其他函数所调用</li>
+<li>在一个文件中只能有一个主函数</li>
+</ul>
+</li>
+<li><p>间接调用(函数句柄)</p>
+<ul>
+<li>避免了直接调用的限制(第二条)</li>
+<li>创建函数句柄时需要用到操作符@</li>
+<li>对任意函数都可以创造函数句柄</li>
+<li>创建函数句柄的一般语法格式<ul>
+<li>Function_Handle = @Function_Filename</li>
+<li>Function_Filename是函数所对应的M文件的名称或matlab内部函数的名称</li>
+<li>@是句柄创建操作符</li>
+<li>Function_Handle变量保存了这一函数句柄,并在后续的运算中作为数据流进行传递</li>
+<li>例:F_Handle=@cos 就创建了matlab内部函数cos的句柄,并将其保存在F_Handle变量中,后续的运算过程中就可以通过F_Handle(x)来实现cos(x)的功能</li>
+<li>通过函数句柄调用函数时,也需要指定函数的输入参数(跟原来的那个函数调用一致)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>函数句柄的操作函数</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">函数名称</th>
+<th align="left">函数功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">functions(funhandle)</td>
+<td align="left">返回一个结构体<br>包含函数的名称(function),函数类型(type),以及函数M文件的位置(file)</td>
+</tr>
+<tr>
+<td align="center">func2str(funhandle)</td>
+<td align="left">将函数句柄转换为函数名称的字符串</td>
+</tr>
+<tr>
+<td align="center">str2func(str)</td>
+<td align="left">将字符串代表的函数转换为函数句柄</td>
+</tr>
+<tr>
+<td align="center">save filename.mat funhandle</td>
+<td align="left">将函数句柄保存在*.mat文件中</td>
+</tr>
+<tr>
+<td align="center">load filename.mat funhandle</td>
+<td align="left">把*.mat文件中存储的函数句柄加载到工作区</td>
+</tr>
+<tr>
+<td align="center">isa(var,’function_handle’)</td>
+<td align="left">检测变量var是否是函数句柄</td>
+</tr>
+<tr>
+<td align="center">isequal(funhandle1,funhandle2)</td>
+<td align="left">检测两个函数句柄是否对应于同一个函数</td>
+</tr>
+</tbody></table>
+<h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><ul>
+<li><p>创建结构体</p>
+<ul>
+<li><p>直接通过赋值语句给结构体的字段赋值</p>
+<figure class="hljs highlight Matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">student.name=<span class="hljs-string">'sam'</span>;<br>student.grade=<span class="hljs-number">6</span>;<br>student.subject=&#123;<span class="hljs-string">'Chinese'</span>,<span class="hljs-string">'Math'</span>,<span class="hljs-string">'English'</span>&#125;;<br>student.result=&#123;<span class="hljs-number">99</span>,<span class="hljs-number">99</span>,<span class="hljs-number">99</span>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+</li>
+</ul>
+<ol>
+<li>在进行字段赋值时,没有明确赋值的字段,matlab默认赋值为空数组</li>
+<li>通过圆括号索引进行字段赋值,还可以创建任意尺寸的结构体数组</li>
+<li>同一个结构体数组中所有结构体对象具有相同的字段组合</li>
+</ol>
+<ul>
+<li>利用struct函数创建结构体<ul>
+<li>node = struct(‘field1’,var1,’field2’,var2,…,’fieldn’,varn)</li>
+<li>数组  node(2) =struct(‘field1’,var1,’field2’,var2,…,’fieldn’,varn)</li>
+<li>重复写入node = repmat(struct(‘day’,’thursday’,’time’),==1,2==)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h3><p>matlab中进行运算的所有数据类型,都是按照数组及矩阵的形式进行存储和运算的,而二者在matlab中的基本运算性质不同,陈列强调元素对元素的运算,而矩阵则采用线性代数的运算方式</p>
+<ul>
+<li>数组定义 a=[1 2 3 4 5]</li>
+<li>冒号定义<ul>
+<li>a=1:10<br>a=[1 2 3 4 5 6 7 8 9 10]</li>
+<li>a=1:2:10<br>a=[1 3 5 7 9]</li>
+<li>a=linspace(a,b,100)<br>在区间[a,b]上创建一个有100个元素的向量,这100个数把整个区间线性分隔</li>
+</ul>
+</li>
+</ul>
+<h3 id="单元数组类型"><a href="#单元数组类型" class="headerlink" title="单元数组类型"></a>单元数组类型</h3><p>单元(cell)数组是一种无所不包的广义矩阵,组成单元数组的每一个元素称为一个单元,每一个单元可以包括一个任意数组,如数值数组,字符串数组,结构体数组或另外一个单元数组,因而每一个单元可以具有不同的尺寸和内存占用空间.</p>
+<p><strong>注意</strong>:<strong>和一般的数值数组一样,单元数组的维数不受限制,可以是一维,二维或多维</strong></p>
+<h4 id="单元数组的创建"><a href="#单元数组的创建" class="headerlink" title="单元数组的创建"></a>单元数组的创建</h4><ol>
+<li><p>使用赋值语句创建单元数组</p>
+<p>单元数组使用花括号”{}”来创建,使用逗号”,”或空格来分隔每一个单元,使用”;”来分行</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">c=&#123;<span class="hljs-string">'haha'</span>,[<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span>];<span class="hljs-number">10</span>,<span class="hljs-built_in">pi</span>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>利用cell函数创建空单元数组</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">cellname=cell(m,n)<br></code></pre></td></tr></table></figure>
+
+<p>该函数创建一个m*n的空单元数组,其每一个单元均为空矩阵</p>
+</li>
+</ol>
+<h4 id="单元数组的寻访"><a href="#单元数组的寻访" class="headerlink" title="单元数组的寻访"></a>单元数组的寻访</h4><p>在单元数组中,单元和单元中的内容是两个不同范畴的东西,因此,寻访单元和单元中的内容是两个不同的操作,matlab为上述两种操作设计了相对应的操作对象:单元外标识(Cell Indexing)和单元内编址(Content Addressing)</p>
+<p>对于单元数组c,c(m,n)指的是单元数组中第m行第n列的单元,而c{m,n}指的是单元数组中第m行第n列单元中的内容</p>
+<h4 id="单元数组的操作"><a href="#单元数组的操作" class="headerlink" title="单元数组的操作"></a>单元数组的操作</h4><ol>
+<li><p>单元数组的合并</p>
+<p><code>c={a b}</code></p>
+</li>
+<li><p>单元数组的删除</p>
+<p>如果要删除单元数组中指定的某个单元,只需把空矩阵赋给该单元即可</p>
+<p><code>c{m,n}=[]</code></p>
+</li>
+<li><p>使用reshape函数改变单元数组的形状</p>
+<p><code>trimc = reshape(c,M,N)</code></p>
+<p>该函数将单元数组c改变成一个具有M行N列的新单元数组</p>
+</li>
+</ol>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Matlab/" rel="tag"><i class="fas fa-tags"></i>Matlab</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/04/30/matlab学习笔记-1/" rel="next" title="matlab学习笔记(1)"><i class="fas fa-angle-left"></i><span class="nav-title">matlab学习笔记(1)</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/04/30/matlab学习笔记-3/" rel="prev" title="matlab学习笔记(3)"><span class="nav-title">matlab学习笔记(3)</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">I wish I were who I was when I wished I were who I am now.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">11</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">7</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">6</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#数值类型"><span class="toc-text">数值类型</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#整数类型"><span class="toc-text">整数类型</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#取整函数"><span class="toc-text">取整函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#浮点数类型"><span class="toc-text">浮点数类型</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#复数"><span class="toc-text">复数</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#无穷量-Inf-和非数值量-NaN"><span class="toc-text">无穷量(Inf)和非数值量(NaN)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#逻辑类型"><span class="toc-text">逻辑类型</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#字符和字符串"><span class="toc-text">字符和字符串</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#函数句柄"><span class="toc-text">函数句柄</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#结构体"><span class="toc-text">结构体</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#数组类型"><span class="toc-text">数组类型</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#单元数组类型"><span class="toc-text">单元数组类型</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#单元数组的创建"><span class="toc-text">单元数组的创建</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#单元数组的寻访"><span class="toc-text">单元数组的寻访</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#单元数组的操作"><span class="toc-text">单元数组的操作</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>matlab学习笔记(4) | Huris' HeapStack - NEVER SAY NERVER.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">NEVER SAY NERVER.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2018/04/30/matlab学习笔记-4/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="I wish I were who I was when I wished I were who I am now.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">matlab学习笔记(4)</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-30T21:04:53+08:00">2018-04-30 21:04:53</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p><strong>matlab学习笔记(4)主要介绍了以下内容:</strong></p>
+<p>矩阵</p>
+<a id="more"></a>
+
+<h3 id="矩阵的建立"><a href="#矩阵的建立" class="headerlink" title="矩阵的建立"></a>矩阵的建立</h3><h4 id="直接输入法建立矩阵"><a href="#直接输入法建立矩阵" class="headerlink" title="直接输入法建立矩阵"></a>直接输入法建立矩阵</h4><figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]<br></code></pre></td></tr></table></figure>
+
+<h4 id="冒号表达式建立一个向量"><a href="#冒号表达式建立一个向量" class="headerlink" title="冒号表达式建立一个向量"></a>冒号表达式建立一个向量</h4><figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=<span class="hljs-number">0</span>:<span class="hljs-number">1</span>:<span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<p>如果冒号表达式中省略第二个冒号,则默认步长为1</p>
+<h4 id="用linspace函数产生行向量"><a href="#用linspace函数产生行向量" class="headerlink" title="用linspace函数产生行向量"></a>用linspace函数产生行向量</h4><figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">linspace</span>(l,r,n)<br></code></pre></td></tr></table></figure>
+
+<p>其中l,r是生成向量的第一个元素和最后一个元素,n是元素总数,当n省略时,自动产生100个元素</p>
+<h4 id="利用已建好的小矩阵拼接成大矩阵"><a href="#利用已建好的小矩阵拼接成大矩阵" class="headerlink" title="利用已建好的小矩阵拼接成大矩阵"></a>利用已建好的小矩阵拼接成大矩阵</h4><figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>:<span class="hljs-number">2</span>:<span class="hljs-number">6</span>;<span class="hljs-number">2</span>:<span class="hljs-number">2</span>:<span class="hljs-number">6</span>];<br>b=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br>c=[a;b]<br></code></pre></td></tr></table></figure>
+
+<h3 id="矩阵的拆分"><a href="#矩阵的拆分" class="headerlink" title="矩阵的拆分"></a>矩阵的拆分</h3><h4 id="直接通过下标来引用"><a href="#直接通过下标来引用" class="headerlink" title="直接通过下标来引用"></a>直接通过下标来引用</h4><p>如<code>a(3,2)</code>表示a矩阵第3行第2列元素,通常情况下,是对矩阵的单个元素进行赋值或其他操作</p>
+<p><strong>如果给出的行下标或者列下标大于原矩阵的行数和列数,则matlab将自动扩展原来的矩阵,并将扩展后未赋值的元素置为0</strong></p>
+<h4 id="通过冒号表达式获得子矩阵"><a href="#通过冒号表达式获得子矩阵" class="headerlink" title="通过冒号表达式获得子矩阵"></a>通过冒号表达式获得子矩阵</h4><ol>
+<li>可以直接用单个的冒号来作为行下标或列下标<ul>
+<li><strong>a(i,:)</strong>表示a矩阵第i行的全部元素</li>
+<li><strong>a(:,j)</strong>表示a矩阵第j列的全部元素</li>
+<li><strong>a(i:i+m,j:j+k)</strong>表示a矩阵第i~i+m行,第j ~j+k列所有的元素</li>
+</ul>
+</li>
+<li>速度比循环结构快</li>
+<li>此外还可以用<strong>end</strong>关键字来表示某一维的末尾元素下标</li>
+</ol>
+<h4 id="利用空矩阵删除矩阵的元素"><a href="#利用空矩阵删除矩阵的元素" class="headerlink" title="利用空矩阵删除矩阵的元素"></a>利用空矩阵删除矩阵的元素</h4><p>在matlab中,定义[]为空矩阵,给变量x赋空矩阵的语句为</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x=[]<br></code></pre></td></tr></table></figure>
+
+<p><strong>x=[]与clear x不同,clear是将x从工作空间中删除,而空矩阵则存在于工作空间中,只是维数为0</strong></p>
+<p>将矩阵中的某些元素删除,可以采用空矩阵的方法,例如:</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>;<span class="hljs-number">7</span>,<span class="hljs-number">0</span>,<span class="hljs-number">9</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>;<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>];<br>a(:,<span class="hljs-number">2</span>:<span class="hljs-number">4</span>)=[]	       <span class="hljs-comment">%删除a的第2~4列元素</span><br>a(:,[<span class="hljs-number">2</span>,<span class="hljs-number">4</span>])=[]      <span class="hljs-comment">%删除a的第2列和第4列元素</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="改变矩阵的形状"><a href="#改变矩阵的形状" class="headerlink" title="改变矩阵的形状"></a>改变矩阵的形状</h4><p>reshape(a,m,n)函数在矩阵总元素保持不变的前提下,将矩阵a重新排成m*n的二维矩阵</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br>y=<span class="hljs-built_in">reshape</span>(a,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>);<br>y =<br><br>          <span class="hljs-number">1.00</span>          <span class="hljs-number">4.00</span>          <span class="hljs-number">7.00</span><br>          <span class="hljs-number">2.00</span>          <span class="hljs-number">5.00</span>          <span class="hljs-number">8.00</span><br>          <span class="hljs-number">3.00</span>          <span class="hljs-number">6.00</span>          <span class="hljs-number">9.00</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>在matlab中,矩阵元素<strong>按列存储</strong>,即首先存储矩阵第1列元素,然后存储第2列元素,…一直到矩阵的最后一列元素</li>
+<li>reshape函数只是改变原矩阵的行数和列数,即改变其逻辑结构,但并不改变原矩阵元素的个数及其存储结构</li>
+</ol>
+<h3 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h3><h4 id="通用的特殊矩阵"><a href="#通用的特殊矩阵" class="headerlink" title="通用的特殊矩阵"></a>通用的特殊矩阵</h4><table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">zeros</td>
+<td align="center">产生全0矩阵(零矩阵)</td>
+</tr>
+<tr>
+<td align="center">ones</td>
+<td align="center">产生全1矩阵(幺矩阵)</td>
+</tr>
+<tr>
+<td align="center">eye</td>
+<td align="center">产生单位矩阵</td>
+</tr>
+<tr>
+<td align="center">rand</td>
+<td align="center">产生(0,1)区间均匀分布的随机矩阵</td>
+</tr>
+<tr>
+<td align="center">randn</td>
+<td align="center">产生均值为0,方差为1的标准正态分布随机矩阵</td>
+</tr>
+</tbody></table>
+<p><strong>调用方式</strong></p>
+<ol>
+<li><strong>zeros(m)</strong>:产生m×m零矩阵</li>
+<li><strong>zeros(n,m)</strong>:产生n×m零矩阵</li>
+<li><strong>zeros(size(a))</strong>:产生与矩阵a同样大小的零矩阵</li>
+<li><strong>20+(50-20)*rand(4,5)</strong>:产生4行5列在区间[20,50]内均匀分布的随机矩阵</li>
+<li><strong>0.6+sqrt(0.1)*randn(4,5)</strong>:产生4行5列均值为0.6,方差为0.1的正态分布随机矩阵</li>
+</ol>
+<h4 id="用于专门学科的特殊矩阵"><a href="#用于专门学科的特殊矩阵" class="headerlink" title="用于专门学科的特殊矩阵"></a>用于专门学科的特殊矩阵</h4><ol>
+<li><p>魔方矩阵</p>
+<ul>
+<li>调用函数magic(n)</li>
+<li>每行每列及两条对角线上的元素之和都相等</li>
+<li>其元素由1,2,3,…,n^2^共n^2^个元素组成</li>
+</ul>
+</li>
+<li><p>范德蒙矩阵</p>
+<ul>
+<li>调用函数vander(<strong>V</strong>)</li>
+<li>范德蒙矩阵最后一列全为1,倒数第2列为一个指定的向量,其它各列是其后一列与倒数第2列对应元素的乘积</li>
+<li><strong>V</strong>为一个指定的向量</li>
+</ul>
+</li>
+<li><p>希尔伯特矩阵</p>
+<ul>
+<li>调用函数hilb(n)</li>
+<li>求希尔伯特逆矩阵的函数 invhilb(n)</li>
+<li>希尔伯特矩阵是一种数学变换矩阵,它的每个元素h<del>ij</del>=1/(i+j-1)</li>
+<li>希尔伯特矩阵是一个高度病态的矩阵,即任何一个元素发生微小变动,整个矩阵的值和逆矩阵都会发生很大的变化,病态程度和阶数有关</li>
+</ul>
+</li>
+<li><p>托普利兹矩阵</p>
+<ul>
+<li>调用函数toeplitz(x,y)</li>
+<li>托普利兹矩阵除第1行和第1列外,其他每个元素都与左上角的元素相同</li>
+<li>toeplitz(1:6)用向量[1:6]生成一个对称的托普利兹矩阵</li>
+</ul>
+</li>
+<li><p>伴随矩阵</p>
+<p>设多项式p(x)为:<br>$$<br>p\left( x\right) =a_{n}x^{n}+a_{n-1}x^{n-1}+…a_{1}x+a_{0}<br>$$</p>
+<ul>
+<li>调用函数compan(p)</li>
+<li>其中p是系数向量,高次幂系数排在前,低次幂排在后</li>
+</ul>
+</li>
+<li><p>帕斯卡矩阵</p>
+<ul>
+<li>调用函数pascal(n)</li>
+<li>杨辉三角形组成的矩阵称为帕斯卡矩阵</li>
+</ul>
+</li>
+</ol>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Matlab/" rel="tag"><i class="fas fa-tags"></i>Matlab</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/04/30/matlab学习笔记-3/" rel="next" title="matlab学习笔记(3)"><i class="fas fa-angle-left"></i><span class="nav-title">matlab学习笔记(3)</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/04/30/matlab学习笔记-5/" rel="prev" title="matlab学习笔记(5)"><span class="nav-title">matlab学习笔记(5)</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">I wish I were who I was when I wished I were who I am now.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">11</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">7</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">6</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵的建立"><span class="toc-text">矩阵的建立</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#直接输入法建立矩阵"><span class="toc-text">直接输入法建立矩阵</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#冒号表达式建立一个向量"><span class="toc-text">冒号表达式建立一个向量</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#用linspace函数产生行向量"><span class="toc-text">用linspace函数产生行向量</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#利用已建好的小矩阵拼接成大矩阵"><span class="toc-text">利用已建好的小矩阵拼接成大矩阵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵的拆分"><span class="toc-text">矩阵的拆分</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#直接通过下标来引用"><span class="toc-text">直接通过下标来引用</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#通过冒号表达式获得子矩阵"><span class="toc-text">通过冒号表达式获得子矩阵</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#利用空矩阵删除矩阵的元素"><span class="toc-text">利用空矩阵删除矩阵的元素</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#改变矩阵的形状"><span class="toc-text">改变矩阵的形状</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#特殊矩阵"><span class="toc-text">特殊矩阵</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#通用的特殊矩阵"><span class="toc-text">通用的特殊矩阵</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#用于专门学科的特殊矩阵"><span class="toc-text">用于专门学科的特殊矩阵</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>matlab学习笔记(6) | Huris' HeapStack - NEVER SAY NERVER.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">NEVER SAY NERVER.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2018/04/30/matalb学习笔记-6/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="I wish I were who I was when I wished I were who I am now.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">matlab学习笔记(6)</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-30T21:06:53+08:00">2018-04-30 21:06:53</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p><strong>matlab学习笔记(6)主要介绍了以下内容:</strong></p>
+<p>矩阵分析</p>
+<ol>
+<li>对角阵与三角阵</li>
+<li>矩阵的转置与旋转</li>
+<li>矩阵的逆与伪逆</li>
+<li>方阵的行列式</li>
+<li>矩阵的秩与迹</li>
+<li>向量和矩阵的范数</li>
+<li>矩阵的条件数</li>
+<li>矩阵的特征值与特征向量</li>
+<li>矩阵的超越函数</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="对角阵与三角阵"><a href="#对角阵与三角阵" class="headerlink" title="对角阵与三角阵"></a>对角阵与三角阵</h3><h4 id="对角阵"><a href="#对角阵" class="headerlink" title="对角阵"></a>对角阵</h4><p>只有对角线上有非0元素的矩阵称为<strong>对角矩阵</strong>,对角线上的元素相等的对角矩阵称为<strong>数量矩阵</strong>,对角线上都为1的矩阵称为<strong>单位矩阵</strong></p>
+<h5 id="提取矩阵的对角线元素"><a href="#提取矩阵的对角线元素" class="headerlink" title="提取矩阵的对角线元素"></a>提取矩阵的对角线元素</h5><p>调用函数diag(a)</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br><span class="hljs-built_in">diag</span>(a)=<br>	<span class="hljs-number">1.00</span><br>	<span class="hljs-number">5.00</span><br>	<span class="hljs-number">9.00</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>diag(a)函数还有一种形式diag(a,k),其功能是提取<strong>第k条对角线元素</strong></li>
+<li>与主对角线平行,往上为第1条,第2条,…,第n条对角线,往下为第-1条,第-2条,…,第-n条</li>
+<li>主对角线为第0条对角线</li>
+</ul>
+<h5 id="构造对角矩阵"><a href="#构造对角矩阵" class="headerlink" title="构造对角矩阵"></a>构造对角矩阵</h5><p>设<strong>V</strong>为具有m个元素的向量,diag(<strong>V</strong>)将产生一个m×m对角矩阵,其主对角线元素即为向量<strong>V</strong>的元素</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">diag</span>(<span class="hljs-number">1</span>:<span class="hljs-number">3</span>)=<br>	<span class="hljs-number">1.00</span>       <span class="hljs-number">0</span>       <span class="hljs-number">0</span><br>	   <span class="hljs-number">0</span>    <span class="hljs-number">2.00</span>       <span class="hljs-number">0</span><br>	   <span class="hljs-number">0</span>       <span class="hljs-number">0</span>    <span class="hljs-number">3.00</span><br></code></pre></td></tr></table></figure>
+
+<p>diag(<strong>V</strong>,k)创建一个矩阵,对角线向上或者向下移动k个单位,<strong>还是形成方阵</strong></p>
+<h5 id="三角阵"><a href="#三角阵" class="headerlink" title="三角阵"></a>三角阵</h5><p>三角阵分为<strong>上三角阵</strong>(矩阵对角线以下的元素全为0的矩阵)和<strong>下三角阵</strong>(矩阵对角线以上的元素全为0的矩阵)</p>
+<h6 id="上三角矩阵"><a href="#上三角矩阵" class="headerlink" title="上三角矩阵"></a>上三角矩阵</h6><p>调用函数<strong>triu(a)</strong></p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br><span class="hljs-built_in">triu</span>(a)=<br>          <span class="hljs-number">1.00</span>          <span class="hljs-number">2.00</span>          <span class="hljs-number">3.00</span><br>             <span class="hljs-number">0</span>          <span class="hljs-number">5.00</span>          <span class="hljs-number">6.00</span><br>             <span class="hljs-number">0</span>             <span class="hljs-number">0</span>          <span class="hljs-number">9.00</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>triu(a,k)</strong>求矩阵a的第k条对角线以上的元素</p>
+<h6 id="下三角矩阵"><a href="#下三角矩阵" class="headerlink" title="下三角矩阵"></a>下三角矩阵</h6><p>调用函数<strong>tril(a)</strong></p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br><span class="hljs-built_in">tril</span>(a)=<br>          <span class="hljs-number">1.00</span>             <span class="hljs-number">0</span>             <span class="hljs-number">0</span><br>          <span class="hljs-number">4.00</span>          <span class="hljs-number">5.00</span>             <span class="hljs-number">0</span><br>          <span class="hljs-number">7.00</span>          <span class="hljs-number">8.00</span>          <span class="hljs-number">9.00</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>tril(a,k)</strong>求矩阵a的第k条对角线以下的元素</p>
+<h3 id="矩阵的转置与旋转"><a href="#矩阵的转置与旋转" class="headerlink" title="矩阵的转置与旋转"></a>矩阵的转置与旋转</h3><h4 id="矩阵的转置"><a href="#矩阵的转置" class="headerlink" title="矩阵的转置"></a>矩阵的转置</h4><p>把源矩阵的第1行变成目标矩阵的第1列,第2行变成第2列,…,以此类推</p>
+<p>转置运算符是  <strong>.’</strong></p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">71</span>,<span class="hljs-number">3</span>,<span class="hljs-number">-8</span>;<span class="hljs-number">2</span>,<span class="hljs-number">-9</span>,<span class="hljs-number">8</span>;<span class="hljs-number">0</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];<br>a.'=<br>         <span class="hljs-number">71.00</span>          <span class="hljs-number">2.00</span>             <span class="hljs-number">0</span><br>          <span class="hljs-number">3.00</span>         <span class="hljs-number">-9.00</span>          <span class="hljs-number">4.00</span><br>         <span class="hljs-number">-8.00</span>          <span class="hljs-number">8.00</span>          <span class="hljs-number">5.00</span><br></code></pre></td></tr></table></figure>
+
+<p>还有一种转置叫做共轭转置,其运算符是单个引号  <strong>‘</strong>  ,它在转置的基础上还要取每个数的复共轭</p>
+<p>例如: <strong>b=a’</strong>得到的b就是a的共轭转置矩阵,等价于<strong>b=conj(a).’</strong>或者<strong>b=conj(a.’)</strong></p>
+<p>如果矩阵元素都是实数,那么转置和共轭转置得到的结果是一样的</p>
+<h4 id="矩阵的旋转"><a href="#矩阵的旋转" class="headerlink" title="矩阵的旋转"></a>矩阵的旋转</h4><p>调用函数<strong>rot90(a,k)</strong></p>
+<p>将矩阵a逆时针旋转90的k倍,当k=1时可省略不写</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br><span class="hljs-built_in">rot90</span>(a,<span class="hljs-number">2</span>)=<br>          <span class="hljs-number">9.00</span>          <span class="hljs-number">8.00</span>          <span class="hljs-number">7.00</span><br>          <span class="hljs-number">6.00</span>          <span class="hljs-number">5.00</span>          <span class="hljs-number">4.00</span><br>          <span class="hljs-number">3.00</span>          <span class="hljs-number">2.00</span>          <span class="hljs-number">1.00</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="矩阵的左右翻"><a href="#矩阵的左右翻" class="headerlink" title="矩阵的左右翻"></a>矩阵的左右翻</h4><p>对矩阵实施左右翻转是将矩阵的第1列和最后1列调换,第2列和倒数第2列调换,…,依次类推</p>
+<p>matlab对矩阵a实施左右翻转的函数是fliplr(a)</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br><span class="hljs-built_in">fliplr</span>(a)=<br>          <span class="hljs-number">3.00</span>          <span class="hljs-number">2.00</span>          <span class="hljs-number">1.00</span><br>          <span class="hljs-number">6.00</span>          <span class="hljs-number">5.00</span>          <span class="hljs-number">4.00</span><br>          <span class="hljs-number">9.00</span>          <span class="hljs-number">8.00</span>          <span class="hljs-number">7.00</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="矩阵的上下翻转"><a href="#矩阵的上下翻转" class="headerlink" title="矩阵的上下翻转"></a>矩阵的上下翻转</h4><p>对矩阵实施上下翻转是将矩阵的第1行和最后1行调换,第2行和倒数第2行调换,…,依次类推</p>
+<p>matlab对矩阵a实施上下翻转的函数是flipud(a)</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br><span class="hljs-built_in">flipud</span>(a)=<br>          <span class="hljs-number">7.00</span>          <span class="hljs-number">8.00</span>          <span class="hljs-number">9.00</span><br>          <span class="hljs-number">4.00</span>          <span class="hljs-number">5.00</span>          <span class="hljs-number">6.00</span><br>          <span class="hljs-number">1.00</span>          <span class="hljs-number">2.00</span>          <span class="hljs-number">3.00</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="矩阵的逆与伪逆"><a href="#矩阵的逆与伪逆" class="headerlink" title="矩阵的逆与伪逆"></a>矩阵的逆与伪逆</h3><h4 id="矩阵的逆"><a href="#矩阵的逆" class="headerlink" title="矩阵的逆"></a>矩阵的逆</h4><p>对于一个方阵a,如果存在一个与其同阶的方阵b,使得<br>$$<br>a·b=b·a=I(I为单位矩阵)<br>$$<br>则称b为a的逆矩阵,当然,a也是b的逆矩阵</p>
+<p>在matlab中求逆矩阵直接使用<strong>inv(a)</strong>即可</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>;<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>;<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br>inv(a)=<br>          <span class="hljs-number">5.22</span>          <span class="hljs-number">1.44</span>         <span class="hljs-number">-3.22</span><br>         <span class="hljs-number">-5.11</span>         <span class="hljs-number">-1.22</span>          <span class="hljs-number">3.11</span><br>          <span class="hljs-number">2.22</span>          <span class="hljs-number">0.44</span>         <span class="hljs-number">-1.22</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="矩阵的伪逆"><a href="#矩阵的伪逆" class="headerlink" title="矩阵的伪逆"></a>矩阵的伪逆</h4><p>如果矩阵a不是一个方阵,或者a是一个非满秩的方阵时,矩阵a没有逆矩阵,但可以找到一个与a的转置矩阵a’同型的矩阵b使得<br>$$<br>a·b·a=a\<br>b·a·b=b<br>$$<br>此时称矩阵b为矩阵a的伪逆,也称为广义逆矩阵,可以使用函数<strong>pinv(a)</strong>求解</p>
+<figure class="hljs highlight Matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">a=[<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>;<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>];<br>pinv(a)=<br>          <span class="hljs-number">0.39</span>         <span class="hljs-number">-0.11</span>         <span class="hljs-number">-0.11</span><br>         <span class="hljs-number">-0.11</span>          <span class="hljs-number">0.39</span>         <span class="hljs-number">-0.11</span><br>         <span class="hljs-number">-0.11</span>         <span class="hljs-number">-0.11</span>          <span class="hljs-number">0.39</span><br>          <span class="hljs-number">0.04</span>          <span class="hljs-number">0.04</span>          <span class="hljs-number">0.04</span><br></code></pre></td></tr></table></figure>
+
+<p>若a是一个奇异矩阵(行列式为0),无一般意义上的逆矩阵,但可以求a得伪逆矩阵,例如:</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>];<br>pinv(a)=<br>             <span class="hljs-number">0</span>             <span class="hljs-number">0</span>             <span class="hljs-number">0</span><br>             <span class="hljs-number">0</span>          <span class="hljs-number">1.00</span>             <span class="hljs-number">0</span><br>             <span class="hljs-number">0</span>             <span class="hljs-number">0</span>          <span class="hljs-number">1.00</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="方阵的行列式"><a href="#方阵的行列式" class="headerlink" title="方阵的行列式"></a>方阵的行列式</h3><p>调用函数det(a)求解</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>;<span class="hljs-number">-3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>];<br>det(a)=<br>	<span class="hljs-number">-10.00</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="矩阵的秩与迹"><a href="#矩阵的秩与迹" class="headerlink" title="矩阵的秩与迹"></a>矩阵的秩与迹</h3><h4 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h4><p>矩阵线性无关的行数与列数称为矩阵的秩</p>
+<p>调用函数rank(a)</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>];<br>rank(a)=<br>	<span class="hljs-number">3.00</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="矩阵的迹"><a href="#矩阵的迹" class="headerlink" title="矩阵的迹"></a>矩阵的迹</h4><p>矩阵的迹等于矩阵的对角线元素之和,也等于矩阵的特征值之和</p>
+<p>调用函数trace(a)</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>];<br>trace(a)=<br>	<span class="hljs-number">3.00</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="向量和矩阵范数"><a href="#向量和矩阵范数" class="headerlink" title="向量和矩阵范数"></a>向量和矩阵范数</h3><p>矩阵或向量的范数用来度量矩阵或向量在某种意义下的长度</p>
+<p>范数有多种方法定义,其定义不同,范数值也就不同,因此,讨论范数时,一定要弄清是哪一种范数</p>
+<h4 id="向量的三种常用范数及其计算函数"><a href="#向量的三种常用范数及其计算函数" class="headerlink" title="向量的三种常用范数及其计算函数"></a>向量的三种常用范数及其计算函数</h4><p>向量的1-范数:向量元素的绝对值之和     <strong>norm(V,1)</strong><br>$$<br>\left\| v\right\| _{1}=\sum ^{n}_{i=1}\left| v_{i}\right|<br>$$<br>向量的2-范数:向量元素平方和的平方根    <strong>norm(V,2)</strong><br>$$<br>\left\| v\right\|_{2} =\sqrt {\sum ^{n}_{i=1}v^{2}_{i}}<br>$$<br>向量的∞-范数:所有向量元素绝对值中的最大值     <strong>norm(V,inf)</strong><br>$$<br>\left\|v\right\|_{∞} =\max _{1\leq i\leq n}\left\{ \left| V_{i}\right| \right\}<br>$$</p>
+<h4 id="矩阵的范数及其计算函数"><a href="#矩阵的范数及其计算函数" class="headerlink" title="矩阵的范数及其计算函数"></a>矩阵的范数及其计算函数</h4><p>设a是一个m×n的矩阵,V是一个含有n个元素的列向量,定义<br>$$<br>\left\| a\right\|=max\left\| a·V\right\| ,\left\| V\right\| =1<br>$$</p>
+<p>矩阵a的1-范数:所有矩阵列元素绝对值之和的最大值  <strong>norm(a,1)</strong><br>$$<br>\left\| a\right\| _{1}=\max _{1\leq j\leq n}\left\{ \sum ^{m}_{i=1}\left| a_{ij}\right|  \right\}<br>$$<br>矩阵a的2-范数:a’a矩阵的最大特征值的平方根    <strong>norm(V,2)</strong><br>$$<br>\left\| a\right\|_{2} =\sqrt {\lambda _{1}}     (其中\lambda _{1}为a’a的最大特征值)<br>$$<br>向量的∞-范数:所有向量元素绝对值中的最大值     <strong>norm(V,inf)</strong><br>$$<br>\left\| a\right\|_{∞} =\max_{1\leq i\leq m}\left\{\sum ^{n}_{j=1}\left| a_{ij}\right|  \right\}<br>$$</p>
+<h3 id="矩阵的条件数"><a href="#矩阵的条件数" class="headerlink" title="矩阵的条件数"></a>矩阵的条件数</h3><p>在求解线性方程组AX=B时,一般认为,系数矩阵A中个别元素的微小扰动不会引起解向量的很大变化</p>
+<p>这样的假设在工程应用中非常重要,因为一般系数矩阵的数据是由实验数据获得的,并非精确值,但与精确值误差不大</p>
+<p>由上面的假设可以得出如下结论:</p>
+<p><strong>当参与运算的系数与实数精确值误差很小时,所获得的解与问题的准确解误差也很小</strong></p>
+<p>遗憾的是,上述假设并非总是正确的</p>
+<p>对于有的系数矩阵,个别元素的微小扰动会引起解的很大变化,在计算数学中,称这种矩阵为<strong>病态矩阵</strong>,而称解不因其系数矩阵的微小扰动而发生大的变化的矩阵为<strong>良性矩阵</strong></p>
+<p>当然,<strong>良性</strong>与<strong>病态</strong>是相对的,需要一个参数来描述,条件数就是用来描述矩阵的这种性能的一个参数</p>
+<p>矩阵a的条件数等于a的范数与a的逆矩阵的范数的乘积,这样定义的条件数总是大于1的</p>
+<p>计算a的1-范数下的条件数    <strong>cond(a,1)</strong><br>$$<br>cond(a,1)=\left\| a\right\|_{1}·\left\| a^{-1}\right\|_{1}<br>$$<br>计算a的2-范数下的条件数    <strong>cond(a,2)</strong><br>$$<br>cond(a,2)=\left\| a\right\|_{2}·\left\| a^{-1}\right\|_{2}<br>$$<br>计算a的∞-范数下的条件数    <strong>cond(a,inf)</strong><br>$$<br>cond(a,∞)=\left\| a\right\|_{∞}·\left\| a^{-1}\right\|_{∞}<br>$$<br><strong>条件数越接近于1,矩阵的性能越好,反之,矩阵的性能越差</strong></p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">-6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br>b=[<span class="hljs-number">2</span>,<span class="hljs-number">-5</span>,<span class="hljs-number">4</span>;<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">-2</span>;<span class="hljs-number">-1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>];<br>cond(a)=<br>         <span class="hljs-number">87.98</span><br>cond(b)=<br>          <span class="hljs-number">3.75</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="矩阵的特征值与特征向量"><a href="#矩阵的特征值与特征向量" class="headerlink" title="矩阵的特征值与特征向量"></a>矩阵的特征值与特征向量</h3><p>对于n阶方阵a,求数λ和向量ξ,使得等式aξ=λξ成立</p>
+<p>满足等式的数λ称为a的特征值,向量ξ称为a的特征向量</p>
+<p>实际上,方程aξ=λξ和(a-λE)ξ=0是两个等价方程</p>
+<p>要使方程(a-λE)ξ=0有非零解ξ,必须使其系数行列式为0,即|a-λE|=0</p>
+<p>线性代数中已经证明,行列式|a-λE|是一个关于λ的n阶多项式,因而|a-λE|=0是一个n次方程,有n个根(含重根),就是矩阵a的n个特征值每一个特征值对应无穷多个特征向量</p>
+<p><strong>矩阵的特征值问题有确定解,但特征向量问题没有确定解</strong></p>
+<p>在matlab中,计算矩阵a的特征值和特征向量的函数是<strong>eig(a)</strong>,常用的调用格式有三种:</p>
+<ol>
+<li><strong>e=eig(a)</strong>:求矩阵a的全部特征值,构成<strong>向量e</strong></li>
+<li><strong>[V,D]=eig(a)</strong>:求矩阵a的全部特征值,构成<strong>对角阵D</strong>,并求a得特征向量构成<strong>V</strong>的列向量</li>
+<li><strong>[V,D]=eig(a,’nobalance’)</strong>:与2功能类似,第2种方法是先对a做相似变换后求矩阵a的特征值和特征向量,而第3种方法是直接求矩阵a的特征值和特征向量</li>
+</ol>
+<p>一个矩阵的特征向量有无穷多个,eig函数只找其中的n个,a的其他特征向量,均可由这n个特征向量的线性组合表示,例如:</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0.5</span>;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0.25</span>;<span class="hljs-number">0.5</span>,<span class="hljs-number">0.25</span>,<span class="hljs-number">2</span>];<br>[V,D]=eig(a)<br>V =<br>   <span class="hljs-number">0.721207129830347</span>   <span class="hljs-number">0.444281058188505</span>   <span class="hljs-number">0.531483411986466</span><br>  <span class="hljs-number">-0.686349287710169</span>   <span class="hljs-number">0.562109420455869</span>   <span class="hljs-number">0.461473352095774</span><br>  <span class="hljs-number">-0.093727963498713</span>  <span class="hljs-number">-0.697601133004864</span>   <span class="hljs-number">0.710329309608377</span><br>D =<br>  <span class="hljs-number">-0.016647283606310</span>                   <span class="hljs-number">0</span>                   <span class="hljs-number">0</span><br>                   <span class="hljs-number">0</span>   <span class="hljs-number">1.480121423189129</span>                   <span class="hljs-number">0</span><br>                   <span class="hljs-number">0</span>                   <span class="hljs-number">0</span>   <span class="hljs-number">2.536525860417180</span><br></code></pre></td></tr></table></figure>
+
+<p>求得的三个特征值是-0.0166,1.4801和2.5365,各特征值对应的特征向量为V的各列构成的向量</p>
+<h3 id="矩阵的超越函数"><a href="#矩阵的超越函数" class="headerlink" title="矩阵的超越函数"></a>矩阵的超越函数</h3><p>matlab的数学函数,如sqrt,exp,log等都是作用在矩阵的各元素上的</p>
+<p>matlab还提供了一些直接作用于矩阵的超越函数,其函数名都是上述数学函数名之后缀以m,并规定输入参数a必须是方阵</p>
+<h4 id="矩阵平方根sqrtm"><a href="#矩阵平方根sqrtm" class="headerlink" title="矩阵平方根sqrtm"></a>矩阵平方根sqrtm</h4><p><strong>sqrtm(a)</strong>计算矩阵a的平方根,这是在矩阵意义下的平方根,它与sqrt(a)的结果是不同的</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; a=[<span class="hljs-number">4</span>,<span class="hljs-number">2</span>;<span class="hljs-number">3</span>,<span class="hljs-number">6</span>];<br>&gt;&gt; b1=sqrtm(a)<br><br>b1 =<br><br>   <span class="hljs-number">1.917137824293506</span>   <span class="hljs-number">0.465175638988947</span><br>   <span class="hljs-number">0.697763458483421</span>   <span class="hljs-number">2.382313463282453</span><br><br>&gt;&gt; b1*b1<br><br><span class="hljs-built_in">ans</span> =<br><br>   <span class="hljs-number">4.000000000000000</span>   <span class="hljs-number">2.000000000000000</span><br>   <span class="hljs-number">3.000000000000000</span>   <span class="hljs-number">6.000000000000000</span><br><br>&gt;&gt; b2=<span class="hljs-built_in">sqrt</span>(a)<br><br>b2 =<br><br>   <span class="hljs-number">2.000000000000000</span>   <span class="hljs-number">1.414213562373095</span><br>   <span class="hljs-number">1.732050807568877</span>   <span class="hljs-number">2.449489742783178</span><br><br>&gt;&gt; b2*b2<br><br><span class="hljs-built_in">ans</span> =<br><br>   <span class="hljs-number">6.449489742783179</span>   <span class="hljs-number">6.292528739883945</span><br>   <span class="hljs-number">7.706742302257039</span>   <span class="hljs-number">8.449489742783177</span><br><br>&gt;&gt; b2.*b2<br><br><span class="hljs-built_in">ans</span> =<br><br>   <span class="hljs-number">4.000000000000000</span>   <span class="hljs-number">2.000000000000000</span><br>   <span class="hljs-number">3.000000000000000</span>   <span class="hljs-number">5.999999999999999</span><br></code></pre></td></tr></table></figure>
+
+<p>若a为实对称<a href="https://en.wikipedia.org/wiki/Positive-definite_matrix" target="_blank" rel="noopener">正定矩阵</a>或复<a href="https://en.wikipedia.org/wiki/Hermitian_matrix" target="_blank" rel="noopener">埃尔米特(Hermitian)</a>正定阵,则一定能算出它的平方根</p>
+<p><strong>但某些矩阵,如a=[0,1;0,0]就得不到平方根</strong></p>
+<p>如果矩阵a含有负的特征值,则sqrtm(a)将会得到一个复矩阵,例如:</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; a=[<span class="hljs-number">4</span>,<span class="hljs-number">9</span>;<span class="hljs-number">16</span>,<span class="hljs-number">25</span>];<br>&gt;&gt; eig(a)<br><br><span class="hljs-built_in">ans</span> =<br><br>  <span class="hljs-number">-1.445218719101973</span><br>  <span class="hljs-number">30.445218719101973</span><br><br>&gt;&gt; b=sqrtm(a)<br><br>b =<br><br>  <span class="hljs-number">0.942137741124329</span> + <span class="hljs-number">0.996904315125749</span><span class="hljs-built_in">i</span>  <span class="hljs-number">1.557189914222098</span> - <span class="hljs-number">0.339272627367266</span><span class="hljs-built_in">i</span><br>  <span class="hljs-number">2.768337625283729</span> - <span class="hljs-number">0.603151337541807</span><span class="hljs-built_in">i</span>  <span class="hljs-number">4.575580874309223</span> + <span class="hljs-number">0.205268184602128</span><span class="hljs-built_in">i</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="矩阵对数logm"><a href="#矩阵对数logm" class="headerlink" title="矩阵对数logm"></a>矩阵对数logm</h4><p><strong>logm(a)</strong>计算矩阵a的自然对数</p>
+<p>此函数输入参数的条件与输出结果间的关系和函数<strong>sqrtm(a)</strong>完全一样,例如:</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; a=[<span class="hljs-number">4</span>,<span class="hljs-number">9</span>;<span class="hljs-number">1</span>,<span class="hljs-number">5</span>];<br>&gt;&gt; l=logm(a)<br><br>l =<br><br>   <span class="hljs-number">1.063900819033590</span>   <span class="hljs-number">2.430842712580726</span><br>   <span class="hljs-number">0.270093634731192</span>   <span class="hljs-number">1.333994453764781</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="矩阵指数expm"><a href="#矩阵指数expm" class="headerlink" title="矩阵指数expm"></a>矩阵指数expm</h4><p><strong>expm(a)</strong>的功能就是求矩阵指数e^a^,例如,对上面计算所得到的a的自然对数l,求其矩阵指数b=e^l^</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; a=[<span class="hljs-number">4</span>,<span class="hljs-number">9</span>;<span class="hljs-number">1</span>,<span class="hljs-number">5</span>];<br>l=logm(a)<br><br>l =<br><br>   <span class="hljs-number">1.063900819033590</span>   <span class="hljs-number">2.430842712580726</span><br>   <span class="hljs-number">0.270093634731192</span>   <span class="hljs-number">1.333994453764781</span><br><br>&gt;&gt; expm(l)<br><br><span class="hljs-built_in">ans</span> =<br><br>   <span class="hljs-number">4.000000000000001</span>   <span class="hljs-number">9.000000000000002</span><br>   <span class="hljs-number">1.000000000000000</span>   <span class="hljs-number">5.000000000000000</span><br></code></pre></td></tr></table></figure>
+
+<p>从这个结果可以看出,这里所得到的结果恰好和a相同,即<strong>expm函数</strong>和<strong>logm函数</strong>是互逆的</p>
+<h4 id="普通矩阵函数funm"><a href="#普通矩阵函数funm" class="headerlink" title="普通矩阵函数funm"></a>普通矩阵函数funm</h4><p><strong>funm(a,@fun)</strong>对方阵a计算由fun定义的函数的矩阵函数值</p>
+<p>例如,当fun取exp时,<strong>funm(a,@exp)</strong>可以计算矩阵a的指数,与<strong>expm(a)</strong>的计算结果是一样的</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; a=[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>;<span class="hljs-number">2</span>,<span class="hljs-number">-1</span>];<br>&gt;&gt; funm(a,@<span class="hljs-built_in">exp</span>)<br><br><span class="hljs-built_in">ans</span> =<br><br>   <span class="hljs-number">2.718281828459046</span>                   <span class="hljs-number">0</span><br>   <span class="hljs-number">2.350402387287603</span>   <span class="hljs-number">0.367879441171442</span><br><br>&gt;&gt; expm(a)<br><br><span class="hljs-built_in">ans</span> =<br><br>   <span class="hljs-number">2.718281828459046</span>                   <span class="hljs-number">0</span><br>   <span class="hljs-number">2.350402387287603</span>   <span class="hljs-number">0.367879441171442</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>funm函数</strong>可以用于<strong>exp</strong>,<strong>log</strong>,<strong>sin</strong>,<strong>cos</strong>,<strong>sinh</strong>和<strong>cosh</strong>等函数,但求矩阵的平方根只能使用<strong>sqrtm函数</strong></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Matlab/" rel="tag"><i class="fas fa-tags"></i>Matlab</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/04/30/matlab学习笔记-5/" rel="next" title="matlab学习笔记(5)"><i class="fas fa-angle-left"></i><span class="nav-title">matlab学习笔记(5)</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/04/30/matlab学习笔记-7/" rel="prev" title="matlab学习笔记(7)"><span class="nav-title">matlab学习笔记(7)</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">I wish I were who I was when I wished I were who I am now.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">11</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">7</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">6</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#对角阵与三角阵"><span class="toc-text">对角阵与三角阵</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#对角阵"><span class="toc-text">对角阵</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#提取矩阵的对角线元素"><span class="toc-text">提取矩阵的对角线元素</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#构造对角矩阵"><span class="toc-text">构造对角矩阵</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#三角阵"><span class="toc-text">三角阵</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#上三角矩阵"><span class="toc-text">上三角矩阵</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#下三角矩阵"><span class="toc-text">下三角矩阵</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵的转置与旋转"><span class="toc-text">矩阵的转置与旋转</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的转置"><span class="toc-text">矩阵的转置</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的旋转"><span class="toc-text">矩阵的旋转</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的左右翻"><span class="toc-text">矩阵的左右翻</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的上下翻转"><span class="toc-text">矩阵的上下翻转</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵的逆与伪逆"><span class="toc-text">矩阵的逆与伪逆</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的逆"><span class="toc-text">矩阵的逆</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的伪逆"><span class="toc-text">矩阵的伪逆</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#方阵的行列式"><span class="toc-text">方阵的行列式</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵的秩与迹"><span class="toc-text">矩阵的秩与迹</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的秩"><span class="toc-text">矩阵的秩</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的迹"><span class="toc-text">矩阵的迹</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#向量和矩阵范数"><span class="toc-text">向量和矩阵范数</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#向量的三种常用范数及其计算函数"><span class="toc-text">向量的三种常用范数及其计算函数</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵的范数及其计算函数"><span class="toc-text">矩阵的范数及其计算函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵的条件数"><span class="toc-text">矩阵的条件数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵的特征值与特征向量"><span class="toc-text">矩阵的特征值与特征向量</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵的超越函数"><span class="toc-text">矩阵的超越函数</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵平方根sqrtm"><span class="toc-text">矩阵平方根sqrtm</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵对数logm"><span class="toc-text">矩阵对数logm</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#矩阵指数expm"><span class="toc-text">矩阵指数expm</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#普通矩阵函数funm"><span class="toc-text">普通矩阵函数funm</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

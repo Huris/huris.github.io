@@ -82,6 +82,25 @@
     
     
     
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
     
     <script defer type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript">
@@ -135,7 +154,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | Huris' HeapStack - NEVER SAY NERVER.</title>
+    <title>matlab学习笔记(1) | Huris' HeapStack - NEVER SAY NERVER.</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -177,48 +196,247 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
-    
-    你已经写了 11 篇文章！
-    
-  </h2>
-  
-  
-  
-  
-  <h2 class="page-title">2019
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/08/02/vim速查表/" itemprop="url">vim速查表</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-02T17:22:48+08:00">08-02</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2018/04/30/matlab学习笔记-1/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="I wish I were who I was when I wished I were who I am now.">
+       <meta itemprop="image" content="/images/avatar.jpg">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">matlab学习笔记(1)</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-30T21:00:53+08:00">2018-04-30 21:00:53</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <p><strong>matlab学习笔记(1)主要介绍了以下内容</strong></p>
+<ol>
+<li>matlab的命令行通用命令</li>
+<li>如何设置matlab调用文件的搜索路径</li>
+<li>matlab的帮助系统</li>
+</ol>
+<a id="more"></a>
+
+<h2 id="命令行通用命令"><a href="#命令行通用命令" class="headerlink" title="命令行通用命令"></a>命令行通用命令</h2><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">命令说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">cd</td>
+<td align="center">显示或改变当前文件夹的地址</td>
+</tr>
+<tr>
+<td align="center">dir</td>
+<td align="center">显示当前文件夹或指定目录下的文件</td>
+</tr>
+<tr>
+<td align="center">clc</td>
+<td align="center">清除命令行中命令</td>
+</tr>
+<tr>
+<td align="center">home</td>
+<td align="center">将当前输入放到最上面</td>
+</tr>
+<tr>
+<td align="center">clf</td>
+<td align="center">清除图形窗口</td>
+</tr>
+<tr>
+<td align="center">type</td>
+<td align="center">显示文件内容</td>
+</tr>
+<tr>
+<td align="center">clear</td>
+<td align="center">清理工作区变量</td>
+</tr>
+<tr>
+<td align="center">load</td>
+<td align="center">加载指定文件的变量</td>
+</tr>
+<tr>
+<td align="center">diary</td>
+<td align="center">日志文件命令</td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="center">调用dos命令</td>
+</tr>
+<tr>
+<td align="center">exit</td>
+<td align="center">退出matlab</td>
+</tr>
+<tr>
+<td align="center">pack</td>
+<td align="center">收集内存碎片</td>
+</tr>
+<tr>
+<td align="center">hold</td>
+<td align="center">图形保持开关</td>
+</tr>
+<tr>
+<td align="center">path</td>
+<td align="center">显示搜索目录</td>
+</tr>
+<tr>
+<td align="center">save</td>
+<td align="center">保存工作区变量到指定文件</td>
+</tr>
+</tbody></table>
+<h3 id="标点"><a href="#标点" class="headerlink" title="标点"></a>标点</h3><table>
+<thead>
+<tr>
+<th align="center">标点</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:</td>
+<td align="center">冒号,具有多种应用功能</td>
+</tr>
+<tr>
+<td align="center">;</td>
+<td align="center">分号,区分行及取消运行结果显示</td>
+</tr>
+<tr>
+<td align="center">,</td>
+<td align="center">逗号,区分列及函数参数分隔符</td>
+</tr>
+<tr>
+<td align="center">()</td>
+<td align="center">括号,指定运算的优先级</td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">方括号,定义矩阵</td>
+</tr>
+<tr>
+<td align="center">{}</td>
+<td align="center">大括号,构造单元数组</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">百分号,注释</td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="center">感叹号,赋值标记</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">等号,赋值标记</td>
+</tr>
+<tr>
+<td align="center">‘</td>
+<td align="center">单引号,字符串的标识符</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">小数点及对象域访问</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">续行符号</td>
+</tr>
+</tbody></table>
+<h2 id="设置matlab调用文件的搜索路径"><a href="#设置matlab调用文件的搜索路径" class="headerlink" title="设置matlab调用文件的搜索路径"></a>设置matlab调用文件的搜索路径</h2><ol>
+<li><p>为什么要设置</p>
+<p>一般情况下,matlab系统的函数,包括工具箱函数,都是在系统默认的搜索路径之中的,但是用户设计的函数有可能没有保存到搜索路径下,很多情况容易造成matlab误认为该函数不存在,因此需要把程序所在的目录扩展成matlab的搜索路径即可.</p>
+</li>
+<li><p>如何设置</p>
+<p>点击主页窗口的<code>设置路径</code>,点击<code>添加文件夹</code>,然后选择你的函数文件夹即可,建议建立一个大的文件夹,把所有的函数都放进去.</p>
+<p><strong>注意:只有在matlab搜索路径中的函数才能被识别(可以调用path命令来查看搜索路径).并且当某一文件夹的父文件夹在搜索路径中而其本身不在搜索路径中时,则此文件夹不会被搜索到.</strong></p>
+</li>
+</ol>
+<h2 id="帮助系统"><a href="#帮助系统" class="headerlink" title="帮助系统"></a>帮助系统</h2><ol>
+<li><p>help命令</p>
+<p>调用格式(以sin函数作为例子)</p>
+<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">help <span class="hljs-built_in">sin</span><br></code></pre></td></tr></table></figure>
+
+<p>调用后会显示简洁用法,以及详细的参考页,可以调用的不单单只是函数,还可以调用<code>pi</code>等常数</p>
+</li>
+<li><p>demos帮助</p>
+<p>直接在命令行中输入<code>demo</code>,用户可以更加直观,快速地学习matlab实用知识.</p>
+</li>
+<li><p>帮助导航浏览器</p>
+<p>帮助导航浏览器是matlab专门提供的一个独立的帮助子系统,该系统包含的所有帮助文件都存储在matlab安装目录下的help子目录下</p>
+<p>打开方式:命令行中直接输入<code>doc</code></p>
+</li>
+</ol>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Matlab/" rel="tag"><i class="fas fa-tags"></i>Matlab</a>
+        
+      </div>
+      
+    </footer>
   </article>
   
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/08/02/大数阶乘/" itemprop="url">大数阶乘</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-02T17:22:48+08:00">08-02</time>
-      </span>
-      
-    </header>
-  </article>
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
   
   
-</h2></div>
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/04/30/matlab学习笔记-2/" rel="prev" title="matlab学习笔记(2)"><span class="nav-title">matlab学习笔记(2)</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
 
           </div>
           
@@ -277,6 +495,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#命令行通用命令"><span class="toc-text">命令行通用命令</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#标点"><span class="toc-text">标点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#设置matlab调用文件的搜索路径"><span class="toc-text">设置matlab调用文件的搜索路径</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#帮助系统"><span class="toc-text">帮助系统</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>

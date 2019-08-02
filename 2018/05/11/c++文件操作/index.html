@@ -135,7 +135,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | Huris' HeapStack - NEVER SAY NERVER.</title>
+    <title>c++文件操作 | Huris' HeapStack - NEVER SAY NERVER.</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -177,48 +177,114 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
-    
-    你已经写了 11 篇文章！
-    
-  </h2>
-  
-  
-  
-  
-  <h2 class="page-title">2019
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/08/02/vim速查表/" itemprop="url">vim速查表</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-02T17:22:48+08:00">08-02</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2018/05/11/c++文件操作/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="I wish I were who I was when I wished I were who I am now.">
+       <meta itemprop="image" content="/images/avatar.jpg">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">c++文件操作</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-05-11T10:37:26+08:00">2018-05-11 10:37:26</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <p><strong>本文主要介绍了以下内容:</strong></p>
+<p>c++的读取文件/输入方式总结</p>
+<a id="more"></a>
+
+
+
+
+
+<p><strong>getline(istream &amp;in,string &amp;s)</strong></p>
+<p>​    从输入流读入一行到string s</p>
+<p>功能</p>
+<ul>
+<li>从输入流中读取字符，存到string 变量中</li>
+<li>一直到出现以下情况为止<ul>
+<li>读入了文件结束标志</li>
+<li>读到了一个新行</li>
+<li>达到字符串的最大长度</li>
+</ul>
+</li>
+<li>如果getline没有读入字符，将返回false,可用于判断文件是否结束</li>
+</ul>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;fstream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span><br></span>&#123;<br>    <span class="hljs-built_in">string</span> buff;<br>    ifstream infile;<br>    ofstream outfile;<br>    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"Input file name: "</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>    <span class="hljs-built_in">cin</span>&gt;&gt;buff;<br>    infile.open(buff.c_str());<br><br>    <span class="hljs-keyword">if</span>(!infile)<br>        <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"error"</span>&lt;&lt;buff&lt;&lt;<span class="hljs-built_in">endl</span>;<br><br>    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"Input outfile name: "</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>    <span class="hljs-built_in">cin</span>&gt;&gt;buff;<br>    outfile.open(buff.c_str());<br><br>    <span class="hljs-keyword">while</span>(getline(infile, buff))<br>        outfile&lt;&lt;buff&lt;&lt;<span class="hljs-built_in">endl</span>;<br><br>    infile.close();<br>    outfile.close();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/C/" rel="tag"><i class="fas fa-tags"></i>C++</a>
+        
+      </div>
+      
+    </footer>
   </article>
   
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/08/02/大数阶乘/" itemprop="url">大数阶乘</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-02T17:22:48+08:00">08-02</time>
-      </span>
-      
-    </header>
-  </article>
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
   
   
-</h2></div>
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/04/30/matlab学习笔记-8/" rel="next" title="matlab学习笔记(8)"><i class="fas fa-angle-left"></i><span class="nav-title">matlab学习笔记(8)</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/08/02/大数阶乘/" rel="prev" title="大数阶乘"><span class="nav-title">大数阶乘</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
 
           </div>
           
@@ -277,6 +343,11 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
     
     
     <hr>
