@@ -82,25 +82,6 @@
     
     
     
-    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
-      }
-    });
-    </script>
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += " has-jax";
-      }
-    });
-    </script>
-    
     
     <script defer type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript">
@@ -154,7 +135,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>matlab学习笔记(3) | Huris' HeapStack - NEVER SAY NERVER.</title>
+    <title>Matlab画图总结 | Huris' HeapStack - NEVER SAY NERVER.</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -200,7 +181,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2018/04/30/matlab学习笔记-3/">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/02/Matlab画图总结/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="Huris">
        <meta itemprop="description" content="I wish I were who I was when I wished I were who I am now.">
@@ -211,11 +192,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">matlab学习笔记(3)</h1>
+      <h1 class="post-title" itemprop="name headline">Matlab画图总结</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-30T21:03:53+08:00">2018-04-30 21:03:53</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-02T18:01:13+08:00">2019-08-02 18:01:13</time></span>
         </span>
         
         
@@ -231,331 +212,8 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p><strong>matlab学习笔记(3)注意介绍了以下内容:</strong></p>
-<ol>
-<li>常用函数</li>
-<li>常用数学函数</li>
-<li>数据的输出格式</li>
-<li>常用快捷键(mac系统)</li>
-<li>预定义变量</li>
-<li>注意点</li>
-</ol>
-<a id="more"></a>
+      <figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">plot</span><br>数据点: . o x + * S(正方形) H(六角星) D(菱形) p(五角星) V(倒三角) ^(三角形) &gt;(右三角) &lt;(左三角)<br>线型:  -  -.  --  : <br>颜色:r-red，g-green，b-blue，w-white，k-black，<span class="hljs-built_in">i</span>-invisible(无色)，y-yellow<br><br><span class="hljs-built_in">legend</span>(<span class="hljs-string">'a'</span>)<br>title(<span class="hljs-string">'a'</span>)<br>xlabel(<span class="hljs-string">'T'</span>)<br>ylabel(<span class="hljs-string">'a'</span>)<br><br>set(gca, <span class="hljs-string">'Box'</span>, <span class="hljs-string">'off'</span>, <span class="hljs-string">'TickDir'</span>, <span class="hljs-string">'out'</span>, <span class="hljs-string">'TickLength'</span>, [<span class="hljs-number">.02</span> <span class="hljs-number">.02</span>], ...<br>    <span class="hljs-string">'XMinorTick'</span>, <span class="hljs-string">'on'</span>, <span class="hljs-string">'YMinorTick'</span>, <span class="hljs-string">'on'</span>, <span class="hljs-string">'XGrid'</span>, <span class="hljs-string">'on'</span>, <span class="hljs-string">'YGrid'</span>, <span class="hljs-string">'on'</span>,...<br>    <span class="hljs-string">'box'</span>,<span class="hljs-string">'on'</span>, <span class="hljs-string">'XColor'</span>, [<span class="hljs-number">.3</span> <span class="hljs-number">.3</span> <span class="hljs-number">.3</span>], <span class="hljs-string">'YColor'</span>, [<span class="hljs-number">.3</span> <span class="hljs-number">.3</span> <span class="hljs-number">.3</span>],<span class="hljs-string">'LineWidth'</span>, <span class="hljs-number">1</span>)<br><br>LineWidth    线宽,数值,如<span class="hljs-number">0.5</span>,<span class="hljs-number">1</span>等,单位为points<br>MarkerEdgeColor   标记点边框线条颜色,颜色字符,如’g’,’b’等<br>MarkerFaceColor   标记点内部区域填充颜色,颜色字符<br>MarkerSize   标记点大小,数值,单位为points<br></code></pre></td></tr></table></figure>
 
-
-
-<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><ol>
-<li><p>画图函数</p>
-<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">plot</span>(自变量,函数,自变量,函数)<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>求根函数</p>
-<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">roots(p)<br></code></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="3">
-<li>求积分<br>$$<br>\int ^{1}_{0}x\ln \left( 1+x\right) dx<br>$$</li>
-</ol>
-<ul>
-<li><p>方法一</p>
-<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">f=@(x)x.*<span class="hljs-built_in">log</span>(<span class="hljs-number">1</span>+x);<br>integral(f,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>方法二</p>
-<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms x<br>int(x*<span class="hljs-built_in">log</span>(<span class="hljs-number">1</span>+x),<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<ol start="4">
-<li>求解线性方程组</li>
-</ol>
-<p>$$<br>\begin{cases}2x-3y+z=4\<br>8x+3y+2z=2\<br>45x+y-9z=17\end{cases}<br>$$</p>
-<ul>
-<li><p>方法一</p>
-<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">2</span>,<span class="hljs-number">-3</span>,<span class="hljs-number">1</span>;<span class="hljs-number">8</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>;<span class="hljs-number">45</span>,<span class="hljs-number">1</span>,<span class="hljs-number">-9</span>];<br>b=[<span class="hljs-number">4</span>;<span class="hljs-number">2</span>;<span class="hljs-number">17</span>];<br>x=inv(a)*b<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>方法二</p>
-<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms x y z<br>[x,y,z]=solve(<span class="hljs-number">2</span>*x<span class="hljs-number">-3</span>*y+z<span class="hljs-number">-4</span>,<span class="hljs-number">8</span>*x+<span class="hljs-number">3</span>*y+<span class="hljs-number">2</span>*z<span class="hljs-number">-2</span>,<span class="hljs-number">45</span>*x+y<span class="hljs-number">-9</span>*z<span class="hljs-number">-17</span>)<br></code></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="常用数学函数"><a href="#常用数学函数" class="headerlink" title="常用数学函数"></a>常用数学函数</h2><table>
-<thead>
-<tr>
-<th align="center">函数名</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">sin/sind</td>
-<td align="center">正弦函数,输入值为弧度/角度</td>
-</tr>
-<tr>
-<td align="center">cos/cosd</td>
-<td align="center">余弦函数,输入值为弧度/角度</td>
-</tr>
-<tr>
-<td align="center">tan/tand</td>
-<td align="center">正切函数,输入值为弧度/角度</td>
-</tr>
-<tr>
-<td align="center">asin/asind</td>
-<td align="center">反正弦函数,输入值为弧度/角度</td>
-</tr>
-<tr>
-<td align="center">acos/acosd</td>
-<td align="center">反余弦函数,输入值为弧度/角度</td>
-</tr>
-<tr>
-<td align="center">atan/atand</td>
-<td align="center">反正切函数,输入值为弧度/角度</td>
-</tr>
-<tr>
-<td align="center">sinh/asinh</td>
-<td align="center">双曲正弦函数/反双曲正弦函数</td>
-</tr>
-<tr>
-<td align="center">cosh/acosh</td>
-<td align="center">双曲余弦函数/反双曲余弦函数</td>
-</tr>
-<tr>
-<td align="center">tanh/atanh</td>
-<td align="center">双曲正切函数/反双曲正切函数</td>
-</tr>
-<tr>
-<td align="center">sqrt</td>
-<td align="center">平方根函数</td>
-</tr>
-<tr>
-<td align="center">log</td>
-<td align="center">自然对数函数</td>
-</tr>
-<tr>
-<td align="center">log10</td>
-<td align="center">以10为底的对数函数</td>
-</tr>
-<tr>
-<td align="center">log2</td>
-<td align="center">以2为底的对数函数</td>
-</tr>
-<tr>
-<td align="center">exp</td>
-<td align="center">自然指数函数</td>
-</tr>
-<tr>
-<td align="center">pow2</td>
-<td align="center">2的幂</td>
-</tr>
-<tr>
-<td align="center">abs</td>
-<td align="center">绝对值函数</td>
-</tr>
-<tr>
-<td align="center">rem</td>
-<td align="center">求余</td>
-</tr>
-<tr>
-<td align="center">mod</td>
-<td align="center">求模</td>
-</tr>
-<tr>
-<td align="center">fix</td>
-<td align="center">向零方向取整</td>
-</tr>
-<tr>
-<td align="center">floor</td>
-<td align="center">向下取整</td>
-</tr>
-<tr>
-<td align="center">ceil</td>
-<td align="center">向上取整</td>
-</tr>
-<tr>
-<td align="center">round</td>
-<td align="center">四舍五入到最邻近的整数</td>
-</tr>
-<tr>
-<td align="center">sign</td>
-<td align="center">符号函数</td>
-</tr>
-<tr>
-<td align="center">gcd</td>
-<td align="center">最大公约数</td>
-</tr>
-<tr>
-<td align="center">lcm</td>
-<td align="center">最小公倍数</td>
-</tr>
-<tr>
-<td align="center">factorial</td>
-<td align="center">阶乘</td>
-</tr>
-<tr>
-<td align="center">isprime</td>
-<td align="center">判断是否为素数</td>
-</tr>
-<tr>
-<td align="center">primes</td>
-<td align="center">生成素数序列</td>
-</tr>
-<tr>
-<td align="center">perms</td>
-<td align="center">生成所有排列</td>
-</tr>
-<tr>
-<td align="center">randperm</td>
-<td align="center">生成任意排列</td>
-</tr>
-</tbody></table>
-<h2 id="数据的输出格式"><a href="#数据的输出格式" class="headerlink" title="数据的输出格式"></a>数据的输出格式</h2><p><strong>format命令只影响数据输出格式,而不影响数据的计算和存储</strong></p>
-<p>format命令格式为:</p>
-<figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">format 格式符<br></code></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="center">格式符</th>
-<th align="center">含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">short</td>
-<td align="center">输出小数点后4位,最多不超过7位有效数字<br>对于大于1000的实数,用5位有效数字的科学记数形式输出</td>
-</tr>
-<tr>
-<td align="center">long</td>
-<td align="center">15位有效数字形式输出</td>
-</tr>
-<tr>
-<td align="center">short e</td>
-<td align="center">5位有效数字的科学记数形式输出</td>
-</tr>
-<tr>
-<td align="center">long e</td>
-<td align="center">15位有效数字的科学记数形式输出</td>
-</tr>
-<tr>
-<td align="center">short g</td>
-<td align="center">从short到short e中自动选择最佳输出方式</td>
-</tr>
-<tr>
-<td align="center">long g</td>
-<td align="center">从long到long e中自动选择最佳输出方式</td>
-</tr>
-<tr>
-<td align="center">rat</td>
-<td align="center">近似有理数表示</td>
-</tr>
-<tr>
-<td align="center">hex</td>
-<td align="center">十六进制表示</td>
-</tr>
-<tr>
-<td align="center">+</td>
-<td align="center">正数,负数,零分别用+,-,空格表示</td>
-</tr>
-<tr>
-<td align="center">bank</td>
-<td align="center">银行格式,用元角分表示</td>
-</tr>
-<tr>
-<td align="center">compact</td>
-<td align="center">输出变量之间没有空行</td>
-</tr>
-<tr>
-<td align="center">loose</td>
-<td align="center">输出变量之间有空行</td>
-</tr>
-</tbody></table>
-<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><table>
-<thead>
-<tr>
-<th align="center">组合键</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">⌘ +k</td>
-<td align="center">清除命令行窗口</td>
-</tr>
-<tr>
-<td align="center">esc</td>
-<td align="center">删除当前行命令</td>
-</tr>
-<tr>
-<td align="center">control+c</td>
-<td align="center">中断当前任务</td>
-</tr>
-<tr>
-<td align="center">tab</td>
-<td align="center">代码补全</td>
-</tr>
-</tbody></table>
-<h2 id="预定义变量"><a href="#预定义变量" class="headerlink" title="预定义变量"></a>预定义变量</h2><table>
-<thead>
-<tr>
-<th align="center">预定义变量</th>
-<th align="center">含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">ans</td>
-<td align="center">计算结果的默认赋值变量</td>
-</tr>
-<tr>
-<td align="center">eps</td>
-<td align="center">机器零阈值</td>
-</tr>
-<tr>
-<td align="center">pi</td>
-<td align="center">圆周率π的近似值</td>
-</tr>
-<tr>
-<td align="center">i,j</td>
-<td align="center">虚数单位</td>
-</tr>
-<tr>
-<td align="center">inf,Inf</td>
-<td align="center">无穷大</td>
-</tr>
-<tr>
-<td align="center">NaN,nan</td>
-<td align="center">非数</td>
-</tr>
-<tr>
-<td align="center">nargin</td>
-<td align="center">函数输入参数个数</td>
-</tr>
-<tr>
-<td align="center">nargout</td>
-<td align="center">函数输出参数个数</td>
-</tr>
-<tr>
-<td align="center">realmax</td>
-<td align="center">最大正实数</td>
-</tr>
-<tr>
-<td align="center">realmin</td>
-<td align="center">最小正实数</td>
-</tr>
-<tr>
-<td align="center">lasterr</td>
-<td align="center">存放最新的错误信息</td>
-</tr>
-<tr>
-<td align="center">lastwarn</td>
-<td align="center">存放最新的警告信息</td>
-</tr>
-</tbody></table>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
-<li><p>matlab变量名</p>
-<p>变量名<strong>只能以字母开头</strong>,后接字母,数字或下划线,变量名区分大小写</p>
-</li>
-<li><p>注释</p>
-<p>使用<strong>%</strong>进行注释</p>
-</li>
-</ol>
 
     </main>
     <footer class="post-footer">
@@ -563,6 +221,8 @@
       <div class="post-tags">
         
         <a class="post-tag button" href="/tags/Matlab/" rel="tag"><i class="fas fa-tags"></i>Matlab</a>
+        
+        <a class="post-tag button" href="/tags/画图/" rel="tag"><i class="fas fa-tags"></i>画图</a>
         
       </div>
       
@@ -596,12 +256,12 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2018/04/30/matlab学习笔记-2/" rel="next" title="matlab学习笔记(2)"><i class="fas fa-angle-left"></i><span class="nav-title">matlab学习笔记(2)</span></a>
+      <a href="/2019/08/02/vim速查表/" rel="next" title="vim速查表"><i class="fas fa-angle-left"></i><span class="nav-title">vim速查表</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
       
-      <a href="/2018/04/30/matlab学习笔记-4/" rel="prev" title="matlab学习笔记(4)"><span class="nav-title">matlab学习笔记(4)</span><i class="fas fa-angle-right"></i></a>
+      <a href="/2019/08/02/Latex学习/" rel="prev" title="LaTex学习"><span class="nav-title">LaTex学习</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -670,12 +330,6 @@
     
     
     
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常用函数"><span class="toc-text">常用函数</span></a></li></ol><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用数学函数"><span class="toc-text">常用数学函数</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#数据的输出格式"><span class="toc-text">数据的输出格式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用快捷键"><span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#预定义变量"><span class="toc-text">预定义变量</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#注意点"><span class="toc-text">注意点</span></a></li></div>
-    </div>
     
     
     

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>LaTex学习 | Huris' HeapStack - NEVER SAY NERVER.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">NEVER SAY NERVER.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/02/Latex学习/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="I wish I were who I was when I wished I were who I am now.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">LaTex学习</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-02T18:05:05+08:00">2019-08-02 18:05:05</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机工具/" itemprop="url" rel="index"><span itemprop="name">计算机工具</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机工具/LaTex/" itemprop="url" rel="index"><span itemprop="name">LaTex</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p><strong>本文主要介绍了以下内容:</strong></p>
+<p>LaTex一些基础知识</p>
+<a id="more"></a>
+
+
+
+<h3 id="开始第一个LaTex文档"><a href="#开始第一个LaTex文档" class="headerlink" title="开始第一个LaTex文档"></a>开始第一个LaTex文档</h3><p>打开TeXstudio,新建一个TeX文件,写入以下内容</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass&#123;article&#125;<br>\begin&#123;document&#125;<br>Here comes \LaTeX!<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​    此处的第一行<code>\documentclass{article}</code>中包含了一个控制序列(或称命令/标记).所谓控制序列,是以反斜杠<code>\</code>开头,以第一个空格或非字母的字符结束的一串文字.它们不能被输出,但是它们会影响输出文档的效果.这里的控制序列是<code>documentclass</code>,它后面紧跟着的<code>{article}</code>代表这个控制序列有一个必要的参数,该参数的值为<code>article</code>这个控制序列的作用,是调用名为<code>article</code>的文档类.</p>
+<p>​    <strong>Tex对控制序列的大小写是敏感的</strong></p>
+<ul>
+<li><p>部分控制序列还有被方括号<code>[]</code>包括的可选参数</p>
+</li>
+<li><p>所谓文档类,即是Tex系统预设的(或是用户自定的)一些格式的集合.不同文档类在输出效果上会有差别.</p>
+<p>  此处的第二行以<code>%</code>开头.Tex以<code>%</code>作为注释标记符.具体来说,Tex会忽略从<code>%</code>开始当当前行末尾的所有内容.这些内容不会被输出,也不影响最终的排版效果,只供人类阅读.若要输出<code>%</code>字符本身,则需要在<code>%</code>之前加上反斜杠<code>\</code>进行转义(escape).例如</p>
+  <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">今年的净利润为20\%, 比去年高<br></code></pre></td></tr></table></figure>
+
+<p>  此处<code>%</code>被当做正常的百分号来处理, 其后的文字也将被正常输出.</p>
+<p>  在注释行之后出现了控制序列<code>begin</code>.这个控制序列总是与<code>end</code>成对出现.这两个控制序列以及它们中间的内容被称为[环境],它们之后的第一个必要参数总是一致,被称为环境名.</p>
+<p>  只有在<code>document</code>环境中的内容,才会被正常输出到文档中去或是作为控制序列对文档产生影响.也就是说,在<code>\end{document}</code>之后插入任何内容都是无效的.</p>
+<p>  从<code>\documentclass{article}</code>开始到<code>\begin{document}</code>之前的部分被称为导言区.你可以将导言区理解为时对整篇文档进行设置的区域——在导言区出现的控制序列,往往会影响整篇文档的格式.</p>
+<p>  <strong>通常在导言区设置页面的大小,页眉页脚样式,章节标题等等</strong></p>
+</li>
+</ul>
+<h3 id="实现中英文混排"><a href="#实现中英文混排" class="headerlink" title="实现中英文混排"></a>实现中英文混排</h3><p>​    <strong>关于LaTeX的中文支持,首先要说明的是:在现在,一切教你使用<code>CJK</code>宏包的模板,人,网页,书,都是糟糕的,有害的,恼人的,邪恶的和应该摒弃的</strong></p>
+<p>​    成功编译出一个文档后,中国Tex用户面临的第二个普遍问题大概就是<strong>实现中英文混排</strong>了.</p>
+<p>​    宏包,就是一系列控制序列的合集.这里控制序列太常用,以至于人们会觉得每次将他们写在导言区太过繁琐,于是将他们打包在同一个文件架中,称为所谓的宏包.<code>\usepackage{}</code>可以用来调用宏包</p>
+<p>​    除去中文支持,中文的板式处理和标点禁则也是不小的挑战.好在由刘海洋,李清等人维护的<code>CTeX</code>宏集一次性解决了这些问题.<code>CTeX</code>宏集的优势在于,他能适配于多种编译方式,在内部处理好了中文和中文版式的支持,影藏了这些细节,并且提供了不少中文用户需要的功能接口.</p>
+<figure class="hljs highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&gt;	请注意,`CTeX`宏集和`CTeX`套装是两个不同的东西.`CTeX`宏集的本质是LaTeX宏的集合,包含若干文档类(`.cls`文件)和宏包(`.sty`文件).`CTeX`套装是一个过时的TeX系统.<br>&gt;<br>&gt;	新版`CTeX`宏集默认能够自动检测用户的操作系统,并为之配置合适的字库.<br></code></pre></td></tr></table></figure>
+
+<p>​    使用以下代码来完成对<code>CTeX</code>宏集的调用:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[UTF8]&#123;ctexart&#125;<br>\begin&#123;document&#125;<br>	你好, world!<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="组织你的文章"><a href="#组织你的文章" class="headerlink" title="组织你的文章"></a>组织你的文章</h3><h4 id="作者-标题-日期"><a href="#作者-标题-日期" class="headerlink" title="作者,标题,日期"></a>作者,标题,日期</h4><p>保存并用XeLaTeX编译如下文档:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[UTF8]&#123;ctexart&#125;<br>\title&#123;你好, world!&#125;<br>\author&#123;胡奔&#125;<br>\date&#123;\today&#125;<br>\begin&#123;document&#125;<br>	\maketitle<br>	你好, 胡奔<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p>导言区复杂了很多,但和之前的文档区别只有一处: 定义了<strong>标题,作者,日期</strong></p>
+<p>在<code>document</code>环境中,除了原本的<code>你好,world!</code>,还多了一个控制序列<code>\maketitle</code>,这个控制序列能将在导言区中定义的标题,作者,日期按照预定义的格式展现出来.</p>
+<blockquote>
+<p>使用<code>titling</code>红包可以修改上述默认格式,参考<a href="http://texdoc.net/texmf-dist/doc/latex/titling/titling.pdf" target="_blank" rel="noopener">TeXdoc</a>    </p>
+</blockquote>
+<h4 id="章节和段落"><a href="#章节和段落" class="headerlink" title="章节和段落"></a>章节和段落</h4><p>保存并用XeLaTeX编译如下文档,查看效果:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[UTF8]&#123;ctexart&#125;<br>\title&#123;你好,\LaTeX&#125;<br>\author&#123;Huris&#125;<br>\date&#123;\today&#125;<br>\begin&#123;document&#125;<br>\maketitle<br>\section&#123;你好中国&#125;<br>中国在East Asia.<br>\subsection&#123;Hello Beijing&#125;<br>北京是 captical of China<br>\subsubsection&#123;Hello Dongcheng District&#125;<br>\paragraph&#123;Tian&apos;anmen Square&#125;<br>is in the center of Beijing<br>\subparagraph&#123;Chairman Mao&#125;<br>is in the center of 天安门广场<br>\subsection&#123;Hello 山东&#125;<br>\paragraph&#123;山东大学&#125;<br>is one of the best university in 山东.<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在文档类<code>article</code>/<code>ctexart</code>中,定义了五个控制序列(只有五个)来调整行文组织结构,他们分别是:</p>
+<ul>
+<li><code>\section{.}</code></li>
+<li><code>\subsection{.}</code></li>
+<li><code>\subsubsection{.}</code></li>
+<li><code>\paragraph{.}</code></li>
+<li><code>\subparagraph</code></li>
+</ul>
+<h4 id="插入目录"><a href="#插入目录" class="headerlink" title="插入目录"></a>插入目录</h4><p>在上一节文档中,找到<code>\maketitle</code>,在他的下面插入控制序列<code>\tableofcontents</code>,保存并用XeLaTeX编译两次,观察结果:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[UTF8]&#123;ctexart&#125;<br>\title&#123;你好,\LaTeX&#125;<br>\author&#123;Huris&#125;<br>\date&#123;\today&#125;<br>\begin&#123;document&#125;<br>\maketitle<br>\tableofcontents<br>\section&#123;你好中国&#125;<br>中国在East Asia.<br>\subsection&#123;Hello Beijing&#125;<br>北京是 captical of China<br>\subsubsection&#123;Hello Dongcheng District&#125;<br>\paragraph&#123;Tian&apos;anmen Square&#125;<br>is in the center of Beijing<br>\subparagraph&#123;Chairman Mao&#125;<br>is in the center of 天安门广场<br>\subsection&#123;Hello 山东&#125;<br>\paragraph&#123;山东大学&#125;<br>is one of the best university in 山东.<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意<code>\maketitle</code>与<code>\tableofcontents</code>位置不能交换</p>
+</blockquote>
+<p>另外,LaTeX中间一个换行当做是一个简单的空格来处理,如果需要换行另起一段,则需要使用两个换行(一个空行)来实现.</p>
+<h4 id="插入数学公式"><a href="#插入数学公式" class="headerlink" title="插入数学公式"></a>插入数学公式</h4><p>为了使用AMS-LaTeX提供的数学功能,我们需要在导言区加载<code>amsmath</code>宏包</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\usepackage&#123;amsmath&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="数学模式"><a href="#数学模式" class="headerlink" title="数学模式"></a>数学模式</h5><p>LaTex的数学模式有两种: 行内模式(inline)和行间模式(display).前者在正文的行文中,插入数学公式;后者独立排列单独成行</p>
+<p>在行文中,使用<code>$...$</code>可以插入行内公式,使用<code>\[...\]</code>可以插入行间公式,如果需要对行间公式进行编号,可以使用equation环境.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex">\begin&#123;equation&#125;<br>...<br>\end&#123;equation&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a>上下标</h5><p>示例代码:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[UTF8]&#123;ctexart&#125;<br>\usepackage&#123;amsmath&#125;<br>\begin&#123;document&#125;<br>Einsten&apos;s $E=mc^2$.<br>\[E=mc^2.\]<br>\begin&#123;equation&#125;<br>E=mc^2.<br>\end&#123;equation&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>标点公式使用的规范</p>
+<p>行内公式: 应该放在数学模式限定符之外</p>
+<p>行间公式: 应该放在数学模式限定符之内</p>
+</blockquote>
+<p><code>_{...}</code>表示下标,<code>^{...}</code>表示上标.它默认只作用于之后的一个字符,如果想对连续的几个字符起作用,请将这些字符用花括号<code>{}</code>括起来.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\[ z = r\cdot e^&#123;2\pi i&#125;. \]<br></code></pre></td></tr></table></figure>
+
+<h5 id="根式与分式"><a href="#根式与分式" class="headerlink" title="根式与分式"></a>根式与分式</h5><p>根式用<code>\sqrt{.}</code>表示,分式用<code>\frac{.}{.}</code>表示(第一个参数为分子,第二个参数为分母).</p>
+<p>示例代码:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[UTF8]&#123;ctexart&#125;<br>\usepackage&#123;amsmath&#125;<br>\begin&#123;document&#125;<br>$\sqrt&#123;x&#125;$, $\frac&#123;1&#125;&#123;2&#125;$.<br><br>\[ \sqrt&#123;x&#125;, \]<br><br>\[ \frac&#123;1&#125;&#123;2&#125;. \]<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以发现,在行间公式和行内公式中,分式的输出效果是由差异的. 如果要强制行内模式的分式显示为行间模式的大小,可以使用<code>\dfrac</code>,反之可以使用<code>\tfrac</code></p>
+<blockquote>
+<p>在行内写分式,可能会喜欢<code>xfrac</code>宏包提供的<code>\sfrac</code>命令的效果</p>
+<p>排版繁公式时,应该使用<code>\cfrac</code>命令</p>
+</blockquote>
+<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><p>一些小的运算符,可以在数学模式下直接输入;另一些要用控制序列生成</p>
+<blockquote>
+<p>控制序列</p>
+<p>凡是键盘不能够直接表示的符号或者起着特定作用的皆有命令,类似转义,叫做<strong>控制序列(control sequence)</strong>,比如求和符合$\sum$对应的命令为<code>\sum</code></p>
+</blockquote>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex">\[ \pm\; \times \; \div\; \cdot\; \cap\; \cup\;<br>   \geq\; \leq\; \neq\; \approx\; \equiv \]<br></code></pre></td></tr></table></figure>
+
+<p>连加,连乘,极限,积分符号等大型运算符分别用<code>\sum</code>,<code>\prod</code>,<code>\lim</code>,<code>\int</code>生成</p>
+<p>他们的上下标在行内公式中被压缩,以适应行高.我们可以使用<code>\limits</code>和<code>\nolimits</code>来强制显示地指定是否压缩这些上下标.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">$ \sum_&#123;i=1&#125;^n i\quad \prod_&#123;i=1&#125;^n $<br>$ \sum\limits _&#123;i=1&#125;^n i\quad \prod\limits _&#123;i=1&#125;^n $<br>\[ \lim_&#123;x\to0&#125;x^2 \quad \int_a^b x^2 dx \]<br>\[ \lim\nolimits _&#123;x\to0&#125;x^2\quad \int\nolimits_a^b x^2 dx \]<br></code></pre></td></tr></table></figure>
+
+<p>多重积分可以使用<code>\iint</code>,<code>\iiint</code>,<code>\iiint</code>,<code>\idotsint</code>等命令输入</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\[ \iint\quad \iiint\quad \iiint\quad \idotsint \]<br></code></pre></td></tr></table></figure>
+
+<h5 id="定界符"><a href="#定界符" class="headerlink" title="定界符"></a>定界符</h5><p>各种括号用<code>()</code>,<code>[]</code>,<code>\{\}</code>,<code>\langle\rangle</code>等命令表示</p>
+<p>注意花括号通常用来输入命令和环境的参数,所以在数学公式中它们前面要加<code>\</code></p>
+<p>因为LaTeX中<code>|</code>和<code>\|</code>的应用过于随意,amsmath宏包推荐用<code>\lvert\rvert</code>和<code>\lVert\rVert</code>取而代之.</p>
+<p>为了调整这些定界符的大小,amsmath宏包推荐使用<code>\big</code>,<code>\Big</code>,<code>\bigg</code>,<code>\Bigg</code>等一系列命令放在上述括号前面调整大小</p>
+<blockquote>
+<p>有时候可能会觉得amsmath宏包提供的定界符放大命令不太够用.</p>
+<p>通常这就意味着你的公式过于复杂</p>
+<p>此时应当首先考虑将公式中的部分提出去,以字母符号代替以简化公式</p>
+<p>如果真的想排版出如此复杂的公式,可以参考<a href="https://liam.page/2018/11/09/the-bigger-than-bigger-delimiter-in-LaTeX/" target="_blank" rel="noopener">这篇博文</a></p>
+</blockquote>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs latex">\[ \Biggl(\biggl(\Bigl(\bigl((x)\bigr)\Bigr)\biggr)\Biggr) \]<br>\[ \Biggl[\biggl[\Bigl[\bigl[[x]\bigr]\Bigr]\biggr]\Biggr] \]<br>\[ \Biggl \&#123;\biggl \&#123;\Bigl \&#123;\bigl \&#123;\&#123;x\&#125;\bigr \&#125;\Bigr \&#125;\biggr \&#125;\Biggr\&#125; \]<br>\[ \Biggl\langle\biggl\langle\Bigl\langle\bigl\langle\langle x<br>\rangle\bigr\rangle\Bigr\rangle\biggr\rangle\Biggr\rangle \]<br>\[ \Biggl\lvert\biggl\lvert\Bigl\lvert\bigl\lvert\lvert x<br>\rvert\bigr\rvert\Bigr\rvert\biggr\rvert\Biggr\rvert \]<br>\[ \Biggl\lVert\biggl\lVert\Bigl\lVert\bigl\lVert\lVert x<br>\rVert\bigr\rVert\Bigr\rVert\biggr\rVert\Biggr\rVert \]<br></code></pre></td></tr></table></figure>
+
+<h5 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h5><p>省略号用<code>\dots</code>,<code>\cdots</code>,<code>\vdots</code>,<code>\ddots</code>等命令表示.</p>
+<p><code>\dots</code>和<code>\cdots</code>的纵向位置不同,前者一般用于有下标的序列.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex">\[ x_1,x_2,\dots ,x_n\quad 1,2,\cdots ,n\quad<br>\vdots\quad \ddots \]<br></code></pre></td></tr></table></figure>
+
+<h5 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h5><p><code>amsmath</code>的<code>pmatrix</code>,<code>bmatrix</code>,<code>Bmatrix</code>,<code>vmatrix</code>,<code>Vmatrix</code>等环境可以在矩阵两边加上各种分隔符.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex">\[ \begin&#123;pmatrix&#125; a&amp;b\\c&amp;d \end&#123;pmatrix&#125; \quad<br>\begin&#123;bmatrix&#125; a&amp;b\\c&amp;d \end&#123;bmatrix&#125; \quad<br>\begin&#123;Bmatrix&#125; a&amp;b\\c&amp;d \end&#123;Bmatrix&#125; \quad<br>\begin&#123;vmatrix&#125; a&amp;b\\c&amp;d \end&#123;vmatrix&#125; \quad<br>\begin&#123;Vmatrix&#125; a&amp;b\\c&amp;d \end&#123;Vmatrix&#125; \]<br></code></pre></td></tr></table></figure>
+
+<p>使用<code>smallmatrix</code>环境,可以生成行内公式的小矩阵</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">Marry has a little matrix $(\begin&#123;smallmatrix&#125; a&amp;b\\c&amp;d \end&#123;smallmatrix&#125; )$.<br></code></pre></td></tr></table></figure>
+
+<h5 id="多行公式"><a href="#多行公式" class="headerlink" title="多行公式"></a>多行公式</h5><ul>
+<li>有的公式特别长,需要手动为他们换行</li>
+<li>有几个公式是一组,我们需要将他们放在一起</li>
+<li>还有些类似分段函数,我们需要给他加上一个左边的花括号</li>
+</ul>
+<h6 id="长公式"><a href="#长公式" class="headerlink" title="长公式"></a>长公式</h6><h6 id="不对齐"><a href="#不对齐" class="headerlink" title="不对齐"></a>不对齐</h6><p>无须对齐的长公式可以使用<code>multline</code>环境.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">\begin&#123;multline&#125;<br>x = a+b+c+&#123;&#125; \\<br>d+e+f+g<br>\end&#123;multline&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果不需要编号,则可以使用<code>multline*</code>环境代替.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[UTF8]&#123;ctexart&#125;<br>\usepackage&#123;amsmath&#125;<br>\begin&#123;document&#125;<br>\begin&#123;multline*&#125;<br>x = a+b+c+&#123;&#125; \\<br>d+e+f+g<br>\end&#123;multline*&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<h6 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h6><p>需要对齐公式,可以使用<code>aligned</code>次环境来实现,它必须包含在数学环境之内</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">\[\begin&#123;aligned&#125;<br>x =&#123;&#125;&amp; a+b+c+&#123;&#125; \\<br>&amp;d+e+f+g<br>\end&#123;aligned&#125;\]<br></code></pre></td></tr></table></figure>
+
+<h6 id="公式组"><a href="#公式组" class="headerlink" title="公式组"></a>公式组</h6><p>无需对齐公式的公式组可以使用<code>gather</code>环境,需要对齐的公式组可以使用<code>align</code>环境</p>
+<p>他们都带有编号,如果不需要编号可以使用待星花的版本.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs latex">\begin&#123;gather&#125;<br>a=b+c+d \\<br>x=y+z<br>\end&#123;gather&#125;<br>\begin&#123;align&#125;<br>a &amp;= b+c+d \\<br>x &amp;= y+z<br>\end&#123;align&#125;<br></code></pre></td></tr></table></figure>
+
+<h6 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h6><p>分段函数可以用<code>cases</code>次环境来实现,它必须包含在数学环境之内.</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">\[ y\begin&#123;cases&#125;<br>-x,\quad x\leq 0 \\<br>x,\quad x&gt;0<br>\end&#123;cases&#125; \]<br></code></pre></td></tr></table></figure>
+
+<h4 id="插入图片和表格"><a href="#插入图片和表格" class="headerlink" title="插入图片和表格"></a>插入图片和表格</h4><h5 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h5><p>LaTeX中插入图片,有很多种方式.</p>
+<p>最好用的应当属利用<code>graphicx</code>宏包提供的<code>\includegraphics</code>命令</p>
+<p>比如,在TeX源文件同目录下,有名为<code>a.jpg</code>的图片,可以用这样的方式将他插入到输出文档中:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[UTF8]&#123;ctexart&#125;<br>\usepackage&#123;graphicx&#125;<br>\begin&#123;document&#125;<br>\includegraphics&#123;a.jpg&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p>图片可能很大,超过了输出文件的纸张大小,或者输出效果不是很好</p>
+<p>此时可以用<code>\includegraphics</code>控制序列的可选参数来控制.</p>
+<p>比如:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\includegraphics[width = .8\textwidth]&#123;a.jpg&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这样图片的高度会缩小为原来的80%,图片的总高度会按比例缩放</p>
+<p><code>\includegraphics</code>控制序列还有若干其他的可选参数,一般用不到,具体可以查看该宏包的<a href="http://texdoc.net/texmf-dist/doc/latex/graphics/graphicx.pdf" target="_blank" rel="noopener">参考文档</a></p>
+<h5 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h5><p><code>tabular</code>环境提供了最简单的表格功能.它用<code>\hline</code>命令表示横线,在列格式中用<code>|</code>表示竖线,用<code>&amp;</code>来进行分列,用<code>\\</code>来换行,每列可以采用居左,居中,居右等横向对齐方式,分别用<code>l</code>,<code>c</code>,<code>r</code>来表示</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs latex">\begin&#123;tabular&#125;&#123;l|c|r&#125;<br>\hline<br>操作系统&amp;发行版&amp;编辑器\\<br>\hline<br>Windows &amp; MikTeX &amp;TexMakerX \\<br>\hline<br>Unix/Linux &amp; teTeX &amp; Kile \\<br>\hline<br>Mac OS &amp; MacTeX &amp; TeXShop \\<br>\hline<br>通用&amp; TeX Live &amp; TeXworks \\<br>\hline<br>\end&#123;tabular&#125;<br></code></pre></td></tr></table></figure>
+
+<p>浮动体</p>
+<p>插图和表格通常需要占据大块空间,所以在文字处理软件中我们经常需要调整他们的位置</p>
+<p><code>figure</code>和<code>table</code>环境可以自动完成这样的任务</p>
+<p>这种自动调整位置的环境称作浮动体(float)</p>
+<p>以<code>figure</code>为例</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs latex">\begin&#123;figure&#125;[htbp]<br>\centering	% 使插图居中<br>\includegraphics&#123;a.jpg&#125;<br>\caption&#123;有图有真相&#125;	% 设置插图标题<br>\label&#123;fig:myphoto&#125;  <br>\end&#123;figure&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>htbp</code>选项用来指定插图的理想位置,如下表所示:</p>
+<table>
+<thead>
+<tr>
+<th align="center">here</th>
+<th align="center">top</th>
+<th align="center">bottom</th>
+<th align="center">float page(专门放浮动体的单独页面或芬兰)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">这里</td>
+<td align="center">页眉</td>
+<td align="center">页尾</td>
+<td align="center">浮动页</td>
+</tr>
+</tbody></table>
+<h3 id="版面设置"><a href="#版面设置" class="headerlink" title="版面设置"></a>版面设置</h3><h4 id="页边距"><a href="#页边距" class="headerlink" title="页边距"></a>页边距</h4><p>设置页边距,推荐使用<code>geometry</code>宏包,可以看到<a href="http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf" target="_blank" rel="noopener">文档</a></p>
+<p>将纸张的长度设置为20cm,宽度设置为15cm,左边距1cm,右边距2cm,上边距3cm,下边距4cm,可以在导言区加上这样的几行:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex">\usepackage&#123;geometry&#125;<br>\geometry&#123;papersize=&#123;20cm,15cm&#125;&#125;<br>\geometry&#123;left=1cm,right=2cm,top=3cm,bottom=4cm&#125;<br></code></pre></td></tr></table></figure>
+
+<p>页眉页脚,推荐使用<code>fancyhdr</code>宏包,可以在这里查看它的<a href="http://texdoc.net/texmf-dist/doc/latex/fancyhdr/fancyhdr.pdf" target="_blank" rel="noopener">说明文档</a></p>
+<p>页眉左边写上我的名字,中间写上今天的日期,右边写上我的电话</p>
+<p>页脚的正中写上页码,页眉和正文之间有一道宽为0.4pt的横线分割,可以在导言区加上如下几行:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs latex">\usepackage&#123;fancyhdr&#125;<br>\pagestyle&#123;fancy&#125;<br>\lhead&#123;\author&#125;<br>\chead&#123;\date&#125;<br>\rhead&#123;18757479599&#125;<br>\lfoot&#123;&#125;<br>\cfoot&#123;\thepage&#125;<br>\rfoot&#123;&#125;<br>\renewcommand&#123;\headrulewidth&#125;&#123;0.4pt&#125;<br>\renewcommand&#123;\headwidth&#125;&#123;\textwidth&#125;<br>\renewcommand&#123;\footrulewidth&#125;&#123;0pt&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="首行缩进"><a href="#首行缩进" class="headerlink" title="首行缩进"></a>首行缩进</h4><p>CTeX宏集已经处理好了首行缩进的问题(自然段前空两格汉字宽度)</p>
+<p>因此,使用CTeX宏集进行中西文混合排版时,不需要关注首行缩进的问题.</p>
+<h4 id="行间距"><a href="#行间距" class="headerlink" title="行间距"></a>行间距</h4><p>可以通过<code>setspace</code>宏包提供的命令来调整行间距</p>
+<p>在导言区添加如下内容,可以将行距设置为字号的1.5倍</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex">\usepackage&#123;setspace&#125;<br>\onehalfspacing<br></code></pre></td></tr></table></figure>
+
+<p>注意用词的差别</p>
+<ul>
+<li>行距是字号的1.5倍</li>
+<li>1.5倍行距</li>
+</ul>
+<p>事实上,这不是设置1.5倍行距的正确方法,具体可看<a href>此处</a></p>
+<h4 id="段间距"><a href="#段间距" class="headerlink" title="段间距"></a>段间距</h4><p>可以通过修改长度<code>\parskip</code>的值来调整段间距.</p>
+<p>在导言区添加如下内容:</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\addtolength&#123;\parskip&#125;&#123;.4em&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="命令与环境"><a href="#命令与环境" class="headerlink" title="命令与环境"></a>命令与环境</h3><p>LaTeX中的命令通常是由一个反斜杠加上命令名称，再加上花括号内的参数构成的(有的命令不带参数，例如<code>\TeX</code>)</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass&#123;ctexart&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果有一些选项是备选的，那么通常会在花括号前用方括号标出，比如：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[a4paper]&#123;ctexart&#125;<br></code></pre></td></tr></table></figure>
+
+<p>还有一种重要指令叫做环境。它被定义于控制命令<code>\begin{environment}</code>和<code>\end{environment}</code>间的内容。比如：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex">\begin&#123;document&#125;<br>...内容...<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p>环境如果有备选参数，只需要写在<code>\begin[...]{name}</code>这里就行。</p>
+<p>注意：不带花括号的命令后面如果想打印空格，需加上<strong>一对内部为空的花括号</strong>再键入空格。否则空格会被忽略。例如<code>\LaTeX{}Studio</code></p>
+<p><strong>有时候LaTeX编译出现异常，需要删除文件夹下除了tex以外的文件再编译。</strong></p>
+<p><strong>另外，在某些独占程序打开了以上文件时(比如用Acrobat打开了pdf)，编译可能出现错误。在编译时确保关闭这些独占程序。</strong></p>
+<h3 id="保留字符-共8个"><a href="#保留字符-共8个" class="headerlink" title="保留字符(共8个)"></a>保留字符(共8个)</h3><p>#：自定义命令时，用于标明参数序号</p>
+<p>$： 数学环境命令符</p>
+<p>%：注释符，在其后的该行命令都会视为注释。如果在回车前输入这个命令，可以防止行末LaTeX插入一些奇怪的空白符。</p>
+<p>^：数学环境中的上标命令符。</p>
+<p>&amp;：表格环境中的跳列符</p>
+<p>_：数学环境中的下标命令符</p>
+<p>{与}：花括号用于标记命令的必选参数，或者标记某一部分命令称为一个整体。</p>
+<p>\：反斜杠用于开始各种LaTeX命令。</p>
+<blockquote>
+<p>以上命令除了反斜杠，均能在前加反斜杠的形式输出。</p>
+</blockquote>
+<p>反斜杠输出：<code>\texttt{\char92}</code></p>
+<p>其中命令<code>\char[num]</code>是一个特殊的命令，使用环境需要是tt字体环境，用于输出USCII码对应的字符，92对应的即反斜杠。</p>
+<p>也可以使用   <strong>\char`</strong>  后加字符的方式输出想要的命令，但需要包裹在<code>\texttt</code>或者<code>\ttfamily</code>内、如果想要输出的字符是保留字，则需要在前面加一个反斜杠。</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex">\texttt&#123;\char`~&#125;	% 输出一个波浪线<br>\texttt&#123;\char`\\&#125;	% 输出保留字反斜杠<br>\texttt&#123;\char`@&#125;	% 实际上可直接输入@<br></code></pre></td></tr></table></figure>
+
+<p>另外上面说的波浪线<code>~</code>用来输出一个禁止在该处断行的空格，也不能能够直接输出。</p>
+<p>尝试：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">a $\sim$ b<br>a\~b<br>a\~&#123;&#125; b<br>a\textasciitilde b<br></code></pre></td></tr></table></figure>
+
+<img src="images/image1.png" width="30%">
+
+<h3 id="导言区"><a href="#导言区" class="headerlink" title="导言区"></a>导言区</h3><p>任何一份LaTeX文档都应当包含如下结构：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[options]&#123;doc-class&#125;<br>% 导言区<br>\begin&#123;document&#125;<br>	...<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中，在语句<code>\begin{document}</code>之前的内容称为<strong>导言区</strong>。导言区可以留空，以可以进行一些文档的准备操作。即，<strong>导言区即为模板定义</strong>。</p>
+<p>文档类参数<strong>doc-class</strong>和可选选项<strong>options</strong>由表3.1取值。</p>
+<table>
+<thead>
+<tr>
+<th>doc-class</th>
+<th>文档类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>article</td>
+<td>科学期刊，演示文稿，段报告，邀请函</td>
+</tr>
+<tr>
+<td>proc</td>
+<td>基于article的会议论文集</td>
+</tr>
+<tr>
+<td>report</td>
+<td>多章节的长报告、博士论文、短篇书</td>
+</tr>
+<tr>
+<td>book</td>
+<td>书籍</td>
+</tr>
+<tr>
+<td>slides</td>
+<td>幻灯片，使用了大号Scans Serif字体</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>options</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字体</td>
+<td align="left">默认10pt，可选11pt和12pt</td>
+</tr>
+<tr>
+<td>页面方向</td>
+<td align="left">默认竖向protrait，可选横向landscape</td>
+</tr>
+<tr>
+<td>纸张尺寸</td>
+<td align="left">默认letterpaper，可选用a4paper，b5paper等</td>
+</tr>
+<tr>
+<td>分栏</td>
+<td align="left">默认onecolumn，还有twocolumn</td>
+</tr>
+<tr>
+<td>双面打印</td>
+<td align="left">有oneside/twoside两个选项，用于排版奇偶页。article/report默认单页</td>
+</tr>
+<tr>
+<td>章节分页</td>
+<td align="left">有openright/openany两个选项，决定是在奇数页开启新页或是任意页开启新页。注意article是没有chapter(“章”)命令的，默认任意页。</td>
+</tr>
+<tr>
+<td>公式对齐</td>
+<td align="left">默认居中，可改为左对齐fleqn，默认编号居中，可改为左对齐leqno</td>
+</tr>
+<tr>
+<td>草稿选项</td>
+<td align="left">默认final，可改为draft，使行溢出的部分显示为黑块。</td>
+</tr>
+</tbody></table>
+<p>在导言区最常见的是<strong>宏包</strong>的加载工作，命令形如：<code>\usepackage{package}</code>。</p>
+<p>宏包是一系列已经制作好的功能”模块”，在需要使用一些原生LaTeX不带有的功能时，只需要调用这些宏包就可以了。</p>
+<h3 id="标点与强调"><a href="#标点与强调" class="headerlink" title="标点与强调"></a>标点与强调</h3><p>英文符号$|&lt;&gt;+=$一般用于数学环境中，如果在文本中使用，在两侧加上”$”</p>
+<p>如果在LaTeX中直接输入大于，小于号而不把他们放在数学环境中，它们并不会被正确地打印。</p>
+<p>应该使用<code>\textgreater</code>、<code>\textless</code>命令。</p>
+<h4 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h4><p>英文单引号：左单引号是重音符`(键盘上1左侧)，右单引号是常用的引号符</p>
+<p>英文双引号：左双引号是连续两个重音符``(键盘上1左侧)，右双引号是常用的引号符</p>
+<p>英文下的引号嵌套需要借助<code>\thinspace</code>命令分隔，比如：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">``\thinspace`Max&apos; is here.&apos;&apos;<br></code></pre></td></tr></table></figure>
+
+<p>中文下册单引号和双引号可用中文输入法直接输入。</p>
+<h4 id="破折、省略号与短横"><a href="#破折、省略号与短横" class="headerlink" title="破折、省略号与短横"></a>破折、省略号与短横</h4><p>英文短横分为三种：</p>
+<ul>
+<li>连字符：输入一个短横：-，效果如daughter-in-law</li>
+<li>数字起止符：输入链各个短横：- -，效果如：page 1-2</li>
+<li>破折号：输入三个短横 - - -，效果如：Listen—I’m serious.</li>
+</ul>
+<p>中文的破折号可以直接使用日常的输入方式。中文的省略号同样。但是注意，英文的省略号使用<code>\ldots</code>这个命令而不是三个句点。</p>
+<h4 id="强调：粗与斜"><a href="#强调：粗与斜" class="headerlink" title="强调：粗与斜"></a>强调：粗与斜</h4><p>LaTeX中专门有个叫做<code>\emph{text}</code>的命令，可以强调文本。对于通常的西文文本，上述命令的作用就是斜体。如果对一段已经这样转为斜体的文本再使用这个命令，他就会取消斜体，而成为正体。</p>
+<p><strong>因为一般采用斜体强调的方式而不是粗体</strong></p>
+<h4 id="下划线与删除线"><a href="#下划线与删除线" class="headerlink" title="下划线与删除线"></a>下划线与删除线</h4><p>建议使用<strong>ulem</strong>宏包中的uline命令代替原生的，<strong>ulem</strong>宏包还提供了一些实用命令：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[a4paper]&#123;ctexart&#125;<br>\usepackage[normalem]&#123;ulem&#125;<br><br>\begin&#123;document&#125;<br>	\uline&#123;下划线&#125;	<br>	\uuline&#123;双下划线&#125;	<br>	\dashuline&#123;虚下划线&#125;<br>	\dotuline&#123;点下划线&#125;<br>	\uwave&#123;波浪线&#125;<br>	\sout&#123;删除线&#125;<br>	\xout&#123;斜删除线&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<img src="images/image2.png" width="30%">
+
+<p>需要注意，<strong>ulem</strong>宏包冲定义了<code>\emph</code>命令，<strong>使得原来的加斜强调变成了下划线，原来的两次强调就取消强调变成了两次强调就双下划线。</strong></p>
+<p>通过宏包的<strong>normalem</strong>选项可以取消这个更改：<code>\usepackage[normalem]{ulem}</code></p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li>角度符号或者温度符号需要借助数学模式$…$输入：</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex">$30\,^&#123;\circ&#125;$ 三角形<br>$37\,^&#123;\circ&#125;\mathrm&#123;C&#125;$<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>欧元符号可能需要用到<strong>textcomp</strong>宏包支持的<code>\texteuro</code>命令</li>
+<li>千分位分隔符，如果不想它在中间断行，就在外侧再加上一个<code>\mbox</code>命令：<code>\mbox{1\,000\,000}</code></li>
+<li>注音符号</li>
+</ul>
+<p><strong>hologo</strong>宏包，它允许输出许多TeX家族标志。</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">\LaTeX<br>\TeX<br>\hologo&#123;XeLaTeX&#125;<br>\hologo&#123;BibTex&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="格式控制"><a href="#格式控制" class="headerlink" title="格式控制"></a>格式控制</h3><p>LaTeX的长度单位：</p>
+<ul>
+<li><strong>pt</strong>：point，磅</li>
+<li><strong>pc</strong>：pica，1pc=12pt，四号字大小</li>
+<li><strong>in</strong>：inch，英寸，1in=72.72pt</li>
+<li><strong>bp</strong>：bigpoint，大点。1bp=$\tfrac1{12}$in</li>
+<li><strong>cm</strong>：centimeter，厘米，1cm=$\tfrac1{2.54}$in</li>
+<li><strong>mm</strong>：millimeter，毫米，1mm=$\tfrac1{10}$cm</li>
+<li><strong>sp</strong>：scaled point，TeX的基本长度单位，1sp=$\tfrac1{65536}$pt</li>
+<li><strong>em</strong>：当前字号下，大写字母的宽度</li>
+<li><strong>ex</strong>：当前字号下，小写字母x的高度</li>
+</ul>
+<p>几个常用的长度宏：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex">\textwidth % 页面上文字的总宽度，即页宽减去两侧边距<br>\linewidth % 当前行允许的行宽<br></code></pre></td></tr></table></figure>
+
+<p>有时候可以使用可变长度，比如”5pt plus 3pt minus 2pt”，表示一个能收缩到3pt也能伸长到8pt的长度，直接使用倍数也是允许的，例如：1.5<code>\parindent</code>等。</p>
+<p>通常使用<code>\hspace{len}</code>和<code>\vspace{len}</code>这两个命令控制特殊的空格。</p>
+<h4 id="空格、换行与分段"><a href="#空格、换行与分段" class="headerlink" title="空格、换行与分段"></a>空格、换行与分段</h4><p>在LaTeX中，多个空格会被视为一个，多个换行也会被视为一个，如果想要禁止LaTeX在某个空格处的换行，将空格用<del>命令替代即可，比如”Fig .</del>8”</p>
+<p>通常的换行方法非常简单：LaTeX会自动转行，然后在每一段的末尾，只需要输入两个回车即可完成分段。如果需要一个空白段落(实质是一个空白行)，先输入两个回车，再输入<code>\mbox{}</code>，最后再输入两个回车即可。也可以用<code>\par</code>来产生一个带缩进的新段。</p>
+<p><strong>正文中想要换行，直接使用两个回车。</strong></p>
+<p>段落之间的距离由<code>\parskip</code>控制，默认”0pt plus 1pt”</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\setlength&#123;\parskip&#125;&#123;0pt&#125;<br></code></pre></td></tr></table></figure>
+
+<p>宏包<strong>lettrine</strong>能够产生首字下沉的效果：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex">\lettrine&#123;T&#125;&#123;his&#125; is an example.<br>	Hope you like this package,<br>	and enjoy your \LaTeX\ trip!<br></code></pre></td></tr></table></figure>
+
+<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><p>用<code>\newpage</code>命令开始新的一页</p>
+<p>用<code>\clearpage</code>命令清空浮动体队列，并开始新的一页</p>
+<p>用<code>\cleardoublepage</code>命令清空浮动体队列，并在偶数页上开始新的一页</p>
+<p>注意：以上命令都是基于<code>\vfill</code>的，如果要连续新开两页，在中间加上一个空的箱子(<code>\mbox{}</code>)，如<code>\newpage\mbox{}\newpage</code></p>
+<h4 id="缩进、对齐与行距"><a href="#缩进、对齐与行距" class="headerlink" title="缩进、对齐与行距"></a>缩进、对齐与行距</h4><p>英文的段首不需要缩进，但是对中文而言，段首缩进需要借助<strong>indentfirst</strong>宏包来完成</p>
+<p>可能还需要使用<code>\setlength\parindent{2em}</code>这样的命令来设置缩进距离</p>
+<p>如果在行首强制取消缩进，可以在段首使用<code>\noindent</code>命令</p>
+<p>LaTeX默认使用两端对齐的排版方式。也可以使用<code>flushleft</code>，<code>flushright</code>，<code>center</code>这三种环境来构造居左，居中，居右三种效果。</p>
+<h4 id="字体与颜色"><a href="#字体与颜色" class="headerlink" title="字体与颜色"></a>字体与颜色</h4><p>字族：宋体，黑体，楷体，罗马体，等宽体</p>
+<p>字系和字形：加粗，加斜</p>
+<p>字号：五号，小四</p>
+<p><strong>字族+字系和字形+字号=字体</strong></p>
+<h5 id="原生字体命令"><a href="#原生字体命令" class="headerlink" title="原生字体命令"></a>原生字体命令</h5><p>LaTeX提供了基本的字体命令</p>
+<p>字族</p>
+<ul>
+<li><code>\rmfamily</code>：把字体设置为Roman罗马字族</li>
+<li><code>\saffamily</code>：把字体设置为Sans Serif无衬线字族</li>
+<li><code>\ttfamily</code>：把字体设置为Typewriter等宽字族</li>
+</ul>
+<p>字系</p>
+<ul>
+<li><code>\bfseries</code>：粗体BoldSeries字系属性</li>
+<li><code>\mdseries</code>：中粗体MiddleSeries字系属性</li>
+</ul>
+<p>字形</p>
+<ul>
+<li><code>\upshape</code>：竖直Upright字形</li>
+<li><code>\slshape</code>：斜体Slant字形</li>
+<li><code>\itshape</code>：强调体Italic字形</li>
+<li><code>\scshape</code>：小号大写体SCAP字形</li>
+</ul>
+<p>如果临时改变字体，使用<code>\textrm</code>，<code>\textbf</code>这类命令</p>
+<p>字族，字系，字形三种命令是相互独立的，可以任意组合使用。</p>
+<p>但这种复合字体的效果有时候无法达到(因为没有对应的设计)，比如<code>\scshape</code>字形和<code>\bfseries</code>字系。</p>
+<p>如果在文中多次使用某种字体变换，可以将其自定义成一个命令。</p>
+<p>使用text系列的命令而不要使用family，series或shape系列的命令。</p>
+<p>否则需要多加一组花括号防止”泄露”。</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉􏲯􏲯􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉􏲯􏲯􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉􏲯􏲯\newcommand&#123;\concept&#125;[1]&#123;\textbf&#123;#1&#125;&#125;<br></code></pre></td></tr></table></figure>
+
+<h6 id="字号命令"><a href="#字号命令" class="headerlink" title="字号命令"></a>字号命令</h6><p>在行文中会有一个默认的”标准”字号，比如在documentclass的选项中设置的12pt</p>
+<p>在LaTeX中给出了一系列”相对字号命令”，此外，<strong>ctex</strong>宏包的<code>\zihao</code>命令，参数0-8以及-0–8表示初号到八号，小初到小八</p>
+<p>日常使用的小四为12pt，五号为10.5pt</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>10pt</th>
+<th>11pt</th>
+<th>12pt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\tiny</td>
+<td>5pt</td>
+<td>6pt</td>
+<td>6pt</td>
+</tr>
+<tr>
+<td>\scriptsize</td>
+<td>7pt</td>
+<td>8pt</td>
+<td>8pt</td>
+</tr>
+<tr>
+<td>\footnotesize</td>
+<td>8pt</td>
+<td>9pt</td>
+<td>10pt</td>
+</tr>
+<tr>
+<td>\small</td>
+<td>9pt</td>
+<td>10pt</td>
+<td>11pt</td>
+</tr>
+<tr>
+<td>\normalsize</td>
+<td>10pt</td>
+<td>11pt</td>
+<td>12pt</td>
+</tr>
+<tr>
+<td>\large</td>
+<td>12pt</td>
+<td>12pt</td>
+<td>14pt</td>
+</tr>
+<tr>
+<td>\Large</td>
+<td>14pt</td>
+<td>14pt</td>
+<td>17pt</td>
+</tr>
+<tr>
+<td>\LARGE</td>
+<td>17pt</td>
+<td>17pt</td>
+<td>20pt</td>
+</tr>
+<tr>
+<td>\huge</td>
+<td>20pt</td>
+<td>20pt</td>
+<td>25pt</td>
+</tr>
+<tr>
+<td>\Huge</td>
+<td>25pt</td>
+<td>25pt</td>
+<td>25pt</td>
+</tr>
+</tbody></table>
+<p>如果想要设置特殊的字号，使用：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">\fontsize&#123;font-size&#125;&#123;line-height&#125;&#123;\selectfont &lt;text&gt;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中<strong>font-size</strong>填数字，单位pt，一般而言，<strong>line-height</strong>填<code>\baselineskip</code></p>
+<p>默认全文的字体使用<code>\rmfamily</code>族的字体。可以通过重定义的方式改变他，使<code>\rmfamily</code>，<code>\textrm</code>命令都指向新的字体。甚至把默认字体改为sf/tt字族。</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs latex">\renewcommand&#123;\rmdefault&#125;&#123;font-name&#125;<br>% 默认字体改为sf字族，也可以用\ttdefault<br>\renewcommand&#123;\familydefault&#125;&#123;\sfdefault&#125;<br>\renewcommand&#123;\sfdefault&#125;&#123;font-name&#125;<br>% 如果你的排版CJK文档，还需要更改CJK默认字体<br>\renewcommand&#123;\CJKfamilydefault&#125;&#123;\CJKsfdefault&#125;<br></code></pre></td></tr></table></figure>
+
+<h6 id="西文字体"><a href="#西文字体" class="headerlink" title="西文字体"></a>西文字体</h6><p>LaTeX预报含如下字体：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>字体名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cmr</td>
+<td>Computer Modern Roman(默认)</td>
+</tr>
+<tr>
+<td>lmr</td>
+<td>Latin Modern Roman</td>
+</tr>
+<tr>
+<td>pbk</td>
+<td>Bookman</td>
+</tr>
+<tr>
+<td>ppl</td>
+<td>Palatino</td>
+</tr>
+<tr>
+<td>lmss</td>
+<td>Latin Modern Roman Serif</td>
+</tr>
+<tr>
+<td>phv</td>
+<td>Helvetica</td>
+</tr>
+<tr>
+<td>lmtt</td>
+<td>Latin Modern</td>
+</tr>
+</tbody></table>
+<p>以上可以这样使用</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">\newcommand&#123;\myfont&#125;[2]&#123;&#123;\fontfamily&#123;#1&#125;\selectfont #2&#125;&#125;<br>\renewcommand&#123;\rmdefault&#125;&#123;ptm&#125;	% 可更改默认字体，同理可改sfdefault等<br>% 以上在导言区定义，在正文中：<br>Let&apos;s change font to \myfont&#123;pp1&#125;&#123;Palatino&#125;!<br></code></pre></td></tr></table></figure>
+
+<h6 id="中文支持与CJK字体"><a href="#中文支持与CJK字体" class="headerlink" title="中文支持与CJK字体"></a>中文支持与CJK字体</h6><p>中文方面，<strong>ctex</strong>宏包直接定义了新的中文文档类ctexart，ctexrep，ctexbook，ctexbeamer</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[a4paper,zihao=-4,linespread=1]&#123;ctexrep&#125;<br>\renewcommand&#123;\CTEXthechapter&#125;&#123;\thechapter&#125;<br></code></pre></td></tr></table></figure>
+
+<p> 以上设置字号为小四，行距因子为1(故行距为1x1.2=1.2倍，其中1.2是LaTeX默认的基线间距)</p>
+<p>a4paper选项继承与原生文档类report，可见ctex文档类还是很好地保留了原生文档类的特征</p>
+<p>值得注意的是，<strong>ctex文档类会用<code>\CTEX</code>开头的计数器命令代替原有的</strong></p>
+<p><strong>除非使用scheme=plain来让ctex文档类仅支持中文而不做任何文档细节更改</strong></p>
+<p><strong>ctex</strong>宏包支持一下字体命令：</p>
+<ul>
+<li>宋体：<code>\songti</code></li>
+<li>黑体：<code>\heiti</code></li>
+<li>仿宋：<code>\fangsong</code></li>
+<li>楷书：<code>\kaishu</code></li>
+<li>雅黑：<code>\yahei</code></li>
+<li>隶书：<code>\lishu</code></li>
+<li>幼圆：<code>\youyuan</code></li>
+</ul>
+<h5 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h5><p>使用<strong>xcolor</strong>宏包来方便地调用颜色</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex">\usepackage&#123;xcolor&#125;<br>\definecolor&#123;keywordcolor&#125;&#123;RGB&#125;&#123;34,34,250&#125;<br><br>% 指定颜色的text<br>&#123;\color&#123;color-name&#125;&#123;text&#125;&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>xcolor</strong>宏包预定义的颜色：</p>
+<img src="images/image3.png" width="70%">
+
+<p>还可以通过”调色”做出新的效果</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex">&#123;\color&#123;red!70&#125;百分之70红色&#125;<br>&#123;\color&#123;blue!50!black!20!white!30&#125;50蓝20黑30白&#125;<br>&#123;\color&#123;-yellow&#125;黄色的互补色&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="引用与注释"><a href="#引用与注释" class="headerlink" title="引用与注释"></a>引用与注释</h3><p>电子文档最大优越性在于能够使用超链接，跳转标签、目录，甚至访问外部网站。这些功能都需要引用。</p>
+<h4 id="标签和引用"><a href="#标签和引用" class="headerlink" title="标签和引用"></a>标签和引用</h4><p>使用<code>\label</code>命令插入标签(在MS Word中称为”题注”)，然后在其他地方用<code>\ref</code>或者<code>\pageref</code>命令进行引用，分别引用标签的序号、标签所在的页的页码。</p>
+<figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">\<span class="hljs-selector-tag">label</span>&#123;<span class="hljs-attribute">section</span>:this&#125;<br>\<span class="hljs-selector-tag">ref</span>&#123;<span class="hljs-attribute">section</span>:this&#125;<br>\<span class="hljs-selector-tag">pageref</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="中英文之间空格问题解决"><a href="#中英文之间空格问题解决" class="headerlink" title="中英文之间空格问题解决"></a>中英文之间空格问题解决</h3><p><code>&lt;\hspace{0em}变量\hspace{0em}&gt;</code></p>
+<h3 id="空格设置"><a href="#空格设置" class="headerlink" title="空格设置"></a>空格设置</h3><p><code>\hspace{0em}</code></p>
+<h3 id="空行距离"><a href="#空行距离" class="headerlink" title="空行距离"></a>空行距离</h3><p><code>\vspace{3mm}</code></p>
+<h3 id="两端对齐"><a href="#两端对齐" class="headerlink" title="两端对齐"></a>两端对齐</h3><p><code>\usepackage{ragged2e}</code></p>
+<p><code>\justifying</code></p>
+<h3 id="分数"><a href="#分数" class="headerlink" title="分数"></a>分数</h3><p>分数小：$\tfrac{1}{2}$</p>
+<p>分数大：$\dfrac{1}{2}$</p>
+<h3 id="摄氏度"><a href="#摄氏度" class="headerlink" title="摄氏度"></a>摄氏度</h3><p>$^{\circ}$C</p>
+<h3 id="max下面加限制范围"><a href="#max下面加限制范围" class="headerlink" title="max下面加限制范围"></a>max下面加限制范围</h3><p>$y_{N+1}=\arg \max \limits_{y_{N+1}} \hat{P}(y_{N+1}|x_{N+1})$</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/LaTex/" rel="tag"><i class="fas fa-tags"></i>LaTex</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/02/Matlab画图总结/" rel="next" title="Matlab画图总结"><i class="fas fa-angle-left"></i><span class="nav-title">Matlab画图总结</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">I wish I were who I was when I wished I were who I am now.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">13</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">8</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#开始第一个LaTex文档"><span class="toc-text">开始第一个LaTex文档</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#实现中英文混排"><span class="toc-text">实现中英文混排</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#组织你的文章"><span class="toc-text">组织你的文章</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#作者-标题-日期"><span class="toc-text">作者,标题,日期</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#章节和段落"><span class="toc-text">章节和段落</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#插入目录"><span class="toc-text">插入目录</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#插入数学公式"><span class="toc-text">插入数学公式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#数学模式"><span class="toc-text">数学模式</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#上下标"><span class="toc-text">上下标</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#根式与分式"><span class="toc-text">根式与分式</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#运算符"><span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#定界符"><span class="toc-text">定界符</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#省略号"><span class="toc-text">省略号</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#矩阵"><span class="toc-text">矩阵</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#多行公式"><span class="toc-text">多行公式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#长公式"><span class="toc-text">长公式</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#不对齐"><span class="toc-text">不对齐</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#对齐"><span class="toc-text">对齐</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#公式组"><span class="toc-text">公式组</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#分段函数"><span class="toc-text">分段函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#插入图片和表格"><span class="toc-text">插入图片和表格</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#图片"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#表格"><span class="toc-text">表格</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#版面设置"><span class="toc-text">版面设置</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#页边距"><span class="toc-text">页边距</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#首行缩进"><span class="toc-text">首行缩进</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#行间距"><span class="toc-text">行间距</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#段间距"><span class="toc-text">段间距</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#命令与环境"><span class="toc-text">命令与环境</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#保留字符-共8个"><span class="toc-text">保留字符(共8个)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#导言区"><span class="toc-text">导言区</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#标点与强调"><span class="toc-text">标点与强调</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#引号"><span class="toc-text">引号</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#破折、省略号与短横"><span class="toc-text">破折、省略号与短横</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#强调：粗与斜"><span class="toc-text">强调：粗与斜</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#下划线与删除线"><span class="toc-text">下划线与删除线</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#格式控制"><span class="toc-text">格式控制</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#空格、换行与分段"><span class="toc-text">空格、换行与分段</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#分页"><span class="toc-text">分页</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#缩进、对齐与行距"><span class="toc-text">缩进、对齐与行距</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#字体与颜色"><span class="toc-text">字体与颜色</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#原生字体命令"><span class="toc-text">原生字体命令</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#字号命令"><span class="toc-text">字号命令</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#西文字体"><span class="toc-text">西文字体</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#中文支持与CJK字体"><span class="toc-text">中文支持与CJK字体</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#颜色"><span class="toc-text">颜色</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#引用与注释"><span class="toc-text">引用与注释</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#标签和引用"><span class="toc-text">标签和引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#中英文之间空格问题解决"><span class="toc-text">中英文之间空格问题解决</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#空格设置"><span class="toc-text">空格设置</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#空行距离"><span class="toc-text">空行距离</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#两端对齐"><span class="toc-text">两端对齐</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#分数"><span class="toc-text">分数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#摄氏度"><span class="toc-text">摄氏度</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#max下面加限制范围"><span class="toc-text">max下面加限制范围</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-02T09:46:59.344Z</updated>
+  <updated>2019-08-02T10:11:17.139Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LaTex学习</title>
+    <link href="http://huris.xyz/2019/08/02/Latex%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://huris.xyz/2019/08/02/Latex学习/</id>
+    <published>2019-08-02T10:05:05.000Z</published>
+    <updated>2019-08-02T10:11:17.139Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;LaTex一些基础知识&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="LaTex" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/LaTex/"/>
+    
+    
+      <category term="LaTex" scheme="http://huris.xyz/tags/LaTex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matlab画图总结</title>
+    <link href="http://huris.xyz/2019/08/02/Matlab%E7%94%BB%E5%9B%BE%E6%80%BB%E7%BB%93/"/>
+    <id>http://huris.xyz/2019/08/02/Matlab画图总结/</id>
+    <published>2019-08-02T10:01:13.000Z</published>
+    <updated>2019-08-02T10:02:47.141Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;hljs highlight matlab&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
+    
+      <category term="画图" scheme="http://huris.xyz/tags/%E7%94%BB%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>vim速查表</title>
