@@ -472,7 +472,7 @@
 <p>尝试：</p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">a $\sim$ b<br>a\~b<br>a\~&#123;&#125; b<br>a\textasciitilde b<br></code></pre></td></tr></table></figure>
 
-<img src="images/image1.png" width="30%">
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/image1.png" width="30%">
 
 <h3 id="导言区"><a href="#导言区" class="headerlink" title="导言区"></a>导言区</h3><p>任何一份LaTeX文档都应当包含如下结构：</p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[options]&#123;doc-class&#125;<br>% 导言区<br>\begin&#123;document&#125;<br>	...<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
@@ -570,7 +570,7 @@
 <h4 id="下划线与删除线"><a href="#下划线与删除线" class="headerlink" title="下划线与删除线"></a>下划线与删除线</h4><p>建议使用<strong>ulem</strong>宏包中的uline命令代替原生的，<strong>ulem</strong>宏包还提供了一些实用命令：</p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs latex">\documentclass[a4paper]&#123;ctexart&#125;<br>\usepackage[normalem]&#123;ulem&#125;<br><br>\begin&#123;document&#125;<br>	\uline&#123;下划线&#125;	<br>	\uuline&#123;双下划线&#125;	<br>	\dashuline&#123;虚下划线&#125;<br>	\dotuline&#123;点下划线&#125;<br>	\uwave&#123;波浪线&#125;<br>	\sout&#123;删除线&#125;<br>	\xout&#123;斜删除线&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
 
-<img src="images/image2.png" width="30%">
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/image2.png" width="30%">
 
 <p>需要注意，<strong>ulem</strong>宏包冲定义了<code>\emph</code>命令，<strong>使得原来的加斜强调变成了下划线，原来的两次强调就取消强调变成了两次强调就双下划线。</strong></p>
 <p>通过宏包的<strong>normalem</strong>选项可以取消这个更改：<code>\usepackage[normalem]{ulem}</code></p>
@@ -650,7 +650,7 @@
 <p>如果在文中多次使用某种字体变换，可以将其自定义成一个命令。</p>
 <p>使用text系列的命令而不要使用family，series或shape系列的命令。</p>
 <p>否则需要多加一组花括号防止”泄露”。</p>
-<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉􏲯􏲯􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉􏲯􏲯􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉􏲯􏲯\newcommand&#123;\concept&#125;[1]&#123;\textbf&#123;#1&#125;&#125;<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉􏲯􏲯􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉􏲯􏲯􏲨􏲫􏱌􏲲􏲩􏰾􏲪􏲪􏲬􏲫􏰼􏲮􏲨􏲩􏰾􏲫􏲩􏱌􏱖􏰺􏲯􏳭􏰉􏳮􏲮􏲨􏰺􏱌􏱛􏰺􏲰􏲿􏲮􏸙􏰉\newcommand&#123;\concept&#125;[1]&#123;\textbf&#123;#1&#125;&#125;<br></code></pre></td></tr></table></figure>
 
 <h6 id="字号命令"><a href="#字号命令" class="headerlink" title="字号命令"></a>字号命令</h6><p>在行文中会有一个默认的”标准”字号，比如在documentclass的选项中设置的12pt</p>
 <p>在LaTeX中给出了一系列”相对字号命令”，此外，<strong>ctex</strong>宏包的<code>\zihao</code>命令，参数0-8以及-0–8表示初号到八号，小初到小八</p>
@@ -793,7 +793,7 @@
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex">\usepackage&#123;xcolor&#125;<br>\definecolor&#123;keywordcolor&#125;&#123;RGB&#125;&#123;34,34,250&#125;<br><br>% 指定颜色的text<br>&#123;\color&#123;color-name&#125;&#123;text&#125;&#125;<br></code></pre></td></tr></table></figure>
 
 <p><strong>xcolor</strong>宏包预定义的颜色：</p>
-<img src="images/image3.png" width="70%">
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/image3.png" width="70%">
 
 <p>还可以通过”调色”做出新的效果</p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex">&#123;\color&#123;red!70&#125;百分之70红色&#125;<br>&#123;\color&#123;blue!50!black!20!white!30&#125;50蓝20黑30白&#125;<br>&#123;\color&#123;-yellow&#125;黄色的互补色&#125;<br></code></pre></td></tr></table></figure>
@@ -811,7 +811,15 @@
 <p>分数大：$\dfrac{1}{2}$</p>
 <h3 id="摄氏度"><a href="#摄氏度" class="headerlink" title="摄氏度"></a>摄氏度</h3><p>$^{\circ}$C</p>
 <h3 id="max下面加限制范围"><a href="#max下面加限制范围" class="headerlink" title="max下面加限制范围"></a>max下面加限制范围</h3><p>$y_{N+1}=\arg \max \limits_{y_{N+1}} \hat{P}(y_{N+1}|x_{N+1})$</p>
+<a herf="https://huris.oss-cn-hangzhou.aliyuncs.com/avatar.jpg">
 
+
+
+
+
+
+
+</a>
     </main>
     <footer class="post-footer">
       
