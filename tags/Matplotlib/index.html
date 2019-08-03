@@ -135,7 +135,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Matlab画图总结 | Huris' HeapStack - For you, a thousand times over.</title>
+    <title>标签: Matplotlib | Huris' HeapStack - For you, a thousand times over.</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -177,94 +177,21 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+<div id="tag" class="tag page">
+  <h1 class="page-title">Matplotlib</h1>
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/02/Matlab画图总结/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="Huris">
-       <meta itemprop="description" content="To be is to be perceived.">
-       <meta itemprop="image" content="/images/avatar.jpg">
+    <header id="post-header" class="post-header">
+      <h1 class="post-title-simple" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/08/03/Matplotlib基础/" itemprop="url">Matplotlib基础</a>
+      </h1>
+      
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-03T08:48:34+08:00">08-03</time>
       </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="Huris' HeapStack">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">Matlab画图总结</h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-02T18:01:13+08:00">2019-08-02 18:01:13</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a></span>
-        </span>
-        
-        
-      </div>
+      
     </header>
-    <main class="post-main" itemprop="articleBody">
-      <figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">plot</span><br>数据点: . o x + * S(正方形) H(六角星) D(菱形) p(五角星) V(倒三角) ^(三角形) &gt;(右三角) &lt;(左三角)<br>线型:  -  -.  --  : <br>颜色:r-red，g-green，b-blue，w-white，k-black，<span class="hljs-built_in">i</span>-invisible(无色)，y-yellow<br><br><span class="hljs-built_in">legend</span>(<span class="hljs-string">'a'</span>)<br>title(<span class="hljs-string">'a'</span>)<br>xlabel(<span class="hljs-string">'T'</span>)<br>ylabel(<span class="hljs-string">'a'</span>)<br><br>set(gca, <span class="hljs-string">'Box'</span>, <span class="hljs-string">'off'</span>, <span class="hljs-string">'TickDir'</span>, <span class="hljs-string">'out'</span>, <span class="hljs-string">'TickLength'</span>, [<span class="hljs-number">.02</span> <span class="hljs-number">.02</span>], ...<br>    <span class="hljs-string">'XMinorTick'</span>, <span class="hljs-string">'on'</span>, <span class="hljs-string">'YMinorTick'</span>, <span class="hljs-string">'on'</span>, <span class="hljs-string">'XGrid'</span>, <span class="hljs-string">'on'</span>, <span class="hljs-string">'YGrid'</span>, <span class="hljs-string">'on'</span>,...<br>    <span class="hljs-string">'box'</span>,<span class="hljs-string">'on'</span>, <span class="hljs-string">'XColor'</span>, [<span class="hljs-number">.3</span> <span class="hljs-number">.3</span> <span class="hljs-number">.3</span>], <span class="hljs-string">'YColor'</span>, [<span class="hljs-number">.3</span> <span class="hljs-number">.3</span> <span class="hljs-number">.3</span>],<span class="hljs-string">'LineWidth'</span>, <span class="hljs-number">1</span>)<br><br>LineWidth    线宽,数值,如<span class="hljs-number">0.5</span>,<span class="hljs-number">1</span>等,单位为points<br>MarkerEdgeColor   标记点边框线条颜色,颜色字符,如’g’,’b’等<br>MarkerFaceColor   标记点内部区域填充颜色,颜色字符<br>MarkerSize   标记点大小,数值,单位为points<br></code></pre></td></tr></table></figure>
-
-
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/Matlab/" rel="tag"><i class="fas fa-tags"></i>Matlab</a>
-        
-        <a class="post-tag button" href="/tags/画图/" rel="tag"><i class="fas fa-tags"></i>画图</a>
-        
-      </div>
-      
-    </footer>
   </article>
-  
-  
-<div class="reward" id="reward">
-  <p>如果它的价值大于一首歌, 荣幸至极!</p>
-  <button id="reward-button" class="button" disable="enable">打赏</button>
-  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
-    
-    <div id="wechat">
-      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
-      <span>微信支付</span>
-    </div>
-    
-    
-    <div id="alipay">
-      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
-      <span>支付宝</span>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-  
-  
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
-      
-      <a href="/2019/08/02/vim速查表/" rel="next" title="vim速查表"><i class="fas fa-angle-left"></i><span class="nav-title">vim速查表</span></a>
-      
-    </div>
-    <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/08/02/Latex学习/" rel="prev" title="LaTex学习"><span class="nav-title">LaTex学习</span><i class="fas fa-angle-right"></i></a>
-      
-    </div>
-  </nav>
   
   
 </div>
@@ -326,11 +253,6 @@
 
 
   <div class="sidebar-sticky">
-    
-    
-    
-    
-    
     
     
     <hr>
