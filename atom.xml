@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-03T01:02:29.731Z</updated>
+  <updated>2019-08-05T00:35:46.189Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>请求库的安装</title>
+    <link href="http://huris.xyz/2019/08/03/%E8%AF%B7%E6%B1%82%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://huris.xyz/2019/08/03/请求库的安装/</id>
+    <published>2019-08-03T02:42:38.000Z</published>
+    <updated>2019-08-05T00:35:46.189Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;爬虫可以简单分为几步：抓取页面、分析页面和存储数据。&lt;/p&gt;
+&lt;p&gt;在抓取页面的过程中，我们需要模拟浏览器向服务器发出请求，所以需要用到一些Python库来实现HTTP请求操作。&lt;/p&gt;
+&lt;p&gt;我们要用到的第三方库有requests、Selenium和aiohttp等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个linux命令(1): ls</title>
+    <link href="http://huris.xyz/2019/08/03/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4-1-ls/"/>
+    <id>http://huris.xyz/2019/08/03/每天一个linux命令-1-ls/</id>
+    <published>2019-08-03T01:15:11.000Z</published>
+    <updated>2019-08-03T02:33:18.363Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ls命令是linux下最常用的命令。ls命令就是list的缩写，缺省下ls用来打印出当前目录的清单，如果ls指定其他目录，那么就会显示指定目录里的文件及文件夹清单。&lt;/p&gt;
+&lt;p&gt;通过ls命令不仅可以查看linux文件夹包含的文件，而且可以查看文件权限(包括目录、文件夹、文件权限)、查看目录信息等等。ls命令在日常的linux操作中用的很多。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="http://huris.xyz/categories/linux/"/>
+    
+      <category term="linux基础命令" scheme="http://huris.xyz/categories/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/"/>
+    
+    
+      <category term="linux" scheme="http://huris.xyz/tags/linux/"/>
+    
+      <category term="命令" scheme="http://huris.xyz/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>Python多线程</title>
