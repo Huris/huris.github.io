@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>解析库的安装 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/05/解析库的安装/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">解析库的安装</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-05T08:49:44+08:00">2019-08-05 08:49:44</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/开发环境配置/" itemprop="url" rel="index"><span itemprop="name">开发环境配置</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>爬取网页代码后，下一步就是从网页中提取信息。</p>
+<p>提取信息的方式有多种多样，可以使用正则表达式来提取，但是写起来相对比较繁琐。</p>
+<p>这里还有许多强大的解析库，如lxml、Beautiful Soup、pyquery等。</p>
+<p>此外还有非常强大的解析方法，如XPath解析和CSS选择器解析等，利用它们，我们可以高效便捷地从网页中提取有效信息。</p>
+<a id="more"></a>
+
+
+
+<h2 id="lxml库"><a href="#lxml库" class="headerlink" title="lxml库"></a>lxml库</h2><p>lxml是Python的一个解析库，支持HTML和XML的解析，支持XPath解析方式而且解析效率非常高。</p>
+<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
+<li>官方网站：<a href="http://lxml.de" target="_blank" rel="noopener">http://lxml.de</a></li>
+<li>Github：<a href="https://github.com/lxml/lxml" target="_blank" rel="noopener">https://github.com/lxml/lxml</a></li>
+<li>PyPI：<a href="https://pypi.python.org/pypi/lxml" target="_blank" rel="noopener">https://pypi.python.org/pypi/lxml</a></li>
+</ul>
+<h3 id="pip安装"><a href="#pip安装" class="headerlink" title="pip安装"></a>pip安装</h3><p>命令行输入：<code>pip3 install lxml</code></p>
+<p>如果产生错误，可以执行如下命令将必要的类库安装(Mac操作系统)：<code>xcode-select --install</code></p>
+<p>lxml是一个非常重要的库，后面的Beautiful Soup、Scrapy框架都需要用到此库。</p>
+<h3 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h3><p>安装完成之后，可以在Python命令下测试：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt;&gt;import lxml<br></code></pre></td></tr></table></figure>
+
+<p>如果没有报错，则证明库已经安装好了。</p>
+<h2 id="Beautiful-Soup库"><a href="#Beautiful-Soup库" class="headerlink" title="Beautiful Soup库"></a>Beautiful Soup库</h2><p>Beautiful Soup是Python的一个HTML或XML的解析库，我们可以用它来方便地从网页中提取数据。</p>
+<p>它拥有强大的API和多样的解析方式。</p>
+<h3 id="相关链接-1"><a href="#相关链接-1" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
+<li>官方文档：<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" rel="noopener">https://www.crummy.com/software/BeautifulSoup/bs4/doc</a></li>
+<li>中文文档：<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="noopener">https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/</a></li>
+<li>PyPI：<a href="https://pypi.python.org/pypi/beautifulsoup4" target="_blank" rel="noopener">https://pypi.python.org/pypi/beautifulsoup4</a></li>
+</ul>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>Beautiful Soup的HTML和XML解析器是依赖于lxml库的，所以在此之前请确保已经安装了<strong>lxml库</strong>。</p>
+<h3 id="pip安装-1"><a href="#pip安装-1" class="headerlink" title="pip安装"></a>pip安装</h3><p>目前，Beautiful Soup的最新版本是4.x版本，之前的版本以及停止开发。</p>
+<p>这里推荐使用pip安装，命令为：<code>pip3 install beautifulsoup4</code></p>
+<h3 id="验证安装-1"><a href="#验证安装-1" class="headerlink" title="验证安装"></a>验证安装</h3><p>安装完成之后，可以运行如下代码验证一下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br>soup = BeautifulSoup(<span class="hljs-string">'&lt;p&gt;hello&lt;/p&gt;'</span>, <span class="hljs-string">'lxml'</span>)<br>print(soup.p.string)<br></code></pre></td></tr></table></figure>
+
+<p>若输出结果为：<code>hello</code>，则证明安装成功。</p>
+<p><strong>注意</strong>：</p>
+<p>这里我们虽然安装的是beautifulsoup4这个包，但在引入的时候却是bs4。这是因为这个包源代码本身的库文件夹名称就是bs4，所以安装完成之后，这个库文件夹就被移入到本机Python3的lib库里，所以识别到的库文件名就叫做bs4。</p>
+<p>因此，<em>包本身的名称和我们使用时导入的包的名称并不一定是一致的</em>。</p>
+<h2 id="pyquery库"><a href="#pyquery库" class="headerlink" title="pyquery库"></a>pyquery库</h2><p>pyquery是一个强大的网页解析工具，它提供了和jQuery类似的语法来解析HTML文档，支持CSS选择器。</p>
+<h3 id="相关链接-2"><a href="#相关链接-2" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
+<li>Github：<a href="https://github.com/gawel/pyquery" target="_blank" rel="noopener">https://github.com/gawel/pyquery</a></li>
+<li>PyPI：<a href="https://pypi.python.org/pypi/pyquery" target="_blank" rel="noopener">https://pypi.python.org/pypi/pyquery</a></li>
+<li>官方文档：<a href="http://pyquery.readthedocs.io" target="_blank" rel="noopener">http://pyquery.readthedocs.io</a></li>
+</ul>
+<h3 id="pip安装-2"><a href="#pip安装-2" class="headerlink" title="pip安装"></a>pip安装</h3><p>命令行：<code>pip3 install pyquery</code></p>
+<h3 id="验证安装-2"><a href="#验证安装-2" class="headerlink" title="验证安装"></a>验证安装</h3><p>安装完成之后，可以在Python命令下测试：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt;&gt;import pyquery<br></code></pre></td></tr></table></figure>
+
+<p>如果没有报错，则证明库已经安装好了。</p>
+<h2 id="tesserocr库"><a href="#tesserocr库" class="headerlink" title="tesserocr库"></a>tesserocr库</h2><p>在爬虫过程中，难免会遇到各种各样的验证码，而大多数验证码还是图形验证码，这时候我们可以直接使用OCR来识别。</p>
+<p>OCR( Optical Character Recognition )，光学字符识别，是指通过扫描字符，然后通过其形状将其翻译成电子文本的过程。对于图形验证码来说，它们都是一些不规则的字符，这些符确实是由字符稍加扭曲变换得到的内容。</p>
+<p>tesserocr是Python的一个OCR识别库，但其实是对tesseract做的一层Python API封装，所以它的核心是tesseract。因此，在安装tesserocr之前，我们需要安装tesseract。</p>
+<h3 id="相关链接-3"><a href="#相关链接-3" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
+<li>tesserocr Github：<a href="https://github.com/sirfz/tesserocr" target="_blank" rel="noopener">https://github.com/sirfz/tesserocr</a></li>
+<li>tesserocr PyPI：<a href="https://pypi.python.org/pypi/tesserocr" target="_blank" rel="noopener">https://pypi.python.org/pypi/tesserocr</a></li>
+<li>tesseract 下载地址：<a href="http://digi.bib.uni-mannheim.de/tesseract" target="_blank" rel="noopener">http://digi.bib.uni-mannheim.de/tesseract</a></li>
+<li>tesseract Github：<a href="https://github.com/tesseract-ocr/tesseract" target="_blank" rel="noopener">https://github.com/tesseract-ocr/tesseract</a></li>
+<li>tesseract 语言包：<a href="https://github.com/tesseract-ocr/tessdata" target="_blank" rel="noopener">https://github.com/tesseract-ocr/tessdata</a></li>
+<li>tesseract文档：<a href="https://github.com/tesseract-ocr/tesseract/wiki/Documentation" target="_blank" rel="noopener">https://github.com/tesseract-ocr/tesseract/wiki/Documentation</a></li>
+</ul>
+<h3 id="Mac下安装"><a href="#Mac下安装" class="headerlink" title="Mac下安装"></a>Mac下安装</h3><ol>
+<li>使用<strong>HomeBrew</strong>安装<strong>ImageMagick</strong>和<strong>tesseract</strong>库。</li>
+</ol>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install imagemagick<br>//先安装依赖库libpng, jpeg, libtiff, leptonica<br>brew install leptonica<br>brew install tesseract<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>下载语言库</p>
+<p> 下载地址:<a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Ftesseract-ocr%2Ftessdata" target="_blank" rel="noopener">https://github.com/tesseract-ocr/tessdata</a></p>
+<p> 根据自己的需求选择所要的语言库，在这里我们选择的是简体中文和英文，所以选择的库是<code>chi_sim.traineddata</code>、<code>eng.traineddata</code><br>  将文件拷贝到到：/usr/local/Cellar/tesseract/4.1.0/share/tessdata目录下。</p>
+</li>
+<li><p>接下来再安装tesserocr即可</p>
+</li>
+</ol>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip3 install tesserocr pillow<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：</p>
+<p>这里可能会出现无法安装<strong>tesserocr</strong>的错误，需要执行以下两个步骤：</p>
+<ol>
+<li>命令行中输入：<code>xcode-select --install</code></li>
+</ol>
+<p>输出：</p>
+<p><strong>xcode-select: error: command line tools are already installed, use “Software Update” to install updates</strong></p>
+<p>不用管它。</p>
+<ol start="2">
+<li>命令行中输入：<code>export MACOSX_DEPLOYMENT_TARGET=10.13</code></li>
+</ol>
+<p>这里 <strong>10.13</strong> 是我自己的macOS的系统版本号。换成自己电脑相对应的就行。</p>
+<ol start="3">
+<li>执行以上两个步骤，再次执行<code>pip3 install tesserocr pillow</code>就能成功安装啦。</li>
+</ol>
+<h3 id="验证安装-3"><a href="#验证安装-3" class="headerlink" title="验证安装"></a>验证安装</h3><p>可以使用tesseract和tesserocr来分别进行测试。</p>
+<p>从<a href="https://raw.githubusercontent.com/Python3WebSpider/TestTess/master/image.png" target="_blank" rel="noopener">链接</a>中获取样例图片，如下所示。</p>
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%A7%A3%E6%9E%90%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/%E9%AA%8C%E8%AF%81%E7%A0%81.png" width="50%">
+
+<p>首先使用命令进行测试，将图片下载来并保存为<strong>image.png</strong>，然后用<code>tesseract</code>命令测试：</p>
+<p><code>tesseract image.png result -l eng &amp;&amp; cat result.txt</code></p>
+<p>运行结果如下：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">Tesseract Open Source OCR Engine v4.1.0 with Leptonica<br>Python3WebSpider<br></code></pre></td></tr></table></figure>
+
+<p>这里我们调用了<code>tesseract</code>命令，其中</p>
+<ul>
+<li>第一个参数为图片名称。</li>
+<li>第二个参数result为结果保存的目标文件名称。</li>
+<li><code>-l</code>指定使用的语言包，此处使用英文(eng)。</li>
+<li>然后再用cat命令将结果输出。</li>
+</ul>
+<p>运行结果便是图片的识别结果：<code>Python3WebSpider</code>，可以看到，这时已经成功将图片转化为文本了。</p>
+<p>然后还可以利用Python代码来进行测试，这里就需要借助于tesserocr库了，测试代码如下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tesserocr<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br>image = Image.open(<span class="hljs-string">'image.png'</span>)<br>print(tesserocr.image_to_text(image))<br></code></pre></td></tr></table></figure>
+
+<p>我们首先使用<code>Image</code>读取了图片文件，然后调用了<strong>tesserocr</strong>的<code>image_to_text()</code>方法，再将其识别结果输出。</p>
+<p>运行结果如下：</p>
+<p><code>Python3WebSpider</code></p>
+<p>另外，我们还可以直接调用<code>file_to_text()</code>方法，达到同样的效果：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tesserocr<br>print(tesserocr.file_to_text(<span class="hljs-string">'image.png'</span>))<br></code></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><code>Python3WebSpider</code></p>
+<p>如果成功输出结果，则证明<strong>tesseract</strong>和<strong>tesserocr</strong>都已经成功安装。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/开发环境配置/" rel="tag"><i class="fas fa-tags"></i>开发环境配置</a>
+        
+        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/03/请求库的安装/" rel="next" title="请求库的安装"><i class="fas fa-angle-left"></i><span class="nav-title">请求库的安装</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">18</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">13</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">15</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#lxml库"><span class="toc-text">lxml库</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Beautiful-Soup库"><span class="toc-text">Beautiful Soup库</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-1"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装-1"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-1"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#pyquery库"><span class="toc-text">pyquery库</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-2"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装-2"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-2"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#tesserocr库"><span class="toc-text">tesserocr库</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-3"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Mac下安装"><span class="toc-text">Mac下安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-3"><span class="toc-text">验证安装</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-05T00:35:46.189Z</updated>
+  <updated>2019-08-05T02:38:51.854Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解析库的安装</title>
+    <link href="http://huris.xyz/2019/08/05/%E8%A7%A3%E6%9E%90%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://huris.xyz/2019/08/05/解析库的安装/</id>
+    <published>2019-08-05T00:49:44.000Z</published>
+    <updated>2019-08-05T02:38:51.854Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;爬取网页代码后，下一步就是从网页中提取信息。&lt;/p&gt;
+&lt;p&gt;提取信息的方式有多种多样，可以使用正则表达式来提取，但是写起来相对比较繁琐。&lt;/p&gt;
+&lt;p&gt;这里还有许多强大的解析库，如lxml、Beautiful Soup、pyquery等。&lt;/p&gt;
+&lt;p&gt;此外还有非常强大的解析方法，如XPath解析和CSS选择器解析等，利用它们，我们可以高效便捷地从网页中提取有效信息。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>请求库的安装</title>
