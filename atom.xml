@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-05T02:38:51.854Z</updated>
+  <updated>2019-08-05T09:13:21.714Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,118 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>App爬取相关库的安装</title>
+    <link href="http://huris.xyz/2019/08/05/App%E7%88%AC%E5%8F%96%E7%9B%B8%E5%85%B3%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://huris.xyz/2019/08/05/App爬取相关库的安装/</id>
+    <published>2019-08-05T09:13:21.000Z</published>
+    <updated>2019-08-05T09:13:21.714Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Web库的安装</title>
+    <link href="http://huris.xyz/2019/08/05/Web%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://huris.xyz/2019/08/05/Web库的安装/</id>
+    <published>2019-08-05T04:18:23.000Z</published>
+    <updated>2019-08-05T09:12:52.745Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现在日常访问的网站都是Web服务程序搭建而成的。&lt;/p&gt;
+&lt;p&gt;Python也有一些这样的Web服务程序，比如Flask、Django等，我们可以拿它来开发网站和接口等。&lt;/p&gt;
+&lt;p&gt;在爬虫中主要使用这些Web服务程序来搭建一些API接口。例如：维护一个代理池，代理保存在Redis数据库中，我们要将代理池作为一个公共的组件使用，那么如何构建一个方便的平台来供我们获取这些代理呢？最合适不过的就是通过Web服务提供一个API接口，我们只需要请求接口即可获取新的代理，这样做，简单、高效、实用！&lt;/p&gt;
+&lt;p&gt;本文主要介绍Web服务程序&lt;strong&gt;Flask&lt;/strong&gt;和&lt;strong&gt;Tornado&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>存储库的安装</title>
+    <link href="http://huris.xyz/2019/08/05/%E5%AD%98%E5%82%A8%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://huris.xyz/2019/08/05/存储库的安装/</id>
+    <published>2019-08-05T03:15:24.000Z</published>
+    <updated>2019-08-05T04:23:19.957Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数据库想要和Python进行交互的话，还需要安装一些Python存储库，如：&lt;strong&gt;MySQL&lt;/strong&gt;需要安装&lt;strong&gt;PyMySQL&lt;/strong&gt;、&lt;strong&gt;MongoDB&lt;/strong&gt;需要安装&lt;strong&gt;PyMongo&lt;/strong&gt;等。&lt;/p&gt;
+&lt;p&gt;本文主要说明这些存储库的安装方式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库的安装</title>
+    <link href="http://huris.xyz/2019/08/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://huris.xyz/2019/08/05/数据库的安装/</id>
+    <published>2019-08-05T02:40:03.000Z</published>
+    <updated>2019-08-05T04:25:19.294Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为数据存储的重要部分，数据库同样是必不可少的，数据库可以分为关系型数据库和非关系型数据库。&lt;/p&gt;
+&lt;p&gt;关系型数据库如SQLite、MySQL、Oracle、SQL Server、DB2等，其数据库是以表的形式存储。&lt;/p&gt;
+&lt;p&gt;非关系型数据库如MongoDB、Redis它们的存储形式是键值对，存储形式更加灵活。&lt;/p&gt;
+&lt;p&gt;本文主要介绍关系型数据库MySQL以及非关系型数据库MongoDB、Redis的安装。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>解析库的安装</title>
     <link href="http://huris.xyz/2019/08/05/%E8%A7%A3%E6%9E%90%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
     <id>http://huris.xyz/2019/08/05/解析库的安装/</id>
     <published>2019-08-05T00:49:44.000Z</published>
-    <updated>2019-08-05T02:38:51.854Z</updated>
+    <updated>2019-08-05T03:57:02.133Z</updated>
     
     <summary type="html">
     
@@ -50,7 +157,7 @@
     <link href="http://huris.xyz/2019/08/03/%E8%AF%B7%E6%B1%82%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
     <id>http://huris.xyz/2019/08/03/请求库的安装/</id>
     <published>2019-08-03T02:42:38.000Z</published>
-    <updated>2019-08-05T00:35:46.189Z</updated>
+    <updated>2019-08-05T03:57:21.222Z</updated>
     
     <summary type="html">
     
@@ -428,70 +535,6 @@
 &lt;li&gt;常用快捷键(mac系统)&lt;/li&gt;
 &lt;li&gt;预定义变量&lt;/li&gt;
 &lt;li&gt;注意点&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matlab学习笔记(2)</title>
-    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2/"/>
-    <id>http://huris.xyz/2018/04/30/matlab学习笔记-2/</id>
-    <published>2018-04-30T13:01:53.000Z</published>
-    <updated>2019-08-02T09:54:15.656Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;matlab学习笔记(2)主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;数值类型&lt;ul&gt;
-&lt;li&gt;整数类型&lt;/li&gt;
-&lt;li&gt;浮点数类型&lt;/li&gt;
-&lt;li&gt;复数&lt;/li&gt;
-&lt;li&gt;无穷量和非数值量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;逻辑类型&lt;/li&gt;
-&lt;li&gt;字符和字符串&lt;/li&gt;
-&lt;li&gt;函数句柄&lt;/li&gt;
-&lt;li&gt;结构体&lt;/li&gt;
-&lt;li&gt;数组类型&lt;/li&gt;
-&lt;li&gt;单元数组类型&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matlab学习笔记(1)</title>
-    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/"/>
-    <id>http://huris.xyz/2018/04/30/matlab学习笔记-1/</id>
-    <published>2018-04-30T13:00:53.000Z</published>
-    <updated>2019-08-02T09:53:02.740Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;matlab学习笔记(1)主要介绍了以下内容&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;matlab的命令行通用命令&lt;/li&gt;
-&lt;li&gt;如何设置matlab调用文件的搜索路径&lt;/li&gt;
-&lt;li&gt;matlab的帮助系统&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>
