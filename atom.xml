@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-05T09:13:21.714Z</updated>
+  <updated>2019-08-05T23:56:19.504Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>App爬取相关库的安装</title>
-    <link href="http://huris.xyz/2019/08/05/App%E7%88%AC%E5%8F%96%E7%9B%B8%E5%85%B3%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
-    <id>http://huris.xyz/2019/08/05/App爬取相关库的安装/</id>
-    <published>2019-08-05T09:13:21.000Z</published>
-    <updated>2019-08-05T09:13:21.714Z</updated>
+    <title>HTTP基本原理</title>
+    <link href="http://huris.xyz/2019/08/06/HTTP%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+    <id>http://huris.xyz/2019/08/06/HTTP基本原理/</id>
+    <published>2019-08-05T23:55:44.000Z</published>
+    <updated>2019-08-05T23:56:19.504Z</updated>
     
     <summary type="html">
     
@@ -35,6 +35,68 @@
     
     </summary>
     
+      <category term="计算机网络" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="HTTP" scheme="http://huris.xyz/tags/HTTP/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell后台执行</title>
+    <link href="http://huris.xyz/2019/08/05/shell%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C/"/>
+    <id>http://huris.xyz/2019/08/05/shell后台执行/</id>
+    <published>2019-08-05T13:35:17.000Z</published>
+    <updated>2019-08-05T13:46:43.869Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;后台执行：&lt;code&gt;nohup sh run.sh &amp;gt;log.txt 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;后台查看：&lt;code&gt;ps -ef | grep 13549&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;终止进程：&lt;code&gt;kill -9 pid&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="http://huris.xyz/categories/linux/"/>
+    
+      <category term="shell" scheme="http://huris.xyz/categories/linux/shell/"/>
+    
+    
+      <category term="linux" scheme="http://huris.xyz/tags/linux/"/>
+    
+      <category term="shell" scheme="http://huris.xyz/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>App爬取相关库的安装</title>
+    <link href="http://huris.xyz/2019/08/05/App%E7%88%AC%E5%8F%96%E7%9B%B8%E5%85%B3%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://huris.xyz/2019/08/05/App爬取相关库的安装/</id>
+    <published>2019-08-05T09:13:21.000Z</published>
+    <updated>2019-08-05T11:25:30.376Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;爬虫也可以抓取App的数据。App中的页面要加载出来，首先需要获取数据，而这些数据一般是通过请求服务器的接口来获取的。由于App没有浏览器这种可以比较直观地看到后台请求的工具，所以主要用一些抓包技术来抓取数据。&lt;/p&gt;
+&lt;p&gt;本文介绍的抓包工具有 &lt;strong&gt;Charles&lt;/strong&gt; 、 &lt;strong&gt;mitmproxy&lt;/strong&gt; 和 &lt;strong&gt;mitmdump&lt;/strong&gt; 。一些简单的接口可以通过&lt;strong&gt;Charles&lt;/strong&gt;或&lt;strong&gt;mitmproxy&lt;/strong&gt;分析，找出规律，然后直接用程序模拟来抓取。但是如果遇到更复杂的接口，就需要利用&lt;strong&gt;mitmdump&lt;/strong&gt;对接Python来对抓取的请求和响应进行实时处理和保存。&lt;/p&gt;
+&lt;p&gt;另外，既然要做规模采集，就需要自动化App的操作而不是人工去采集，所以之力还需要一个工具叫做&lt;strong&gt;Appium&lt;/strong&gt;，它可以对App进行自动化控制，如自动化模拟App的点击、下拉等操作。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
   </entry>
   
@@ -59,11 +121,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
   </entry>
   
@@ -86,11 +148,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
   </entry>
   
@@ -115,11 +177,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
   </entry>
   
@@ -144,11 +206,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
   </entry>
   
@@ -172,11 +234,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
   </entry>
   
@@ -249,9 +311,9 @@
       <category term="Python" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/"/>
     
     
-      <category term="画图" scheme="http://huris.xyz/tags/%E7%94%BB%E5%9B%BE/"/>
-    
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="画图" scheme="http://huris.xyz/tags/%E7%94%BB%E5%9B%BE/"/>
     
       <category term="Matplotlib" scheme="http://huris.xyz/tags/Matplotlib/"/>
     
@@ -482,59 +544,6 @@
 &lt;ol&gt;
 &lt;li&gt;基本算术运算&lt;/li&gt;
 &lt;li&gt;点运算&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matlab学习笔记(4)</title>
-    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-4/"/>
-    <id>http://huris.xyz/2018/04/30/matlab学习笔记-4/</id>
-    <published>2018-04-30T13:04:53.000Z</published>
-    <updated>2019-08-02T09:54:22.399Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;matlab学习笔记(4)主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;矩阵&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matlab学习笔记(3)</title>
-    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-3/"/>
-    <id>http://huris.xyz/2018/04/30/matlab学习笔记-3/</id>
-    <published>2018-04-30T13:03:53.000Z</published>
-    <updated>2019-08-02T09:54:19.602Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;matlab学习笔记(3)注意介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;常用函数&lt;/li&gt;
-&lt;li&gt;常用数学函数&lt;/li&gt;
-&lt;li&gt;数据的输出格式&lt;/li&gt;
-&lt;li&gt;常用快捷键(mac系统)&lt;/li&gt;
-&lt;li&gt;预定义变量&lt;/li&gt;
-&lt;li&gt;注意点&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>
