@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-05T23:56:19.504Z</updated>
+  <updated>2019-08-06T12:13:57.885Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="http://huris.xyz/2019/08/06/HTTP%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
     <id>http://huris.xyz/2019/08/06/HTTP基本原理/</id>
     <published>2019-08-05T23:55:44.000Z</published>
-    <updated>2019-08-05T23:56:19.504Z</updated>
+    <updated>2019-08-06T12:13:57.885Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a
-        
-      
+      &lt;p&gt;在本文中，我们会详细了解HTTP的基本原理，了解在浏览器中敲入URL到获取网页内容之间发生了什么。&lt;/p&gt;
     
     </summary>
     
@@ -373,31 +367,6 @@
   </entry>
   
   <entry>
-    <title>vim速查表</title>
-    <link href="http://huris.xyz/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    <id>http://huris.xyz/2019/08/02/vim速查表/</id>
-    <published>2019-08-02T09:22:48.000Z</published>
-    <updated>2019-08-03T01:04:16.715Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="vim" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/vim/"/>
-    
-    
-      <category term="vim" scheme="http://huris.xyz/tags/vim/"/>
-    
-      <category term="速查表" scheme="http://huris.xyz/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
     <title>大数阶乘</title>
     <link href="http://huris.xyz/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
     <id>http://huris.xyz/2019/08/02/大数阶乘/</id>
@@ -419,6 +388,31 @@
       <category term="大数" scheme="http://huris.xyz/tags/%E5%A4%A7%E6%95%B0/"/>
     
       <category term="算法模板" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim速查表</title>
+    <link href="http://huris.xyz/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+    <id>http://huris.xyz/2019/08/02/vim速查表/</id>
+    <published>2019-08-02T09:22:48.000Z</published>
+    <updated>2019-08-03T01:04:16.715Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="vim" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/vim/"/>
+    
+    
+      <category term="vim" scheme="http://huris.xyz/tags/vim/"/>
+    
+      <category term="速查表" scheme="http://huris.xyz/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
     
   </entry>
   
