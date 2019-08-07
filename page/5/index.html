@@ -135,7 +135,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>存储库的安装 | Huris' HeapStack - For you, a thousand times over.</title>
+    <title>Huris' HeapStack - For you, a thousand times over.</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -177,26 +177,29 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+
+<div id="index" class="index page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/05/存储库的安装/">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2018/04/30/matlab学习笔记-1/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="Huris">
-       <meta itemprop="description" content="To be is to be perceived.">
-       <meta itemprop="image" content="/images/avatar.jpg">
+        <meta itemprop="name" content="Huris">
+        <meta itemprop="description" content="To be is to be perceived.">
+        <meta itemprop="image" content="/images/avatar.jpg">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="Huris' HeapStack">
+        <meta itemprop="name" content="Huris' HeapStack">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">存储库的安装</h1>
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/04/30/matlab学习笔记-1/" itemprop="url">matlab学习笔记(1)</a>
+      </h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-05T11:15:24+08:00">2019-08-05 11:15:24</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-04-30T21:00:53+08:00">2018-04-30 21:00:53</time></span>
         </span>
         
         
@@ -205,72 +208,27 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/开发环境配置/" itemprop="url" rel="index"><span itemprop="name">开发环境配置</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a></span>
         </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>数据库想要和Python进行交互的话，还需要安装一些Python存储库，如：<strong>MySQL</strong>需要安装<strong>PyMySQL</strong>、<strong>MongoDB</strong>需要安装<strong>PyMongo</strong>等。</p>
-<p>本文主要说明这些存储库的安装方式。</p>
-<a id="more"></a>
-
-
-
-<h2 id="PyMySQL"><a href="#PyMySQL" class="headerlink" title="PyMySQL"></a>PyMySQL</h2><p>在<strong>Python3</strong>中，如果想要将数据存储到<strong>MySQL</strong>中，就需要借助<strong>PyMySQL</strong>来操作。</p>
-<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/PyMySQL/PyMySQL" target="_blank" rel="noopener">https://github.com/PyMySQL/PyMySQL</a></li>
-<li>官方文档：<a href="http://pymysql.readthedocs.io" target="_blank" rel="noopener">http://pymysql.readthedocs.io</a></li>
-<li>PyPI：<a href="https://pypi.python.org/pypi/PyMySQL" target="_blank" rel="noopener">https://pypi.python.org/pypi/PyMySQL</a></li>
-</ul>
-<h3 id="pip安装"><a href="#pip安装" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install pymysql</code></p>
-<h3 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import pymysql<br>&gt;&gt;&gt; pymysql.VERSION<br>(0, 9, 3, None)<br></code></pre></td></tr></table></figure>
-
-<p>如果成功输出了其版本内容，则证明PyMySQL成功安装。</p>
-<h2 id="PyMongoDB"><a href="#PyMongoDB" class="headerlink" title="PyMongoDB"></a>PyMongoDB</h2><p>在Python中，如果想要和<strong>MongoDB</strong>进行交互，就需要借助于<strong>PyMongo</strong>库。</p>
-<h3 id="相关链接-1"><a href="#相关链接-1" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/mongodb/mongo-python-driver" target="_blank" rel="noopener">https://github.com/mongodb/mongo-python-driver</a></li>
-<li>官方文档：<a href="http://api.mongodb.com/python/current" target="_blank" rel="noopener">http://api.mongodb.com/python/current</a></li>
-<li>PyPI：<a href="https://pypi.python.org/pypi/pymongo" target="_blank" rel="noopener">https://pypi.python.org/pypi/pymongo</a></li>
-</ul>
-<h3 id="pip安装-1"><a href="#pip安装-1" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install pymongo</code></p>
-<h3 id="验证安装-1"><a href="#验证安装-1" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import pymongo<br>&gt;&gt;&gt; pymongo.VERSION<br><span class="hljs-string">'3.8.0'</span><br></code></pre></td></tr></table></figure>
-
-<p>如果成功输出了其版本内容，则证明<strong>PyMongo</strong>成功安装。</p>
-<h2 id="redis-py"><a href="#redis-py" class="headerlink" title="redis-py"></a>redis-py</h2><p>在Python中，如果想要和<strong>Redis</strong>进行交互，就需要借助于<strong>redis-py</strong>库。</p>
-<h3 id="相关链接-2"><a href="#相关链接-2" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/andymccurdy/redis-py" target="_blank" rel="noopener">https://github.com/andymccurdy/redis-py</a></li>
-<li>官方文档：<a href="https://redis-py.readthedocs.io/" target="_blank" rel="noopener">https://redis-py.readthedocs.io/</a></li>
-</ul>
-<h3 id="pip安装-2"><a href="#pip安装-2" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install redis</code></p>
-<h3 id="验证安装-2"><a href="#验证安装-2" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import redis<br>&gt;&gt;&gt; redis.VERSION<br>(3, 3, 5)<br></code></pre></td></tr></table></figure>
-
-<p>如果成功输出了其版本内容，则证明<strong>redis-py</strong>成功安装。</p>
-<h2 id="RedisDump"><a href="#RedisDump" class="headerlink" title="RedisDump"></a>RedisDump</h2><p>RedisDump是一个用于Redis数据导入/导出的工具，是基于Ruby实现的，所以要安装RedisDump，需要先安装Ruby。</p>
-<h3 id="相关链接-3"><a href="#相关链接-3" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/delano/redis-dump" target="_blank" rel="noopener">https://github.com/delano/redis-dump</a></li>
-<li>官方文档：<a href="http://delanotes.com/redis-dump" target="_blank" rel="noopener">http://delanotes.com/redis-dump</a></li>
-</ul>
-<h3 id="gem安装"><a href="#gem安装" class="headerlink" title="gem安装"></a>gem安装</h3><p>安装Ruby(参考<a href="http://www.ruby-lang.org/zh_cn/documentation/installation" target="_blank" rel="noopener">这里</a>)后，利用<strong>gem命令</strong>安装RedisDump：<code>gem install redis-dump</code></p>
-<h3 id="验证安装-3"><a href="#验证安装-3" class="headerlink" title="验证安装"></a>验证安装</h3><p>安装成功后，可以执行如下两个命令：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis-dump<br>redis-load<br></code></pre></td></tr></table></figure>
-
-<p>如果可以成功调用，则说明安装成功。</p>
-
+      
+      <p><strong>matlab学习笔记(1)主要介绍了以下内容</strong></p>
+<ol>
+<li>matlab的命令行通用命令</li>
+<li>如何设置matlab调用文件的搜索路径</li>
+<li>matlab的帮助系统</li>
+</ol>
+      
     </main>
     <footer class="post-footer">
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/开发环境配置/" rel="tag"><i class="fas fa-tags"></i>开发环境配置</a>
-        
-        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
-        
-        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        <a class="post-tag button" href="/tags/Matlab/" rel="tag"><i class="fas fa-tags"></i>Matlab</a>
         
       </div>
       
@@ -278,40 +236,8 @@
   </article>
   
   
-<div class="reward" id="reward">
-  <p>如果它的价值大于一首歌, 荣幸至极!</p>
-  <button id="reward-button" class="button" disable="enable">打赏</button>
-  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
-    
-    <div id="wechat">
-      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
-      <span>微信支付</span>
-    </div>
-    
-    
-    <div id="alipay">
-      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
-      <span>支付宝</span>
-    </div>
-    
-    
-  </div>
-</div>
-
-
-  
-  
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
-      
-      <a href="/2019/08/05/数据库的安装/" rel="next" title="数据库的安装"><i class="fas fa-angle-left"></i><span class="nav-title">数据库的安装</span></a>
-      
-    </div>
-    <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/08/05/Web库的安装/" rel="prev" title="Web库的安装"><span class="nav-title">Web库的安装</span><i class="fas fa-angle-right"></i></a>
-      
-    </div>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
   </nav>
   
   
@@ -374,17 +300,6 @@
 
 
   <div class="sidebar-sticky">
-    
-    
-    
-    
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#PyMySQL"><span class="toc-text">PyMySQL</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#PyMongoDB"><span class="toc-text">PyMongoDB</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-1"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装-1"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-1"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#redis-py"><span class="toc-text">redis-py</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-2"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装-2"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-2"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#RedisDump"><span class="toc-text">RedisDump</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-3"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#gem安装"><span class="toc-text">gem安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-3"><span class="toc-text">验证安装</span></a></li></ol></li></ol></div>
-    </div>
-    
     
     
     <hr>

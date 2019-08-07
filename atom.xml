@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-06T12:13:57.885Z</updated>
+  <updated>2019-08-07T01:23:49.588Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网页基础</title>
+    <link href="http://huris.xyz/2019/08/06/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/"/>
+    <id>http://huris.xyz/2019/08/06/网页基础/</id>
+    <published>2019-08-06T12:15:40.000Z</published>
+    <updated>2019-08-07T01:23:49.588Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用浏览器访问网站时，网页各不相同，本文简单介绍了网页的基本组成、结构和结点等内容。&lt;/p&gt;
+&lt;p&gt;了解了这些内容，我们才有更加清晰的思路去解析和提取网页内容。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="网页" scheme="http://huris.xyz/tags/%E7%BD%91%E9%A1%B5/"/>
+    
+  </entry>
   
   <entry>
     <title>HTTP基本原理</title>
@@ -32,9 +57,9 @@
       <category term="计算机网络" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="HTTP" scheme="http://huris.xyz/tags/HTTP/"/>
-    
       <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="HTTP" scheme="http://huris.xyz/tags/HTTP/"/>
     
       <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
@@ -86,11 +111,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -115,11 +140,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -142,11 +167,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -171,11 +196,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -200,11 +225,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -228,11 +253,11 @@
       <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -367,31 +392,6 @@
   </entry>
   
   <entry>
-    <title>大数阶乘</title>
-    <link href="http://huris.xyz/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
-    <id>http://huris.xyz/2019/08/02/大数阶乘/</id>
-    <published>2019-08-02T09:22:48.000Z</published>
-    <updated>2019-08-02T09:49:58.656Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;求n!具体值c++实现&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法模板" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
-    
-    
-      <category term="大数" scheme="http://huris.xyz/tags/%E5%A4%A7%E6%95%B0/"/>
-    
-      <category term="算法模板" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
-    
-  </entry>
-  
-  <entry>
     <title>vim速查表</title>
     <link href="http://huris.xyz/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
     <id>http://huris.xyz/2019/08/02/vim速查表/</id>
@@ -413,6 +413,31 @@
       <category term="vim" scheme="http://huris.xyz/tags/vim/"/>
     
       <category term="速查表" scheme="http://huris.xyz/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数阶乘</title>
+    <link href="http://huris.xyz/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
+    <id>http://huris.xyz/2019/08/02/大数阶乘/</id>
+    <published>2019-08-02T09:22:48.000Z</published>
+    <updated>2019-08-02T09:49:58.656Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;求n!具体值c++实现&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法模板" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
+    
+    
+      <category term="大数" scheme="http://huris.xyz/tags/%E5%A4%A7%E6%95%B0/"/>
+    
+      <category term="算法模板" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
     
   </entry>
   
@@ -512,32 +537,6 @@
 &lt;li&gt;矩阵的条件数&lt;/li&gt;
 &lt;li&gt;矩阵的特征值与特征向量&lt;/li&gt;
 &lt;li&gt;矩阵的超越函数&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matlab学习笔记(5)</title>
-    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-5/"/>
-    <id>http://huris.xyz/2018/04/30/matlab学习笔记-5/</id>
-    <published>2018-04-30T13:05:53.000Z</published>
-    <updated>2019-08-02T09:54:25.199Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;matlab学习笔记(5)主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;基本算术运算&lt;/li&gt;
-&lt;li&gt;点运算&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>
