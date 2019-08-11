@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-07T01:23:49.588Z</updated>
+  <updated>2019-08-11T00:13:08.492Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>代理的基本原理</title>
+    <link href="http://huris.xyz/2019/08/11/%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+    <id>http://huris.xyz/2019/08/11/代理的基本原理/</id>
+    <published>2019-08-10T23:54:14.000Z</published>
+    <updated>2019-08-11T00:13:08.492Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当我们在做爬虫的时候，刚开始可以正常抓取数据，然而一段时间过后可能会出现错误，比如&lt;strong&gt;403 Forbidden&lt;/strong&gt;，这时候打开网页一看，可能会看到&lt;strong&gt;IP访问频率过高&lt;/strong&gt;这样的提示。出现这种现象的原因是网站采取了反爬虫措施。&lt;/p&gt;
+&lt;p&gt;当服务器检测到某个IP在单位时间内的请求次数，如果超过了这个阈值，就会直接拒绝服务，返回一些错误信息，这种情况可以称为封IP。&lt;/p&gt;
+&lt;p&gt;既然服务器检测的是某个IP单位时间的请求次数，那么借助某种方式来伪装我们的IP，让服务器识别不出是由我们本机发起的请求，就可以防止封IP了。&lt;/p&gt;
+&lt;p&gt;一种有效的方式就是使用代理，本文主要介绍了代理的一些基本原理。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="代理" scheme="http://huris.xyz/tags/%E4%BB%A3%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>会话和Cookies</title>
+    <link href="http://huris.xyz/2019/08/07/%E4%BC%9A%E8%AF%9D%E5%92%8CCookies/"/>
+    <id>http://huris.xyz/2019/08/07/会话和Cookies/</id>
+    <published>2019-08-07T02:56:14.000Z</published>
+    <updated>2019-08-10T02:06:51.803Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在浏览网站的时候，我们经常会遇到需要登录的情况，有些页面只有登录之后才可以访问，而且登录之后可以连续访问很多次网站，但是有时候过一段时间就需要重新登录。&lt;/p&gt;
+&lt;p&gt;还有一些网站，再打开浏览器时就自动登录了，而且很长时间都不会失效，这里面涉及会话(&lt;strong&gt;Session&lt;/strong&gt;)和&lt;strong&gt;Cookies&lt;/strong&gt;的相关知识。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="cookies" scheme="http://huris.xyz/tags/cookies/"/>
+    
+      <category term="会话" scheme="http://huris.xyz/tags/%E4%BC%9A%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫的基本原理</title>
+    <link href="http://huris.xyz/2019/08/07/%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+    <id>http://huris.xyz/2019/08/07/爬虫的基本原理/</id>
+    <published>2019-08-07T02:23:04.000Z</published>
+    <updated>2019-08-07T02:56:00.951Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们可以把互联网比作一张大网，而爬虫便是在网上爬行的蜘蛛。&lt;/p&gt;
+&lt;p&gt;把网的节点比作一个个网页，爬虫爬到这就相当于访问了该页面，获取了其信息。&lt;/p&gt;
+&lt;p&gt;可以把节点间的连线比作网页与网页之间的链接关系，这样蜘蛛通过一个节点后，可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，网站的数据就可以被抓取下来了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="原理" scheme="http://huris.xyz/tags/%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>网页基础</title>
@@ -392,31 +472,6 @@
   </entry>
   
   <entry>
-    <title>vim速查表</title>
-    <link href="http://huris.xyz/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    <id>http://huris.xyz/2019/08/02/vim速查表/</id>
-    <published>2019-08-02T09:22:48.000Z</published>
-    <updated>2019-08-03T01:04:16.715Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="vim" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/vim/"/>
-    
-    
-      <category term="vim" scheme="http://huris.xyz/tags/vim/"/>
-    
-      <category term="速查表" scheme="http://huris.xyz/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
     <title>大数阶乘</title>
     <link href="http://huris.xyz/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
     <id>http://huris.xyz/2019/08/02/大数阶乘/</id>
@@ -442,6 +497,31 @@
   </entry>
   
   <entry>
+    <title>vim速查表</title>
+    <link href="http://huris.xyz/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+    <id>http://huris.xyz/2019/08/02/vim速查表/</id>
+    <published>2019-08-02T09:22:48.000Z</published>
+    <updated>2019-08-03T01:04:16.715Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="vim" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/vim/"/>
+    
+    
+      <category term="vim" scheme="http://huris.xyz/tags/vim/"/>
+    
+      <category term="速查表" scheme="http://huris.xyz/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>c++文件操作</title>
     <link href="http://huris.xyz/2018/05/11/c++%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
     <id>http://huris.xyz/2018/05/11/c++文件操作/</id>
@@ -461,92 +541,6 @@
     
     
       <category term="C++" scheme="http://huris.xyz/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matlab学习笔记(8)</title>
-    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-8/"/>
-    <id>http://huris.xyz/2018/04/30/matlab学习笔记-8/</id>
-    <published>2018-04-30T13:08:53.000Z</published>
-    <updated>2019-08-02T09:54:32.740Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;matlab程序流程控制:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;M文件的概念与基本操作&lt;/li&gt;
-&lt;li&gt;matlab程序控制结构&lt;/li&gt;
-&lt;li&gt;matlab函数文件&lt;/li&gt;
-&lt;li&gt;matlab程序调试与优化&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matlab学习笔记(7)</title>
-    <link href="http://huris.xyz/2018/04/30/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-7/"/>
-    <id>http://huris.xyz/2018/04/30/matlab学习笔记-7/</id>
-    <published>2018-04-30T13:07:53.000Z</published>
-    <updated>2019-08-02T09:54:28.860Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;字符串&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>matlab学习笔记(6)</title>
-    <link href="http://huris.xyz/2018/04/30/matalb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-6/"/>
-    <id>http://huris.xyz/2018/04/30/matalb学习笔记-6/</id>
-    <published>2018-04-30T13:06:53.000Z</published>
-    <updated>2019-08-02T09:54:06.681Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;matlab学习笔记(6)主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;矩阵分析&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;对角阵与三角阵&lt;/li&gt;
-&lt;li&gt;矩阵的转置与旋转&lt;/li&gt;
-&lt;li&gt;矩阵的逆与伪逆&lt;/li&gt;
-&lt;li&gt;方阵的行列式&lt;/li&gt;
-&lt;li&gt;矩阵的秩与迹&lt;/li&gt;
-&lt;li&gt;向量和矩阵的范数&lt;/li&gt;
-&lt;li&gt;矩阵的条件数&lt;/li&gt;
-&lt;li&gt;矩阵的特征值与特征向量&lt;/li&gt;
-&lt;li&gt;矩阵的超越函数&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
     
   </entry>
   

@@ -4,6 +4,95 @@
   
     
     <entry>
+      <title>代理的基本原理</title>
+      <link href="/2019/08/11/%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+      <url>/2019/08/11/%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<p>当我们在做爬虫的时候，刚开始可以正常抓取数据，然而一段时间过后可能会出现错误，比如<strong>403 Forbidden</strong>，这时候打开网页一看，可能会看到<strong>IP访问频率过高</strong>这样的提示。出现这种现象的原因是网站采取了反爬虫措施。</p><p>当服务器检测到某个IP在单位时间内的请求次数，如果超过了这个阈值，就会直接拒绝服务，返回一些错误信息，这种情况可以称为封IP。</p><p>既然服务器检测的是某个IP单位时间的请求次数，那么借助某种方式来伪装我们的IP，让服务器识别不出是由我们本机发起的请求，就可以防止封IP了。</p><p>一种有效的方式就是使用代理，本文主要介绍了代理的一些基本原理。</p><a id="more"></a><h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>代理实际上指的是代理服务器，</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 爬虫 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+            <tag> 计算机网络 </tag>
+            
+            <tag> 代理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>会话和Cookies</title>
+      <link href="/2019/08/07/%E4%BC%9A%E8%AF%9D%E5%92%8CCookies/"/>
+      <url>/2019/08/07/%E4%BC%9A%E8%AF%9D%E5%92%8CCookies/</url>
+      
+        <content type="html"><![CDATA[<p>在浏览网站的时候，我们经常会遇到需要登录的情况，有些页面只有登录之后才可以访问，而且登录之后可以连续访问很多次网站，但是有时候过一段时间就需要重新登录。</p><p>还有一些网站，再打开浏览器时就自动登录了，而且很长时间都不会失效，这里面涉及会话(<strong>Session</strong>)和<strong>Cookies</strong>的相关知识。</p><a id="more"></a><h2 id="静态网页和动态网页"><a href="#静态网页和动态网页" class="headerlink" title="静态网页和动态网页"></a>静态网页和动态网页</h2><p>在开始之前，需要先了解一下动态网页和静态网页的概念，代码如下：</p><figure class="hljs highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>This is a Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wrapper"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title"</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text"</span>&gt;</span>Hello, this is a paragraph.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure><p>这种网页的内容是HTML代码编写的，文字、图片等内容均通过写好的HTML代码来指定，这种网页叫作静态网页。它<strong>加载速度快</strong>，<strong>编写简单</strong>，但是存在很大的缺陷，如<strong>可维护性差</strong>，<strong>不能根据URL灵活多变地显示内容</strong>等。例如，我们想要给这个网页的URL传入一个name参数，让其在网页中显示出来，是无法做到的。</p><p>动态网站可以动态解析URL中参数的变化，关联数据库并动态呈现不同页面内容，非常灵活多变。我们现在遇到的大多数网站都是动态网站，它们不再是一个简单的HTML，而是可能由<strong>JSP</strong>、<strong>PHP</strong>、<strong>Python</strong>等语言编写的，其功能比静态网页强大和丰富。</p><p>此外，动态网站还可以实现用户登录和注册的功能。很多页面时需要登录之后才可以查看的。按照一般的逻辑来说，输入用户名和密码登录之后，肯定是拿到了一种类似于<strong>凭证</strong>（会话和Cookies共同产生的结果）的东西，有了它，我们才能保持登录状态，才能访问登录之后才能看到的页面。</p><h2 id="无状态HTTP"><a href="#无状态HTTP" class="headerlink" title="无状态HTTP"></a>无状态HTTP</h2><p>HTTP的无状态是指HTTP协议对事务处理是没有记忆能力的，也就说<strong>服务器不知道客户端是什么状态</strong>。</p><blockquote><p>当我们向服务器发送请求后，服务器解析此请求，然后返回对应的响应，服务器负责完成这个过程，而且这个过程是完全独立的，服务器不会记录前后状态的变化，也就是缺少状态记录。</p></blockquote><p>这意味着如果后续需要处理前面的信息，则必须重传，这导致需要额外传递一些前面的重复请求，才能获取后续响应，然而这种效果显然不是我们想要的。为了保持前后状态，我们肯定不能将前面的请求全部重传一次，这太浪费资源了，对于这种需要用户登录的页面来说，更为棘手。</p><p>这时，两个用于保持HTTP连接状态的技术就出现了，它们分别是<strong>会话</strong>和<strong>Cookies</strong>。</p><ul><li><strong>会话</strong>在服务端，也就是网站的服务器，用来保存用户的会话信息。</li><li><strong>Cookies</strong>在客户端，也可以理解为浏览器端，有了Cookies，浏览器在下次访问网页时会自动附带上它发送给服务器，服务器通过识别Cookies并鉴定出是哪个用户，然后再判断用户是否是登录状态，然后返回对应的响应。</li></ul><p>可以理解为Cookies里面保存了登陆的凭证，有了它，只需要在下次<strong>携带Cookies发送请求</strong>，而不必重新输入用户名、密码等信息重新登录了。</p><p>因此在爬虫中，有时候处理需要登录才能访问的页面时，我们一般会直接将登录成功后获取的Cookies放在请求头里面直接请求，而不必重新模拟登录。</p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h3><p>会话，本来的含义是指有始有终的一系列动作/消息。比如，打电话时，从拿起电话拨号到挂断电话这中间的一系列过程可以称为一个会话。</p><p>在Web中，会话对象用来存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的Web页之间跳转时，存储在会话对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当用户请求来自应用程序的Web页时，如果该用户还没有会话，则Web服务器将自动创建一个会话对象。当会话过期或被放弃后，服务器将终止该会话。</p><h3 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h3><p>Cookies指某些网站为了辨别用户身份、进行会话跟踪而存储在用户本地终端上的数据。</p><h4 id="会话维持"><a href="#会话维持" class="headerlink" title="会话维持"></a>会话维持</h4><p>当客户端第一次请求服务器时，服务器会返回一个请求头中带有<strong>Set-Cookie</strong>字段的响应给客户端，用来标记是哪一个用户，客户端浏览器会把Cookies保存起来。当浏览器下一次再请求该网站时，浏览器会把此Cookies放到请求头一起提交给服务器，Cookies携带了会话ID消息，服务器检查该Cookies即可找到对应的会话是什么，然后再判断会话来辨认用户状态。</p><p>在成功登录某个网站时，服务器会告诉客户端设置哪些Cookies信息，在后续访问页面时客户端会把Cookies发送给服务器，服务器再找到对应的会话加以判断。如果会话中的某些设置登录状态的变量是有效的，那就证明用户处于登录状态，此时返回登录之后才可以查看的网页内容，浏览器再进行解析便可以看到了。</p><p>反之，如果传给服务器的Cookies是无效的，或者会话已经过期了，我们将不能继续访问页面，此时可能会收到错误的响应或者跳转到登录界面重新登录。</p><p>Cookies和会话需要配合，一个处于客户端，一个处于服务端，二者协作，就实现了登录会话控制。</p><h4 id="属性结构"><a href="#属性结构" class="headerlink" title="属性结构"></a>属性结构</h4><ul><li>Name：该Cookie的名称。一旦创建，该名称便不可更改。</li><li>Value：该Cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码。</li><li>Domain：可以访问该Cookie的域名。例如，如果设置为<code>.zhihu.com</code>，则所有以<code>zhihu.com</code>结尾的域名都可以访问该Cookie。</li><li>Max Age：该Cookie失效的时间，单位为秒，也常和<strong>Expires</strong>一起使用，通过它可以计算出其有效时间。Max Age如果为正数，则该Cookie在Max Age秒之后失效。如果为负数，则关闭浏览器时Cookie即失效，浏览器不会以任何形式保存该Cookie。</li><li>Path：该Cookie的使用路径。如果设置为<code>/path/</code>，则只有路径为<code>/path/</code>的页面可以访问该Cookie。如果设置为<code>/</code>，则本域名下的所有页面都可以访问该Cookie。</li><li>Size字段：此Cookie的大小。</li><li>HTTP字段：Cookie的<strong>httponly</strong>属性。若此属性为<strong>true</strong>，则只有在HTTP头中会带有此Cookie的信息，而不能通过<code>document.cookie</code>来访问此Cookie。</li><li>Secure：该Cookie是否仅被使用安全协议传输。安全协议有HTTPS和SSL等，在网络上传输数据之前先将数据加密。默认为<strong>false</strong>。</li></ul><h4 id="会话Cookie和持久Cookie"><a href="#会话Cookie和持久Cookie" class="headerlink" title="会话Cookie和持久Cookie"></a>会话Cookie和持久Cookie</h4><ul><li>会话Cookie：把Cookie放在浏览器的内存里，浏览器在关闭之后该Cookie即失效。</li><li>持久Cookie：会将Cookie保存到客户端的硬盘中，下次还可以继续使用，用于长久保存用户登录状态。</li></ul><p>一些持久化登录的网站其实就是把Cookie的有效时间和会话有效期设置得比较长，下次我们再访问页面时仍然携带之前的Cookie，就可以直接保持登录状态。</p><h2 id="常见误区"><a href="#常见误区" class="headerlink" title="常见误区"></a>常见误区</h2><p><strong>关闭浏览器，会话结束</strong></p><p>当我们关闭浏览器时，浏览器不会主动在关闭之前通知服务器它将要关闭，所以服务器不会有机会知道浏览器已经关闭。</p><p>之所以会有这种误区，是因为大部分会话机制都使用<strong>会话Cookie</strong>来保存会话ID信息，而关闭浏览器后Cookies就消失了，再次连接服务器时，也就无法找到原来的会话了。</p><p>如果服务器设置的Cookies保存在硬盘上，或者使用某种手段改写浏览器发出的HTTP请求头，把原来的Cookies发送给服务器，则再次打开浏览器，仍然能够找到原来的会话ID，依旧还是可以保持登录状态的。</p><p>由于关闭浏览器不会导致会话删除，这就需要服务器为会话设置一个失效时间，当距离客户端上一次使用会话的时间超过这个失效时间时，服务器就可以认为客户端已经停止了活动，才会把会话删除以节省存储空间。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 爬虫 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+            <tag> 计算机网络 </tag>
+            
+            <tag> cookies </tag>
+            
+            <tag> 会话 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爬虫的基本原理</title>
+      <link href="/2019/08/07/%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+      <url>/2019/08/07/%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<p>我们可以把互联网比作一张大网，而爬虫便是在网上爬行的蜘蛛。</p><p>把网的节点比作一个个网页，爬虫爬到这就相当于访问了该页面，获取了其信息。</p><p>可以把节点间的连线比作网页与网页之间的链接关系，这样蜘蛛通过一个节点后，可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，网站的数据就可以被抓取下来了。</p><a id="more"></a><h2 id="爬虫概述"><a href="#爬虫概述" class="headerlink" title="爬虫概述"></a>爬虫概述</h2><p>简单来说，爬虫就是获取网页并提取和保存信息的自动化程序。</p><h3 id="获取网页"><a href="#获取网页" class="headerlink" title="获取网页"></a>获取网页</h3><p>爬虫首先要做的工作就是获取网页，这里就是获取网页的源代码。源代码里包含了网页的部分有用信息，所以只要把源代码获取下来，，就可以从中提取想要的信息了。</p><p><strong>最关键的部分就是构造一个请求并发送给服务器，然后接收到响应并将其解析出来。</strong></p><p>Python提供了很多库来帮我们实现这个操作，如<code>urllib</code>、<code>requests</code>等。我们可以用这些库来帮助我们实现HTTP请求操作，请求和响应都可以用类库提供的数据结构来表示，得到相应之后只需要解析数据结构中的<strong>Body</strong>部分即可得到网页的源代码，这样我们可以用程序来实现获取网页的过程了。</p><h3 id="提取信息"><a href="#提取信息" class="headerlink" title="提取信息"></a>提取信息</h3><p>获取网页源代码后，接下来就是分析网页源代码，从中提取我们想要的数据。</p><p>最通用的方法是采用正则表达式提取，这是一个万能的方法，但是在构造正则表达式时比较复杂且容易出错。</p><p>另外，由于网页的结构有一定的规则，所以还有一些根据网页节点属性、CSS选择器或XPath来提取网页信息的库，如<strong>Beautiful Soup</strong>、<strong>Pyquery</strong>、<strong>lxml</strong>等，使用这些库，我们可以高效快速地从中提取网页信息，如节点属性、文本值等。</p><p>提取信息是爬虫非常重要的部分，他可以使杂乱的数据变得条理清晰，以便我们后续处理和分析数据。</p><h3 id="保存数据"><a href="#保存数据" class="headerlink" title="保存数据"></a>保存数据</h3><p>提取信息后，我们一般会将提取到的数据保存在某处以便后续使用。这里保存形式有多种多样，如可简单保存为<strong>TXT文本</strong>或<strong>JSON文本</strong>，也可以保存到数据库，如<strong>MySQL</strong>和<strong>MongoDB</strong>等，也可保存至远程服务器，如借助<strong>SFTP</strong>进行操作等。</p><h3 id="自动化程序"><a href="#自动化程序" class="headerlink" title="自动化程序"></a>自动化程序</h3><p>即爬虫可以代替人来完成这些操作。当量特别大或者想快速获取大量数据的话，肯定要借助程序。爬虫就是替我们来完成这份爬取工作的自动化程序，它可以在抓取过程中进行各种异常处理、错误重试等操作，确保爬取持续高效地运行。</p><h2 id="能抓怎样的数据"><a href="#能抓怎样的数据" class="headerlink" title="能抓怎样的数据"></a>能抓怎样的数据</h2><ul><li>最常抓取的是<strong>HTML源代码</strong>。</li><li>有些网页返回的是一个<strong>JSON字符串</strong>(其中API接口大多采用这样的形式)，这种格式的数据方便传输和解析，它们同样可以抓取，而且数据提取方便。</li><li><strong>各种二进制数据</strong>，如图片、视频和音频等。利用爬虫，我们可以将这些二进制数据抓取下来，然后保存成对应的文件名。</li><li><strong>各种扩展名的文件</strong>，如CSS、JavaScript和配置文件等，这些其实也是最普通的文件，只要在浏览器里面可以访问到，就可以将其抓取下来。</li></ul><p>上述内容其实都对应各自的URL，是基于HTTP或HTTPS协议的，只要是这种数据，爬虫都可以抓取。</p><h2 id="JavaScript渲染页面"><a href="#JavaScript渲染页面" class="headerlink" title="JavaScript渲染页面"></a>JavaScript渲染页面</h2><p>有时候，我们使用<code>urllib</code>和<code>requests</code>抓取网页时，得到的源代码实际和浏览器中看到的不一样。</p><p>这是由于现在越来越多的网页采用<strong>Ajax</strong>、<strong>前端模块化工具</strong>来构建，整个网页可能都是由JavaScript渲染出来的，也就是说原始的HTML代码就是一个空壳，例如：</p><figure class="hljs highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>This is a Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"app.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure><p><code>body</code>节点里面只有一个<strong>id为container</strong>的节点，但是需要注意在<code>body</code>节点后引入了<code>app.js</code>，它便负责整个网站的渲染。</p><p>在浏览器中打开这个页面时，首先会加载这个HTML内容，接着浏览器会发现其中引入了一个<code>app.js</code>文件，然后便会接着去请求这个文件，获取到该文件后，便会执行其中的JavaScript代码，而JavaScript则会改变HTML中的节点，向其添加内容，最后得到完整的页面。</p><p>但是用<code>urllib</code>或<code>requests</code>等库请求当前页面时，我们得到的只是这个HTML代码，它不会帮助我们继续去加载这个JavaScript文件，这样也就看不到浏览器中的内容了。</p><p>这也就解释了为什么有时我们得到的源代码和浏览器中看到的不一样。</p><p>因此，使用基本HTTP请求库得到的源代码可能跟浏览器中的页面源代码不太一样。对于这样的情况，我们可以分析其后台<strong>Ajax接口</strong>，也可使用<strong>Selenium</strong>、<strong>Splash</strong>这样的库来实现模拟JavaScript渲染。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 爬虫 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
+            
+            <tag> 原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网页基础</title>
       <link href="/2019/08/06/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/"/>
       <url>/2019/08/06/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/</url>
@@ -422,35 +511,6 @@
     
     
     <entry>
-      <title>vim速查表</title>
-      <link href="/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-      <url>/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</url>
-      
-        <content type="html"><![CDATA[<p><strong>本文主要介绍了以下内容:</strong></p><p>本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。</p><a id="more"></a><h2 id="VIM使用说明与快捷键"><a href="#VIM使用说明与快捷键" class="headerlink" title="VIM使用说明与快捷键"></a>VIM使用说明与快捷键</h2><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/vim%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg"><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><table><thead><tr><th align="center">移动方向</th><th align="center">快捷键</th></tr></thead><tbody><tr><td align="center">左</td><td align="center">h</td></tr><tr><td align="center">上</td><td align="center">j</td></tr><tr><td align="center">下</td><td align="center">k</td></tr><tr><td align="center">右</td><td align="center">l</td></tr></tbody></table><h3 id="进入插入模式"><a href="#进入插入模式" class="headerlink" title="进入插入模式"></a>进入插入模式</h3><table><thead><tr><th align="center">插入模式</th><th align="center">含义</th></tr></thead><tbody><tr><td align="center">i</td><td align="center">在光标前面插入</td></tr><tr><td align="center">I</td><td align="center">在光标所在行最前面插入</td></tr><tr><td align="center">a</td><td align="center">在光标后面插入</td></tr><tr><td align="center">A</td><td align="center">在光标所在行最后面插入</td></tr><tr><td align="center">o</td><td align="center">光标所在行的下一行插入</td></tr><tr><td align="center">O</td><td align="center">光标所在行的上一行插入</td></tr><tr><td align="center">s</td><td align="center">删除光标指向的字符并进入插入模式</td></tr><tr><td align="center">S</td><td align="center">删除光标所在的行并插入</td></tr></tbody></table><h3 id="操作范围"><a href="#操作范围" class="headerlink" title="操作范围"></a>操作范围</h3><table><thead><tr><th align="center">按键</th><th align="center">含义</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">将光标移到行首</td></tr><tr><td align="center">$</td><td align="center">将光标移到行尾</td></tr><tr><td align="center">b  (begin)</td><td align="center">将光标移到单词起始处</td></tr><tr><td align="center">e  (end)</td><td align="center">将光标移到单词末尾</td></tr><tr><td align="center">w</td><td align="center">将光标移到下一个单词的开头</td></tr><tr><td align="center">gg</td><td align="center">将光标移到文件的开头</td></tr><tr><td align="center">G</td><td align="center">将光标移到文件的末尾</td></tr></tbody></table><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><table><thead><tr><th align="center">按键</th><th align="center">含义</th></tr></thead><tbody><tr><td align="center">d0</td><td align="center">删除光标到行首的所有字符</td></tr><tr><td align="center">d$</td><td align="center">删除光标到行尾的所有字符</td></tr><tr><td align="center">db</td><td align="center">删除光标到该单词行首的所有字符</td></tr><tr><td align="center">de</td><td align="center">删除光标到该单词行尾的所有字符</td></tr><tr><td align="center">dw</td><td align="center">删除光标到下一个单词开头的所有字符</td></tr><tr><td align="center">dh</td><td align="center">删除光标所在字符的上一个字符</td></tr><tr><td align="center">dl</td><td align="center">删除光标所在字符</td></tr><tr><td align="center">dj</td><td align="center">删除光标所在行和下一行</td></tr><tr><td align="center">dk</td><td align="center">删除光标所在行和上一行</td></tr><tr><td align="center">dd</td><td align="center">删除光标所在行</td></tr><tr><td align="center">dgg</td><td align="center">删除光标所在行到文件开头所有字符</td></tr><tr><td align="center">dG</td><td align="center">删除光标所在行到文件末尾所有字符</td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机工具 </category>
-          
-          <category> vim </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> vim </tag>
-            
-            <tag> 速查表 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>大数阶乘</title>
       <link href="/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
       <url>/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/</url>
@@ -472,6 +532,35 @@
             <tag> 大数 </tag>
             
             <tag> 算法模板 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vim速查表</title>
+      <link href="/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+      <url>/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<p><strong>本文主要介绍了以下内容:</strong></p><p>本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。</p><a id="more"></a><h2 id="VIM使用说明与快捷键"><a href="#VIM使用说明与快捷键" class="headerlink" title="VIM使用说明与快捷键"></a>VIM使用说明与快捷键</h2><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/vim%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg"><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><table><thead><tr><th align="center">移动方向</th><th align="center">快捷键</th></tr></thead><tbody><tr><td align="center">左</td><td align="center">h</td></tr><tr><td align="center">上</td><td align="center">j</td></tr><tr><td align="center">下</td><td align="center">k</td></tr><tr><td align="center">右</td><td align="center">l</td></tr></tbody></table><h3 id="进入插入模式"><a href="#进入插入模式" class="headerlink" title="进入插入模式"></a>进入插入模式</h3><table><thead><tr><th align="center">插入模式</th><th align="center">含义</th></tr></thead><tbody><tr><td align="center">i</td><td align="center">在光标前面插入</td></tr><tr><td align="center">I</td><td align="center">在光标所在行最前面插入</td></tr><tr><td align="center">a</td><td align="center">在光标后面插入</td></tr><tr><td align="center">A</td><td align="center">在光标所在行最后面插入</td></tr><tr><td align="center">o</td><td align="center">光标所在行的下一行插入</td></tr><tr><td align="center">O</td><td align="center">光标所在行的上一行插入</td></tr><tr><td align="center">s</td><td align="center">删除光标指向的字符并进入插入模式</td></tr><tr><td align="center">S</td><td align="center">删除光标所在的行并插入</td></tr></tbody></table><h3 id="操作范围"><a href="#操作范围" class="headerlink" title="操作范围"></a>操作范围</h3><table><thead><tr><th align="center">按键</th><th align="center">含义</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">将光标移到行首</td></tr><tr><td align="center">$</td><td align="center">将光标移到行尾</td></tr><tr><td align="center">b  (begin)</td><td align="center">将光标移到单词起始处</td></tr><tr><td align="center">e  (end)</td><td align="center">将光标移到单词末尾</td></tr><tr><td align="center">w</td><td align="center">将光标移到下一个单词的开头</td></tr><tr><td align="center">gg</td><td align="center">将光标移到文件的开头</td></tr><tr><td align="center">G</td><td align="center">将光标移到文件的末尾</td></tr></tbody></table><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><table><thead><tr><th align="center">按键</th><th align="center">含义</th></tr></thead><tbody><tr><td align="center">d0</td><td align="center">删除光标到行首的所有字符</td></tr><tr><td align="center">d$</td><td align="center">删除光标到行尾的所有字符</td></tr><tr><td align="center">db</td><td align="center">删除光标到该单词行首的所有字符</td></tr><tr><td align="center">de</td><td align="center">删除光标到该单词行尾的所有字符</td></tr><tr><td align="center">dw</td><td align="center">删除光标到下一个单词开头的所有字符</td></tr><tr><td align="center">dh</td><td align="center">删除光标所在字符的上一个字符</td></tr><tr><td align="center">dl</td><td align="center">删除光标所在字符</td></tr><tr><td align="center">dj</td><td align="center">删除光标所在行和下一行</td></tr><tr><td align="center">dk</td><td align="center">删除光标所在行和上一行</td></tr><tr><td align="center">dd</td><td align="center">删除光标所在行</td></tr><tr><td align="center">dgg</td><td align="center">删除光标所在行到文件开头所有字符</td></tr><tr><td align="center">dG</td><td align="center">删除光标所在行到文件末尾所有字符</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机工具 </category>
+          
+          <category> vim </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vim </tag>
+            
+            <tag> 速查表 </tag>
             
         </tags>
       
@@ -726,9 +815,9 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -737,9 +826,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
