@@ -182,6 +182,60 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/05/shell后台执行/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Huris">
+        <meta itemprop="description" content="To be is to be perceived.">
+        <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/08/05/shell后台执行/" itemprop="url">shell后台执行</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-05T21:35:17+08:00">2019-08-05 21:35:17</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/shell/" itemprop="url" rel="index"><span itemprop="name">shell</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <p>后台执行：<code>nohup sh run.sh &gt;log.txt 2&gt;&amp;1 &amp;</code></p>
+<p>后台查看：<code>ps -ef | grep 13549</code></p>
+<p>终止进程：<code>kill -9 pid</code></p>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/linux/" rel="tag"><i class="fas fa-tags"></i>linux</a>
+        
+        <a class="post-tag button" href="/tags/shell/" rel="tag"><i class="fas fa-tags"></i>shell</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/05/App爬取相关库的安装/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Huris">
@@ -462,62 +516,6 @@
     </footer>
   </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/03/请求库的安装/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Huris">
-        <meta itemprop="description" content="To be is to be perceived.">
-        <meta itemprop="image" content="/images/avatar.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Huris' HeapStack">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/08/03/请求库的安装/" itemprop="url">请求库的安装</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-03T10:42:38+08:00">2019-08-03 10:42:38</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/开发环境配置/" itemprop="url" rel="index"><span itemprop="name">开发环境配置</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p>爬虫可以简单分为几步：抓取页面、分析页面和存储数据。</p>
-<p>在抓取页面的过程中，我们需要模拟浏览器向服务器发出请求，所以需要用到一些Python库来实现HTTP请求操作。</p>
-<p>我们要用到的第三方库有requests、Selenium和aiohttp等。</p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/开发环境配置/" rel="tag"><i class="fas fa-tags"></i>开发环境配置</a>
-        
-        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
-        
-        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
@@ -553,21 +551,21 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">28</a></div>
+      <div><a href="/archives/">29</a></div>
     </div>
     
     
     
     <div class="categories-count count-block">
       <div class="site-count-title">分类</div>
-      <div><a href="/categories/">15</a></div>
+      <div><a href="/categories/">17</a></div>
     </div>
     
     
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">23</a></div>
+      <div><a href="/tags/">25</a></div>
     </div>
     
     

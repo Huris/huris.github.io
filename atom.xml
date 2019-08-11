@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-11T00:13:08.492Z</updated>
+  <updated>2019-08-11T05:46:07.256Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>正则表达式</title>
+    <link href="http://huris.xyz/2019/08/11/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://huris.xyz/2019/08/11/正则表达式/</id>
+    <published>2019-08-11T01:53:05.000Z</published>
+    <updated>2019-08-11T05:46:07.256Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;正则表达式是描述一组字符串特征的模式，有助于找到文本字符串中的各种模式。&lt;/p&gt;
+&lt;p&gt;更确切的说，正则表达式是经过专门编写的文本字符串，用来匹配字符串（尤其是文件内字符串）集合中符合该模式的所有字符串。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="正则表达式" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="正则表达式" scheme="http://huris.xyz/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+      <category term="字符串处理" scheme="http://huris.xyz/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>代理的基本原理</title>
     <link href="http://huris.xyz/2019/08/11/%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
     <id>http://huris.xyz/2019/08/11/代理的基本原理/</id>
     <published>2019-08-10T23:54:14.000Z</published>
-    <updated>2019-08-11T00:13:08.492Z</updated>
+    <updated>2019-08-11T01:55:14.177Z</updated>
     
     <summary type="html">
     
@@ -33,6 +62,8 @@
     </summary>
     
       <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="原理" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%8E%9F%E7%90%86/"/>
     
     
       <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
@@ -48,7 +79,7 @@
     <link href="http://huris.xyz/2019/08/07/%E4%BC%9A%E8%AF%9D%E5%92%8CCookies/"/>
     <id>http://huris.xyz/2019/08/07/会话和Cookies/</id>
     <published>2019-08-07T02:56:14.000Z</published>
-    <updated>2019-08-10T02:06:51.803Z</updated>
+    <updated>2019-08-11T01:55:18.703Z</updated>
     
     <summary type="html">
     
@@ -58,6 +89,8 @@
     </summary>
     
       <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="原理" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%8E%9F%E7%90%86/"/>
     
     
       <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
@@ -75,7 +108,7 @@
     <link href="http://huris.xyz/2019/08/07/%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
     <id>http://huris.xyz/2019/08/07/爬虫的基本原理/</id>
     <published>2019-08-07T02:23:04.000Z</published>
-    <updated>2019-08-07T02:56:00.951Z</updated>
+    <updated>2019-08-11T01:55:24.898Z</updated>
     
     <summary type="html">
     
@@ -86,6 +119,8 @@
     </summary>
     
       <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="原理" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%8E%9F%E7%90%86/"/>
     
     
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
@@ -472,31 +507,6 @@
   </entry>
   
   <entry>
-    <title>大数阶乘</title>
-    <link href="http://huris.xyz/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
-    <id>http://huris.xyz/2019/08/02/大数阶乘/</id>
-    <published>2019-08-02T09:22:48.000Z</published>
-    <updated>2019-08-02T09:49:58.656Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;求n!具体值c++实现&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法模板" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
-    
-    
-      <category term="大数" scheme="http://huris.xyz/tags/%E5%A4%A7%E6%95%B0/"/>
-    
-      <category term="算法模板" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
-    
-  </entry>
-  
-  <entry>
     <title>vim速查表</title>
     <link href="http://huris.xyz/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
     <id>http://huris.xyz/2019/08/02/vim速查表/</id>
@@ -522,25 +532,27 @@
   </entry>
   
   <entry>
-    <title>c++文件操作</title>
-    <link href="http://huris.xyz/2018/05/11/c++%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
-    <id>http://huris.xyz/2018/05/11/c++文件操作/</id>
-    <published>2018-05-11T02:37:26.000Z</published>
-    <updated>2019-08-02T09:47:07.057Z</updated>
+    <title>大数阶乘</title>
+    <link href="http://huris.xyz/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
+    <id>http://huris.xyz/2019/08/02/大数阶乘/</id>
+    <published>2019-08-02T09:22:48.000Z</published>
+    <updated>2019-08-02T09:49:58.656Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;c++的读取文件/输入方式总结&lt;/p&gt;
+&lt;p&gt;求n!具体值c++实现&lt;/p&gt;
     
     </summary>
     
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="C++" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/"/>
+      <category term="算法模板" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
     
     
-      <category term="C++" scheme="http://huris.xyz/tags/C/"/>
+      <category term="大数" scheme="http://huris.xyz/tags/%E5%A4%A7%E6%95%B0/"/>
+    
+      <category term="算法模板" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
     
   </entry>
   

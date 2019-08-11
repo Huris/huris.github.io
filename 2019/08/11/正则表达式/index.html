@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>正则表达式 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/11/正则表达式/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">正则表达式</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-11T09:53:05+08:00">2019-08-11 09:53:05</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机工具/" itemprop="url" rel="index"><span itemprop="name">计算机工具</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机工具/正则表达式/" itemprop="url" rel="index"><span itemprop="name">正则表达式</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>正则表达式是描述一组字符串特征的模式，有助于找到文本字符串中的各种模式。</p>
+<p>更确切的说，正则表达式是经过专门编写的文本字符串，用来匹配字符串（尤其是文件内字符串）集合中符合该模式的所有字符串。</p>
+<a id="more"></a>
+
+
+
+<h2 id="常用匹配规则"><a href="#常用匹配规则" class="headerlink" title="常用匹配规则"></a>常用匹配规则</h2><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\w</td>
+<td>匹配字母、数字及下划线</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配除字母、数字及下划线以外</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意空白字符，等价于 <code>[\t\n\r\f]</code></td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任意非空字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配任意数字，等价于 <code>[0-9]</code></td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配除数字外的字符</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>匹配字符串开头</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>匹配字符串结尾，如果存在换行，同时还会匹配换行符</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>匹配字符串结尾，如果存在换行，只匹配到换行前的结束字符串</td>
+</tr>
+<tr>
+<td>\G</td>
+<td>匹配最后匹配完成的位置</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>匹配一个换行符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>匹配一个制表符</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配一行字符串的开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配一行字符串的结尾</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除了换行符外的任意字符。当<code>re.DOTALL</code>标记被指定时，则可以匹配包括换行符的任意字符。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>用来表示一组字符，单独列出，比如 <code>[amk]</code>匹配a、m或k</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td>不在<code>[...]</code>中的字符，比如<code>[^abc]</code>匹配除了a、b、c之外的字符</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配0个或多个表达式</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配1个或多个表达式</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配0个或1个前面的正则表达式定义的片段，非贪婪方式</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>精确匹配n个前面的表达式</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>匹配n到m个由前面正则表达式定义的片段，贪婪方式</td>
+</tr>
+<tr>
+<td>a|b</td>
+<td>匹配a或b</td>
+</tr>
+<tr>
+<td>( )</td>
+<td>匹配括号内的表达式，也表示一个组</td>
+</tr>
+</tbody></table>
+<h2 id="re库-Python"><a href="#re库-Python" class="headerlink" title="re库(Python)"></a>re库(Python)</h2><h3 id="match方法"><a href="#match方法" class="headerlink" title="match方法"></a>match方法</h3><p>向<code>match</code>传入要匹配的字符串以及正则表达式，就可以检测这个正则表达式是否匹配字符串。</p>
+<p><strong><em>第一个参数传入正则表达式，第二个参数传入要匹配的字符串。</em></strong></p>
+<p><code>match</code>从字符串的起始位置匹配正则表达式：</p>
+<ul>
+<li>如果匹配，就返回匹配成功的结果</li>
+<li>如果不匹配，就返回None</li>
+</ul>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 123 4567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^Hello\s\d\d\d\s\d&#123;4&#125;\s\w&#123;10&#125;'</span>, content)<br>print(result)<br>print(result.group())<br>print(result.span())<br><br>*************************************************************<br><br>运行结果如下:<br><span class="hljs-number">41</span><br>&lt;_sre.SRE_Match object; span=(<span class="hljs-number">0</span>, <span class="hljs-number">25</span>), match=<span class="hljs-string">'Hello 123 4567 World_This'</span>&gt;<br>Hello <span class="hljs-number">123</span> <span class="hljs-number">4567</span> World_This<br>(<span class="hljs-number">0</span>, <span class="hljs-number">25</span>)<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>开头的<code>^</code>是匹配字符串的开头，也就是以<code>Hello</code>开头；</li>
+<li><code>\s</code>匹配空白字符，用来匹配目标串的空格；</li>
+<li><code>\d</code>匹配数字，3个<code>\d</code>匹配123；</li>
+<li><code>\s</code>匹配1个空格；</li>
+<li><code>\d{4}</code>代表匹配前面的规则4次，也就是匹配4个数字；</li>
+<li><code>\s</code>匹配1个空格；</li>
+<li><code>\w{10}</code>匹配10个字母、数字及下划线；</li>
+</ol>
+<p>若输出结果是<strong>SRE_Match</strong>对象，则证明匹配成功。</p>
+<p>该对象有两个方法：</p>
+<ul>
+<li><strong>group()：</strong>可以输出正则表达式规则匹配到的内容；</li>
+<li><strong>span()：</strong>可以输出正则表达式规则所匹配到的结果字符串在原字符串中的位置范围；</li>
+</ul>
+<h4 id="匹配目标"><a href="#匹配目标" class="headerlink" title="匹配目标"></a>匹配目标</h4><p>可以使用<code>()</code>括号将想提取的子字符串括起来。<code>()</code>实际上标记了一个子表达式的开始和结束位置，被标记的每个子表达式会依次对应每一个分组，调用<code>group()</code>传入分组的索引即可获取提取的结果。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^Hello\s(\d+)\s(World)'</span>, content)<br>print(result)<br>print(result.group())<br>print(result.group(<span class="hljs-number">0</span>))<br>print(result.group(<span class="hljs-number">1</span>))<br>print(result.group(<span class="hljs-number">2</span>))<br>print(result.span())<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">40</span><br>&lt;_sre.SRE_Match object; span=(<span class="hljs-number">0</span>, <span class="hljs-number">19</span>), match=<span class="hljs-string">'Hello 1234567 World'</span>&gt;<br>Hello <span class="hljs-number">1234567</span> World<br>Hello <span class="hljs-number">1234567</span> World<br><span class="hljs-number">1234567</span><br>World<br>(<span class="hljs-number">0</span>, <span class="hljs-number">19</span>)<br></code></pre></td></tr></table></figure>
+
+<p>从结果中看出：</p>
+<ul>
+<li><code>group()</code>和<code>group(0)</code>结果相同，都是输出完整的匹配内容；</li>
+<li><code>group(1)</code>输出第一个被<code>()</code>包围的内容；</li>
+<li>如果正则表达式后面还有被<code>()</code>包围的内容，可以依次用<code>group(2)</code>、<code>group(3)</code>等来获取；</li>
+</ul>
+<h4 id="通用匹配"><a href="#通用匹配" class="headerlink" title="通用匹配"></a>通用匹配</h4><p>在正则表达式中，可以使用通用匹配(即万能匹配)，其中：</p>
+<ul>
+<li><code>.(点)</code>可以匹配<strong>除换行符外</strong>任意字符</li>
+<li><code>*(星)</code>代表前面的字符可以匹配无线次</li>
+</ul>
+<p>因此，可以用<code>.*</code>组合匹配任意字符串。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 123 4567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^Hello.*Demo$'</span>, content)<br>print(result)<br>print(result.group())<br>print(result.span())<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">41</span><br>&lt;_sre.SRE_Match object; span=(<span class="hljs-number">0</span>, <span class="hljs-number">41</span>), match=<span class="hljs-string">'Hello 123 4567 World_This is a Regex Demo'</span>&gt;<br>Hello <span class="hljs-number">123</span> <span class="hljs-number">4567</span> World_This <span class="hljs-keyword">is</span> a Regex Demo<br>(<span class="hljs-number">0</span>, <span class="hljs-number">41</span>)<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，<code>group()</code>方法输出了匹配的全部字符串，也就是说我们写的正则表达式匹配到了目标字符串的全部内容，<code>span()</code>方法输出(0, 41)，这是整个字符串的长度。</p>
+<h4 id="贪婪和非贪婪"><a href="#贪婪和非贪婪" class="headerlink" title="贪婪和非贪婪"></a>贪婪和非贪婪</h4><ul>
+<li>在贪婪匹配下，<code>.*</code> 会匹配尽可能多的字符。</li>
+<li>在非贪婪匹配下，<code>.*?</code> 会匹配尽可能少的字符。</li>
+</ul>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br><br><span class="hljs-comment"># 贪婪匹配</span><br>result = re.match(<span class="hljs-string">'^He.*(\d+).*Demo$'</span>, content)<br>print(<span class="hljs-string">'贪婪匹配: '</span>+ result.group(<span class="hljs-number">1</span>))<br><br><span class="hljs-comment"># 非贪婪匹配</span><br>result = re.match(<span class="hljs-string">'^He.*?(\d+).*Demo$'</span>, content)<br>print(<span class="hljs-string">'非贪婪匹配: '</span>+ result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">40</span><br>贪婪匹配: <span class="hljs-number">7</span><br>非贪婪匹配: <span class="hljs-number">1234567</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>在做匹配的时候，字符串中间尽量使用非贪婪匹配，也就是用 <code>.*?</code> 代替 <code>.*</code> ，以免出现匹配结果缺失的情况。</strong></p>
+<p>但是要注意，如果匹配的结果在字符串的结尾，<code>.*?</code>就有可能匹配不到任何内容了，因为他会匹配尽可能少的字符。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br><br><span class="hljs-comment"># 贪婪匹配</span><br>result = re.match(<span class="hljs-string">'^He.*Regex (.*)'</span>, content)<br>print(<span class="hljs-string">'贪婪匹配: '</span>+ result.group(<span class="hljs-number">1</span>))<br><br><span class="hljs-comment"># 非贪婪匹配</span><br>result = re.match(<span class="hljs-string">'^He.*Regex (.*?)'</span>, content)<br>print(<span class="hljs-string">'非贪婪匹配: '</span>+ result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">40</span><br>贪婪匹配: Demo<br>非贪婪匹配:<br></code></pre></td></tr></table></figure>
+
+<h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>正则表达式可以包含一些可选标志修饰符来控制匹配的模式。</p>
+<p>修饰符被指定为一个可选的标志。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'''Hello 1234567 World_This<br> is a Regex Demo'''</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^He.*Regex (.*)'</span>, content)<br>print(result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">41</span><br>Traceback (most recent call last):<br>  File <span class="hljs-string">"/Users/huben/Desktop/spider/cs.py"</span>, line <span class="hljs-number">7</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    print(result.group(<span class="hljs-number">1</span>))<br>AttributeError: <span class="hljs-string">'NoneType'</span> object has no attribute <span class="hljs-string">'group'</span><br></code></pre></td></tr></table></figure>
+
+<p>运行直接报错，也就是说正则表达式没有匹配到这个字符串，返回的结果为None，而又调用了<code>group()</code>方法导致<code>AttributeError</code>。</p>
+<p><strong>原因：</strong> <code>.</code> 匹配的是除了换行符之外的任意字符，当遇到换行符时，<code>.*?</code> 就不能匹配了，所以导致失败。</p>
+<p>这里可以加上修饰符 <code>re.S</code> ，即可修正这个错误。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'''Hello 1234567 World_This<br> is a Regex Demo'''</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^He.*Regex (.*)'</span>, content, re.S)<br>print(result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">41</span><br>Demo<br></code></pre></td></tr></table></figure>
+
+<p>这个<code>re.S</code>在网页匹配中经常用到。因为HTML节点经常会有换行，加上它，就可以匹配节点与节点之间的换行了。</p>
+<p>另外还有一些修饰符如下：</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>re.I</td>
+<td>使匹配与大小写不敏感</td>
+</tr>
+<tr>
+<td>re.L</td>
+<td>做本地化识别(locale-aware)匹配</td>
+</tr>
+<tr>
+<td>re.M</td>
+<td>多行匹配，影响 ^ 和 $</td>
+</tr>
+<tr>
+<td>re.S</td>
+<td>使 . (点) 匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td>re.U</td>
+<td>根据Unicode字符集解析字符。这个标志影响\w, \W, \b, \B</td>
+</tr>
+<tr>
+<td>re.X</td>
+<td>该标志通过给予更灵活的格式以便将正则表达式写的更易于理解</td>
+</tr>
+</tbody></table>
+<p>较为常用的是 <code>re.I</code> ，和 <code>re.S</code> 。</p>
+<h4 id="转义匹配"><a href="#转义匹配" class="headerlink" title="转义匹配"></a>转义匹配</h4><p>在正则表达式中定义了很多匹配，但是如果要匹配包含 <code>.</code> 等特殊字符时，就需要使用转义匹配了。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'(百度)www.baidu.com'</span><br>result = re.match(<span class="hljs-string">'\(百度\)www\.baidu\.com'</span>, content)<br>print(result.group())<br><br>******************************************************************<br><br>运行结果：<br>(百度)www.baidu.com<br></code></pre></td></tr></table></figure>
+
+<p>当遇到用于正则匹配模式的特殊字符时，<strong>在前面加反斜杠转义一下即可</strong>。</p>
+<h3 id="search方法"><a href="#search方法" class="headerlink" title="search方法"></a>search方法</h3><p><code>match()</code>方法在匹配时是从字符串的开头开始匹配的，一旦开头不匹配，那么整个匹配就会失败。这在做匹配时会非常不方便，它更适合用来检测某个字符串是否符合某个正则表达式的规则。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Extra strings Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'He.*Regex (.*)'</span>, content)<br>print(result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br>Traceback (most recent call last):<br>  File <span class="hljs-string">"/Users/huben/Desktop/spider/cs.py"</span>, line <span class="hljs-number">6</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br><span class="hljs-number">54</span><br>    print(result.group(<span class="hljs-number">1</span>))<br>AttributeError: <span class="hljs-string">'NoneType'</span> object has no attribute <span class="hljs-string">'group'</span><br></code></pre></td></tr></table></figure>
+
+<p>而<code>search()</code>方法在匹配的时候会扫描整个字符串，然后<strong>返回第一个成功匹配的结果</strong>。</p>
+<p>即，<strong>正则表达式可以是字符串的一部分</strong>，在匹配时，<code>search()</code>方法会依次扫描字符串，直到找到第一个符合规则的字符串，然后返回匹配内容，如果搜索完了还没有找到，则返回<strong>None</strong>。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Extra strings Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.search(<span class="hljs-string">'He.*Regex (.*)'</span>, content)<br>print(result.group())<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">54</span><br>Hello <span class="hljs-number">1234567</span> World_This <span class="hljs-keyword">is</span> a Regex Demo<br></code></pre></td></tr></table></figure>
+
+<p>因此，为了匹配方便，我们尽量使用<code>search()</code>方法。</p>
+<h3 id="findall方法"><a href="#findall方法" class="headerlink" title="findall方法"></a>findall方法</h3><p>如果想要获取正则表达式的所有内容，则需要借助 <code>findall()</code> 方法。</p>
+<p>该方法会搜索整个字符串，然后返回匹配正则表达式的所有内容。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">results = re.findall(RegEx, content, re.S) <span class="hljs-comment"># 匹配所有结果</span><br><span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> results:<br>    print(result)<br>    print(result[<span class="hljs-number">0</span>],result[<span class="hljs-number">1</span>],result[<span class="hljs-number">2</span>])	<span class="hljs-comment"># 这里相当于group(1),group(2)...</span><br></code></pre></td></tr></table></figure>
+
+<p>可以看出，返回的列表中的每个元素都是元组类型，可以用对应的索引依次取出即可。</p>
+<h3 id="sub方法"><a href="#sub方法" class="headerlink" title="sub方法"></a>sub方法</h3><p>除了使用正则表达式提取信息外，有时候还需要借助它来修改文本。</p>
+<p>比如要把一串文本中的所有数字都去掉，如果只用字符串的<code>replace()</code>方法，那就太繁琐了。</p>
+<p>可以使用<code>sub()</code>方法。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">"Hello 1234567 World_This is a Regex Demo"</span><br>content = re.sub(<span class="hljs-string">' \d+'</span>, <span class="hljs-string">''</span>, content)<br>print(content)<br><br>******************************************************************<br><br>运行结果：<br>Hello World_This <span class="hljs-keyword">is</span> a Regex Demo<br></code></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><strong>第一个参数：</strong>传入<code>\d+</code>来匹配所有的数字；</li>
+<li><strong>第二个参数：</strong>替换成的字符串(如果去掉该参数的话，可以赋值为空)；</li>
+<li><strong>第三个参数：</strong>原字符串；</li>
+</ul>
+<h3 id="compile方法"><a href="#compile方法" class="headerlink" title="compile方法"></a>compile方法</h3><p><code>compile()</code>方法可以将正则字符串编译成正则表达式对象，以便在后面的匹配中复用。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content1 = <span class="hljs-string">'2016-12-15 12:00'</span><br>content2 = <span class="hljs-string">'2016-12-17 12:55'</span><br>content3 = <span class="hljs-string">'2016-12-22 13:21'</span><br><br>pattern = re.compile(<span class="hljs-string">'\d&#123;2&#125;:\d&#123;2&#125;'</span>)<br><br>result1 = re.sub(pattern, <span class="hljs-string">''</span>, content1)<br>result2 = re.sub(pattern, <span class="hljs-string">''</span>, content2)<br>result3 = re.sub(pattern, <span class="hljs-string">''</span>, content3)<br><br>print(result1, result2, result3)<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">2016</span><span class="hljs-number">-12</span><span class="hljs-number">-15</span>  <span class="hljs-number">2016</span><span class="hljs-number">-12</span><span class="hljs-number">-17</span>  <span class="hljs-number">2016</span><span class="hljs-number">-12</span><span class="hljs-number">-22</span><br></code></pre></td></tr></table></figure>
+
+<p>例如，如果我们想要将三个日期中的时间去掉，此时可以借助<code>sub()</code>方法。</p>
+<p>该方法的第一个参数是正则表达式，但是这里没有必要重复写3个同样的正则表达式，此时可以借助<code>compile()</code>方法将正则表达式编译成一个正则表达式对象，以便复用。</p>
+<p>另外，<code>compile()</code>还可以传入修饰符，例如<code>re.S</code>等修饰符，这样在<code>search()</code>、<code>findall()</code>等方法中就不需要额外传了。例如：<code>pattern = re.compile(&#39;\d{2}:\d{2}&#39;, re.S)</code></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        
+        <a class="post-tag button" href="/tags/正则表达式/" rel="tag"><i class="fas fa-tags"></i>正则表达式</a>
+        
+        <a class="post-tag button" href="/tags/字符串处理/" rel="tag"><i class="fas fa-tags"></i>字符串处理</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/11/代理的基本原理/" rel="next" title="代理的基本原理"><i class="fas fa-angle-left"></i><span class="nav-title">代理的基本原理</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">29</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">17</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">25</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用匹配规则"><span class="toc-text">常用匹配规则</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#re库-Python"><span class="toc-text">re库(Python)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#match方法"><span class="toc-text">match方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#匹配目标"><span class="toc-text">匹配目标</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#通用匹配"><span class="toc-text">通用匹配</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#贪婪和非贪婪"><span class="toc-text">贪婪和非贪婪</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#修饰符"><span class="toc-text">修饰符</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#转义匹配"><span class="toc-text">转义匹配</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#search方法"><span class="toc-text">search方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#findall方法"><span class="toc-text">findall方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#sub方法"><span class="toc-text">sub方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#compile方法"><span class="toc-text">compile方法</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
