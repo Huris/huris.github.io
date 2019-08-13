@@ -212,7 +212,49 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <a id="more"></a>
+      <p>学习打开摄像头捕获照片、播放本地视频、录制视频等。</p>
+<p>目标：</p>
+<ul>
+<li>打开摄像头并捕获照片</li>
+<li>播放本地视频，录制视频</li>
+<li>OpenCV函数：<code>cv2.VideoCapture()</code>、<code>cv2.VideoWriter()</code></li>
+</ul>
+<a id="more"></a>
+
+
+
+<h2 id="打开摄像头"><a href="#打开摄像头" class="headerlink" title="打开摄像头"></a>打开摄像头</h2><p>要使用摄像头，需要使用<code>cv2.VideoCapture(0)</code>创建VideoCapture对象，参数0指的是摄像头的编号，如果你电脑上有两个摄像头的话，访问第2个摄像头就可以传入1，依此类推。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 打开摄像头并灰度化显示</span><br><span class="hljs-keyword">import</span> cv2<br><br>capture = cv2.VideoCapture(<span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 获取捕获的分辨率</span><br><span class="hljs-comment"># propId可以直接写数字，也可以用OpenCV的符号表示</span><br>width, height = capture.get(<span class="hljs-number">3</span>), capture.get(<span class="hljs-number">4</span>)<br>print(width, height)<br><br><span class="hljs-comment"># 以原分辨率的一倍来捕获</span><br>capture.set(cv2.CAP_PROP_FRAME_WIDTH, width * <span class="hljs-number">5</span>)<br>capture.set(cv2.CAP_PROP_FRAME_HEIGHT, height * <span class="hljs-number">2</span>)<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 获取一帧</span><br>    <span class="hljs-comment"># ret(return value):布尔值，表示当前这一帧是否获取正确</span><br>    ret, frame = capture.read()<br>    <span class="hljs-comment"># cv2.cvtColor()用来转换颜色，这里将这帧彩色图转化为灰度图</span><br>    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)<br><br>    cv2.imshow(<span class="hljs-string">'frame'</span>, gray)<br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) == ord(<span class="hljs-string">'q'</span>):<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>经验之谈：某些摄像头设定分辨率等参数时会无效，因为它有固定的分辨率大小支持，一般可在摄像头的资料页中找到。</p>
+</blockquote>
+<h2 id="播放本地视频"><a href="#播放本地视频" class="headerlink" title="播放本地视频"></a>播放本地视频</h2><p>跟打开摄像头一样，如果把摄像头的编号换成视频的路径就可以播放本地视频了。回想一下<code>cv2.waitKey()</code>，它的参数表示暂停时间，所以这个值越大，视频播放速度越慢，反之，播放速度越快，通常设置为25或30</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-comment"># 播放本地视频</span><br>capture = cv2.VideoCapture(<span class="hljs-string">'demo_video.mp4'</span>)<br><br><span class="hljs-keyword">while</span> capture.isOpened():<br>    ret, frame = capture.read()<br>    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)<br><br>    cv2.imshow(<span class="hljs-string">'frame'</span>, gray)<br>    <span class="hljs-comment"># cv2.waitKey(),参数表示暂停时间,值越大,播放速度越慢,一般设为25或30</span><br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">30</span>) == ord(<span class="hljs-string">'q'</span>):<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="录制视频"><a href="#录制视频" class="headerlink" title="录制视频"></a>录制视频</h2><p>之前我们保存图片用的是<code>cv2.imwrite()</code>，要保存视频，我们需要创建一个<code>VideoWriter</code>的对象，需要给它传入四个参数：</p>
+<ul>
+<li>输出的文件名，如<strong>output.avi</strong></li>
+<li>编码方式<a href="https://baike.baidu.com/item/fourcc/6168470?fr=aladdin" target="_blank" rel="noopener">FourCC</a>码</li>
+<li>帧率<a href="https://baike.baidu.com/item/FPS/3227416" target="_blank" rel="noopener">FPS</a></li>
+<li>要保存的分辨率大小</li>
+</ul>
+<p>FourCC是用来指定视频编码方式的四字节码，所有的编码可参考<a href="http://www.fourcc.org/codecs.php" target="_blank" rel="noopener">Video Codecs</a>。如MJPG编码可以这样写： <code>cv2.VideoWriter_fourcc(*&#39;MJPG&#39;)</code>或<code>cv2.VideoWriter_fourcc(&#39;M&#39;,&#39;J&#39;,&#39;P&#39;,&#39;G&#39;)</code></p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br>capture = cv2.VideoCapture(<span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 定义编码方式并创建VideoWriter对象</span><br>fourcc = cv2.VideoWriter_fourcc(*<span class="hljs-string">'MJPG'</span>)<br>outfile = cv2.VideoWriter(<span class="hljs-string">'output.avi'</span>, fourcc, <span class="hljs-number">25.</span>, (<span class="hljs-number">640</span>, <span class="hljs-number">480</span>))<br><br><span class="hljs-keyword">while</span> capture.isOpened():<br>    ret, frame = capture.read()<br><br>    <span class="hljs-keyword">if</span> ret:<br>        <span class="hljs-comment"># 写入文件</span><br>        outfile.write(frame)<br><br>        cv2.imshow(<span class="hljs-string">'frame'</span>, frame)<br>        <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) == ord(<span class="hljs-string">'q'</span>):<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>实现一个可以拖动滑块播放视频的功能。（提示：需要用到 <code>cv2.CAP_PROP_FRAME_COUNT</code>和<code>cv2.CAP_PROP_POS_FRAMES</code>两个属性）</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">track_back</span><span class="hljs-params">(x)</span>:</span><br>    <span class="hljs-string">'''<br>    ### 回调函数，x表示滑块的位置<br>    '''</span><br>    <span class="hljs-comment"># 更改视频的帧位置</span><br>    capture.set(cv2.CAP_PROP_POS_FRAMES, x)<br><br><br>cv2.namedWindow(<span class="hljs-string">'window'</span>)<br><br>capture = cv2.VideoCapture(<span class="hljs-string">'demo_video.mp4'</span>)<br><span class="hljs-comment"># 获取视频总共多少帧</span><br>frames = capture.get(cv2.CAP_PROP_FRAME_COUNT)<br><span class="hljs-comment"># 创建滑动条</span><br>cv2.createTrackbar(<span class="hljs-string">'process'</span>, <span class="hljs-string">'window'</span>, <span class="hljs-number">1</span>, int(frames), track_back)<br><br><span class="hljs-keyword">while</span> (capture.isOpened()):<br>    ret, frame = capture.read()<br><br>    cv2.imshow(<span class="hljs-string">'window'</span>, frame)<br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">30</span>) == ord(<span class="hljs-string">'q'</span>):<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
+<li><a href="https://docs.opencv.org/4.0.0/d8/dfe/classcv_1_1VideoCapture.html" target="_blank" rel="noopener">VideoCapture Object</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/dd/d9e/classcv_1_1VideoWriter.html" target="_blank" rel="noopener">VideoWriter Object</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab" target="_blank" rel="noopener">cv2.cvtColor()</a></li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
+<li><a href="http://www.fourcc.org/codecs.php" target="_blank" rel="noopener">Video Codecs by FOURCC</a></li>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_video_display/py_video_display.html" target="_blank" rel="noopener">Getting Started with Videos</a></li>
+</ul>
+
     </main>
     <footer class="post-footer">
       
@@ -263,6 +305,8 @@
     </div>
     <div class="page-nav-prev page-nav-item">
       
+      <a href="/2019/08/13/Python-OpenCV教程番外篇3：滑动条/" rel="prev" title="Python+OpenCV教程番外篇3：滑动条"><span class="nav-title">Python+OpenCV教程番外篇3：滑动条</span><i class="fas fa-angle-right"></i></a>
+      
     </div>
   </nav>
   
@@ -296,7 +340,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">38</a></div>
+      <div><a href="/archives/">40</a></div>
     </div>
     
     
@@ -310,7 +354,7 @@
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">33</a></div>
+      <div><a href="/tags/">34</a></div>
     </div>
     
     
@@ -330,6 +374,12 @@
     
     
     
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#打开摄像头"><span class="toc-text">打开摄像头</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#播放本地视频"><span class="toc-text">播放本地视频</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#录制视频"><span class="toc-text">录制视频</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#练习"><span class="toc-text">练习</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#接口文档"><span class="toc-text">接口文档</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li></ol></div>
+    </div>
     
     
     

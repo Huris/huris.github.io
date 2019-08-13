@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-13T08:34:18.976Z</updated>
+  <updated>2019-08-13T09:44:58.317Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,21 +17,101 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python+OpenCV教程4：图像基本操作</title>
+    <link href="http://huris.xyz/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B4%EF%BC%9A%E5%9B%BE%E5%83%8F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>http://huris.xyz/2019/08/13/Python-OpenCV教程4：图像基本操作/</id>
+    <published>2019-08-13T09:16:19.000Z</published>
+    <updated>2019-08-13T09:44:58.317Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习&lt;strong&gt;获取和修改像素点的值&lt;/strong&gt;，&lt;strong&gt;ROI感兴趣区域&lt;/strong&gt;，&lt;strong&gt;通道分离合并&lt;/strong&gt;等基本操作。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问和修改图片像素点的值&lt;/li&gt;
+&lt;li&gt;获取图片的宽、高、通道数等属性&lt;/li&gt;
+&lt;li&gt;了解感兴趣区域ROI&lt;/li&gt;
+&lt;li&gt;分离和合并图像通道&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;小结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;img[y,x]&lt;/code&gt;获取/设置像素点值，&lt;code&gt;img.shape&lt;/code&gt;：图片的形状（行数、列数、通道数）,&lt;code&gt;img.dtype&lt;/code&gt;：图像的数据类型。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;img[y1:y2,x1:x2]&lt;/code&gt;进行ROI截取，&lt;code&gt;cv2.split()/cv2.merge()&lt;/code&gt;通道分割/合并。更推荐的获取单通道方式：&lt;code&gt;b = img[:, :, 0]&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="ROI" scheme="http://huris.xyz/tags/ROI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+OpenCV教程番外篇3：滑动条</title>
+    <link href="http://huris.xyz/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%873%EF%BC%9A%E6%BB%91%E5%8A%A8%E6%9D%A1/"/>
+    <id>http://huris.xyz/2019/08/13/Python-OpenCV教程番外篇3：滑动条/</id>
+    <published>2019-08-13T08:47:23.000Z</published>
+    <updated>2019-08-13T08:58:57.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习使用滑动条动态调整参数。&lt;/p&gt;
+&lt;p&gt;使用方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cv2.createTrackbar(&amp;#39;R&amp;#39;, &amp;#39;image&amp;#39;, 0, 255, nothing)&lt;/code&gt;：创建滑动条&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;r = cv2.getTrackbarPos(&amp;#39;R&amp;#39;, &amp;#39;image&amp;#39;)&lt;/code&gt;：得到滑块位置&lt;/li&gt;
+&lt;li&gt;另外在回调函数中也可以获取滑块位置&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python+OpenCV教程3：打开摄像头</title>
     <link href="http://huris.xyz/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B3%EF%BC%9A%E6%89%93%E5%BC%80%E6%91%84%E5%83%8F%E5%A4%B4/"/>
     <id>http://huris.xyz/2019/08/13/Python-OpenCV教程3：打开摄像头/</id>
     <published>2019-08-13T08:33:42.000Z</published>
-    <updated>2019-08-13T08:34:18.976Z</updated>
+    <updated>2019-08-13T09:15:31.246Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a
-        
-      
+      &lt;p&gt;学习打开摄像头捕获照片、播放本地视频、录制视频等。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;打开摄像头并捕获照片&lt;/li&gt;
+&lt;li&gt;播放本地视频，录制视频&lt;/li&gt;
+&lt;li&gt;OpenCV函数：&lt;code&gt;cv2.VideoCapture()&lt;/code&gt;、&lt;code&gt;cv2.VideoWriter()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -538,62 +618,6 @@
 &lt;p&gt;Python也有一些这样的Web服务程序，比如Flask、Django等，我们可以拿它来开发网站和接口等。&lt;/p&gt;
 &lt;p&gt;在爬虫中主要使用这些Web服务程序来搭建一些API接口。例如：维护一个代理池，代理保存在Redis数据库中，我们要将代理池作为一个公共的组件使用，那么如何构建一个方便的平台来供我们获取这些代理呢？最合适不过的就是通过Web服务提供一个API接口，我们只需要请求接口即可获取新的代理，这样做，简单、高效、实用！&lt;/p&gt;
 &lt;p&gt;本文主要介绍Web服务程序&lt;strong&gt;Flask&lt;/strong&gt;和&lt;strong&gt;Tornado&lt;/strong&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>存储库的安装</title>
-    <link href="http://huris.xyz/2019/08/05/%E5%AD%98%E5%82%A8%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
-    <id>http://huris.xyz/2019/08/05/存储库的安装/</id>
-    <published>2019-08-05T03:15:24.000Z</published>
-    <updated>2019-08-05T04:23:19.957Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;数据库想要和Python进行交互的话，还需要安装一些Python存储库，如：&lt;strong&gt;MySQL&lt;/strong&gt;需要安装&lt;strong&gt;PyMySQL&lt;/strong&gt;、&lt;strong&gt;MongoDB&lt;/strong&gt;需要安装&lt;strong&gt;PyMongo&lt;/strong&gt;等。&lt;/p&gt;
-&lt;p&gt;本文主要说明这些存储库的安装方式。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="开发环境配置" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="开发环境配置" scheme="http://huris.xyz/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库的安装</title>
-    <link href="http://huris.xyz/2019/08/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"/>
-    <id>http://huris.xyz/2019/08/05/数据库的安装/</id>
-    <published>2019-08-05T02:40:03.000Z</published>
-    <updated>2019-08-05T04:25:19.294Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;作为数据存储的重要部分，数据库同样是必不可少的，数据库可以分为关系型数据库和非关系型数据库。&lt;/p&gt;
-&lt;p&gt;关系型数据库如SQLite、MySQL、Oracle、SQL Server、DB2等，其数据库是以表的形式存储。&lt;/p&gt;
-&lt;p&gt;非关系型数据库如MongoDB、Redis它们的存储形式是键值对，存储形式更加灵活。&lt;/p&gt;
-&lt;p&gt;本文主要介绍关系型数据库MySQL以及非关系型数据库MongoDB、Redis的安装。&lt;/p&gt;
     
     </summary>
     
