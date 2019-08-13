@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-11T05:46:07.256Z</updated>
+  <updated>2019-08-13T07:26:10.380Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,161 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python+OpenCV教程番外篇1：代码性能优化</title>
+    <link href="http://huris.xyz/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%871%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://huris.xyz/2019/08/13/Python-OpenCV教程番外篇1：代码性能优化/</id>
+    <published>2019-08-13T07:11:24.000Z</published>
+    <updated>2019-08-13T07:26:10.380Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;完成一项任务很重要，高效地完成更重要。图像处理是对矩阵的操作，数据量巨大。如果代码写的不好，性能差距将很大，所以这节我们来了解下如何评估和提升代码性能。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+OpenCV教程1：简介与安装</title>
+    <link href="http://huris.xyz/2019/08/13/Python+OpenCV%E6%95%99%E7%A8%8B1%EF%BC%9A%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%AE%89%E8%A3%85/"/>
+    <id>http://huris.xyz/2019/08/13/Python+OpenCV教程1：简介与安装/</id>
+    <published>2019-08-13T06:28:47.000Z</published>
+    <updated>2019-08-13T07:10:41.583Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;相信大部分人知道的OpenCV都是用C++来开发的，那为什么我推荐使用Python呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k-近邻算法</title>
+    <link href="http://huris.xyz/2019/08/13/k-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"/>
+    <id>http://huris.xyz/2019/08/13/k-近邻算法/</id>
+    <published>2019-08-13T02:21:52.000Z</published>
+    <updated>2019-08-13T06:11:26.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+
+
+&lt;figure class=&quot;hljs highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="监督学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="分类算法" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="机器学习" scheme="http://huris.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="k-近邻算法" scheme="http://huris.xyz/tags/k-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解析库的使用</title>
+    <link href="http://huris.xyz/2019/08/11/%E8%A7%A3%E6%9E%90%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://huris.xyz/2019/08/11/解析库的使用/</id>
+    <published>2019-08-11T08:21:02.000Z</published>
+    <updated>2019-08-11T13:38:03.785Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于网页节点来说，它可以定义&lt;code&gt;id&lt;/code&gt;，&lt;code&gt;class&lt;/code&gt;或其他属性。节点之间还有层次关系，在网页中可以通过&lt;strong&gt;XPath&lt;/strong&gt;或&lt;strong&gt;CSS选择器&lt;/strong&gt;来定位一个或多个节点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="原理" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="解析库" scheme="http://huris.xyz/tags/%E8%A7%A3%E6%9E%90%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫实例1-猫眼电影排行</title>
+    <link href="http://huris.xyz/2019/08/11/%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B1-%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1%E6%8E%92%E8%A1%8C/"/>
+    <id>http://huris.xyz/2019/08/11/爬虫实例1-猫眼电影排行/</id>
+    <published>2019-08-11T05:55:10.000Z</published>
+    <updated>2019-08-11T07:23:07.747Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文简单介绍爬取猫眼电影排行前100榜单。&lt;/p&gt;
+&lt;p&gt;主要爬取的电影信息有：排名，名称，图片，详情页，演员，上映时间，评分，简介。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="爬虫实例" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="正则表达式" scheme="http://huris.xyz/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+      <category term="实例" scheme="http://huris.xyz/tags/%E5%AE%9E%E4%BE%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>正则表达式</title>
@@ -423,136 +578,6 @@
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
       <category term="多线程" scheme="http://huris.xyz/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matplotlib基础</title>
-    <link href="http://huris.xyz/2019/08/03/Matplotlib%E5%9F%BA%E7%A1%80/"/>
-    <id>http://huris.xyz/2019/08/03/Matplotlib基础/</id>
-    <published>2019-08-03T00:48:34.000Z</published>
-    <updated>2019-08-03T00:53:06.967Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Matplotlib的一些基础画图命令&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Python" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="画图" scheme="http://huris.xyz/tags/%E7%94%BB%E5%9B%BE/"/>
-    
-      <category term="Matplotlib" scheme="http://huris.xyz/tags/Matplotlib/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LaTex学习</title>
-    <link href="http://huris.xyz/2019/08/02/Latex%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://huris.xyz/2019/08/02/Latex学习/</id>
-    <published>2019-08-02T10:05:05.000Z</published>
-    <updated>2019-08-03T00:34:26.366Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;LaTex一些基础知识&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="LaTex" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/LaTex/"/>
-    
-    
-      <category term="LaTex" scheme="http://huris.xyz/tags/LaTex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matlab画图总结</title>
-    <link href="http://huris.xyz/2019/08/02/Matlab%E7%94%BB%E5%9B%BE%E6%80%BB%E7%BB%93/"/>
-    <id>http://huris.xyz/2019/08/02/Matlab画图总结/</id>
-    <published>2019-08-02T10:01:13.000Z</published>
-    <updated>2019-08-02T10:02:47.141Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;figure class=&quot;hljs highlight matlab&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Matlab" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://huris.xyz/tags/Matlab/"/>
-    
-      <category term="画图" scheme="http://huris.xyz/tags/%E7%94%BB%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vim速查表</title>
-    <link href="http://huris.xyz/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    <id>http://huris.xyz/2019/08/02/vim速查表/</id>
-    <published>2019-08-02T09:22:48.000Z</published>
-    <updated>2019-08-03T01:04:16.715Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="vim" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/vim/"/>
-    
-    
-      <category term="vim" scheme="http://huris.xyz/tags/vim/"/>
-    
-      <category term="速查表" scheme="http://huris.xyz/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数阶乘</title>
-    <link href="http://huris.xyz/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
-    <id>http://huris.xyz/2019/08/02/大数阶乘/</id>
-    <published>2019-08-02T09:22:48.000Z</published>
-    <updated>2019-08-02T09:49:58.656Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文主要介绍了以下内容:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;求n!具体值c++实现&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法模板" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
-    
-    
-      <category term="大数" scheme="http://huris.xyz/tags/%E5%A4%A7%E6%95%B0/"/>
-    
-      <category term="算法模板" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
     
   </entry>
   

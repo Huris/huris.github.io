@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>解析库的使用 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/11/解析库的使用/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">解析库的使用</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-11T16:21:02+08:00">2019-08-11 16:21:02</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>对于网页节点来说，它可以定义<code>id</code>，<code>class</code>或其他属性。节点之间还有层次关系，在网页中可以通过<strong>XPath</strong>或<strong>CSS选择器</strong>来定位一个或多个节点。</p>
+<a id="more"></a>
+
+
+
+<h2 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h2><p>XPath(XML Path Language，XML路径语言)，它是一门在XML文档中查找信息的语言。</p>
+<p>它最初是用来搜寻XML文档的，但是它同样适用于HTML文档的搜索。</p>
+<h3 id="XPath简介"><a href="#XPath简介" class="headerlink" title="XPath简介"></a>XPath简介</h3><p>XPath的选择功能十分强大，它提供了非常简洁明了的<strong>路径选择表达式</strong>。另外，它还提供100个内建函数，用于字符串、数值、时间的匹配以及节点、序列的处理等。<strong>几乎所有我们想要定位的节点，都可以用XPath来选择。</strong></p>
+<p>XPath于1999年11月16日成为W3C的标准，它被设计为供XSLT、XPointer以及其他XML解析软件使用。</p>
+<h3 id="XPath规则"><a href="#XPath规则" class="headerlink" title="XPath规则"></a>XPath规则</h3><table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nodename</td>
+<td>选取此节点的所有子节点</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从当前节点选取直接子节点</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从当前节点选取子孙节点</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点</td>
+</tr>
+<tr>
+<td>..</td>
+<td>选取当前节点的父节点</td>
+</tr>
+<tr>
+<td>@</td>
+<td>选取属性</td>
+</tr>
+</tbody></table>
+<p>举个例子：<code>//title[@lang=&#39;eng&#39;]</code></p>
+<p>它代表选择所有名称为<strong>title</strong>，同时属性<strong>lang</strong>的值为<strong>eng</strong>的节点。</p>
+<h3 id="实例引入"><a href="#实例引入" class="headerlink" title="实例引入"></a>实例引入</h3><p>通过实例来感受一下使用XPath对网页进行解析的过程。</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python">from lxml import etree  # 导入lxml库的etree模块<br><br># 申明一段HTML文本<br>text = '''<br>&lt;div&gt;<br>&lt;ul&gt;<br>&lt;li class="item-0"&gt;&lt;a href="link1.html"&gt;first item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-1"&gt;&lt;a href="link2.html"&gt;second item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-inactive"&gt;&lt;a href="link3.html"&gt;third item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-1"&gt;&lt;a href="link4.html"&gt;fourth item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-0"&gt;&lt;a href="link5.html"&gt;fifth item&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;<br>'''<br><br># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象<br>html = etree.HTML(text)<br># 通过调用tostring()方法可以输出修正后的HTML代码,但是结果是bytes类型<br>result = etree.tostring(html)   <br># 利用decode()方法可以将其转成str类型<br>print(result.decode('utf-8'))<br><br>***************************************************************<br><br>运行结果：<br>&lt;html&gt;&lt;body&gt;&lt;div&gt;<br>&lt;ul&gt;<br>&lt;li class="item-0"&gt;&lt;a href="link1.html"&gt;first item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-1"&gt;&lt;a href="link2.html"&gt;second item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-inactive"&gt;&lt;a href="link3.html"&gt;third item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-1"&gt;&lt;a href="link4.html"&gt;fourth item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-0"&gt;&lt;a href="link5.html"&gt;fifth item&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<p>另外也可以直接读取文本文件进行解析，如下：</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python">from lxml import etree  # 导入lxml库的etree模块<br><br># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象<br># test.html存放HTML代码<br>html = etree.parse('./test.html', etree.HTMLParser())<br># 通过调用tostring()方法可以输出修正后的HTML代码,但是结果是bytes类型<br>result = etree.tostring(html)<br># 利用decode()方法可以将其转成str类型<br>print(result.decode('utf-8'))<br><br>***************************************************************<br><br>运行结果：<br>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;<br>&lt;html&gt;&lt;body&gt;&lt;div&gt;<br>&lt;ul&gt;<br>&lt;li class="item-0"&gt;&lt;a href="link1.html"&gt;first item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-1"&gt;&lt;a href="link2.html"&gt;second item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-inactive"&gt;&lt;a href="link3.html"&gt;third item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-1"&gt;&lt;a href="link4.html"&gt;fourth item&lt;/a&gt;&lt;/li&gt;<br>&lt;li class="item-0"&gt;&lt;a href="link5.html"&gt;fifth item&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<p>虽然输出多了一个DOCTYPE的声明，不过对解析无影响。</p>
+<h3 id="所有结点"><a href="#所有结点" class="headerlink" title="所有结点"></a>所有结点</h3><p>我们一般会用<code>//</code>开头的XPath规则来选取所有符合要求的节点。</p>
+<p>以上面的HTML文本为例，如果要选取所有节点，则可以这样实现：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 这里*代表匹配所有节点,即整个HTML文本中的所有节点都会被获取</span><br>result = html.xpath(<span class="hljs-string">'//*'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[&lt;Element html at <span class="hljs-number">0x1078e2b48</span>&gt;, &lt;Element body at <span class="hljs-number">0x1078e2c48</span>&gt;, &lt;Element div at <span class="hljs-number">0x1078e2c88</span>&gt;, &lt;Element ul at <span class="hljs-number">0x1078e2cc8</span>&gt;, &lt;Element li at <span class="hljs-number">0x1078e2d08</span>&gt;, &lt;Element a at <span class="hljs-number">0x1078e2d48</span>&gt;, &lt;Element li at <span class="hljs-number">0x1078e2d88</span>&gt;, &lt;Element a at <span class="hljs-number">0x1078e2dc8</span>&gt;, &lt;Element li at <span class="hljs-number">0x1078e2e08</span>&gt;, &lt;Element a at <span class="hljs-number">0x1078e2e48</span>&gt;, &lt;Element li at <span class="hljs-number">0x1078e2e88</span>&gt;, &lt;Element a at <span class="hljs-number">0x1078e2ec8</span>&gt;, &lt;Element li at <span class="hljs-number">0x1078e2f08</span>&gt;, &lt;Element a at <span class="hljs-number">0x1078e2f48</span>&gt;]<br></code></pre></td></tr></table></figure>
+
+<p>可以看到运行结果是一个列表，每个元素是<strong>Element类型</strong>，其后跟了节点的名称，如html、body、div、ul、li、a等，所有节点都包含在列表中了。</p>
+<p>当然，我们也可以通过匹配指定节点名称。如果想要获取所有li节点，可以做如下选择：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 这里使用"//li"选取所有li节点</span><br>result = html.xpath(<span class="hljs-string">'//li'</span>)<br>print(result)<br><span class="hljs-comment"># 如果要取出其中的一个对象，可以直接用中括号加索引，如[0]</span><br>print(result[<span class="hljs-number">0</span>])<br><br>***************************************************************<br><br>运行结果：<br>[&lt;Element li at <span class="hljs-number">0x1067c9c48</span>&gt;, &lt;Element li at <span class="hljs-number">0x1067c9c88</span>&gt;, &lt;Element li at <span class="hljs-number">0x1067c9cc8</span>&gt;, &lt;Element li at <span class="hljs-number">0x1067c9d08</span>&gt;, &lt;Element li at <span class="hljs-number">0x1067c9d48</span>&gt;]<br>&lt;Element li at <span class="hljs-number">0x1067c9c48</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到提取结果是一个列表形式，其中每个元素都是一个<strong>Element对象</strong>。</p>
+<h3 id="子节点"><a href="#子节点" class="headerlink" title="子节点"></a>子节点</h3><p>我们通过<code>/</code>或<code>//</code>即可查找元素的子节点或子孙节点。</p>
+<p>假如现在想要选择li节点的所有直接a子节点，可以这样实现：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 这里通过追加"/a"即选择了所有li节点的所有直接a子节点</span><br>result = html.xpath(<span class="hljs-string">'//li/a'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[&lt;Element a at <span class="hljs-number">0x1065c2c48</span>&gt;, &lt;Element a at <span class="hljs-number">0x1065c2c88</span>&gt;, &lt;Element a at <span class="hljs-number">0x1065c2cc8</span>&gt;, &lt;Element a at <span class="hljs-number">0x1065c2d08</span>&gt;, &lt;Element a at <span class="hljs-number">0x1065c2d48</span>&gt;]<br></code></pre></td></tr></table></figure>
+
+<p>此处的<code>/</code>用于选取直接子节点，如果要获取所有子孙节点，就可以使用<code>//</code>。</p>
+<p>例如，要获取ul节点下的所有子孙a节点，可以这样实现：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 这里通过追加"/a"即选择了所有li节点的所有直接a子节点</span><br>result = html.xpath(<span class="hljs-string">'//ul//a'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[&lt;Element a at <span class="hljs-number">0x1088e2c48</span>&gt;, &lt;Element a at <span class="hljs-number">0x1088e2c88</span>&gt;, &lt;Element a at <span class="hljs-number">0x1088e2cc8</span>&gt;, &lt;Element a at <span class="hljs-number">0x1088e2d08</span>&gt;, &lt;Element a at <span class="hljs-number">0x1088e2d48</span>&gt;]<br></code></pre></td></tr></table></figure>
+
+<p>但是如果这里使用<code>result = html.xpath(&#39;//ul/a&#39;)</code>，则无法获取任何结果。因为<code>/</code>用户获取直接子节点，而在ul节点下没有直接a子节点，只有li节点，所以无法获取任何匹配结果。</p>
+<h3 id="父节点"><a href="#父节点" class="headerlink" title="父节点"></a>父节点</h3><p>可以用<code>..</code>来实现查找父节点。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 现在首先选中href属性为link4.html的a节点,</span><br><span class="hljs-comment"># 然后再获取其父节点,然后再获取其class属性</span><br>result = html.xpath(<span class="hljs-string">'//a[@href="link4.html"]/../@class'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[<span class="hljs-string">'item-1'</span>]<br></code></pre></td></tr></table></figure>
+
+<p>检查一下结果发现，这正是我们获取目标li节点的class。</p>
+<p>同时我们也可以通过<code>parent::</code>来获取父节点，代码如下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 现在首先选中href属性为link4.html的a节点,</span><br><span class="hljs-comment"># 然后再获取其父节点,然后再获取其class属性</span><br>result = html.xpath(<span class="hljs-string">'//a[@href="link4.html"]/parent::*/@class'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[<span class="hljs-string">'item-1'</span>]<br></code></pre></td></tr></table></figure>
+
+<h3 id="属性匹配"><a href="#属性匹配" class="headerlink" title="属性匹配"></a>属性匹配</h3><p>在选取的时候，我们还可以通过<code>@</code>符号进行属性过滤。</p>
+<p>比如，我们要选取class为<code>item-0</code>的li节点，可以这样实现：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 通过加入[@class="item-0"]限制了节点的class属性为"item-0"</span><br>result = html.xpath(<span class="hljs-string">'//li[@class="item-0"]'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[&lt;Element li at <span class="hljs-number">0x1078e2c48</span>&gt;, &lt;Element li at <span class="hljs-number">0x1078e2c88</span>&gt;]<br></code></pre></td></tr></table></figure>
+
+<h3 id="文本获取"><a href="#文本获取" class="headerlink" title="文本获取"></a>文本获取</h3><p>我们用XPath中的<code>text()</code>方法获取节点中的文本，接下来尝试获取前面li节点中的文本，相关代码如下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 两种方式:</span><br><span class="hljs-comment"># 一种是先选取a节点再获取文本</span><br>result1 = html.xpath(<span class="hljs-string">'//li[@class="item-0"]/a/text()'</span>)<br><span class="hljs-comment"># 一种是直接使用//获取文本</span><br>result2 = html.xpath(<span class="hljs-string">'//li[@class="item-0"]//text()'</span>)<br><span class="hljs-comment"># 两者结果一样,但使用“//”有时会获取更多的内容</span><br>print(result1, result2)<br><br>***************************************************************<br><br>运行结果：<br>[<span class="hljs-string">'first item'</span>, <span class="hljs-string">'fifth item'</span>] [<span class="hljs-string">'first item'</span>, <span class="hljs-string">'fifth item'</span>]<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>如果想要获取子孙节点内部的所有文本，可以直接用<code>//text()</code>的方式，这样可以保证获取到最全面的文本信息，但是可能会夹杂一些换行符等特殊字符；</li>
+<li>如果想要获取某些特定子孙节点下的所有文本，可以先选取到特定的子孙节点，然后再调用<code>text()</code>方法获取其内部文本，这样可以保证获取的结果是整洁的。</li>
+</ul>
+<h3 id="属性获取"><a href="#属性获取" class="headerlink" title="属性获取"></a>属性获取</h3><p>用<code>@</code>符号来获取属性。</p>
+<p>例如，我们想要获取<strong>所有li节点下所有a节点的href属性</strong>，代码如下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 通过@href即可获取节点的href属性</span><br>result = html.xpath(<span class="hljs-string">'//li/a/@href'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[<span class="hljs-string">'link1.html'</span>, <span class="hljs-string">'link2.html'</span>, <span class="hljs-string">'link3.html'</span>, <span class="hljs-string">'link4.html'</span>, <span class="hljs-string">'link5.html'</span>]<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，我们成功获取了<strong>所有li节点下a节点的href属性</strong>，它们以列表形式返回。</p>
+<p>注意，<strong>属性获取</strong>和<strong>属性匹配</strong>不同：</p>
+<ul>
+<li><strong>属性匹配</strong>：是中括号加属性名和值来限定某个属性，如：<code>[@href=&quot;link1.html&quot;]</code></li>
+<li><strong>属性获取</strong>：是值获取节点的某个属性，如：<code>@href</code></li>
+</ul>
+<h3 id="属性多值匹配"><a href="#属性多值匹配" class="headerlink" title="属性多值匹配"></a>属性多值匹配</h3><p>有时候，某些节点的某个属性可能有多个值，例如：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br>text = <span class="hljs-string">'''<br>&lt;li class="li li-first"&gt;&lt;a href="link1.html"&gt;first item&lt;/a&gt;&lt;/li&gt;<br>'''</span><br>html = etree.HTML(text)<br>result = html.xpath(<span class="hljs-string">'//li[@class="li"]/a/text()'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[]<br></code></pre></td></tr></table></figure>
+
+<p>这里HTML文本中li节点的<strong>class属性</strong>有两个值<strong>li</strong>和<strong>li-first</strong>，此时如果还想用之前的属性匹配获取，就无法匹配了。</p>
+<p>因此，就需要使用<code>contains()</code>函数了，代码可以改写如下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br>text = <span class="hljs-string">'''<br>&lt;li class="li li-first"&gt;&lt;a href="link1.html"&gt;first item&lt;/a&gt;&lt;/li&gt;<br>'''</span><br>html = etree.HTML(text)<br>result = html.xpath(<span class="hljs-string">'//li[contains(@class,"li")]/a/text()'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[<span class="hljs-string">'first item'</span>]<br></code></pre></td></tr></table></figure>
+
+<p>这样通过<code>contains()</code>方法：</p>
+<ul>
+<li>第一个参数传入属性名称</li>
+<li>第二个参数传入属性值</li>
+</ul>
+<p>只要此属性包含所传入的属性值，就可以完成匹配了。</p>
+<p>这种方式在某个节点的某个属性有多个值的时候经常用到，如：某个节点的class属性通常由多个。</p>
+<h3 id="多属性匹配"><a href="#多属性匹配" class="headerlink" title="多属性匹配"></a>多属性匹配</h3><p>根据多个属性确定一个节点，这时就需要同时匹配多个属性。</p>
+<p>此时可以使用运算符<code>and</code>来连接，实例如下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br>text = <span class="hljs-string">'''<br>&lt;li class="li li-first" name="item"&gt;&lt;a href="link1.html"&gt;first item&lt;/a&gt;&lt;/li&gt;<br>'''</span><br>html = etree.HTML(text)<br>result = html.xpath(<span class="hljs-string">'//li[contains(@class,"li") and @name="item"]/a/text()'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[<span class="hljs-string">'first item'</span>]<br></code></pre></td></tr></table></figure>
+
+<p>这里li节点又增加了一个属性name。要确定这个节点，需要同时根据class和name属性来选择，一个条件是class属性里面包含li字符串，另一个条件是name属性为item字符串，二者需要同时满足，用<code>and</code>操作符相连，相连之后置于中括号<code>[]</code>内进行条件筛选。</p>
+<p>另外还有其他运算符：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>or</td>
+<td>或</td>
+<td>age=19 or age=20</td>
+<td>如果age是19或20，则返回true。否则，返回false。</td>
+</tr>
+<tr>
+<td>and</td>
+<td>与</td>
+<td>age&gt;19 and age&lt;21</td>
+<td>如果age是20，则返回true。否则，返回false。</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>计算机除法的余数</td>
+<td>5 mod 2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>|</td>
+<td>计算两个节点集</td>
+<td>//book | //cd</td>
+<td>返回所有拥有book和cd元素的节点集</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加法</td>
+<td>6 + 4</td>
+<td>10</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+<td>6 - 4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td>6 * 4</td>
+<td>24</td>
+</tr>
+<tr>
+<td>div</td>
+<td>除法</td>
+<td>8 div 4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等于</td>
+<td>age=19</td>
+<td>如果age是19，则返回true。否则，返回false。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+<td>age!=19</td>
+<td>如果age是19，则返回false。否则，返回true。</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+<td>age&lt;19</td>
+<td>如果age小于19，则返回true。否则，返回false。</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+<td>age&lt;=19</td>
+<td>如果age小于等于19，则返回true。否则，返回false。</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+<td>age&gt;19</td>
+<td>如果age大于19，则返回true。否则，返回false。</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+<td>age&gt;=19</td>
+<td>如果age大于等于19，则返回true。否则，返回false。</td>
+</tr>
+</tbody></table>
+<h3 id="按序选择"><a href="#按序选择" class="headerlink" title="按序选择"></a>按序选择</h3><p>有时候，在选择的时候某些属性可能同时匹配了多个节点，但是只想要其中的某个节点，如第二个节点或者最后一个节点，此时可以 利用中括号传入索引的方法获取特定次序的节点，示例如下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree  <span class="hljs-comment"># 导入lxml库的etree模块</span><br><br><span class="hljs-comment"># 调用HTML类进行初始化,这样就可以成功构造一个XPath解析对象</span><br>html = etree.parse(<span class="hljs-string">'./test.html'</span>, etree.HTMLParser())<br><span class="hljs-comment"># 选取第一个节点,注意从1开始</span><br>result = html.xpath(<span class="hljs-string">'//li[1]/a/text()'</span>)<br>print(result)<br><span class="hljs-comment"># 选取最后一个节点</span><br>result = html.xpath(<span class="hljs-string">'//li[last()]/a/text()'</span>)<br>print(result)<br><span class="hljs-comment"># 选取位置小于3的节点,即位置序号为1和2的节点</span><br>result = html.xpath(<span class="hljs-string">'//li[position()&lt;3]/a/text()'</span>)<br>print(result)<br><span class="hljs-comment"># 选取倒数第三个li节点</span><br>result = html.xpath(<span class="hljs-string">'//li[last()-2]/a/text()'</span>)<br>print(result)<br><br>***************************************************************<br><br>运行结果：<br>[<span class="hljs-string">'first item'</span>]<br>[<span class="hljs-string">'fifth item'</span>]<br>[<span class="hljs-string">'first item'</span>, <span class="hljs-string">'second item'</span>]<br>[<span class="hljs-string">'third item'</span>]<br></code></pre></td></tr></table></figure>
+
+<p>这里使用了<code>last()</code>、<code>position()</code>函数。</p>
+<p>在XPath中，提供了100多个函数，包括存取、数值、字符串、逻辑、节点、序列等处理功能。</p>
+<p>具体可以参考<a href="https://www.w3school.com.cn/xpath/xpath_functions.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/xpath/xpath_functions.asp</a></p>
+<h3 id="节点轴选择"><a href="#节点轴选择" class="headerlink" title="节点轴选择"></a>节点轴选择</h3>
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        
+        <a class="post-tag button" href="/tags/计算机网络/" rel="tag"><i class="fas fa-tags"></i>计算机网络</a>
+        
+        <a class="post-tag button" href="/tags/解析库/" rel="tag"><i class="fas fa-tags"></i>解析库</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/11/爬虫实例1-猫眼电影排行/" rel="next" title="爬虫实例1-猫眼电影排行"><i class="fas fa-angle-left"></i><span class="nav-title">爬虫实例1-猫眼电影排行</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/08/13/k-近邻算法/" rel="prev" title="k-近邻算法"><span class="nav-title">k-近邻算法</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">34</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">24</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">32</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#XPath"><span class="toc-text">XPath</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XPath简介"><span class="toc-text">XPath简介</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XPath规则"><span class="toc-text">XPath规则</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#实例引入"><span class="toc-text">实例引入</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#所有结点"><span class="toc-text">所有结点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#子节点"><span class="toc-text">子节点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#父节点"><span class="toc-text">父节点</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#属性匹配"><span class="toc-text">属性匹配</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#文本获取"><span class="toc-text">文本获取</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#属性获取"><span class="toc-text">属性获取</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#属性多值匹配"><span class="toc-text">属性多值匹配</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#多属性匹配"><span class="toc-text">多属性匹配</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#按序选择"><span class="toc-text">按序选择</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#节点轴选择"><span class="toc-text">节点轴选择</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
