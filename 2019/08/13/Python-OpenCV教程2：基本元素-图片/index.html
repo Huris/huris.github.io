@@ -135,7 +135,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>大数阶乘 | Huris' HeapStack - For you, a thousand times over.</title>
+    <title>Python+OpenCV教程2：基本元素-图片 | Huris' HeapStack - For you, a thousand times over.</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -181,7 +181,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/02/大数阶乘/">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/13/Python-OpenCV教程2：基本元素-图片/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="Huris">
        <meta itemprop="description" content="To be is to be perceived.">
@@ -192,11 +192,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">大数阶乘</h1>
+      <h1 class="post-title" itemprop="name headline">Python+OpenCV教程2：基本元素-图片</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-02T17:22:48+08:00">2019-08-02 17:22:48</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-13T15:27:21+08:00">2019-08-13 15:27:21</time></span>
         </span>
         
         
@@ -205,30 +205,89 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法与数据结构/" itemprop="url" rel="index"><span itemprop="name">算法与数据结构</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法与数据结构/算法模板/" itemprop="url" rel="index"><span itemprop="name">算法模板</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
         </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p><strong>本文主要介绍了以下内容:</strong></p>
-<p>求n!具体值c++实现</p>
+      <p>学习如何加载图片，显示并保存图片。</p>
+<p>目标：</p>
+<ul>
+<li>加载图片，显示图片，保存图片</li>
+<li>OpenCV函数：<code>cv2.imread()</code>加载图片、<code>cv2.imshow()</code>显示图片、<code>cv2.imwrite()</code>保存图片</li>
+</ul>
 <a id="more"></a>
 
 
 
-<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;//大数N!  </span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string.h&gt;  </span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;  <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>  <br></span>&#123;  <br>    <span class="hljs-keyword">int</span> n,a[<span class="hljs-number">100000</span>],i,j,wei,up;  <br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;n)!=EOF)  <br>    &#123;  <br>        <span class="hljs-built_in">memset</span>(a,<span class="hljs-number">0</span>,<span class="hljs-keyword">sizeof</span>(a));<span class="hljs-comment">//一定要清零  </span><br>        up=<span class="hljs-number">0</span>;  <br>        wei=<span class="hljs-number">1</span>;  <br>        a[<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;<span class="hljs-comment">//当前结果的位数，便于相乘和最后输出   </span><br>        <span class="hljs-keyword">if</span>(n==<span class="hljs-number">1</span>||n==<span class="hljs-number">0</span>)  <br>        &#123;  <br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"1\n"</span>);  <br>            <span class="hljs-keyword">continue</span>;<span class="hljs-comment">//如果为1!或0!则输出后直接进行下一个阶乘计算  </span><br>        &#125;  <br>        <span class="hljs-keyword">for</span>(i=<span class="hljs-number">2</span>; i&lt;=n; i++)<span class="hljs-comment">//N!中的每个数  </span><br>        &#123;  <br>            <span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>,up=<span class="hljs-number">0</span>; j&lt;=wei; j++)  <br>            &#123;  <br>                a[j]=a[j]*i+up; <span class="hljs-comment">//当前j数加 进位  </span><br>                up=a[j]/<span class="hljs-number">10</span>;<span class="hljs-comment">//进位整除10  </span><br>                a[j]=a[j]%<span class="hljs-number">10</span>;<span class="hljs-comment">//当前数取余存储  </span><br>            &#125;  <br>            <span class="hljs-keyword">while</span>(up&gt;<span class="hljs-number">0</span>)<span class="hljs-comment">//最后首位大于0则要取余进位  </span><br>            &#123;  <br>                a[j++]+=up%<span class="hljs-number">10</span>;<span class="hljs-comment">//j++的值为进位取余 注意 j++导致后面的j加了一  </span><br>                up=up/<span class="hljs-number">10</span>;  <br>            &#125;  <br>            wei=j<span class="hljs-number">-1</span>;<span class="hljs-comment">//减去上面的j++  </span><br>        &#125;  <br>        <span class="hljs-keyword">for</span>(i=wei; i&gt;=<span class="hljs-number">1</span>; i--)  <br>            (i!=<span class="hljs-number">1</span>)? <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>,a[i]) : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,a[i]);<span class="hljs-comment">//三目 判断是否为最后一位 则输出换行  </span><br>    &#125;  <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <br>&#125;<br></code></pre></td></tr></table></figure>
+<p>大部分人可能都知道电脑上的彩色图是以RGB(红-绿-蓝，Red-Green-Blue)颜色模式显示的，但OpenCV中彩色图是以<strong>B-G-R</strong>通道顺序存储的，灰度图只有一个通道。</p>
+<p>图像坐标的起始点是在左上角，所以行对应的是y，列对应的是x：</p>
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0%E5%9B%BE%E7%89%87.jpg">
 
+
+
+<h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><p>使用<code>cv2.imread()</code>读取一张图片：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-comment"># 灰度图加载一张彩色图</span><br>img = cv2.imread(<span class="hljs-string">'lena.jpg'</span>, <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>参数1：图片的文件名<ul>
+<li>如果图片放在当前文件夹下，直接写文件名就行了，如’lena.jpg’</li>
+<li>否则需要给出绝对路径，如’D:\OpenCVSamples\lena.jpg’</li>
+</ul>
+</li>
+<li>参数2：读入方式，省略即采用默认值<ul>
+<li><code>cv2.IMREAD_COLOR</code>：彩色图，默认值(1)</li>
+<li><code>cv2.IMREAD_GRAYSCALE</code>：灰度图(0)</li>
+<li><code>cv2.IMREAD_UNCHANGED</code>：包含透明通道的彩色图(-1)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>经验之谈：路径中不能有中文噢，并且没有加载成功的话是不会报错的，<code>print(img)</code>的结果为None，后面处理才会报错，算是个小坑。</p>
+</blockquote>
+<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><p>使用<code>cv2.imshow()</code>显示图片，窗口会自适应图片的大小：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 显示图片</span><br>cv2.imshow(<span class="hljs-string">'lena'</span>, img)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>cv2.waitKey()</code>是让程序暂停的意思，参数是等待时间(毫秒ms)。</p>
+<p>时间一到，会继续执行接下来的程序，传入0的话表示一直等待。</p>
+<p>等待期间可以获取用户的按键输入：<code>k=cv2.waitKey(0)</code></p>
+<p>我们也可以先用<code>cv2.namedWindow()</code>创建一个窗口，之后再显示图片：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 先定义窗口，后显示图片</span><br>cv2.namedWindow(<span class="hljs-string">'lena2'</span>, cv2.WINDOW_NORMAL)<br>cv2.imshow(<span class="hljs-string">'lena2'</span>, img)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<p>参数1依旧是窗口的名字，参数2默认是<code>cv2.WINDOW_AUTOSIZE</code>，表示窗口大小自适应图片，也可以设置为<code>cv2.WINDOW_NORMAL</code>，表示窗口大小可调整。图片比较大的时候，可以考虑用后者。</p>
+<h2 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h2><p>使用<code>cv2.imwrite()</code>保存图片，参数1是包含后缀名的文件名：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 保存图片</span><br>cv2.imwrite(<span class="hljs-string">'lena_gray.jpg'</span>, img)<br></code></pre></td></tr></table></figure>
+
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-comment"># 1.灰度图加载一张彩色图</span><br>img = cv2.imread(<span class="hljs-string">'lena.jpg'</span>, <span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 2.显示图片</span><br>cv2.imshow(<span class="hljs-string">'lena'</span>, img)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 先定义窗口，后显示图片</span><br>cv2.namedWindow(<span class="hljs-string">'lena2'</span>, cv2.WINDOW_NORMAL)<br>cv2.imshow(<span class="hljs-string">'lena2'</span>, img)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 3.保存图片</span><br>cv2.imwrite(<span class="hljs-string">'lena_gray.jpg'</span>, img)<br></code></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>打开<strong>lena.jpg</strong>并显示，如果按下<strong>s</strong>，就保存图片为<strong>lena_save.bmp</strong>，否则就结束程序。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br>img = cv2.imread(<span class="hljs-string">'lena.jpg'</span>)<br>cv2.imshow(<span class="hljs-string">'lena'</span>, img)<br><br>k = cv2.waitKey(<span class="hljs-number">0</span>)<br><span class="hljs-comment"># ord()用来获取某个字符的编码</span><br><span class="hljs-keyword">if</span> k == ord(<span class="hljs-string">'s'</span>):<br>    cv2.imwrite(<span class="hljs-string">'lena_save.bmp'</span>, img)<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
+<li><a href="https://docs.opencv.org/4.0.0/d3/d63/classcv_1_1Mat.html" target="_blank" rel="noopener">Mat Object</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56" target="_blank" rel="noopener">cv2.imread()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563" target="_blank" rel="noopener">cv2.imshow()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d4/da8/group__imgcodecs.html#gabbc7ef1aa2edfaa87772f1202d67e0ce" target="_blank" rel="noopener">cv2.imwrite()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d7/dfc/group__highgui.html#ga5afdf8410934fd099df85c75b2e0888b" target="_blank" rel="noopener">cv.namedWindow()</a></li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html" target="_blank" rel="noopener">Getting Started with Images</a></li>
+</ul>
 
     </main>
     <footer class="post-footer">
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/大数/" rel="tag"><i class="fas fa-tags"></i>大数</a>
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
         
-        <a class="post-tag button" href="/tags/算法模板/" rel="tag"><i class="fas fa-tags"></i>算法模板</a>
+        <a class="post-tag button" href="/tags/OpenCV/" rel="tag"><i class="fas fa-tags"></i>OpenCV</a>
+        
+        <a class="post-tag button" href="/tags/计算机视觉/" rel="tag"><i class="fas fa-tags"></i>计算机视觉</a>
+        
+        <a class="post-tag button" href="/tags/图像处理/" rel="tag"><i class="fas fa-tags"></i>图像处理</a>
         
       </div>
       
@@ -262,12 +321,12 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2018/05/11/c++文件操作/" rel="next" title="c++文件操作"><i class="fas fa-angle-left"></i><span class="nav-title">c++文件操作</span></a>
+      <a href="/2019/08/13/Python-OpenCV教程番外篇1：代码性能优化/" rel="next" title="Python+OpenCV教程番外篇1：代码性能优化"><i class="fas fa-angle-left"></i><span class="nav-title">Python+OpenCV教程番外篇1：代码性能优化</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
       
-      <a href="/2019/08/02/vim速查表/" rel="prev" title="vim速查表"><span class="nav-title">vim速查表</span><i class="fas fa-angle-right"></i></a>
+      <a href="/2019/08/13/Python-OpenCV教程番外篇2：无损保存和Matplotlib使用/" rel="prev" title="Python+OpenCV教程番外篇2：无损保存和Matplotlib使用"><span class="nav-title">Python+OpenCV教程番外篇2：无损保存和Matplotlib使用</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -336,6 +395,12 @@
     
     
     
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#加载图片"><span class="toc-text">加载图片</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#显示图片"><span class="toc-text">显示图片</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#保存图片"><span class="toc-text">保存图片</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#完整代码"><span class="toc-text">完整代码</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#接口文档"><span class="toc-text">接口文档</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li></ol></div>
+    </div>
     
     
     
