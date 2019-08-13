@@ -39,6 +39,35 @@
     
     
     <entry>
+      <title>Python字符串切片(slice)</title>
+      <link href="/2019/08/13/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87-slice/"/>
+      <url>/2019/08/13/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87-slice/</url>
+      
+        <content type="html"><![CDATA[<p>切片操作（slice）可以从一个字符串中获取子字符串（字符串的一部分）。我们使用<strong>一对方括号、起始偏移量start、终止偏移量end 以及可选的步长step 来定义一个分片</strong>。</p><p>格式： <code>[start:end:step]</code></p><ul><li><code>[:]</code> 提取从开头（默认位置0）到结尾（默认位置-1）的整个字符串</li><li><code>[start:]</code> 从start 提取到结尾</li><li><code>[:end]</code> 从开头提取到end - 1</li><li><code>[start:end]</code> 从start 提取到end - 1</li><li><code>[start:end:step]</code> 从start 提取到end - 1，每step 个字符提取一个</li><li>左侧第一个字符的位置偏移量为0，右侧最后一个字符的位置偏移量为-1</li></ul><a id="more"></a><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="提取最后N个字符"><a href="#提取最后N个字符" class="headerlink" title="提取最后N个字符"></a>提取最后N个字符</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>letter = <span class="hljs-string">'abcdefghijklmnopqrstuvwxyz'</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>letter[<span class="hljs-number">-3</span>:]<br><span class="hljs-string">'xyz'</span><br></code></pre></td></tr></table></figure><h3 id="从开头到结尾，step为N："><a href="#从开头到结尾，step为N：" class="headerlink" title="从开头到结尾，step为N："></a>从开头到结尾，step为N：</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>letter[::<span class="hljs-number">5</span>]<br><span class="hljs-string">'afkpuz'</span><br></code></pre></td></tr></table></figure><h3 id="将字符串倒转-reverse-，-通过设置步长为负数："><a href="#将字符串倒转-reverse-，-通过设置步长为负数：" class="headerlink" title="将字符串倒转(reverse)， 通过设置步长为负数："></a>将字符串倒转(reverse)， 通过设置步长为负数：</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>letter[::<span class="hljs-number">-1</span>]<br><span class="hljs-string">'zyxwvutsrqponmlkjihgfedcba'</span><br></code></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程语言 </category>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> 字符串 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python+OpenCV教程番外篇2：无损保存和Matplotlib使用</title>
       <link href="/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%872%EF%BC%9A%E6%97%A0%E6%8D%9F%E4%BF%9D%E5%AD%98%E5%92%8CMatplotlib%E4%BD%BF%E7%94%A8/"/>
       <url>/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%872%EF%BC%9A%E6%97%A0%E6%8D%9F%E4%BF%9D%E5%AD%98%E5%92%8CMatplotlib%E4%BD%BF%E7%94%A8/</url>
