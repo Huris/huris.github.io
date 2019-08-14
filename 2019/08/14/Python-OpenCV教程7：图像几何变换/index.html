@@ -82,6 +82,25 @@
     
     
     
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
     
     <script defer type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript">
@@ -217,9 +236,9 @@
 <ul>
 <li>实现旋转、平移、缩放和翻转图片</li>
 <li>OpenCV函数：<ul>
-<li><code>cv2.resize()</code>：</li>
-<li><code>cv2.flip()</code>：</li>
-<li><code>cv2.warpAffine()</code>：</li>
+<li><code>cv2.resize()</code>：缩放图片，可以按指定大小缩放，也可以按比例缩放。</li>
+<li><code>cv2.flip()</code>：翻转图片，可以指定水平、垂直、水平垂直翻转三种方式。</li>
+<li><code>cv2.warpAffine()</code>：仿射变换，可以实现平移和旋转。</li>
 </ul>
 </li>
 </ul>
@@ -230,10 +249,46 @@
 
 
 
+<h2 id="缩放图片"><a href="#缩放图片" class="headerlink" title="缩放图片"></a>缩放图片</h2><p>缩放就是调整图片的大小，使用<code>cv2.resize()</code>函数实现缩放。可以按照比例缩放，也可以按照指定的大小缩放：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br>img = cv2.imread(<span class="hljs-string">'drawing.jpg'</span>)<br><br><span class="hljs-comment"># 1.按照指定的宽度、高度缩放图片</span><br>res = cv2.resize(img, (<span class="hljs-number">132</span>, <span class="hljs-number">150</span>))<br><br><span class="hljs-comment"># 按照比例缩放，如x,y轴均放大一倍</span><br>res2 = cv2.resize(img, <span class="hljs-literal">None</span>, fx=<span class="hljs-number">2</span>, fy=<span class="hljs-number">2</span>, interpolation=cv2.INTER_LINEAR)<br><br>cv2.imshow(<span class="hljs-string">'shrink'</span>, res), cv2.imshow(<span class="hljs-string">'zoom'</span>, res2)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<p>我们也可以指定缩放方法<code>interpolation</code>，更专业点叫插值方法，默认是<code>INTER_LINEAR</code>，全部可以参考：<a href="https://docs.opencv.org/4.0.0/da/d54/group__imgproc__transform.html#ga5bb5a1fea74ea38e1a5445ca803ff121" target="_blank" rel="noopener">InterpolationFlags</a></p>
+<h2 id="翻转图片"><a href="#翻转图片" class="headerlink" title="翻转图片"></a>翻转图片</h2><p>镜像翻转图片，可以用<code>cv2.flip()</code>函数：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">dst = cv2.flip(img, <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<p>其中，参数2 = 0：垂直翻转(沿x轴)，参数2 &gt; 0: 水平翻转(沿y轴)，参数2 &lt; 0: 水平垂直翻转。</p>
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_flip_image_sample.jpg">
 
 
 
+<h2 id="平移图片"><a href="#平移图片" class="headerlink" title="平移图片"></a>平移图片</h2><p>要平移图片，我们需要定义下面这样一个矩阵，$t_x$，$t_y$是向$x$和$y$方向平移的距离：<br>$$<br>M=\begin{bmatrix} 0 &amp; -1 &amp; t_x \ 1 &amp; 0 &amp; t_y\end{bmatrix}<br>$$<br>平移是用仿射变换函数<code>cv2.warpAffine()</code>实现的：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>img = cv2.imread(<span class="hljs-string">'drawing.jpg'</span>)<br><br><span class="hljs-comment"># 平移图片</span><br>rows, cols = img.shape[:<span class="hljs-number">2</span>]<br><span class="hljs-comment"># 定义平移矩阵，需要是numpy的float32类型</span><br><span class="hljs-comment"># x轴平移100，y轴平移50</span><br>M = np.float32([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">50</span>]])<br>dst = cv2.warpAffine(img, M, (cols, rows))<br><br>cv2.imshow(<span class="hljs-string">'shift'</span>, dst)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
 
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_translation_100_50.jpg">
+
+
+
+<h2 id="旋转图片"><a href="#旋转图片" class="headerlink" title="旋转图片"></a>旋转图片</h2><p>旋转同平移一样，也是用仿射变换实现的，因此也需要定义一个变换矩阵。OpenCV直接提供了 <code>cv2.getRotationMatrix2D()</code>函数来生成这个矩阵，该函数有三个参数：</p>
+<ul>
+<li>参数1：图片的旋转中心</li>
+<li>参数2：旋转角度(正：逆时针，负：顺时针)</li>
+<li>参数3：缩放比例，0.5表示缩小一半</li>
+</ul>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 45°顺时针旋转图片并缩小一半</span><br>M = cv2.getRotationMatrix2D((cols / <span class="hljs-number">2</span>, rows / <span class="hljs-number">2</span>), <span class="hljs-number">-45</span>, <span class="hljs-number">0.5</span>)<br>dst = cv2.warpAffine(img, M, (cols, rows))<br><br>cv2.imshow(<span class="hljs-string">'rotation'</span>, dst)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_rotation_45_degree.jpg">
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
+<li><a href="https://docs.opencv.org/4.0.0/da/d54/group__imgproc__transform.html#ga47a974309e9102f5f08231edc7e7529d" target="_blank" rel="noopener">cv2.resize()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d2/de8/group__core__array.html#gaca7be533e3dac7feb70fc60635adf441" target="_blank" rel="noopener">cv2.filp()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/da/d54/group__imgproc__transform.html#ga0203d9ee5fcd28d40dbc4a1ea4451983" target="_blank" rel="noopener">cv2.warpAffine()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/da/d54/group__imgproc__transform.html#gafbbc470ce83812914a70abfb604f4326" target="_blank" rel="noopener">cv2.getRotationMatrix2D()</a></li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html" target="_blank" rel="noopener">Geometric Transformations of Images</a></li>
+</ul>
 
     </main>
     <footer class="post-footer">
@@ -287,6 +342,8 @@
     </div>
     <div class="page-nav-prev page-nav-item">
       
+      <a href="/2019/08/14/Python-OpenCV教程番外篇5：仿射变换与透视变换/" rel="prev" title="Python-OpenCV教程番外篇5：仿射变换与透视变换"><span class="nav-title">Python-OpenCV教程番外篇5：仿射变换与透视变换</span><i class="fas fa-angle-right"></i></a>
+      
     </div>
   </nav>
   
@@ -320,7 +377,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">44</a></div>
+      <div><a href="/archives/">45</a></div>
     </div>
     
     
@@ -354,6 +411,12 @@
     
     
     
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#缩放图片"><span class="toc-text">缩放图片</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#翻转图片"><span class="toc-text">翻转图片</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#平移图片"><span class="toc-text">平移图片</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#旋转图片"><span class="toc-text">旋转图片</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#接口文档"><span class="toc-text">接口文档</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li></ol></div>
+    </div>
     
     
     

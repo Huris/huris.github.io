@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-14T02:31:59.003Z</updated>
+  <updated>2019-08-14T05:43:37.998Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python-OpenCV教程番外篇5：仿射变换与透视变换</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%875%EF%BC%9A%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E4%B8%8E%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇5：仿射变换与透视变换/</id>
+    <published>2019-08-14T02:56:55.000Z</published>
+    <updated>2019-08-14T05:43:37.998Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;常见的2D图像变换从原理上讲主要包括基于2×3矩阵的&lt;a href=&quot;https://baike.baidu.com/item/仿射变换&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;仿射变换&lt;/a&gt;和基于3×3矩阵&lt;a href=&quot;https://baike.baidu.com/item/透视变换&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;透视变换&lt;/a&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="几何变换" scheme="http://huris.xyz/tags/%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python+OpenCV教程7：图像几何变换</title>
     <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B7%EF%BC%9A%E5%9B%BE%E5%83%8F%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/"/>
     <id>http://huris.xyz/2019/08/14/Python-OpenCV教程7：图像几何变换/</id>
     <published>2019-08-14T02:27:03.000Z</published>
-    <updated>2019-08-14T02:31:59.003Z</updated>
+    <updated>2019-08-14T03:04:37.636Z</updated>
     
     <summary type="html">
     
@@ -30,9 +62,9 @@
 &lt;ul&gt;
 &lt;li&gt;实现旋转、平移、缩放和翻转图片&lt;/li&gt;
 &lt;li&gt;OpenCV函数：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv2.resize()&lt;/code&gt;：&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.flip()&lt;/code&gt;：&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.warpAffine()&lt;/code&gt;：&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.resize()&lt;/code&gt;：缩放图片，可以按指定大小缩放，也可以按比例缩放。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.flip()&lt;/code&gt;：翻转图片，可以指定水平、垂直、水平垂直翻转三种方式。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.warpAffine()&lt;/code&gt;：仿射变换，可以实现平移和旋转。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -670,31 +702,6 @@
       <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="原理" scheme="http://huris.xyz/tags/%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网页基础</title>
-    <link href="http://huris.xyz/2019/08/06/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/"/>
-    <id>http://huris.xyz/2019/08/06/网页基础/</id>
-    <published>2019-08-06T12:15:40.000Z</published>
-    <updated>2019-08-07T01:23:49.588Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;用浏览器访问网站时，网页各不相同，本文简单介绍了网页的基本组成、结构和结点等内容。&lt;/p&gt;
-&lt;p&gt;了解了这些内容，我们才有更加清晰的思路去解析和提取网页内容。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="网页" scheme="http://huris.xyz/tags/%E7%BD%91%E9%A1%B5/"/>
     
   </entry>
   
