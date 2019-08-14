@@ -135,7 +135,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>存储库的安装 | Huris' HeapStack - For you, a thousand times over.</title>
+    <title>Python+OpenCV教程番外篇4：Otsu阈值法 | Huris' HeapStack - For you, a thousand times over.</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -181,7 +181,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/05/存储库的安装/">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇4：Otsu阈值法/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="Huris">
        <meta itemprop="description" content="To be is to be perceived.">
@@ -192,11 +192,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">存储库的安装</h1>
+      <h1 class="post-title" itemprop="name headline">Python+OpenCV教程番外篇4：Otsu阈值法</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-05T11:15:24+08:00">2019-08-05 11:15:24</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-14T09:37:53+08:00">2019-08-14 09:37:53</time></span>
         </span>
         
         
@@ -205,72 +205,78 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/开发环境配置/" itemprop="url" rel="index"><span itemprop="name">开发环境配置</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
         </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>数据库想要和Python进行交互的话，还需要安装一些Python存储库，如：<strong>MySQL</strong>需要安装<strong>PyMySQL</strong>、<strong>MongoDB</strong>需要安装<strong>PyMongo</strong>等。</p>
-<p>本文主要说明这些存储库的安装方式。</p>
+      <p>大部分图像处理任务都需要先进行二值化操作，阈值的选取很关键，Otsu阈值法会自动计算阈值。</p>
+<p><a href="https://baike.baidu.com/item/otsu/16252828" target="_blank" rel="noopener">Otsu阈值法</a>（日本人大津展之提出的，也可称大津算法）非常适用于双峰图片，啥意思呢？</p>
 <a id="more"></a>
 
 
 
-<h2 id="PyMySQL"><a href="#PyMySQL" class="headerlink" title="PyMySQL"></a>PyMySQL</h2><p>在<strong>Python3</strong>中，如果想要将数据存储到<strong>MySQL</strong>中，就需要借助<strong>PyMySQL</strong>来操作。</p>
-<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/PyMySQL/PyMySQL" target="_blank" rel="noopener">https://github.com/PyMySQL/PyMySQL</a></li>
-<li>官方文档：<a href="http://pymysql.readthedocs.io" target="_blank" rel="noopener">http://pymysql.readthedocs.io</a></li>
-<li>PyPI：<a href="https://pypi.python.org/pypi/PyMySQL" target="_blank" rel="noopener">https://pypi.python.org/pypi/PyMySQL</a></li>
-</ul>
-<h3 id="pip安装"><a href="#pip安装" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install pymysql</code></p>
-<h3 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import pymysql<br>&gt;&gt;&gt; pymysql.VERSION<br>(0, 9, 3, None)<br></code></pre></td></tr></table></figure>
+<h2 id="双峰图片"><a href="#双峰图片" class="headerlink" title="双峰图片"></a>双峰图片</h2><p>双峰图片就是指图片的灰度直方图上有两个峰值，直方图就是每个值（0~255）的像素点个数统计，后面会详细介绍。</p>
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_bimodal_image_two_peaks.jpg">
 
-<p>如果成功输出了其版本内容，则证明PyMySQL成功安装。</p>
-<h2 id="PyMongoDB"><a href="#PyMongoDB" class="headerlink" title="PyMongoDB"></a>PyMongoDB</h2><p>在Python中，如果想要和<strong>MongoDB</strong>进行交互，就需要借助于<strong>PyMongo</strong>库。</p>
-<h3 id="相关链接-1"><a href="#相关链接-1" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/mongodb/mongo-python-driver" target="_blank" rel="noopener">https://github.com/mongodb/mongo-python-driver</a></li>
-<li>官方文档：<a href="http://api.mongodb.com/python/current" target="_blank" rel="noopener">http://api.mongodb.com/python/current</a></li>
-<li>PyPI：<a href="https://pypi.python.org/pypi/pymongo" target="_blank" rel="noopener">https://pypi.python.org/pypi/pymongo</a></li>
-</ul>
-<h3 id="pip安装-1"><a href="#pip安装-1" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install pymongo</code></p>
-<h3 id="验证安装-1"><a href="#验证安装-1" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import pymongo<br>&gt;&gt;&gt; pymongo.VERSION<br><span class="hljs-string">'3.8.0'</span><br></code></pre></td></tr></table></figure>
+<p>Otsu算法假设这副图片由前景色和背景色组成，通过统计学方法（最大类间方差）选取一个阈值，将前景和背景尽可能分开，我们先来看下代码，然后详细说明下算法原理。</p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>下面这段代码对比了使用固定阈值和Otsu阈值后的不同结果：</p>
+<p>另外，对含噪点的图像，先进行滤波操作效果会更好。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt<br><br>img = cv2.imread(<span class="hljs-string">'noisy.jpg'</span>, <span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 固定阈值法</span><br>ret1, th1 = cv2.threshold(img, <span class="hljs-number">100</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY)<br><br><span class="hljs-comment"># Otsu阈值法</span><br>ret2, th2 = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br><br><span class="hljs-comment"># 先进行高斯滤波，再使用Otsu阈值法</span><br>blur = cv2.GaussianBlur(img, (<span class="hljs-number">5</span>, <span class="hljs-number">5</span>), <span class="hljs-number">0</span>)<br>ret3, th3 = cv2.threshold(blur, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br></code></pre></td></tr></table></figure>
 
-<p>如果成功输出了其版本内容，则证明<strong>PyMongo</strong>成功安装。</p>
-<h2 id="redis-py"><a href="#redis-py" class="headerlink" title="redis-py"></a>redis-py</h2><p>在Python中，如果想要和<strong>Redis</strong>进行交互，就需要借助于<strong>redis-py</strong>库。</p>
-<h3 id="相关链接-2"><a href="#相关链接-2" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/andymccurdy/redis-py" target="_blank" rel="noopener">https://github.com/andymccurdy/redis-py</a></li>
-<li>官方文档：<a href="https://redis-py.readthedocs.io/" target="_blank" rel="noopener">https://redis-py.readthedocs.io/</a></li>
-</ul>
-<h3 id="pip安装-2"><a href="#pip安装-2" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install redis</code></p>
-<h3 id="验证安装-2"><a href="#验证安装-2" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import redis<br>&gt;&gt;&gt; redis.VERSION<br>(3, 3, 5)<br></code></pre></td></tr></table></figure>
+<p>下面我们用Matplotlib把原图、直方图和阈值图都显示出来：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python">images = [img, <span class="hljs-number">0</span>, th1,<br>          img, <span class="hljs-number">0</span>, th2,<br>          blur, <span class="hljs-number">0</span>, th3]<br><br>titles = [<span class="hljs-string">'Original'</span>, <span class="hljs-string">'Histogram'</span>, <span class="hljs-string">'Global(v=100)'</span>,<br>          <span class="hljs-string">'Original'</span>, <span class="hljs-string">'Histogram'</span>, <span class="hljs-string">"Otsu's"</span>,<br>          <span class="hljs-string">'Gaussian filtered Image'</span>, <span class="hljs-string">'Histogram'</span>, <span class="hljs-string">"Otsu's"</span>]<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    <span class="hljs-comment"># 绘制原图</span><br>    plt.subplot(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span>)<br>    plt.imshow(images[i * <span class="hljs-number">3</span>], <span class="hljs-string">'gray'</span>)<br>    plt.title(titles[i * <span class="hljs-number">3</span>], fontsize=<span class="hljs-number">8</span>)<br>    plt.xticks([]), plt.yticks([])<br><br>    <span class="hljs-comment"># 绘制直方图plt.hist，ravel函数将数组降成一维</span><br>    plt.subplot(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, i * <span class="hljs-number">3</span> + <span class="hljs-number">2</span>)<br>    plt.hist(images[i * <span class="hljs-number">3</span>].ravel(), <span class="hljs-number">256</span>)<br>    plt.title(titles[i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span>], fontsize=<span class="hljs-number">8</span>)<br>    plt.xticks([]), plt.yticks([])<br><br>    <span class="hljs-comment"># 绘制阈值图</span><br>    plt.subplot(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, i * <span class="hljs-number">3</span> + <span class="hljs-number">3</span>)<br>    plt.imshow(images[i * <span class="hljs-number">3</span> + <span class="hljs-number">2</span>], <span class="hljs-string">'gray'</span>)<br>    plt.title(titles[i * <span class="hljs-number">3</span> + <span class="hljs-number">2</span>], fontsize=<span class="hljs-number">8</span>)<br>    plt.xticks([]), plt.yticks([])<br>plt.show()<br></code></pre></td></tr></table></figure>
 
-<p>如果成功输出了其版本内容，则证明<strong>redis-py</strong>成功安装。</p>
-<h2 id="RedisDump"><a href="#RedisDump" class="headerlink" title="RedisDump"></a>RedisDump</h2><p>RedisDump是一个用于Redis数据导入/导出的工具，是基于Ruby实现的，所以要安装RedisDump，需要先安装Ruby。</p>
-<h3 id="相关链接-3"><a href="#相关链接-3" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/delano/redis-dump" target="_blank" rel="noopener">https://github.com/delano/redis-dump</a></li>
-<li>官方文档：<a href="http://delanotes.com/redis-dump" target="_blank" rel="noopener">http://delanotes.com/redis-dump</a></li>
-</ul>
-<h3 id="gem安装"><a href="#gem安装" class="headerlink" title="gem安装"></a>gem安装</h3><p>安装Ruby(参考<a href="http://www.ruby-lang.org/zh_cn/documentation/installation" target="_blank" rel="noopener">这里</a>)后，利用<strong>gem命令</strong>安装RedisDump：<code>gem install redis-dump</code></p>
-<h3 id="验证安装-3"><a href="#验证安装-3" class="headerlink" title="验证安装"></a>验证安装</h3><p>安装成功后，可以执行如下两个命令：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis-dump<br>redis-load<br></code></pre></td></tr></table></figure>
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_otsu_vs_simple_thresholding.jpg">
 
-<p>如果可以成功调用，则说明安装成功。</p>
+<p>可以看到，Otsu阈值明显优于固定阈值，省去了不断尝试阈值判断效果好坏的过程。其中，绘制直方图时，使用了numpy中的<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html" target="_blank" rel="noopener">ravel()</a>函数，它会将原矩阵压缩成一维数组，便于画直方图。</p>
+<h2 id="Otsu算法"><a href="#Otsu算法" class="headerlink" title="Otsu算法"></a>Otsu算法</h2><p>Otsu阈值法将整幅图分为前景（目标）和背景，以下是一些符号规定：</p>
+<ul>
+<li>$T$：分割阈值</li>
+<li>$N_0$：前景像素点数</li>
+<li>$N_1$：背景像素点数</li>
+<li>$w_0$：前景的像素点数占整幅图像的比例</li>
+<li>$w_1$：背景的像素点数占整幅图像的比例</li>
+<li>$\mu_0$：前景的平均像素值</li>
+<li>$\mu_1$：背景的平均像素值</li>
+<li>$μ$：整幅图的平均像素值</li>
+<li>$rows×cols$：图像的行数和列数</li>
+</ul>
+<p>结合下图会更容易理解一些，有一副大小为4×4的图片，假设阈值T为1，那么：</p>
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_otsu_theory_sample.jpg">
+
+<p>其实很好理解，$N_0+N_1$就是总的像素点个数，也就是行数乘列数：<br>$$<br>N_0 + N_1 = rows \times cols<br>$$<br>$w_0$和$w_1$是前/背景所占的比例，也就是：<br>$$<br>w_0 = \frac{N_0}{rows\times{cols}}<br>$$</p>
+<p>$$<br>w_1 = \frac{N_1}{rows\times{cols}}<br>$$</p>
+<p>$$<br>w_0+w_1=1<br>$$</p>
+<p>整幅图的平均像素值就是：<br>$$<br>\mu=w_0\times{\mu_0}+w_1\times{\mu_1}<br>$$<br>此时，我们定义一个前景$\mu_0$与背景$\mu_1$的方差$g$：<br>$$<br>g=w_0(\mu_0-\mu)^{2}+w_1(\mu_1-\mu)^{2}<br>$$<br>将前述的(4)、(5)、(6)公式整合在一起，便是：<br>$$<br>g=w_0w_1(\mu_0-\mu_1)^{2}<br>$$<br><strong>$g$就是前景与背景两类之间的方差，这个值越大，说明前景和背景的差别也就越大，效果越好。Otsu算法便是遍历阈值T，使得$g$最大，所以又称为最大类间方差法。</strong>基本上双峰图片的阈值T在两峰之间的谷底。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
+<li><a href="https://docs.opencv.org/4.0.0/d7/d1b/group__imgproc__misc.html#gaa9e58d2860d4afa658ef70a9b1115576" target="_blank" rel="noopener">cv2.ThresholdTypes</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d4/d86/group__imgproc__filter.html#gaabe8c836e97159a9193fb0b11ac52cf1" target="_blank" rel="noopener">cv2.GaussianBlur()</a></li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
+<li><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html" target="_blank" rel="noopener">numpy.ravel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Otsu's_method" target="_blank" rel="noopener">Otsu’s Method(wikipedia)</a></li>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_thresholding/py_thresholding.html" target="_blank" rel="noopener">Image Thresholding</a></li>
+<li><a href="https://blog.csdn.net/u011776903/article/details/73274802" target="_blank" rel="noopener">一维OTSU法、最小交叉熵法、二维OTSU法及C++源码</a></li>
+<li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4310076" target="_blank" rel="noopener">Otsu N. A threshold selection method from gray-level histograms[J\]. IEEE transactions on systems, man, and cybernetics, 1979, 9(1): 62-66.</a></li>
+</ul>
 
     </main>
     <footer class="post-footer">
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/开发环境配置/" rel="tag"><i class="fas fa-tags"></i>开发环境配置</a>
-        
         <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
         
-        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        <a class="post-tag button" href="/tags/OpenCV/" rel="tag"><i class="fas fa-tags"></i>OpenCV</a>
+        
+        <a class="post-tag button" href="/tags/计算机视觉/" rel="tag"><i class="fas fa-tags"></i>计算机视觉</a>
+        
+        <a class="post-tag button" href="/tags/图像处理/" rel="tag"><i class="fas fa-tags"></i>图像处理</a>
+        
+        <a class="post-tag button" href="/tags/阈值/" rel="tag"><i class="fas fa-tags"></i>阈值</a>
         
       </div>
       
@@ -304,12 +310,10 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2019/08/05/数据库的安装/" rel="next" title="数据库的安装"><i class="fas fa-angle-left"></i><span class="nav-title">数据库的安装</span></a>
+      <a href="/2019/08/14/Python-OpenCV教程6：阈值分割/" rel="next" title="Python+OpenCV教程6：阈值分割"><i class="fas fa-angle-left"></i><span class="nav-title">Python+OpenCV教程6：阈值分割</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/08/05/Web库的安装/" rel="prev" title="Web库的安装"><span class="nav-title">Web库的安装</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -382,7 +386,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#PyMySQL"><span class="toc-text">PyMySQL</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#PyMongoDB"><span class="toc-text">PyMongoDB</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-1"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装-1"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-1"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#redis-py"><span class="toc-text">redis-py</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-2"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装-2"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-2"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#RedisDump"><span class="toc-text">RedisDump</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-3"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#gem安装"><span class="toc-text">gem安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-3"><span class="toc-text">验证安装</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#双峰图片"><span class="toc-text">双峰图片</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#代码示例"><span class="toc-text">代码示例</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Otsu算法"><span class="toc-text">Otsu算法</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#接口文档"><span class="toc-text">接口文档</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li></ol></div>
     </div>
     
     

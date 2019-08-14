@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-14T01:37:11.728Z</updated>
+  <updated>2019-08-14T02:26:19.708Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python+OpenCV教程番外篇4：Otsu阈值法</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%874%EF%BC%9AOtsu%E9%98%88%E5%80%BC%E6%B3%95/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇4：Otsu阈值法/</id>
+    <published>2019-08-14T01:37:53.000Z</published>
+    <updated>2019-08-14T02:26:19.708Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;大部分图像处理任务都需要先进行二值化操作，阈值的选取很关键，Otsu阈值法会自动计算阈值。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://baike.baidu.com/item/otsu/16252828&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Otsu阈值法&lt;/a&gt;（日本人大津展之提出的，也可称大津算法）非常适用于双峰图片，啥意思呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="阈值" scheme="http://huris.xyz/tags/%E9%98%88%E5%80%BC/"/>
+    
+  </entry>
   
   <entry>
     <title>Python+OpenCV教程6：阈值分割</title>
@@ -641,32 +674,6 @@
       <category term="HTTP" scheme="http://huris.xyz/tags/HTTP/"/>
     
       <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell后台执行</title>
-    <link href="http://huris.xyz/2019/08/05/shell%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C/"/>
-    <id>http://huris.xyz/2019/08/05/shell后台执行/</id>
-    <published>2019-08-05T13:35:17.000Z</published>
-    <updated>2019-08-05T13:46:43.869Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;后台执行：&lt;code&gt;nohup sh run.sh &amp;gt;log.txt 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;后台查看：&lt;code&gt;ps -ef | grep 13549&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;终止进程：&lt;code&gt;kill -9 pid&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://huris.xyz/categories/linux/"/>
-    
-      <category term="shell" scheme="http://huris.xyz/categories/linux/shell/"/>
-    
-    
-      <category term="linux" scheme="http://huris.xyz/tags/linux/"/>
-    
-      <category term="shell" scheme="http://huris.xyz/tags/shell/"/>
     
   </entry>
   
