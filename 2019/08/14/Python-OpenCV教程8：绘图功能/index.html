@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Python+OpenCV教程8：绘图功能 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/14/Python-OpenCV教程8：绘图功能/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Python+OpenCV教程8：绘图功能</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-14T13:44:12+08:00">2019-08-14 13:44:12</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>学习画线、圆和矩形等多种几何形状，给图片添加文字。</p>
+<p>目标：</p>
+<ul>
+<li>绘制各种几何形状、添加文字</li>
+<li>OpenCV函数<ul>
+<li><code>cv2.line()</code>：直线</li>
+<li><code>cv2.circle()</code>：圆</li>
+<li><code>cv2.rectangle()</code>：矩形</li>
+<li><code>cv2.ellipse()</code>：椭圆</li>
+<li><code>cv2.polylines()</code>：多边形</li>
+<li><code>cv2.putText()</code>：添加文字</li>
+</ul>
+</li>
+</ul>
+<p>画多条直线时，<code>cv2.polylines()</code>要比<code>cv2.line()</code>高效很多。</p>
+<p><strong>所有绘图函数均会直接影响原图片，这点要注意。</strong></p>
+<a id="more"></a>
+
+
+
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><p>绘制形状的函数有一些共同的参数，提前说明一下：</p>
+<ul>
+<li>img：要绘制形状的图片</li>
+<li>color：绘制的颜色<ul>
+<li>彩色图就传入BGR的一组值，如蓝色就是(255,0,0)</li>
+<li>灰度图，传入一个灰度值就行</li>
+</ul>
+</li>
+<li>thickness：线宽，默认为1；<strong>对于矩形/圆之类的封闭形状而言，传入-1表示填充形状</strong></li>
+</ul>
+<p>需要导入的模块和显示图片的通用代码：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>cv2.imshow(<span class="hljs-string">'img'</span>, img)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_drawing_functions.jpg">
+
+<p>上图就是本教程绘制的最终效果，下面一步步来看：</p>
+<h3 id="画线"><a href="#画线" class="headerlink" title="画线"></a>画线</h3><p>画直线只需指定起点和终点的坐标就行：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 画一条线宽为5的蓝色直线</span><br><span class="hljs-comment"># 参数1：图片，参数2：起点，参数3：终点，参数4：BGR颜色，参数5：线宽</span><br>cv2.line(img, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">512</span>, <span class="hljs-number">512</span>), (<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">5</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="画矩形"><a href="#画矩形" class="headerlink" title="画矩形"></a>画矩形</h3><p>画矩形需要知道左上角和右下角的坐标：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 画一个绿色边框的矩形</span><br><span class="hljs-comment"># 参数1：图片，参数2：左上角坐标，参数3：右下角坐标，参数4：BGR颜色，参数5：线宽（负数为填充）</span><br>cv2.rectangle(img, (<span class="hljs-number">384</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">510</span>, <span class="hljs-number">128</span>), (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="画圆"><a href="#画圆" class="headerlink" title="画圆"></a>画圆</h3><p>画圆需要指定圆心和半径，注意下面的例子中线宽=-1代表填充：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 画一个填充红色的圆</span><br><span class="hljs-comment"># 参数1：图片，参数2：圆心坐标，参数3：半径，参数4：BGR颜色，参数5：线宽（负数为填充）</span><br>cv2.circle(img, (<span class="hljs-number">447</span>, <span class="hljs-number">63</span>), <span class="hljs-number">63</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">-1</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="画椭圆"><a href="#画椭圆" class="headerlink" title="画椭圆"></a>画椭圆</h3><p>画椭圆需要的参数比较多，请对照后面的代码理解这几个参数：</p>
+<ul>
+<li>参数2：椭圆中心(x,y)</li>
+<li>参数3：x/y轴的长度</li>
+<li>参数4：angle—椭圆的旋转角度（顺时针计算）</li>
+<li>参数5：startAngle—椭圆的起始角度</li>
+<li>参数6：endAngle—椭圆的结束角度</li>
+</ul>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在图中心画一个填充的半圆</span><br><span class="hljs-comment"># 参数1：图片，参数2：椭圆中心，参数3：x/y轴长度，参数4：旋转角度</span><br><span class="hljs-comment"># 参数5：椭圆起始角度，参数6：椭圆结束角度，参数7：BGR颜色，参数8：线宽（负数为填充）</span><br>cv2.ellipse(img, (<span class="hljs-number">256</span>, <span class="hljs-number">256</span>), (<span class="hljs-number">100</span>, <span class="hljs-number">50</span>), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">180</span>, (<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">-1</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="画多边形"><a href="#画多边形" class="headerlink" title="画多边形"></a>画多边形</h3><p>画多边形需要指定一系列多边形的顶点坐标，相当于从第一个点到第二个点画直线，再从第二个点到第三个点画直线….</p>
+<p>OpenCV中需要先将多边形的顶点坐标需要变成顶点数×1×2维的矩阵，再来绘制：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 画一个闭合的四边形</span><br><span class="hljs-comment"># 定义四个顶点坐标</span><br>pts = np.array([[<span class="hljs-number">10</span>, <span class="hljs-number">5</span>],  [<span class="hljs-number">50</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">70</span>, <span class="hljs-number">20</span>], [<span class="hljs-number">20</span>, <span class="hljs-number">30</span>]], np.int32)<br><span class="hljs-comment"># 顶点个数：4，矩阵变成顶点数*1*2维（注意numpy中-1的用法）</span><br>pts = pts.reshape((<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>))<br><span class="hljs-comment"># 参数1：图片，参数2：顶点集合，参数3：是否闭合，参数4：BGR颜色</span><br>cv2.polylines(img, [pts], <span class="hljs-literal">True</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>))<br></code></pre></td></tr></table></figure>
+
+<p><code>cv2.polylines()</code>的参数3如果是False的话，多边形就不闭合，即<strong>最后一个点与第一个点不连</strong>。</p>
+<blockquote>
+<p>经验之谈：如果需要绘制多条直线，使用cv2.polylines()要比cv2.line()高效很多，例如：</p>
+</blockquote>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用cv2.polylines()画多条直线</span><br>line1 = np.array([[<span class="hljs-number">100</span>, <span class="hljs-number">20</span>],  [<span class="hljs-number">300</span>, <span class="hljs-number">20</span>]], np.int32).reshape((<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>))<br>line2 = np.array([[<span class="hljs-number">100</span>, <span class="hljs-number">60</span>],  [<span class="hljs-number">300</span>, <span class="hljs-number">60</span>]], np.int32).reshape((<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>))<br>line3 = np.array([[<span class="hljs-number">100</span>, <span class="hljs-number">100</span>],  [<span class="hljs-number">300</span>, <span class="hljs-number">100</span>]], np.int32).reshape((<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>))<br>cv2.polylines(img, [line1, line2, line3], <span class="hljs-literal">True</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>))<br></code></pre></td></tr></table></figure>
+
+<h3 id="添加文字"><a href="#添加文字" class="headerlink" title="添加文字"></a>添加文字</h3><p>使用<code>cv2.putText()</code>添加文字，它的参数也比较多，同样请对照后面的代码理解这几个参数：</p>
+<ul>
+<li>参数2：要添加的文本</li>
+<li>参数3：文字的起始坐标（左下角为起点）</li>
+<li>参数4：字体</li>
+<li>参数5：文字大小（缩放比例）</li>
+</ul>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加文字</span><br>font = cv2.FONT_HERSHEY_SIMPLEX<br><span class="hljs-comment"># 参数1：图片，参数2：添加的文本内容，参数3：文字起始坐标，参数4：字体类型</span><br><span class="hljs-comment"># 参数5：字体大小，参数6：字体颜色，参数7：线宽，参数8：线型</span><br>cv2.putText(img, <span class="hljs-string">'ex2tron'</span>, (<span class="hljs-number">10</span>, <span class="hljs-number">500</span>), font,<br>            <span class="hljs-number">4</span>, (<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>, lineType=cv2.LINE_AA)<br></code></pre></td></tr></table></figure>
+
+<p>字体可参考：<a href="https://docs.opencv.org/4.0.0/d6/d6e/group__imgproc__draw.html#ga0f9314ea6e35f99bb23f29567fc16e11" target="_blank" rel="noopener">HersheyFonts</a>。另外，这里有个线型lineType参数，LINE_AA表示抗锯齿线型，具体可见<a href="https://docs.opencv.org/3.3.1/d0/de1/group__core.html#gaf076ef45de481ac96e0ab3dc2c29a777" target="_blank" rel="noopener">LineTypes</a>。</p>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>能用已学的绘图功能画出OpenCV的logo。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>img = np.zeros((<span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">3</span>), np.uint8)<br><br><span class="hljs-comment"># 画OpenCV的logo，其实很简单</span><br><span class="hljs-comment"># 1.先画一个0°到300°的圆</span><br><span class="hljs-comment"># 2.再在中心画一个跟背景颜色一样的小圆</span><br><span class="hljs-comment"># 3.重复前两部，并且旋转一定的角度即可</span><br><br><span class="hljs-comment"># 画绿色的部分</span><br>cv2.ellipse(img, (<span class="hljs-number">43</span>, <span class="hljs-number">125</span>), (<span class="hljs-number">45</span>, <span class="hljs-number">45</span>), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>,<br>            (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">-1</span>, lineType=cv2.LINE_AA)<br>cv2.circle(img, (<span class="hljs-number">43</span>, <span class="hljs-number">125</span>), <span class="hljs-number">15</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">-1</span>, lineType=cv2.LINE_AA)<br><br><span class="hljs-comment"># 画红色的部分</span><br>cv2.ellipse(img, (<span class="hljs-number">90</span>, <span class="hljs-number">40</span>), (<span class="hljs-number">45</span>, <span class="hljs-number">45</span>), <span class="hljs-number">120</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>,<br>            (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">-1</span>, lineType=cv2.LINE_AA)<br>cv2.circle(img, (<span class="hljs-number">90</span>, <span class="hljs-number">40</span>), <span class="hljs-number">15</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">-1</span>, lineType=cv2.LINE_AA)<br><br><span class="hljs-comment"># 画蓝色的部分</span><br>cv2.ellipse(img, (<span class="hljs-number">137</span>, <span class="hljs-number">125</span>), (<span class="hljs-number">45</span>, <span class="hljs-number">45</span>), <span class="hljs-number">-60</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>,<br>            (<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">-1</span>, lineType=cv2.LINE_AA)<br>cv2.circle(img, (<span class="hljs-number">137</span>, <span class="hljs-number">125</span>), <span class="hljs-number">15</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">-1</span>, lineType=cv2.LINE_AA)<br><br>cv2.imshow(<span class="hljs-string">'img'</span>, img)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_opencv_logo.jpg">
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
+<li><a href="https://docs.opencv.org/4.0.0/d6/d6e/group__imgproc__draw.html#ga7078a9fae8c7e7d13d24dac2520ae4a2" target="_blank" rel="noopener">cv2.line()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d6/d6e/group__imgproc__draw.html#gaf10604b069374903dbd0f0488cb43670" target="_blank" rel="noopener">cv2.circle()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d6/d6e/group__imgproc__draw.html#ga07d2f74cadcf8e305e810ce8eed13bc9" target="_blank" rel="noopener">cv2.rectangle()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d6/d6e/group__imgproc__draw.html#ga28b2267d35786f5f890ca167236cbc69" target="_blank" rel="noopener">cv2.ellipse()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d6/d6e/group__imgproc__draw.html#ga5126f47f883d730f633d74f07456c576" target="_blank" rel="noopener">cv2.putText()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d6/d6e/group__imgproc__draw.html#ga1ea127ffbbb7e0bfc4fd6fd2eb64263c" target="_blank" rel="noopener">cv2.polylines()</a></li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
+<li><a href="https://docs.opencv.org/3.3.1/d0/de1/group__core.html#gaf076ef45de481ac96e0ab3dc2c29a777" target="_blank" rel="noopener">LineTypes</a></li>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_drawing_functions/py_drawing_functions.html" target="_blank" rel="noopener">Drawing Functions in OpenCV</a></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/OpenCV/" rel="tag"><i class="fas fa-tags"></i>OpenCV</a>
+        
+        <a class="post-tag button" href="/tags/计算机视觉/" rel="tag"><i class="fas fa-tags"></i>计算机视觉</a>
+        
+        <a class="post-tag button" href="/tags/图像处理/" rel="tag"><i class="fas fa-tags"></i>图像处理</a>
+        
+        <a class="post-tag button" href="/tags/绘图/" rel="tag"><i class="fas fa-tags"></i>绘图</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/14/Python-OpenCV教程番外篇5：仿射变换与透视变换/" rel="next" title="Python-OpenCV教程番外篇5：仿射变换与透视变换"><i class="fas fa-angle-left"></i><span class="nav-title">Python-OpenCV教程番外篇5：仿射变换与透视变换</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">46</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">24</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">38</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参数说明"><span class="toc-text">参数说明</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#画线"><span class="toc-text">画线</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#画矩形"><span class="toc-text">画矩形</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#画圆"><span class="toc-text">画圆</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#画椭圆"><span class="toc-text">画椭圆</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#画多边形"><span class="toc-text">画多边形</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#添加文字"><span class="toc-text">添加文字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#练习"><span class="toc-text">练习</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#接口文档"><span class="toc-text">接口文档</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

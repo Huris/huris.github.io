@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-14T05:43:37.998Z</updated>
+  <updated>2019-08-14T06:22:25.977Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,58 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python+OpenCV教程8：绘图功能</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B8%EF%BC%9A%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程8：绘图功能/</id>
+    <published>2019-08-14T05:44:12.000Z</published>
+    <updated>2019-08-14T06:22:25.977Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习画线、圆和矩形等多种几何形状，给图片添加文字。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;绘制各种几何形状、添加文字&lt;/li&gt;
+&lt;li&gt;OpenCV函数&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cv2.line()&lt;/code&gt;：直线&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.circle()&lt;/code&gt;：圆&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.rectangle()&lt;/code&gt;：矩形&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.ellipse()&lt;/code&gt;：椭圆&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.polylines()&lt;/code&gt;：多边形&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.putText()&lt;/code&gt;：添加文字&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;画多条直线时，&lt;code&gt;cv2.polylines()&lt;/code&gt;要比&lt;code&gt;cv2.line()&lt;/code&gt;高效很多。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所有绘图函数均会直接影响原图片，这点要注意。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="绘图" scheme="http://huris.xyz/tags/%E7%BB%98%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python-OpenCV教程番外篇5：仿射变换与透视变换</title>
     <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%875%EF%BC%9A%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E4%B8%8E%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2/"/>
     <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇5：仿射变换与透视变换/</id>
     <published>2019-08-14T02:56:55.000Z</published>
-    <updated>2019-08-14T05:43:37.998Z</updated>
+    <updated>2019-08-14T06:30:25.371Z</updated>
     
     <summary type="html">
     
@@ -53,7 +100,7 @@
     <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B7%EF%BC%9A%E5%9B%BE%E5%83%8F%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/"/>
     <id>http://huris.xyz/2019/08/14/Python-OpenCV教程7：图像几何变换/</id>
     <published>2019-08-14T02:27:03.000Z</published>
-    <updated>2019-08-14T03:04:37.636Z</updated>
+    <updated>2019-08-14T06:23:17.689Z</updated>
     
     <summary type="html">
     
@@ -69,7 +116,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;图像的几何变换从原理上看主要包括两种：基于2×3矩阵的仿射变换（平移、缩放、旋转和翻转等）、基于3×3矩阵的透视变换，感兴趣的小伙伴可参考&lt;a href=&quot;http://ex2tron.wang/opencv-python-extra-warpaffine-warpperspective/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;番外篇：仿射变换与透视变换&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;图像的几何变换从原理上看主要包括两种：基于2×3矩阵的仿射变换（平移、缩放、旋转和翻转等）、基于3×3矩阵的透视变换，感兴趣的小伙伴可参考&lt;a href=&quot;[http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%875%EF%BC%9A%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E4%B8%8E%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2/](http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇5：仿射变换与透视变换/)&quot;&gt;番外篇：仿射变换与透视变换&lt;/a&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -674,34 +721,6 @@
       <category term="cookies" scheme="http://huris.xyz/tags/cookies/"/>
     
       <category term="会话" scheme="http://huris.xyz/tags/%E4%BC%9A%E8%AF%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>爬虫的基本原理</title>
-    <link href="http://huris.xyz/2019/08/07/%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
-    <id>http://huris.xyz/2019/08/07/爬虫的基本原理/</id>
-    <published>2019-08-07T02:23:04.000Z</published>
-    <updated>2019-08-11T01:55:24.898Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;我们可以把互联网比作一张大网，而爬虫便是在网上爬行的蜘蛛。&lt;/p&gt;
-&lt;p&gt;把网的节点比作一个个网页，爬虫爬到这就相当于访问了该页面，获取了其信息。&lt;/p&gt;
-&lt;p&gt;可以把节点间的连线比作网页与网页之间的链接关系，这样蜘蛛通过一个节点后，可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，网站的数据就可以被抓取下来了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="原理" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%8E%9F%E7%90%86/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="原理" scheme="http://huris.xyz/tags/%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
