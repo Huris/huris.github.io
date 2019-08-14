@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Python+OpenCV教程5：颜色空间转换 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/14/Python-OpenCV教程5：颜色空间转换/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Python+OpenCV教程5：颜色空间转换</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-14T08:38:15+08:00">2019-08-14 08:38:15</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>学习如何进行图片的颜色空间转换，视频中追踪特定颜色的物体。</p>
+<p>目标：</p>
+<ul>
+<li><p>颜色空间转换，如BGR↔Gray，BGR↔HSV等</p>
+</li>
+<li><p>追踪视频中特定颜色的物体</p>
+</li>
+<li><p>HSV颜色模型常用于颜色识别。要想知道某种颜色在HSV下的值，可以将它的BGR值用<code>cvtColor()</code>转换得到。</p>
+</li>
+<li><p>OpenCV函数：</p>
+<ul>
+<li><p><code>cv2.cvtColor()</code>：用来进行颜色空间转换，常用BGR↔Gray，BGR↔HSV。</p>
+<p>  <code>hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)</code></p>
+</li>
+<li><p><code>cv2.inRange()</code>：指定颜色范围。</p>
+<p> <code>mask = cv2.inRange(hsv, lower_blue, upper_blue)</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+
+
+
+<h2 id="颜色空间转换"><a href="#颜色空间转换" class="headerlink" title="颜色空间转换"></a>颜色空间转换</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br>img = cv2.imread(<span class="hljs-string">'lena.jpg'</span>)<br><br><span class="hljs-comment"># 转成灰度图</span><br><span class="hljs-comment"># cv2.cvtColor()用来进行颜色模型转换</span><br><span class="hljs-comment"># 参数1是要转换的图片</span><br><span class="hljs-comment"># 参数2是转换模式</span><br>img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)<br><br>cv2.imshow(<span class="hljs-string">'img'</span>, img)<br>cv2.imshow(<span class="hljs-string">'gray'</span>, img_gray)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>COLOR_BGR2GRAY</code>表示BGR→Gray，可用下面的代码显示所有的转换模式：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">flags = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> dir(cv2) <span class="hljs-keyword">if</span> i.startswith(<span class="hljs-string">'COLOR_'</span>)]<br>print(flags)<br><br>**************************************************************************<br><br>运行结果：<br>[<span class="hljs-string">'COLOR_BAYER_BG2BGR'</span>, <span class="hljs-string">'COLOR_BAYER_BG2BGRA'</span>, <span class="hljs-string">'COLOR_BAYER_BG2BGR_EA'</span>, <span class="hljs-string">'COLOR_BAYER_BG2BGR_VNG'</span>, <span class="hljs-string">'COLOR_BAYER_BG2GRAY'</span>, <span class="hljs-string">'COLOR_BAYER_BG2RGB'</span>, <span class="hljs-string">'COLOR_BAYER_BG2RGBA'</span>, <span class="hljs-string">'COLOR_BAYER_BG2RGB_EA'</span>, <span class="hljs-string">'COLOR_BAYER_BG2RGB_VNG'</span>, <span class="hljs-string">'COLOR_BAYER_GB2BGR'</span>, <span class="hljs-string">'COLOR_BAYER_GB2BGRA'</span>, <span class="hljs-string">'COLOR_BAYER_GB2BGR_EA'</span>, <span class="hljs-string">'COLOR_BAYER_GB2BGR_VNG'</span>, <span class="hljs-string">'COLOR_BAYER_GB2GRAY'</span>, <span class="hljs-string">'COLOR_BAYER_GB2RGB'</span>, <span class="hljs-string">'COLOR_BAYER_GB2RGBA'</span>, <span class="hljs-string">'COLOR_BAYER_GB2RGB_EA'</span>, <span class="hljs-string">'COLOR_BAYER_GB2RGB_VNG'</span>, <span class="hljs-string">'COLOR_BAYER_GR2BGR'</span>, <span class="hljs-string">'COLOR_BAYER_GR2BGRA'</span>, <span class="hljs-string">'COLOR_BAYER_GR2BGR_EA'</span>, <span class="hljs-string">'COLOR_BAYER_GR2BGR_VNG'</span>, <span class="hljs-string">'COLOR_BAYER_GR2GRAY'</span>, <span class="hljs-string">'COLOR_BAYER_GR2RGB'</span>, <span class="hljs-string">'COLOR_BAYER_GR2RGBA'</span>, <span class="hljs-string">'COLOR_BAYER_GR2RGB_EA'</span>, <span class="hljs-string">'COLOR_BAYER_GR2RGB_VNG'</span>, <span class="hljs-string">'COLOR_BAYER_RG2BGR'</span>, <span class="hljs-string">'COLOR_BAYER_RG2BGRA'</span>, <span class="hljs-string">'COLOR_BAYER_RG2BGR_EA'</span>, <span class="hljs-string">'COLOR_BAYER_RG2BGR_VNG'</span>, <span class="hljs-string">'COLOR_BAYER_RG2GRAY'</span>, <span class="hljs-string">'COLOR_BAYER_RG2RGB'</span>, <span class="hljs-string">'COLOR_BAYER_RG2RGBA'</span>, <span class="hljs-string">'COLOR_BAYER_RG2RGB_EA'</span>, <span class="hljs-string">'COLOR_BAYER_RG2RGB_VNG'</span>, <span class="hljs-string">'COLOR_BGR2BGR555'</span>, <span class="hljs-string">'COLOR_BGR2BGR565'</span>, <span class="hljs-string">'COLOR_BGR2BGRA'</span>, <span class="hljs-string">'COLOR_BGR2GRAY'</span>, <span class="hljs-string">'COLOR_BGR2HLS'</span>, <span class="hljs-string">'COLOR_BGR2HLS_FULL'</span>, <span class="hljs-string">'COLOR_BGR2HSV'</span>, <span class="hljs-string">'COLOR_BGR2HSV_FULL'</span>, <span class="hljs-string">'COLOR_BGR2LAB'</span>, <span class="hljs-string">'COLOR_BGR2LUV'</span>, <span class="hljs-string">'COLOR_BGR2Lab'</span>, <span class="hljs-string">'COLOR_BGR2Luv'</span>, <span class="hljs-string">'COLOR_BGR2RGB'</span>, <span class="hljs-string">'COLOR_BGR2RGBA'</span>, <span class="hljs-string">'COLOR_BGR2XYZ'</span>, <span class="hljs-string">'COLOR_BGR2YCR_CB'</span>, <span class="hljs-string">'COLOR_BGR2YCrCb'</span>, <span class="hljs-string">'COLOR_BGR2YUV'</span>, <span class="hljs-string">'COLOR_BGR2YUV_I420'</span>, <span class="hljs-string">'COLOR_BGR2YUV_IYUV'</span>, <span class="hljs-string">'COLOR_BGR2YUV_YV12'</span>, <span class="hljs-string">'COLOR_BGR5552BGR'</span>, <span class="hljs-string">'COLOR_BGR5552BGRA'</span>, <span class="hljs-string">'COLOR_BGR5552GRAY'</span>, <span class="hljs-string">'COLOR_BGR5552RGB'</span>, <span class="hljs-string">'COLOR_BGR5552RGBA'</span>, <span class="hljs-string">'COLOR_BGR5652BGR'</span>, <span class="hljs-string">'COLOR_BGR5652BGRA'</span>, <span class="hljs-string">'COLOR_BGR5652GRAY'</span>, <span class="hljs-string">'COLOR_BGR5652RGB'</span>, <span class="hljs-string">'COLOR_BGR5652RGBA'</span>, <span class="hljs-string">'COLOR_BGRA2BGR'</span>, <span class="hljs-string">'COLOR_BGRA2BGR555'</span>, <span class="hljs-string">'COLOR_BGRA2BGR565'</span>, <span class="hljs-string">'COLOR_BGRA2GRAY'</span>, <span class="hljs-string">'COLOR_BGRA2RGB'</span>, <span class="hljs-string">'COLOR_BGRA2RGBA'</span>, <span class="hljs-string">'COLOR_BGRA2YUV_I420'</span>, <span class="hljs-string">'COLOR_BGRA2YUV_IYUV'</span>, <span class="hljs-string">'COLOR_BGRA2YUV_YV12'</span>, <span class="hljs-string">'COLOR_BayerBG2BGR'</span>, <span class="hljs-string">'COLOR_BayerBG2BGRA'</span>, <span class="hljs-string">'COLOR_BayerBG2BGR_EA'</span>, <span class="hljs-string">'COLOR_BayerBG2BGR_VNG'</span>, <span class="hljs-string">'COLOR_BayerBG2GRAY'</span>, <span class="hljs-string">'COLOR_BayerBG2RGB'</span>, <span class="hljs-string">'COLOR_BayerBG2RGBA'</span>, <span class="hljs-string">'COLOR_BayerBG2RGB_EA'</span>, <span class="hljs-string">'COLOR_BayerBG2RGB_VNG'</span>, <span class="hljs-string">'COLOR_BayerGB2BGR'</span>, <span class="hljs-string">'COLOR_BayerGB2BGRA'</span>, <span class="hljs-string">'COLOR_BayerGB2BGR_EA'</span>, <span class="hljs-string">'COLOR_BayerGB2BGR_VNG'</span>, <span class="hljs-string">'COLOR_BayerGB2GRAY'</span>, <span class="hljs-string">'COLOR_BayerGB2RGB'</span>, <span class="hljs-string">'COLOR_BayerGB2RGBA'</span>, <span class="hljs-string">'COLOR_BayerGB2RGB_EA'</span>, <span class="hljs-string">'COLOR_BayerGB2RGB_VNG'</span>, <span class="hljs-string">'COLOR_BayerGR2BGR'</span>, <span class="hljs-string">'COLOR_BayerGR2BGRA'</span>, <span class="hljs-string">'COLOR_BayerGR2BGR_EA'</span>, <span class="hljs-string">'COLOR_BayerGR2BGR_VNG'</span>, <span class="hljs-string">'COLOR_BayerGR2GRAY'</span>, <span class="hljs-string">'COLOR_BayerGR2RGB'</span>, <span class="hljs-string">'COLOR_BayerGR2RGBA'</span>, <span class="hljs-string">'COLOR_BayerGR2RGB_EA'</span>, <span class="hljs-string">'COLOR_BayerGR2RGB_VNG'</span>, <span class="hljs-string">'COLOR_BayerRG2BGR'</span>, <span class="hljs-string">'COLOR_BayerRG2BGRA'</span>, <span class="hljs-string">'COLOR_BayerRG2BGR_EA'</span>, <span class="hljs-string">'COLOR_BayerRG2BGR_VNG'</span>, <span class="hljs-string">'COLOR_BayerRG2GRAY'</span>, <span class="hljs-string">'COLOR_BayerRG2RGB'</span>, <span class="hljs-string">'COLOR_BayerRG2RGBA'</span>, <span class="hljs-string">'COLOR_BayerRG2RGB_EA'</span>, <span class="hljs-string">'COLOR_BayerRG2RGB_VNG'</span>, <span class="hljs-string">'COLOR_COLORCVT_MAX'</span>, <span class="hljs-string">'COLOR_GRAY2BGR'</span>, <span class="hljs-string">'COLOR_GRAY2BGR555'</span>, <span class="hljs-string">'COLOR_GRAY2BGR565'</span>, <span class="hljs-string">'COLOR_GRAY2BGRA'</span>, <span class="hljs-string">'COLOR_GRAY2RGB'</span>, <span class="hljs-string">'COLOR_GRAY2RGBA'</span>, <span class="hljs-string">'COLOR_HLS2BGR'</span>, <span class="hljs-string">'COLOR_HLS2BGR_FULL'</span>, <span class="hljs-string">'COLOR_HLS2RGB'</span>, <span class="hljs-string">'COLOR_HLS2RGB_FULL'</span>, <span class="hljs-string">'COLOR_HSV2BGR'</span>, <span class="hljs-string">'COLOR_HSV2BGR_FULL'</span>, <span class="hljs-string">'COLOR_HSV2RGB'</span>, <span class="hljs-string">'COLOR_HSV2RGB_FULL'</span>, <span class="hljs-string">'COLOR_LAB2BGR'</span>, <span class="hljs-string">'COLOR_LAB2LBGR'</span>, <span class="hljs-string">'COLOR_LAB2LRGB'</span>, <span class="hljs-string">'COLOR_LAB2RGB'</span>, <span class="hljs-string">'COLOR_LBGR2LAB'</span>, <span class="hljs-string">'COLOR_LBGR2LUV'</span>, <span class="hljs-string">'COLOR_LBGR2Lab'</span>, <span class="hljs-string">'COLOR_LBGR2Luv'</span>, <span class="hljs-string">'COLOR_LRGB2LAB'</span>, <span class="hljs-string">'COLOR_LRGB2LUV'</span>, <span class="hljs-string">'COLOR_LRGB2Lab'</span>, <span class="hljs-string">'COLOR_LRGB2Luv'</span>, <span class="hljs-string">'COLOR_LUV2BGR'</span>, <span class="hljs-string">'COLOR_LUV2LBGR'</span>, <span class="hljs-string">'COLOR_LUV2LRGB'</span>, <span class="hljs-string">'COLOR_LUV2RGB'</span>, <span class="hljs-string">'COLOR_Lab2BGR'</span>, <span class="hljs-string">'COLOR_Lab2LBGR'</span>, <span class="hljs-string">'COLOR_Lab2LRGB'</span>, <span class="hljs-string">'COLOR_Lab2RGB'</span>, <span class="hljs-string">'COLOR_Luv2BGR'</span>, <span class="hljs-string">'COLOR_Luv2LBGR'</span>, <span class="hljs-string">'COLOR_Luv2LRGB'</span>, <span class="hljs-string">'COLOR_Luv2RGB'</span>, <span class="hljs-string">'COLOR_M_RGBA2RGBA'</span>, <span class="hljs-string">'COLOR_RGB2BGR'</span>, <span class="hljs-string">'COLOR_RGB2BGR555'</span>, <span class="hljs-string">'COLOR_RGB2BGR565'</span>, <span class="hljs-string">'COLOR_RGB2BGRA'</span>, <span class="hljs-string">'COLOR_RGB2GRAY'</span>, <span class="hljs-string">'COLOR_RGB2HLS'</span>, <span class="hljs-string">'COLOR_RGB2HLS_FULL'</span>, <span class="hljs-string">'COLOR_RGB2HSV'</span>, <span class="hljs-string">'COLOR_RGB2HSV_FULL'</span>, <span class="hljs-string">'COLOR_RGB2LAB'</span>, <span class="hljs-string">'COLOR_RGB2LUV'</span>, <span class="hljs-string">'COLOR_RGB2Lab'</span>, <span class="hljs-string">'COLOR_RGB2Luv'</span>, <span class="hljs-string">'COLOR_RGB2RGBA'</span>, <span class="hljs-string">'COLOR_RGB2XYZ'</span>, <span class="hljs-string">'COLOR_RGB2YCR_CB'</span>, <span class="hljs-string">'COLOR_RGB2YCrCb'</span>, <span class="hljs-string">'COLOR_RGB2YUV'</span>, <span class="hljs-string">'COLOR_RGB2YUV_I420'</span>, <span class="hljs-string">'COLOR_RGB2YUV_IYUV'</span>, <span class="hljs-string">'COLOR_RGB2YUV_YV12'</span>, <span class="hljs-string">'COLOR_RGBA2BGR'</span>, <span class="hljs-string">'COLOR_RGBA2BGR555'</span>, <span class="hljs-string">'COLOR_RGBA2BGR565'</span>, <span class="hljs-string">'COLOR_RGBA2BGRA'</span>, <span class="hljs-string">'COLOR_RGBA2GRAY'</span>, <span class="hljs-string">'COLOR_RGBA2M_RGBA'</span>, <span class="hljs-string">'COLOR_RGBA2RGB'</span>, <span class="hljs-string">'COLOR_RGBA2YUV_I420'</span>, <span class="hljs-string">'COLOR_RGBA2YUV_IYUV'</span>, <span class="hljs-string">'COLOR_RGBA2YUV_YV12'</span>, <span class="hljs-string">'COLOR_RGBA2mRGBA'</span>, <span class="hljs-string">'COLOR_XYZ2BGR'</span>, <span class="hljs-string">'COLOR_XYZ2RGB'</span>, <span class="hljs-string">'COLOR_YCR_CB2BGR'</span>, <span class="hljs-string">'COLOR_YCR_CB2RGB'</span>, <span class="hljs-string">'COLOR_YCrCb2BGR'</span>, <span class="hljs-string">'COLOR_YCrCb2RGB'</span>, <span class="hljs-string">'COLOR_YUV2BGR'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_I420'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_IYUV'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_NV12'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_NV21'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_UYNV'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_UYVY'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_Y422'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_YUNV'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_YUY2'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_YUYV'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_YV12'</span>, <span class="hljs-string">'COLOR_YUV2BGRA_YVYU'</span>, <span class="hljs-string">'COLOR_YUV2BGR_I420'</span>, <span class="hljs-string">'COLOR_YUV2BGR_IYUV'</span>, <span class="hljs-string">'COLOR_YUV2BGR_NV12'</span>, <span class="hljs-string">'COLOR_YUV2BGR_NV21'</span>, <span class="hljs-string">'COLOR_YUV2BGR_UYNV'</span>, <span class="hljs-string">'COLOR_YUV2BGR_UYVY'</span>, <span class="hljs-string">'COLOR_YUV2BGR_Y422'</span>, <span class="hljs-string">'COLOR_YUV2BGR_YUNV'</span>, <span class="hljs-string">'COLOR_YUV2BGR_YUY2'</span>, <span class="hljs-string">'COLOR_YUV2BGR_YUYV'</span>, <span class="hljs-string">'COLOR_YUV2BGR_YV12'</span>, <span class="hljs-string">'COLOR_YUV2BGR_YVYU'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_420'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_I420'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_IYUV'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_NV12'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_NV21'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_UYNV'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_UYVY'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_Y422'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_YUNV'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_YUY2'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_YUYV'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_YV12'</span>, <span class="hljs-string">'COLOR_YUV2GRAY_YVYU'</span>, <span class="hljs-string">'COLOR_YUV2RGB'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_I420'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_IYUV'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_NV12'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_NV21'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_UYNV'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_UYVY'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_Y422'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_YUNV'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_YUY2'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_YUYV'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_YV12'</span>, <span class="hljs-string">'COLOR_YUV2RGBA_YVYU'</span>, <span class="hljs-string">'COLOR_YUV2RGB_I420'</span>, <span class="hljs-string">'COLOR_YUV2RGB_IYUV'</span>, <span class="hljs-string">'COLOR_YUV2RGB_NV12'</span>, <span class="hljs-string">'COLOR_YUV2RGB_NV21'</span>, <span class="hljs-string">'COLOR_YUV2RGB_UYNV'</span>, <span class="hljs-string">'COLOR_YUV2RGB_UYVY'</span>, <span class="hljs-string">'COLOR_YUV2RGB_Y422'</span>, <span class="hljs-string">'COLOR_YUV2RGB_YUNV'</span>, <span class="hljs-string">'COLOR_YUV2RGB_YUY2'</span>, <span class="hljs-string">'COLOR_YUV2RGB_YUYV'</span>, <span class="hljs-string">'COLOR_YUV2RGB_YV12'</span>, <span class="hljs-string">'COLOR_YUV2RGB_YVYU'</span>, <span class="hljs-string">'COLOR_YUV420P2BGR'</span>, <span class="hljs-string">'COLOR_YUV420P2BGRA'</span>, <span class="hljs-string">'COLOR_YUV420P2GRAY'</span>, <span class="hljs-string">'COLOR_YUV420P2RGB'</span>, <span class="hljs-string">'COLOR_YUV420P2RGBA'</span>, <span class="hljs-string">'COLOR_YUV420SP2BGR'</span>, <span class="hljs-string">'COLOR_YUV420SP2BGRA'</span>, <span class="hljs-string">'COLOR_YUV420SP2GRAY'</span>, <span class="hljs-string">'COLOR_YUV420SP2RGB'</span>, <span class="hljs-string">'COLOR_YUV420SP2RGBA'</span>, <span class="hljs-string">'COLOR_YUV420p2BGR'</span>, <span class="hljs-string">'COLOR_YUV420p2BGRA'</span>, <span class="hljs-string">'COLOR_YUV420p2GRAY'</span>, <span class="hljs-string">'COLOR_YUV420p2RGB'</span>, <span class="hljs-string">'COLOR_YUV420p2RGBA'</span>, <span class="hljs-string">'COLOR_YUV420sp2BGR'</span>, <span class="hljs-string">'COLOR_YUV420sp2BGRA'</span>, <span class="hljs-string">'COLOR_YUV420sp2GRAY'</span>, <span class="hljs-string">'COLOR_YUV420sp2RGB'</span>, <span class="hljs-string">'COLOR_YUV420sp2RGBA'</span>, <span class="hljs-string">'COLOR_mRGBA2RGBA'</span>]<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>经验之谈：颜色转换其实是数学运算，如灰度化最常用的是：<code>gray=R*0.299+G*0.587+B*0.114</code>。</p>
+</blockquote>
+<h2 id="视频中特定颜色物体追踪"><a href="#视频中特定颜色物体追踪" class="headerlink" title="视频中特定颜色物体追踪"></a>视频中特定颜色物体追踪</h2><p><a href="https://baike.baidu.com/item/HSV/547122" target="_blank" rel="noopener">HSV</a>是一个常用于颜色识别的模型，相比BGR更易区分颜色，转换模式用<code>COLOR_BGR2HSV</code>表示。</p>
+<blockquote>
+<p>经验之谈：OpenCV中色调H范围为[0,179]，饱和度S是[0,255]，明度V是[0,255]。虽然H的理论数值是0°~360°，但8位图像像素点的最大值是255，所以OpenCV中除以了2，某些软件可能使用不同的尺度表示，所以同其他软件混用时，记得归一化。</p>
+</blockquote>
+<p>现在，我们实现一个使用HSV来只显示视频中蓝色物体的例子，步骤如下：</p>
+<ol>
+<li>捕获视频中的一帧</li>
+<li>从BGR转换到HSV</li>
+<li>提取蓝色范围的物体</li>
+<li>只显示蓝色物体</li>
+</ol>
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_blue_object_tracking.jpg">
+
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>capture = cv2.VideoCapture(<span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 蓝色的范围，不同光照条件下不一样，可灵活调整</span><br>lower_blue = np.array([<span class="hljs-number">100</span>, <span class="hljs-number">110</span>, <span class="hljs-number">110</span>])<br>upper_blue = np.array([<span class="hljs-number">130</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>])<br><br><span class="hljs-keyword">while</span>(<span class="hljs-literal">True</span>):<br>    <span class="hljs-comment"># 1.捕获视频中的一帧</span><br>    ret, frame = capture.read()<br>    <span class="hljs-comment"># 2.从BGR转换到HSV</span><br>    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)<br>    <span class="hljs-comment"># 3.inRange()：介于lower/upper之间的为白色，其余黑色</span><br>    mask = cv2.inRange(hsv, lower_blue, upper_blue)<br>    <span class="hljs-comment"># 4.只保留原图中的蓝色部分</span><br>    res = cv2.bitwise_and(frame, frame, mask=mask)<br>    cv2.imshow(<span class="hljs-string">'frame'</span>, frame)<br>    cv2.imshow(<span class="hljs-string">'mask'</span>, mask)<br>    cv2.imshow(<span class="hljs-string">'res'</span>, res)<br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) == ord(<span class="hljs-string">'q'</span>):<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<p>蓝色的HSV值的上下限lower和upper范围是怎么得到的呢？其实很简单，我们先把标准蓝色的BGR值用<code>cvtColor()</code>转换下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 蓝色的HSV值</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>blue = np.uint8([[[<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]]])<br>hsv_blue = cv2.cvtColor(blue, cv2.COLOR_BGR2HSV)<br>print(hsv_blue)  <span class="hljs-comment"># [[[120 255 255]]]</span><br></code></pre></td></tr></table></figure>
+
+<p>结果是[120, 255, 255]，所以，我们把蓝色的范围调整成了上面代码那样。</p>
+<p><strong>除了HSV，<a href="https://baike.baidu.com/item/Lab/1514615" target="_blank" rel="noopener">Lab</a>颜色空间也经常用来做颜色识别。</strong></p>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>尝试在视频中同时提取红色、蓝色、绿色的物体。</p>
+<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_exercise_tracking_three_colors.jpg">
+
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># HSV中</span><br><span class="hljs-comment"># Blue：[[[120 255 255]]]</span><br><span class="hljs-comment"># Green：[[[ 60 255 255]]]</span><br><span class="hljs-comment"># Red：[[[  0 255 255]]]</span><br><br>capture = cv2.VideoCapture(<span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 蓝色的范围</span><br>lower_blue = np.array([<span class="hljs-number">100</span>, <span class="hljs-number">110</span>, <span class="hljs-number">110</span>])<br>upper_blue = np.array([<span class="hljs-number">130</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>])<br><br><span class="hljs-comment"># 绿色的范围</span><br>lower_green = np.array([<span class="hljs-number">40</span>, <span class="hljs-number">90</span>, <span class="hljs-number">90</span>])<br>upper_green = np.array([<span class="hljs-number">70</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>])<br><br><span class="hljs-comment"># 红色的范围</span><br>lower_red = np.array([<span class="hljs-number">160</span>, <span class="hljs-number">120</span>, <span class="hljs-number">120</span>])<br>upper_red = np.array([<span class="hljs-number">179</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>])<br><br><span class="hljs-keyword">while</span>(<span class="hljs-literal">True</span>):<br>    <span class="hljs-comment"># 1.捕获视频中的一帧</span><br>    ret, frame = capture.read()<br><br>    <span class="hljs-comment"># 2.从BGR转换到HSV</span><br>    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)<br><br>    mask_blue = cv2.inRange(hsv, lower_blue, upper_blue)<br>    mask_green = cv2.inRange(hsv, lower_green, upper_green)<br>    mask_red = cv2.inRange(hsv, lower_red, upper_red)<br><br>    <span class="hljs-comment"># 3.将所有的mask相加，就可以同时显示了</span><br>    mask = mask_blue + mask_green + mask_red<br><br>    <span class="hljs-comment"># 4.保留原图中的三种颜色部分</span><br>    res = cv2.bitwise_and(frame, frame, mask=mask)<br><br>    cv2.imshow(<span class="hljs-string">'frame'</span>, frame)<br>    cv2.imshow(<span class="hljs-string">'mask'</span>, mask)<br>    cv2.imshow(<span class="hljs-string">'res'</span>, res)<br><br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) == ord(<span class="hljs-string">'q'</span>):<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
+<li><a href="https://docs.opencv.org/4.0.0/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab" target="_blank" rel="noopener">cv2.cvtColor()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d2/de8/group__core__array.html#ga48af0ab51e36436c5d04340e036ce981" target="_blank" rel="noopener">cv2.inRange()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d2/de8/group__core__array.html#ga60b4d04b251ba5eb1392c34425497e14" target="_blank" rel="noopener">cv2.bitwise_and()</a></li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_colorspaces/py_colorspaces.html" target="_blank" rel="noopener">Changing Colorspaces</a></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/OpenCV/" rel="tag"><i class="fas fa-tags"></i>OpenCV</a>
+        
+        <a class="post-tag button" href="/tags/计算机视觉/" rel="tag"><i class="fas fa-tags"></i>计算机视觉</a>
+        
+        <a class="post-tag button" href="/tags/图像处理/" rel="tag"><i class="fas fa-tags"></i>图像处理</a>
+        
+        <a class="post-tag button" href="/tags/HSV/" rel="tag"><i class="fas fa-tags"></i>HSV</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/13/Python-OpenCV教程4：图像基本操作/" rel="next" title="Python+OpenCV教程4：图像基本操作"><i class="fas fa-angle-left"></i><span class="nav-title">Python+OpenCV教程4：图像基本操作</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/08/14/Python-OpenCV教程6：阈值分割/" rel="prev" title="Python+OpenCV教程6：阈值分割"><span class="nav-title">Python+OpenCV教程6：阈值分割</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">42</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">24</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">36</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#颜色空间转换"><span class="toc-text">颜色空间转换</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#视频中特定颜色物体追踪"><span class="toc-text">视频中特定颜色物体追踪</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#练习"><span class="toc-text">练习</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#接口文档"><span class="toc-text">接口文档</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
