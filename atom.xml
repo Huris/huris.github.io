@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-14T08:17:16.608Z</updated>
+  <updated>2019-08-14T09:28:07.473Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,128 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python+OpenCV教程10：平滑图像</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B10%EF%BC%9A%E5%B9%B3%E6%BB%91%E5%9B%BE%E5%83%8F/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程10：平滑图像/</id>
+    <published>2019-08-14T09:25:37.000Z</published>
+    <updated>2019-08-14T09:28:07.473Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习模糊/平滑图像，消除噪点。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模糊/平滑图片来消除图片噪声&lt;/li&gt;
+&lt;li&gt;OpenCV函数&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cv2.blur()&lt;/code&gt;：&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.GaussianBlur()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.medianBlur()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.bilateralFilter()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="模糊" scheme="http://huris.xyz/tags/%E6%A8%A1%E7%B3%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+OpenCV教程番外篇8：卷积基础(图片边框)</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%878%EF%BC%9A%E5%8D%B7%E7%A7%AF%E5%9F%BA%E7%A1%80-%E5%9B%BE%E7%89%87%E8%BE%B9%E6%A1%86/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇8：卷积基础-图片边框/</id>
+    <published>2019-08-14T08:46:44.000Z</published>
+    <updated>2019-08-14T09:25:14.849Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;了解卷积/滤波的基础知识，给图片添加边框。如果你已了解相关理论，请直接跳到部分。&lt;/p&gt;
+&lt;p&gt;卷积的概念其实很好理解，下面我就给大家做个最简单的解释，绝对轻松加愉快的辣o(&lt;em&gt;￣▽￣&lt;/em&gt;)o&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="卷积" scheme="http://huris.xyz/tags/%E5%8D%B7%E7%A7%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+OpenCV教程9：图像混合</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B9%EF%BC%9A%E5%9B%BE%E5%83%8F%E6%B7%B7%E5%90%88/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程9：图像混合/</id>
+    <published>2019-08-14T08:19:09.000Z</published>
+    <updated>2019-08-14T08:46:23.690Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习图片间的数学运算，图像混合。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;学习图片间的数学运算，如相加、按位运算等。&lt;/li&gt;
+&lt;li&gt;OpenCV函数：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cv2.add()&lt;/code&gt;：叠加两幅图片。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.addWeighted()&lt;/code&gt;：叠加两幅图片，可自定义两幅图片的权重。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.bitwise_and()&lt;/code&gt;：执行按位与运算。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.bitwise_not()&lt;/code&gt;：执行按位非运算。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.bitwise_or()&lt;/code&gt;：执行按位或运算。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.bitwise_xor()&lt;/code&gt;：执行按位异或运算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;掩膜就是用来对图片进行全局或局部的遮挡。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="图像混合" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E6%B7%B7%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>Python+OpenCV教程番外篇7：亮度与对比度</title>
@@ -644,96 +766,6 @@
       <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>k-近邻算法</title>
-    <link href="http://huris.xyz/2019/08/13/k-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"/>
-    <id>http://huris.xyz/2019/08/13/k-近邻算法/</id>
-    <published>2019-08-13T02:21:52.000Z</published>
-    <updated>2019-08-13T06:11:26.293Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;figure class=&quot;hljs highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="监督学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="分类算法" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="机器学习" scheme="http://huris.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="k-近邻算法" scheme="http://huris.xyz/tags/k-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解析库的使用</title>
-    <link href="http://huris.xyz/2019/08/11/%E8%A7%A3%E6%9E%90%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://huris.xyz/2019/08/11/解析库的使用/</id>
-    <published>2019-08-11T08:21:02.000Z</published>
-    <updated>2019-08-11T13:38:03.785Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;对于网页节点来说，它可以定义&lt;code&gt;id&lt;/code&gt;，&lt;code&gt;class&lt;/code&gt;或其他属性。节点之间还有层次关系，在网页中可以通过&lt;strong&gt;XPath&lt;/strong&gt;或&lt;strong&gt;CSS选择器&lt;/strong&gt;来定位一个或多个节点。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="原理" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%8E%9F%E7%90%86/"/>
-    
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="解析库" scheme="http://huris.xyz/tags/%E8%A7%A3%E6%9E%90%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>爬虫实例1-猫眼电影排行</title>
-    <link href="http://huris.xyz/2019/08/11/%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B1-%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1%E6%8E%92%E8%A1%8C/"/>
-    <id>http://huris.xyz/2019/08/11/爬虫实例1-猫眼电影排行/</id>
-    <published>2019-08-11T05:55:10.000Z</published>
-    <updated>2019-08-11T07:23:07.747Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文简单介绍爬取猫眼电影排行前100榜单。&lt;/p&gt;
-&lt;p&gt;主要爬取的电影信息有：排名，名称，图片，详情页，演员，上映时间，评分，简介。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="爬虫实例" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/"/>
-    
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="正则表达式" scheme="http://huris.xyz/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-      <category term="实例" scheme="http://huris.xyz/tags/%E5%AE%9E%E4%BE%8B/"/>
     
   </entry>
   
