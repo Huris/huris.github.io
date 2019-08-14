@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Python+OpenCV教程挑战任务：画动态时钟 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/14/Python-OpenCV教程挑战任务：画动态时钟/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Python+OpenCV教程挑战任务：画动态时钟</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-14T15:25:55+08:00">2019-08-14 15:25:55</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>挑战任务：使用OpenCV绘制一个随系统时间动态变化的时钟，<strong>中间显示当前日期</strong>。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_clock_dynamic_sample.gif" width="50%"></p>
+<a id="more"></a>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>本次挑战任务旨在提升大家的动手实践能力，解决实际问题，所以我们得先有个解题思路和方案。观察下常见的时钟表盘：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_clock_actual_clock_sample.jpg"></p>
+<p>整个表盘其实只有3根表针在动，所以可以先画出静态表盘，然后获取系统当前时间，根据时间实时动态绘制3根表针就解决了。</p>
+<h2 id="绘制表盘"><a href="#绘制表盘" class="headerlink" title="绘制表盘"></a>绘制表盘</h2><p>表盘上只有60条分/秒刻线和12条小时刻线，当然还有表盘的外部轮廓圆，也就是重点在如何画72根线。先把简单的圆画出来：</p>
+<p>前面我们使用OpenCV画直线的时候，需知道直线的起点和终点坐标，那么画72根线就变成了获取72组坐标。</p>
+<p>在平面坐标系下，已知半径和角度的话，A点的坐标可以表示为：</p>
+<script type="math/tex; mode=display">
+x=r\times{\cos{\alpha}}\\
+y=r\times{\sin{\alpha}}</script><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_clock_center_shift.jpg"></p>
+<p>先只考虑将坐标系原点移动到左上角，角度依然是平面坐标系中的逆时针计算，那么新坐标是：</p>
+<script type="math/tex; mode=display">
+x=r+r\times{\cos{\alpha}}\\
+y=r+r\times{\sin{\alpha}}</script><p>对于60条分/秒刻线，刻线间的夹角是360°/60=6°，对于小时刻线，角度是360°/12=30°，这样就得到了72组起点坐标，那怎么得到终点坐标呢？</p>
+<p>其实同样的原理，用一个同心的小圆来计算得到B点：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_clock_a_b_position.jpg"></p>
+<p>通过A/B两点就可以画出直线：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python">pt1 = []<br><br><span class="hljs-comment"># 画出60条秒和分钟的刻线</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">60</span>):<br>    <span class="hljs-comment"># 最外部圆，计算A点</span><br>    x1 = center_x+(radius-margin)*math.cos(i*<span class="hljs-number">6</span>*np.pi/<span class="hljs-number">180.0</span>)<br>    y1 = center_y+(radius-margin)*math.sin(i*<span class="hljs-number">6</span>*np.pi/<span class="hljs-number">180.0</span>)<br>    pt1.append((int(x1), int(y1)))<br><br>    <span class="hljs-comment"># 同心小圆，计算B点</span><br>    x2 = center_x+(radius<span class="hljs-number">-15</span>)*math.cos(i*<span class="hljs-number">6</span>*np.pi/<span class="hljs-number">180.0</span>)<br>    y2 = center_y+(radius<span class="hljs-number">-15</span>)*math.sin(i*<span class="hljs-number">6</span>*np.pi/<span class="hljs-number">180.0</span>)<br><br>    cv2.line(img, pt1[i], (int(x2), int(y2)), (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), thickness=<span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># 4. 画出12条小时的刻线</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">12</span>):<br>    <span class="hljs-comment"># 12条小时刻线应该更长一点</span><br>    x = center_x+(radius<span class="hljs-number">-25</span>)*math.cos(i*<span class="hljs-number">30</span>*np.pi/<span class="hljs-number">180.0</span>)<br>    y = center_y+(radius<span class="hljs-number">-25</span>)*math.sin(i*<span class="hljs-number">30</span>*np.pi/<span class="hljs-number">180.0</span>)<br>    <span class="hljs-comment"># 这里用到了前面的pt1</span><br>    cv2.line(img, pt1[i*<span class="hljs-number">5</span>], (int(x), int(y)), (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), thickness=<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># 到这里基本的表盘图就已经画出来了</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_clock_blank_clock.jpg"></p>
+<h2 id="角度换算"><a href="#角度换算" class="headerlink" title="角度换算"></a>角度换算</h2><p>接下来算是一个小难点，首先<strong>时钟的起始坐标在正常二维坐标系的90°方向，其次时钟跟图像一样，都是顺时针计算角度的</strong>，所以三者需要统一下：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_clock_different_clock_contrast.jpg"></p>
+<p>因为角度是完全对称的，顺逆时针没有影响，所以平面坐标系完全不用理会，放在这里只是便于大家理解。对于时钟坐标和图像坐标，时钟0的0°对应图像的270°，时钟15的90°对应图像的360°，时钟30的180°对应图像的450°（360°+90°）…</p>
+<p>所以两者之间的关系便是：</p>
+<blockquote>
+<p>计算角度 = 时钟角度+270°</p>
+<p>计算角度 = 计算角度 if 计算角度&lt;=360° else 计算角度-360°</p>
+</blockquote>
+<h2 id="同步时间"><a href="#同步时间" class="headerlink" title="同步时间"></a>同步时间</h2><p>Python中如何获取当前时间和添加日期文字都比较简单，看代码就行，我就不解释了。代码中角度计算我换了一种方式，其实是一样的，看你能不能看懂(●ˇ∀ˇ●)：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 不断拷贝表盘图，才能更新绘制，不然会重叠在一起</span><br>    temp = np.copy(img)<br><br>    <span class="hljs-comment"># 获取系统时间，画出动态的时-分-秒三条刻线</span><br>    now_time = datetime.datetime.now()<br>    hour, minute, second = now_time.hour, now_time.minute, now_time.second<br><br>    <span class="hljs-comment"># 画秒刻线</span><br>    <span class="hljs-comment"># 参见博客，OpenCV中的角度是顺时针计算的，所以需要转换下</span><br>    sec_angle = second * <span class="hljs-number">6</span> + <span class="hljs-number">270</span> <span class="hljs-keyword">if</span> second &lt;= <span class="hljs-number">15</span> <span class="hljs-keyword">else</span> (second - <span class="hljs-number">15</span>) * <span class="hljs-number">6</span><br>    sec_x = center_x + (radius - margin) * math.cos(sec_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    sec_y = center_y + (radius - margin) * math.sin(sec_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    cv2.line(temp, center, (int(sec_x), int(sec_y)), (<span class="hljs-number">203</span>, <span class="hljs-number">222</span>, <span class="hljs-number">166</span>), <span class="hljs-number">2</span>)<br><br>    <span class="hljs-comment"># 画分刻线</span><br>    min_angle = minute * <span class="hljs-number">6</span> + <span class="hljs-number">270</span> <span class="hljs-keyword">if</span> minute &lt;= <span class="hljs-number">15</span> <span class="hljs-keyword">else</span> (minute - <span class="hljs-number">15</span>) * <span class="hljs-number">6</span><br>    min_x = center_x + (radius - <span class="hljs-number">35</span>) * math.cos(min_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    min_y = center_y + (radius - <span class="hljs-number">35</span>) * math.sin(min_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    cv2.line(temp, center, (int(min_x), int(min_y)), (<span class="hljs-number">186</span>, <span class="hljs-number">199</span>, <span class="hljs-number">137</span>), <span class="hljs-number">8</span>)<br><br>    <span class="hljs-comment"># 画时刻线</span><br>    hour_angle = hour * <span class="hljs-number">30</span> + <span class="hljs-number">270</span> <span class="hljs-keyword">if</span> hour &lt;= <span class="hljs-number">3</span> <span class="hljs-keyword">else</span> (hour - <span class="hljs-number">3</span>) * <span class="hljs-number">30</span><br>    hour_x = center_x + (radius - <span class="hljs-number">65</span>) * math.cos(hour_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    hour_y = center_y + (radius - <span class="hljs-number">65</span>) * math.sin(hour_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    cv2.line(temp, center, (int(hour_x), int(hour_y)), (<span class="hljs-number">169</span>, <span class="hljs-number">198</span>, <span class="hljs-number">26</span>), <span class="hljs-number">15</span>)<br><br>    <span class="hljs-comment"># 添加当前日期文字</span><br>    font = cv2.FONT_HERSHEY_SIMPLEX<br>    time_str = now_time.strftime(<span class="hljs-string">"%d/%m/%Y"</span>)<br>    cv2.putText(img, time_str, (<span class="hljs-number">135</span>, <span class="hljs-number">275</span>), font, <span class="hljs-number">1</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br><br>    cv2.imshow(<span class="hljs-string">'clocking'</span>, temp)<br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) == <span class="hljs-number">27</span>:  <span class="hljs-comment"># 按下ESC键退出</span><br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+<p>本此挑战旨在锻炼一步步解决实际问题的思路（虽然有点数学知识(￣▽￣)”），大家再接再厉噢！</p>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> math<br><span class="hljs-keyword">import</span> datetime<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>margin = <span class="hljs-number">5</span>  <span class="hljs-comment"># 上下左右边距</span><br>radius = <span class="hljs-number">220</span>  <span class="hljs-comment"># 圆的半径</span><br>center = (center_x, center_y) = (<span class="hljs-number">225</span>, <span class="hljs-number">225</span>)  <span class="hljs-comment"># 圆心</span><br><br><span class="hljs-comment"># 1. 新建一个画板并填充成白色</span><br>img = np.zeros((<span class="hljs-number">450</span>, <span class="hljs-number">450</span>, <span class="hljs-number">3</span>), np.uint8)<br>img[:] = (<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>)<br><br><span class="hljs-comment"># 2. 画出圆盘</span><br>cv2.circle(img, center, radius, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), thickness=<span class="hljs-number">5</span>)<br><br>pt1 = []<br><br><span class="hljs-comment"># 3. 画出60条秒和分钟的刻线</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">60</span>):<br>    <span class="hljs-comment"># 最外部圆，计算A点</span><br>    x1 = center_x + (radius - margin) * math.cos(i * <span class="hljs-number">6</span> * np.pi / <span class="hljs-number">180.0</span>)<br>    y1 = center_y + (radius - margin) * math.sin(i * <span class="hljs-number">6</span> * np.pi / <span class="hljs-number">180.0</span>)<br>    pt1.append((int(x1), int(y1)))<br><br>    <span class="hljs-comment"># 同心小圆，计算B点</span><br>    x2 = center_x + (radius - <span class="hljs-number">15</span>) * math.cos(i * <span class="hljs-number">6</span> * np.pi / <span class="hljs-number">180.0</span>)<br>    y2 = center_y + (radius - <span class="hljs-number">15</span>) * math.sin(i * <span class="hljs-number">6</span> * np.pi / <span class="hljs-number">180.0</span>)<br><br>    cv2.line(img, pt1[i], (int(x2), int(y2)), (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), thickness=<span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># 4. 画出12条小时的刻线</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">12</span>):<br>    <span class="hljs-comment"># 12条小时刻线应该更长一点</span><br>    x = center_x + (radius - <span class="hljs-number">25</span>) * math.cos(i * <span class="hljs-number">30</span> * np.pi / <span class="hljs-number">180.0</span>)<br>    y = center_y + (radius - <span class="hljs-number">25</span>) * math.sin(i * <span class="hljs-number">30</span> * np.pi / <span class="hljs-number">180.0</span>)<br>    <span class="hljs-comment"># 这里用到了前面的pt1</span><br>    cv2.line(img, pt1[i * <span class="hljs-number">5</span>], (int(x), int(y)), (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), thickness=<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># 到这里基本的表盘图就已经画出来了</span><br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 不断拷贝表盘图，才能更新绘制，不然会重叠在一起</span><br>    temp = np.copy(img)<br><br>    <span class="hljs-comment"># 5. 获取系统时间，画出动态的时-分-秒三条刻线</span><br>    now_time = datetime.datetime.now()<br>    hour, minute, second = now_time.hour, now_time.minute, now_time.second<br><br>    <span class="hljs-comment"># 画秒刻线</span><br>    <span class="hljs-comment"># 参见博客，OpenCV中的角度是顺时针计算的，所以需要转换下</span><br>    sec_angle = second * <span class="hljs-number">6</span> + <span class="hljs-number">270</span> <span class="hljs-keyword">if</span> second &lt;= <span class="hljs-number">15</span> <span class="hljs-keyword">else</span> (second - <span class="hljs-number">15</span>) * <span class="hljs-number">6</span><br>    sec_x = center_x + (radius - margin) * math.cos(sec_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    sec_y = center_y + (radius - margin) * math.sin(sec_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    cv2.line(temp, center, (int(sec_x), int(sec_y)), (<span class="hljs-number">203</span>, <span class="hljs-number">222</span>, <span class="hljs-number">166</span>), <span class="hljs-number">2</span>)<br><br>    <span class="hljs-comment"># 画分刻线</span><br>    min_angle = minute * <span class="hljs-number">6</span> + <span class="hljs-number">270</span> <span class="hljs-keyword">if</span> minute &lt;= <span class="hljs-number">15</span> <span class="hljs-keyword">else</span> (minute - <span class="hljs-number">15</span>) * <span class="hljs-number">6</span><br>    min_x = center_x + (radius - <span class="hljs-number">35</span>) * math.cos(min_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    min_y = center_y + (radius - <span class="hljs-number">35</span>) * math.sin(min_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    cv2.line(temp, center, (int(min_x), int(min_y)), (<span class="hljs-number">186</span>, <span class="hljs-number">199</span>, <span class="hljs-number">137</span>), <span class="hljs-number">8</span>)<br><br>    <span class="hljs-comment"># 画时刻线</span><br>    hour_angle = hour * <span class="hljs-number">30</span> + <span class="hljs-number">270</span> <span class="hljs-keyword">if</span> hour &lt;= <span class="hljs-number">3</span> <span class="hljs-keyword">else</span> (hour - <span class="hljs-number">3</span>) * <span class="hljs-number">30</span><br>    hour_x = center_x + (radius - <span class="hljs-number">65</span>) * math.cos(hour_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    hour_y = center_y + (radius - <span class="hljs-number">65</span>) * math.sin(hour_angle * np.pi / <span class="hljs-number">180.0</span>)<br>    cv2.line(temp, center, (int(hour_x), int(hour_y)), (<span class="hljs-number">169</span>, <span class="hljs-number">198</span>, <span class="hljs-number">26</span>), <span class="hljs-number">15</span>)<br><br>    <span class="hljs-comment"># 6. 添加当前日期文字</span><br>    font = cv2.FONT_HERSHEY_SIMPLEX<br>    time_str = now_time.strftime(<span class="hljs-string">"%d/%m/%Y"</span>)<br>    cv2.putText(img, time_str, (<span class="hljs-number">135</span>, <span class="hljs-number">275</span>), font, <span class="hljs-number">1</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br><br>    cv2.imshow(<span class="hljs-string">'clocking'</span>, temp)<br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) == <span class="hljs-number">27</span>:  <span class="hljs-comment"># 按下ESC键退出</span><br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/OpenCV/" rel="tag"><i class="fas fa-tags"></i>OpenCV</a>
+        
+        <a class="post-tag button" href="/tags/计算机视觉/" rel="tag"><i class="fas fa-tags"></i>计算机视觉</a>
+        
+        <a class="post-tag button" href="/tags/图像处理/" rel="tag"><i class="fas fa-tags"></i>图像处理</a>
+        
+        <a class="post-tag button" href="/tags/绘图/" rel="tag"><i class="fas fa-tags"></i>绘图</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/14/Python-OpenCV教程番外篇6：鼠标绘图/" rel="next" title="Python+OpenCV教程番外篇6：鼠标绘图"><i class="fas fa-angle-left"></i><span class="nav-title">Python+OpenCV教程番外篇6：鼠标绘图</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/08/14/Python-OpenCV教程番外篇7：亮度与对比度/" rel="prev" title="Python+OpenCV教程番外篇7：亮度与对比度"><span class="nav-title">Python+OpenCV教程番外篇7：亮度与对比度</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">49</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">25</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">40</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#方案"><span class="toc-text">方案</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绘制表盘"><span class="toc-text">绘制表盘</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#角度换算"><span class="toc-text">角度换算</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#同步时间"><span class="toc-text">同步时间</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#完整代码"><span class="toc-text">完整代码</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

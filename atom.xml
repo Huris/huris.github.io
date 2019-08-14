@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-14T06:22:25.977Z</updated>
+  <updated>2019-08-14T08:17:16.608Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,111 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python+OpenCV教程番外篇7：亮度与对比度</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%877%EF%BC%9A%E4%BA%AE%E5%BA%A6%E4%B8%8E%E5%AF%B9%E6%AF%94%E5%BA%A6/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇7：亮度与对比度/</id>
+    <published>2019-08-14T07:58:26.000Z</published>
+    <updated>2019-08-14T08:17:16.608Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习如何调整图片的亮度和对比度。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="亮度" scheme="http://huris.xyz/tags/%E4%BA%AE%E5%BA%A6/"/>
+    
+      <category term="对比度" scheme="http://huris.xyz/tags/%E5%AF%B9%E6%AF%94%E5%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+OpenCV教程挑战任务：画动态时钟</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E6%8C%91%E6%88%98%E4%BB%BB%E5%8A%A1%EF%BC%9A%E7%94%BB%E5%8A%A8%E6%80%81%E6%97%B6%E9%92%9F/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程挑战任务：画动态时钟/</id>
+    <published>2019-08-14T07:25:55.000Z</published>
+    <updated>2019-08-14T07:59:42.428Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;挑战任务：使用OpenCV绘制一个随系统时间动态变化的时钟，&lt;strong&gt;中间显示当前日期&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_clock_dynamic_sample.gif&quot; width=&quot;50%&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="项目" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="绘图" scheme="http://huris.xyz/tags/%E7%BB%98%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+OpenCV教程番外篇6：鼠标绘图</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%876%EF%BC%9A%E9%BC%A0%E6%A0%87%E7%BB%98%E5%9B%BE/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇6：鼠标绘图/</id>
+    <published>2019-08-14T06:54:48.000Z</published>
+    <updated>2019-08-14T07:25:15.112Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习如何用鼠标实时绘图。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;捕获鼠标事件&lt;/li&gt;
+&lt;li&gt;OpenCV函数：&lt;code&gt;cv2.setMouseCallback()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;要用鼠标绘图，需要用&lt;code&gt;cv2.setMouseCallback()&lt;/code&gt;定义回调函数，然后在回调函数中根据不同的event事件，执行不同的功能。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="绘图" scheme="http://huris.xyz/tags/%E7%BB%98%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>Python+OpenCV教程8：绘图功能</title>
@@ -622,100 +727,13 @@
       <category term="爬虫实例" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/"/>
     
     
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
       <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
       <category term="正则表达式" scheme="http://huris.xyz/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
       <category term="实例" scheme="http://huris.xyz/tags/%E5%AE%9E%E4%BE%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式</title>
-    <link href="http://huris.xyz/2019/08/11/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://huris.xyz/2019/08/11/正则表达式/</id>
-    <published>2019-08-11T01:53:05.000Z</published>
-    <updated>2019-08-11T05:46:07.256Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;正则表达式是描述一组字符串特征的模式，有助于找到文本字符串中的各种模式。&lt;/p&gt;
-&lt;p&gt;更确切的说，正则表达式是经过专门编写的文本字符串，用来匹配字符串（尤其是文件内字符串）集合中符合该模式的所有字符串。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="正则表达式" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="正则表达式" scheme="http://huris.xyz/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-      <category term="字符串处理" scheme="http://huris.xyz/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>代理的基本原理</title>
-    <link href="http://huris.xyz/2019/08/11/%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
-    <id>http://huris.xyz/2019/08/11/代理的基本原理/</id>
-    <published>2019-08-10T23:54:14.000Z</published>
-    <updated>2019-08-11T01:55:14.177Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;当我们在做爬虫的时候，刚开始可以正常抓取数据，然而一段时间过后可能会出现错误，比如&lt;strong&gt;403 Forbidden&lt;/strong&gt;，这时候打开网页一看，可能会看到&lt;strong&gt;IP访问频率过高&lt;/strong&gt;这样的提示。出现这种现象的原因是网站采取了反爬虫措施。&lt;/p&gt;
-&lt;p&gt;当服务器检测到某个IP在单位时间内的请求次数，如果超过了这个阈值，就会直接拒绝服务，返回一些错误信息，这种情况可以称为封IP。&lt;/p&gt;
-&lt;p&gt;既然服务器检测的是某个IP单位时间的请求次数，那么借助某种方式来伪装我们的IP，让服务器识别不出是由我们本机发起的请求，就可以防止封IP了。&lt;/p&gt;
-&lt;p&gt;一种有效的方式就是使用代理，本文主要介绍了代理的一些基本原理。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="原理" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%8E%9F%E7%90%86/"/>
-    
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="代理" scheme="http://huris.xyz/tags/%E4%BB%A3%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>会话和Cookies</title>
-    <link href="http://huris.xyz/2019/08/07/%E4%BC%9A%E8%AF%9D%E5%92%8CCookies/"/>
-    <id>http://huris.xyz/2019/08/07/会话和Cookies/</id>
-    <published>2019-08-07T02:56:14.000Z</published>
-    <updated>2019-08-11T01:55:18.703Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在浏览网站的时候，我们经常会遇到需要登录的情况，有些页面只有登录之后才可以访问，而且登录之后可以连续访问很多次网站，但是有时候过一段时间就需要重新登录。&lt;/p&gt;
-&lt;p&gt;还有一些网站，再打开浏览器时就自动登录了，而且很长时间都不会失效，这里面涉及会话(&lt;strong&gt;Session&lt;/strong&gt;)和&lt;strong&gt;Cookies&lt;/strong&gt;的相关知识。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="原理" scheme="http://huris.xyz/categories/%E7%88%AC%E8%99%AB/%E5%8E%9F%E7%90%86/"/>
-    
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="cookies" scheme="http://huris.xyz/tags/cookies/"/>
-    
-      <category term="会话" scheme="http://huris.xyz/tags/%E4%BC%9A%E8%AF%9D/"/>
     
   </entry>
   
