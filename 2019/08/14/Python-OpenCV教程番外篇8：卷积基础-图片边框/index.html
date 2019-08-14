@@ -82,6 +82,25 @@
     
     
     
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
     
     <script defer type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript">
@@ -340,7 +359,7 @@ M=\frac{1}{10}\begin{bmatrix}1&1&1\\1&1&1\\1&1&1\end{bmatrix}</script><figure cl
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">52</a></div>
+      <div><a href="/archives/">53</a></div>
     </div>
     
     
@@ -354,7 +373,7 @@ M=\frac{1}{10}\begin{bmatrix}1&1&1\\1&1&1\\1&1&1\end{bmatrix}</script><figure cl
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">43</a></div>
+      <div><a href="/tags/">44</a></div>
     </div>
     
     
