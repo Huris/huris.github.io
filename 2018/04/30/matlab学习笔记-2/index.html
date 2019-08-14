@@ -248,31 +248,34 @@
 <li>单元数组类型</li>
 </ol>
 <a id="more"></a>
-
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><table>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">数据格式</th>
-<th align="center">示例</th>
-<th align="left">说明</th>
+<th style="text-align:center">数据格式</th>
+<th style="text-align:center">示例</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">int8,uint8<br>int16,uint16<br>int32,uint32<br>int64,uint64</td>
-<td align="center">int8(20)</td>
-<td align="left">有符号和无符号的整数类型<br>相同数值的整数类型比浮点数占更少内存<br>除了int64和uint64类型外的所有整数类型,都可以进行数学运算</td>
+<tbody>
+<tr>
+<td style="text-align:center">int8,uint8<br>int16,uint16<br>int32,uint32<br>int64,uint64</td>
+<td style="text-align:center">int8(20)</td>
+<td style="text-align:left">有符号和无符号的整数类型<br>相同数值的整数类型比浮点数占更少内存<br>除了int64和uint64类型外的所有整数类型,都可以进行数学运算</td>
 </tr>
 <tr>
-<td align="center">single</td>
-<td align="center">single(128.1)</td>
-<td align="left">单精度浮点数<br>相同数值的单精度浮点数比双精度浮点数占更少内存<br>单精度浮点数类型能够表示的范围和精度都比双精度浮点数少</td>
+<td style="text-align:center">single</td>
+<td style="text-align:center">single(128.1)</td>
+<td style="text-align:left">单精度浮点数<br>相同数值的单精度浮点数比双精度浮点数占更少内存<br>单精度浮点数类型能够表示的范围和精度都比双精度浮点数少</td>
 </tr>
 <tr>
-<td align="center">double</td>
-<td align="center">333.77<br>1.000-1.000i</td>
-<td align="left">双精度浮点数<br>matlab中默认的数值类型</td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">333.77<br>1.000-1.000i</td>
+<td style="text-align:left">双精度浮点数<br>matlab中默认的数值类型</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>说明</strong></p>
 <ol>
 <li>matlab中数值类型的数据包括<strong>有符号</strong>和<strong>无符号</strong>整数,<strong>单精度浮点数</strong>和<strong>双精度浮点数</strong></li>
@@ -280,46 +283,50 @@
 <li>相对于双精度浮点数,整数和单精度浮点数的优点在于节省变量占用的内存空间</li>
 <li>matlab会自动进行记忆体的使用和回收,而不像c语言那样,必须由使用者一一指定</li>
 </ol>
-<h4 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h4><table>
+<h4 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h4><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">转换函数</th>
-<th align="center">数值范围</th>
+<th style="text-align:center">转换函数</th>
+<th style="text-align:center">数值范围</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">int8</td>
-<td align="center">-2^7^~2^7^-1</td>
+<tbody>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">-2^7^~2^7^-1</td>
 </tr>
 <tr>
-<td align="center">uint8</td>
-<td align="center">0~2^8^-1</td>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">0~2^8^-1</td>
 </tr>
 <tr>
-<td align="center">int16</td>
-<td align="center">-2^15^~2^15^-1</td>
+<td style="text-align:center">int16</td>
+<td style="text-align:center">-2^15^~2^15^-1</td>
 </tr>
 <tr>
-<td align="center">uint16</td>
-<td align="center">0~2^16^-1</td>
+<td style="text-align:center">uint16</td>
+<td style="text-align:center">0~2^16^-1</td>
 </tr>
 <tr>
-<td align="center">int32</td>
-<td align="center">-2^31^~2^31^-1</td>
+<td style="text-align:center">int32</td>
+<td style="text-align:center">-2^31^~2^31^-1</td>
 </tr>
 <tr>
-<td align="center">uint32</td>
-<td align="center">0~2^32^-1</td>
+<td style="text-align:center">uint32</td>
+<td style="text-align:center">0~2^32^-1</td>
 </tr>
 <tr>
-<td align="center">int64</td>
-<td align="center">-2^63^~2^63^-1</td>
+<td style="text-align:center">int64</td>
+<td style="text-align:center">-2^63^~2^63^-1</td>
 </tr>
 <tr>
-<td align="center">uint64</td>
-<td align="center">0~2^64^-1</td>
+<td style="text-align:center">uint64</td>
+<td style="text-align:center">0~2^64^-1</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>注意</strong></p>
 <ol>
 <li>由于<strong>matlab默认是double类型</strong>,将数值转化为整数时,遵循四舍六入,当小数部分为0.5时,则会转化为绝对值较大的那个整数</li>
@@ -327,60 +334,68 @@
 <li>在不超过数值范围的情况下,任意两个整数类型之间也可以通过转换函数进行互相转换</li>
 <li>由于不同的整数类型能够表示的数值范围不同,因此当结果超出相应的整数类型能够表示的范围时,就会出现一处错误,运算结果被置为该整数能够表示的最大值或最小值</li>
 </ol>
-<h5 id="取整函数"><a href="#取整函数" class="headerlink" title="取整函数"></a>取整函数</h5><table>
+<h5 id="取整函数"><a href="#取整函数" class="headerlink" title="取整函数"></a>取整函数</h5><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">函数</th>
-<th align="center">运算法则</th>
-<th align="center">示例</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">运算法则</th>
+<th style="text-align:center">示例</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">floor(x)</td>
-<td align="center">向下取整</td>
-<td align="center">floor(1.2)=1<br>floor(-1.2)=-2</td>
+<tbody>
+<tr>
+<td style="text-align:center">floor(x)</td>
+<td style="text-align:center">向下取整</td>
+<td style="text-align:center">floor(1.2)=1<br>floor(-1.2)=-2</td>
 </tr>
 <tr>
-<td align="center">ceil(x)</td>
-<td align="center">向上取整</td>
-<td align="center">ceil(1.2)=2<br>ceil(-1.2)=-1</td>
+<td style="text-align:center">ceil(x)</td>
+<td style="text-align:center">向上取整</td>
+<td style="text-align:center">ceil(1.2)=2<br>ceil(-1.2)=-1</td>
 </tr>
 <tr>
-<td align="center">round(x)</td>
-<td align="center">取最接近的整数<br>如果小数部分是0.5,则向绝对值大的方向取整</td>
-<td align="center">round(1.2)=1<br>round(1.6)=2<br>round(-1.2)=-1<br>round(-1.6)=-2<br>round(-1.5)=-2</td>
+<td style="text-align:center">round(x)</td>
+<td style="text-align:center">取最接近的整数<br>如果小数部分是0.5,则向绝对值大的方向取整</td>
+<td style="text-align:center">round(1.2)=1<br>round(1.6)=2<br>round(-1.2)=-1<br>round(-1.6)=-2<br>round(-1.5)=-2</td>
 </tr>
 <tr>
-<td align="center">fix(x)</td>
-<td align="center">向0取整</td>
-<td align="center">fix(1.2)=1<br>fix(1.6)=1<br>fix(-1.2)=-1<br>fix(-1.6)=-1</td>
+<td style="text-align:center">fix(x)</td>
+<td style="text-align:center">向0取整</td>
+<td style="text-align:center">fix(1.2)=1<br>fix(1.6)=1<br>fix(-1.2)=-1<br>fix(-1.6)=-1</td>
 </tr>
-</tbody></table>
-<h4 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h4><table>
+</tbody>
+</table>
+</div>
+<h4 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h4><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">浮点类型</th>
-<th align="center">存储位宽</th>
-<th align="center">各数位的含义</th>
-<th align="center">数值范围</th>
-<th align="center">转换函数</th>
+<th style="text-align:center">浮点类型</th>
+<th style="text-align:center">存储位宽</th>
+<th style="text-align:center">各数位的含义</th>
+<th style="text-align:center">数值范围</th>
+<th style="text-align:center">转换函数</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">单精度</td>
-<td align="center">32</td>
-<td align="center">0<del>22位表示小数部分 <br>23</del>30位表示指数部分<br>31位表示符号(0正1负)</td>
-<td align="center">-3.40282e+038 ~ -1.17549e-038<br>1.17549e-038 ~ 3.40282e+038</td>
-<td align="center">single</td>
+<tbody>
+<tr>
+<td style="text-align:center">单精度</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">0~22位表示小数部分 <br>23~30位表示指数部分<br>31位表示符号(0正1负)</td>
+<td style="text-align:center">-3.40282e+038 ~ -1.17549e-038<br>1.17549e-038 ~ 3.40282e+038</td>
+<td style="text-align:center">single</td>
 </tr>
 <tr>
-<td align="center">双精度</td>
-<td align="center">64</td>
-<td align="center">0<del>51位表示小数部分 <br>52</del>62位表示指数部分<br>63位表示符号(0正1负)</td>
-<td align="center">-1.79769e+308 ~ -2.22507e-308<br>2.22507e-308 ~ 1.79769+308</td>
-<td align="center">Double</td>
+<td style="text-align:center">双精度</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">0~51位表示小数部分 <br>52~62位表示指数部分<br>63位表示符号(0正1负)</td>
+<td style="text-align:center">-1.79769e+308 ~ -2.22507e-308<br>2.22507e-308 ~ 1.79769+308</td>
+<td style="text-align:center">Double</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>注意</strong></p>
 <ol>
 <li>matlab中默认数值类型为双精度浮点类型,因此与创建整数类型数值一样,也可以通过转换函数来实现创建单精度浮点类型</li>
@@ -394,58 +409,66 @@
 <li>由于浮点数只占用一定的存储位宽,其中只有有限位分别用来存储指数部分和小数部分,因此,浮点类型能够表示的实际数值是有限且离散的,任何两个最近相邻的浮点数之间都有微小间隙,而处在间隙中的数值都只能用这两个相邻的浮点数之中的一个来表示(matlab中提供eps函数:可以获得一个数值和最接近该数值的浮点数之间的间隙)</li>
 </ol>
 <h4 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h4><p>复数包括<strong>实部和虚部</strong>两部分,matlab中<strong>默认使用字符i或j作为虚部标志</strong>,创建复数时,可以直接按照复数形式进行输入或者利用complex函数</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数</th>
-<th align="center">说明</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">real(z)</td>
-<td align="center">返回复数z的实部</td>
+<tbody>
+<tr>
+<td style="text-align:center">real(z)</td>
+<td style="text-align:center">返回复数z的实部</td>
 </tr>
 <tr>
-<td align="center">imag(z)</td>
-<td align="center">返回复数z的虚部</td>
+<td style="text-align:center">imag(z)</td>
+<td style="text-align:center">返回复数z的虚部</td>
 </tr>
 <tr>
-<td align="center">abs(z)</td>
-<td align="center">返回复数z的模</td>
+<td style="text-align:center">abs(z)</td>
+<td style="text-align:center">返回复数z的模</td>
 </tr>
 <tr>
-<td align="center">angle(z)</td>
-<td align="center">返回复数z的辐角</td>
+<td style="text-align:center">angle(z)</td>
+<td style="text-align:center">返回复数z的辐角</td>
 </tr>
 <tr>
-<td align="center">conj(z)</td>
-<td align="center">返回复数z的共轭复数</td>
+<td style="text-align:center">conj(z)</td>
+<td style="text-align:center">返回复数z的共轭复数</td>
 </tr>
 <tr>
-<td align="center">complex(a,b)</td>
-<td align="center">以a为实部,b为虚部创建复数</td>
+<td style="text-align:center">complex(a,b)</td>
+<td style="text-align:center">以a为实部,b为虚部创建复数</td>
 </tr>
-</tbody></table>
-<h4 id="无穷量-Inf-和非数值量-NaN"><a href="#无穷量-Inf-和非数值量-NaN" class="headerlink" title="无穷量(Inf)和非数值量(NaN)"></a>无穷量(Inf)和非数值量(NaN)</h4><table>
+</tbody>
+</table>
+</div>
+<h4 id="无穷量-Inf-和非数值量-NaN"><a href="#无穷量-Inf-和非数值量-NaN" class="headerlink" title="无穷量(Inf)和非数值量(NaN)"></a>无穷量(Inf)和非数值量(NaN)</h4><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">类型</th>
-<th align="center">说明</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Inf</td>
-<td align="center">正无穷量</td>
+<tbody>
+<tr>
+<td style="text-align:center">Inf</td>
+<td style="text-align:center">正无穷量</td>
 </tr>
 <tr>
-<td align="center">-Inf</td>
-<td align="center">负无穷量</td>
+<td style="text-align:center">-Inf</td>
+<td style="text-align:center">负无穷量</td>
 </tr>
 <tr>
-<td align="center">NaN</td>
-<td align="center">非数值量</td>
+<td style="text-align:center">NaN</td>
+<td style="text-align:center">非数值量</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>注意</strong></p>
 <ol>
 <li>正负无穷量一般都是由于运算溢出,产生了超出双精度浮点数数值范围的结果</li>
@@ -454,67 +477,75 @@
 </ol>
 <h3 id="逻辑类型"><a href="#逻辑类型" class="headerlink" title="逻辑类型"></a>逻辑类型</h3><p>matlab把任何非零数值当做真,把零当做假.</p>
 <p>所有关系和逻辑表达式的输出:对于真,输出1;对于假,输出0</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">关系操作符</th>
-<th align="center">说明</th>
+<th style="text-align:center">关系操作符</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">&lt;</td>
-<td align="center">小于</td>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">小于</td>
 </tr>
 <tr>
-<td align="center">&lt;=</td>
-<td align="center">小于等于</td>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:center">小于等于</td>
 </tr>
 <tr>
-<td align="center">&gt;</td>
-<td align="center">大于</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">大于</td>
 </tr>
 <tr>
-<td align="center">&gt;=</td>
-<td align="center">大于等于</td>
+<td style="text-align:center">&gt;=</td>
+<td style="text-align:center">大于等于</td>
 </tr>
 <tr>
-<td align="center">==</td>
-<td align="center">等于</td>
+<td style="text-align:center">==</td>
+<td style="text-align:center">等于</td>
 </tr>
 <tr>
-<td align="center">~=</td>
-<td align="center">不等于</td>
+<td style="text-align:center">~=</td>
+<td style="text-align:center">不等于</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>matlab关系操作符能用来比较两个同样大小的数组,或用来比较一个数组和一个标量,在后一种情况中,标量和数组中的每一个元素相比较,结果与数组大小一样</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">逻辑运算符</th>
-<th align="center">说明</th>
+<th style="text-align:center">逻辑运算符</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">&amp;</td>
-<td align="center">与</td>
+<tbody>
+<tr>
+<td style="text-align:center">&amp;</td>
+<td style="text-align:center">与</td>
 </tr>
 <tr>
-<td align="center">丨</td>
-<td align="center">或</td>
+<td style="text-align:center">丨</td>
+<td style="text-align:center">或</td>
 </tr>
 <tr>
-<td align="center">~</td>
-<td align="center">非</td>
+<td style="text-align:center">~</td>
+<td style="text-align:center">非</td>
 </tr>
 <tr>
-<td align="center">xor(x,y)</td>
-<td align="center">异或</td>
+<td style="text-align:center">xor(x,y)</td>
+<td style="text-align:center">异或</td>
 </tr>
 <tr>
-<td align="center">any(x)</td>
-<td align="center">判断是否为零向量或者零矩阵</td>
+<td style="text-align:center">any(x)</td>
+<td style="text-align:center">判断是否为零向量或者零矩阵</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="字符和字符串"><a href="#字符和字符串" class="headerlink" title="字符和字符串"></a>字符和字符串</h3><ol>
 <li>在matlab中,<strong>文本</strong>当做特征字符串或简单地当做字符串</li>
 <li>字符串能够<strong>显示在屏幕上</strong>,也可以<strong>用来构成一些命令</strong>,这些命令在其他的命令中用于求值或者被执行</li>
@@ -525,38 +556,42 @@
 <li>在字符串里的每个字符是数组里的一个元素,字符串的存储要求<strong>每个字符占8个字节</strong></li>
 <li>字符串基本操作(以s=‘123456789’ 为例)</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">操作</th>
-<th align="left">输出</th>
+<th style="text-align:center">操作</th>
+<th style="text-align:left">输出</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">u=abs(s)</td>
-<td align="left">u =[49,50,51,52,53,54,55,56,57]</td>
+<tbody>
+<tr>
+<td style="text-align:center">u=abs(s)</td>
+<td style="text-align:left">u =[49,50,51,52,53,54,55,56,57]</td>
 </tr>
 <tr>
-<td align="center">s=s+0</td>
-<td align="left">s =[49,50,51,52,53,54,55,56,57]</td>
+<td style="text-align:center">s=s+0</td>
+<td style="text-align:left">s =[49,50,51,52,53,54,55,56,57]</td>
 </tr>
 <tr>
-<td align="center">u=s(4:9)</td>
-<td align="left">u=‘456789’</td>
+<td style="text-align:center">u=s(4:9)</td>
+<td style="text-align:left">u=‘456789’</td>
 </tr>
 <tr>
-<td align="center">u=s(9:-2:3)</td>
-<td align="left">u=‘9753’</td>
+<td style="text-align:center">u=s(9:-2:3)</td>
+<td style="text-align:left">u=‘9753’</td>
 </tr>
 <tr>
-<td align="center">输入s=I’’am Bob.</td>
-<td align="left">s=I’m Bob</td>
+<td style="text-align:center">输入s=I’’am Bob.</td>
+<td style="text-align:left">s=I’m Bob</td>
 </tr>
 <tr>
-<td align="center">u=[s ‘87654321’]</td>
-<td align="left">u=‘12345678987654321’</td>
+<td style="text-align:center">u=[s ‘87654321’]</td>
+<td style="text-align:left">u=‘12345678987654321’</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="函数句柄"><a href="#函数句柄" class="headerlink" title="函数句柄"></a>函数句柄</h3><p>在matlab中调用函数分为直接调用和间接调用</p>
 <ul>
 <li><p>直接调用</p>
@@ -582,51 +617,53 @@
 </li>
 </ul>
 </li>
-<li><p>函数句柄的操作函数</p>
-</li>
+<li>函数句柄的操作函数</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名称</th>
-<th align="left">函数功能</th>
+<th style="text-align:center">函数名称</th>
+<th style="text-align:left">函数功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">functions(funhandle)</td>
-<td align="left">返回一个结构体<br>包含函数的名称(function),函数类型(type),以及函数M文件的位置(file)</td>
+<tbody>
+<tr>
+<td style="text-align:center">functions(funhandle)</td>
+<td style="text-align:left">返回一个结构体<br>包含函数的名称(function),函数类型(type),以及函数M文件的位置(file)</td>
 </tr>
 <tr>
-<td align="center">func2str(funhandle)</td>
-<td align="left">将函数句柄转换为函数名称的字符串</td>
+<td style="text-align:center">func2str(funhandle)</td>
+<td style="text-align:left">将函数句柄转换为函数名称的字符串</td>
 </tr>
 <tr>
-<td align="center">str2func(str)</td>
-<td align="left">将字符串代表的函数转换为函数句柄</td>
+<td style="text-align:center">str2func(str)</td>
+<td style="text-align:left">将字符串代表的函数转换为函数句柄</td>
 </tr>
 <tr>
-<td align="center">save filename.mat funhandle</td>
-<td align="left">将函数句柄保存在*.mat文件中</td>
+<td style="text-align:center">save filename.mat funhandle</td>
+<td style="text-align:left">将函数句柄保存在*.mat文件中</td>
 </tr>
 <tr>
-<td align="center">load filename.mat funhandle</td>
-<td align="left">把*.mat文件中存储的函数句柄加载到工作区</td>
+<td style="text-align:center">load filename.mat funhandle</td>
+<td style="text-align:left">把*.mat文件中存储的函数句柄加载到工作区</td>
 </tr>
 <tr>
-<td align="center">isa(var,’function_handle’)</td>
-<td align="left">检测变量var是否是函数句柄</td>
+<td style="text-align:center">isa(var,’function_handle’)</td>
+<td style="text-align:left">检测变量var是否是函数句柄</td>
 </tr>
 <tr>
-<td align="center">isequal(funhandle1,funhandle2)</td>
-<td align="left">检测两个函数句柄是否对应于同一个函数</td>
+<td style="text-align:center">isequal(funhandle1,funhandle2)</td>
+<td style="text-align:left">检测两个函数句柄是否对应于同一个函数</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><ul>
 <li><p>创建结构体</p>
 <ul>
 <li><p>直接通过赋值语句给结构体的字段赋值</p>
 <figure class="hljs highlight Matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">student.name=<span class="hljs-string">'sam'</span>;<br>student.grade=<span class="hljs-number">6</span>;<br>student.subject=&#123;<span class="hljs-string">'Chinese'</span>,<span class="hljs-string">'Math'</span>,<span class="hljs-string">'English'</span>&#125;;<br>student.result=&#123;<span class="hljs-number">99</span>,<span class="hljs-number">99</span>,<span class="hljs-number">99</span>&#125;;<br></code></pre></td></tr></table></figure>
-
 <p><strong>注意</strong></p>
 </li>
 </ul>
@@ -664,7 +701,6 @@
 </li>
 <li><p>利用cell函数创建空单元数组</p>
 <figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">cellname=cell(m,n)<br></code></pre></td></tr></table></figure>
-
 <p>该函数创建一个m*n的空单元数组,其每一个单元均为空矩阵</p>
 </li>
 </ol>

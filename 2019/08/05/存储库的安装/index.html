@@ -215,9 +215,6 @@
       <p>数据库想要和Python进行交互的话，还需要安装一些Python存储库，如：<strong>MySQL</strong>需要安装<strong>PyMySQL</strong>、<strong>MongoDB</strong>需要安装<strong>PyMongo</strong>等。</p>
 <p>本文主要说明这些存储库的安装方式。</p>
 <a id="more"></a>
-
-
-
 <h2 id="PyMySQL"><a href="#PyMySQL" class="headerlink" title="PyMySQL"></a>PyMySQL</h2><p>在<strong>Python3</strong>中，如果想要将数据存储到<strong>MySQL</strong>中，就需要借助<strong>PyMySQL</strong>来操作。</p>
 <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
 <li>Github：<a href="https://github.com/PyMySQL/PyMySQL" target="_blank" rel="noopener">https://github.com/PyMySQL/PyMySQL</a></li>
@@ -227,7 +224,6 @@
 <h3 id="pip安装"><a href="#pip安装" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install pymysql</code></p>
 <h3 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import pymysql<br>&gt;&gt;&gt; pymysql.VERSION<br>(0, 9, 3, None)<br></code></pre></td></tr></table></figure>
-
 <p>如果成功输出了其版本内容，则证明PyMySQL成功安装。</p>
 <h2 id="PyMongoDB"><a href="#PyMongoDB" class="headerlink" title="PyMongoDB"></a>PyMongoDB</h2><p>在Python中，如果想要和<strong>MongoDB</strong>进行交互，就需要借助于<strong>PyMongo</strong>库。</p>
 <h3 id="相关链接-1"><a href="#相关链接-1" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
@@ -238,7 +234,6 @@
 <h3 id="pip安装-1"><a href="#pip安装-1" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install pymongo</code></p>
 <h3 id="验证安装-1"><a href="#验证安装-1" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import pymongo<br>&gt;&gt;&gt; pymongo.VERSION<br><span class="hljs-string">'3.8.0'</span><br></code></pre></td></tr></table></figure>
-
 <p>如果成功输出了其版本内容，则证明<strong>PyMongo</strong>成功安装。</p>
 <h2 id="redis-py"><a href="#redis-py" class="headerlink" title="redis-py"></a>redis-py</h2><p>在Python中，如果想要和<strong>Redis</strong>进行交互，就需要借助于<strong>redis-py</strong>库。</p>
 <h3 id="相关链接-2"><a href="#相关链接-2" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
@@ -248,7 +243,6 @@
 <h3 id="pip安装-2"><a href="#pip安装-2" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install redis</code></p>
 <h3 id="验证安装-2"><a href="#验证安装-2" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import redis<br>&gt;&gt;&gt; redis.VERSION<br>(3, 3, 5)<br></code></pre></td></tr></table></figure>
-
 <p>如果成功输出了其版本内容，则证明<strong>redis-py</strong>成功安装。</p>
 <h2 id="RedisDump"><a href="#RedisDump" class="headerlink" title="RedisDump"></a>RedisDump</h2><p>RedisDump是一个用于Redis数据导入/导出的工具，是基于Ruby实现的，所以要安装RedisDump，需要先安装Ruby。</p>
 <h3 id="相关链接-3"><a href="#相关链接-3" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
@@ -258,7 +252,6 @@
 <h3 id="gem安装"><a href="#gem安装" class="headerlink" title="gem安装"></a>gem安装</h3><p>安装Ruby(参考<a href="http://www.ruby-lang.org/zh_cn/documentation/installation" target="_blank" rel="noopener">这里</a>)后，利用<strong>gem命令</strong>安装RedisDump：<code>gem install redis-dump</code></p>
 <h3 id="验证安装-3"><a href="#验证安装-3" class="headerlink" title="验证安装"></a>验证安装</h3><p>安装成功后，可以执行如下两个命令：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis-dump<br>redis-load<br></code></pre></td></tr></table></figure>
-
 <p>如果可以成功调用，则说明安装成功。</p>
 
     </main>

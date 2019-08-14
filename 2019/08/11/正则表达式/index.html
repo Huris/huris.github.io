@@ -215,17 +215,16 @@
       <p>正则表达式是描述一组字符串特征的模式，有助于找到文本字符串中的各种模式。</p>
 <p>更确切的说，正则表达式是经过专门编写的文本字符串，用来匹配字符串（尤其是文件内字符串）集合中符合该模式的所有字符串。</p>
 <a id="more"></a>
-
-
-
-<h2 id="常用匹配规则"><a href="#常用匹配规则" class="headerlink" title="常用匹配规则"></a>常用匹配规则</h2><table>
+<h2 id="常用匹配规则"><a href="#常用匹配规则" class="headerlink" title="常用匹配规则"></a>常用匹配规则</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>模式</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>\w</td>
 <td>匹配字母、数字及下划线</td>
 </tr>
@@ -290,7 +289,7 @@
 <td>用来表示一组字符，单独列出，比如 <code>[amk]</code>匹配a、m或k</td>
 </tr>
 <tr>
-<td>[^…]</td>
+<td><sup><a href="#fn_..." id="reffn_...">...</a></sup></td>
 <td>不在<code>[...]</code>中的字符，比如<code>[^abc]</code>匹配除了a、b、c之外的字符</td>
 </tr>
 <tr>
@@ -314,14 +313,17 @@
 <td>匹配n到m个由前面正则表达式定义的片段，贪婪方式</td>
 </tr>
 <tr>
-<td>a|b</td>
+<td>a\</td>
+<td>b</td>
 <td>匹配a或b</td>
 </tr>
 <tr>
 <td>( )</td>
 <td>匹配括号内的表达式，也表示一个组</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="re库-Python"><a href="#re库-Python" class="headerlink" title="re库(Python)"></a>re库(Python)</h2><h3 id="match方法"><a href="#match方法" class="headerlink" title="match方法"></a>match方法</h3><p>向<code>match</code>传入要匹配的字符串以及正则表达式，就可以检测这个正则表达式是否匹配字符串。</p>
 <p><strong><em>第一个参数传入正则表达式，第二个参数传入要匹配的字符串。</em></strong></p>
 <p><code>match</code>从字符串的起始位置匹配正则表达式：</p>
@@ -330,7 +332,6 @@
 <li>如果不匹配，就返回None</li>
 </ul>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 123 4567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^Hello\s\d\d\d\s\d&#123;4&#125;\s\w&#123;10&#125;'</span>, content)<br>print(result)<br>print(result.group())<br>print(result.span())<br><br>*************************************************************<br><br>运行结果如下:<br><span class="hljs-number">41</span><br>&lt;_sre.SRE_Match object; span=(<span class="hljs-number">0</span>, <span class="hljs-number">25</span>), match=<span class="hljs-string">'Hello 123 4567 World_This'</span>&gt;<br>Hello <span class="hljs-number">123</span> <span class="hljs-number">4567</span> World_This<br>(<span class="hljs-number">0</span>, <span class="hljs-number">25</span>)<br></code></pre></td></tr></table></figure>
-
 <ol>
 <li>开头的<code>^</code>是匹配字符串的开头，也就是以<code>Hello</code>开头；</li>
 <li><code>\s</code>匹配空白字符，用来匹配目标串的空格；</li>
@@ -348,7 +349,6 @@
 </ul>
 <h4 id="匹配目标"><a href="#匹配目标" class="headerlink" title="匹配目标"></a>匹配目标</h4><p>可以使用<code>()</code>括号将想提取的子字符串括起来。<code>()</code>实际上标记了一个子表达式的开始和结束位置，被标记的每个子表达式会依次对应每一个分组，调用<code>group()</code>传入分组的索引即可获取提取的结果。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^Hello\s(\d+)\s(World)'</span>, content)<br>print(result)<br>print(result.group())<br>print(result.group(<span class="hljs-number">0</span>))<br>print(result.group(<span class="hljs-number">1</span>))<br>print(result.group(<span class="hljs-number">2</span>))<br>print(result.span())<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">40</span><br>&lt;_sre.SRE_Match object; span=(<span class="hljs-number">0</span>, <span class="hljs-number">19</span>), match=<span class="hljs-string">'Hello 1234567 World'</span>&gt;<br>Hello <span class="hljs-number">1234567</span> World<br>Hello <span class="hljs-number">1234567</span> World<br><span class="hljs-number">1234567</span><br>World<br>(<span class="hljs-number">0</span>, <span class="hljs-number">19</span>)<br></code></pre></td></tr></table></figure>
-
 <p>从结果中看出：</p>
 <ul>
 <li><code>group()</code>和<code>group(0)</code>结果相同，都是输出完整的匹配内容；</li>
@@ -362,29 +362,25 @@
 </ul>
 <p>因此，可以用<code>.*</code>组合匹配任意字符串。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 123 4567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^Hello.*Demo$'</span>, content)<br>print(result)<br>print(result.group())<br>print(result.span())<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">41</span><br>&lt;_sre.SRE_Match object; span=(<span class="hljs-number">0</span>, <span class="hljs-number">41</span>), match=<span class="hljs-string">'Hello 123 4567 World_This is a Regex Demo'</span>&gt;<br>Hello <span class="hljs-number">123</span> <span class="hljs-number">4567</span> World_This <span class="hljs-keyword">is</span> a Regex Demo<br>(<span class="hljs-number">0</span>, <span class="hljs-number">41</span>)<br></code></pre></td></tr></table></figure>
-
 <p>可以看到，<code>group()</code>方法输出了匹配的全部字符串，也就是说我们写的正则表达式匹配到了目标字符串的全部内容，<code>span()</code>方法输出(0, 41)，这是整个字符串的长度。</p>
 <h4 id="贪婪和非贪婪"><a href="#贪婪和非贪婪" class="headerlink" title="贪婪和非贪婪"></a>贪婪和非贪婪</h4><ul>
 <li>在贪婪匹配下，<code>.*</code> 会匹配尽可能多的字符。</li>
 <li>在非贪婪匹配下，<code>.*?</code> 会匹配尽可能少的字符。</li>
 </ul>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br><br><span class="hljs-comment"># 贪婪匹配</span><br>result = re.match(<span class="hljs-string">'^He.*(\d+).*Demo$'</span>, content)<br>print(<span class="hljs-string">'贪婪匹配: '</span>+ result.group(<span class="hljs-number">1</span>))<br><br><span class="hljs-comment"># 非贪婪匹配</span><br>result = re.match(<span class="hljs-string">'^He.*?(\d+).*Demo$'</span>, content)<br>print(<span class="hljs-string">'非贪婪匹配: '</span>+ result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">40</span><br>贪婪匹配: <span class="hljs-number">7</span><br>非贪婪匹配: <span class="hljs-number">1234567</span><br></code></pre></td></tr></table></figure>
-
 <p><strong>在做匹配的时候，字符串中间尽量使用非贪婪匹配，也就是用 <code>.*?</code> 代替 <code>.*</code> ，以免出现匹配结果缺失的情况。</strong></p>
 <p>但是要注意，如果匹配的结果在字符串的结尾，<code>.*?</code>就有可能匹配不到任何内容了，因为他会匹配尽可能少的字符。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br><br><span class="hljs-comment"># 贪婪匹配</span><br>result = re.match(<span class="hljs-string">'^He.*Regex (.*)'</span>, content)<br>print(<span class="hljs-string">'贪婪匹配: '</span>+ result.group(<span class="hljs-number">1</span>))<br><br><span class="hljs-comment"># 非贪婪匹配</span><br>result = re.match(<span class="hljs-string">'^He.*Regex (.*?)'</span>, content)<br>print(<span class="hljs-string">'非贪婪匹配: '</span>+ result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">40</span><br>贪婪匹配: Demo<br>非贪婪匹配:<br></code></pre></td></tr></table></figure>
-
 <h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>正则表达式可以包含一些可选标志修饰符来控制匹配的模式。</p>
 <p>修饰符被指定为一个可选的标志。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'''Hello 1234567 World_This<br> is a Regex Demo'''</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^He.*Regex (.*)'</span>, content)<br>print(result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">41</span><br>Traceback (most recent call last):<br>  File <span class="hljs-string">"/Users/huben/Desktop/spider/cs.py"</span>, line <span class="hljs-number">7</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    print(result.group(<span class="hljs-number">1</span>))<br>AttributeError: <span class="hljs-string">'NoneType'</span> object has no attribute <span class="hljs-string">'group'</span><br></code></pre></td></tr></table></figure>
-
 <p>运行直接报错，也就是说正则表达式没有匹配到这个字符串，返回的结果为None，而又调用了<code>group()</code>方法导致<code>AttributeError</code>。</p>
 <p><strong>原因：</strong> <code>.</code> 匹配的是除了换行符之外的任意字符，当遇到换行符时，<code>.*?</code> 就不能匹配了，所以导致失败。</p>
 <p>这里可以加上修饰符 <code>re.S</code> ，即可修正这个错误。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'''Hello 1234567 World_This<br> is a Regex Demo'''</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'^He.*Regex (.*)'</span>, content, re.S)<br>print(result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">41</span><br>Demo<br></code></pre></td></tr></table></figure>
-
 <p>这个<code>re.S</code>在网页匹配中经常用到。因为HTML节点经常会有换行，加上它，就可以匹配节点与节点之间的换行了。</p>
 <p>另外还有一些修饰符如下：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -392,7 +388,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>re.I</td>
 <td>使匹配与大小写不敏感</td>
 </tr>
@@ -416,30 +413,27 @@
 <td>re.X</td>
 <td>该标志通过给予更灵活的格式以便将正则表达式写的更易于理解</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>较为常用的是 <code>re.I</code> ，和 <code>re.S</code> 。</p>
 <h4 id="转义匹配"><a href="#转义匹配" class="headerlink" title="转义匹配"></a>转义匹配</h4><p>在正则表达式中定义了很多匹配，但是如果要匹配包含 <code>.</code> 等特殊字符时，就需要使用转义匹配了。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'(百度)www.baidu.com'</span><br>result = re.match(<span class="hljs-string">'\(百度\)www\.baidu\.com'</span>, content)<br>print(result.group())<br><br>******************************************************************<br><br>运行结果：<br>(百度)www.baidu.com<br></code></pre></td></tr></table></figure>
-
 <p>当遇到用于正则匹配模式的特殊字符时，<strong>在前面加反斜杠转义一下即可</strong>。</p>
 <h3 id="search方法"><a href="#search方法" class="headerlink" title="search方法"></a>search方法</h3><p><code>match()</code>方法在匹配时是从字符串的开头开始匹配的，一旦开头不匹配，那么整个匹配就会失败。这在做匹配时会非常不方便，它更适合用来检测某个字符串是否符合某个正则表达式的规则。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Extra strings Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.match(<span class="hljs-string">'He.*Regex (.*)'</span>, content)<br>print(result.group(<span class="hljs-number">1</span>))<br><br>******************************************************************<br><br>运行结果：<br>Traceback (most recent call last):<br>  File <span class="hljs-string">"/Users/huben/Desktop/spider/cs.py"</span>, line <span class="hljs-number">6</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br><span class="hljs-number">54</span><br>    print(result.group(<span class="hljs-number">1</span>))<br>AttributeError: <span class="hljs-string">'NoneType'</span> object has no attribute <span class="hljs-string">'group'</span><br></code></pre></td></tr></table></figure>
-
 <p>而<code>search()</code>方法在匹配的时候会扫描整个字符串，然后<strong>返回第一个成功匹配的结果</strong>。</p>
 <p>即，<strong>正则表达式可以是字符串的一部分</strong>，在匹配时，<code>search()</code>方法会依次扫描字符串，直到找到第一个符合规则的字符串，然后返回匹配内容，如果搜索完了还没有找到，则返回<strong>None</strong>。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">'Extra strings Hello 1234567 World_This is a Regex Demo'</span><br>print(len(content))<br>result = re.search(<span class="hljs-string">'He.*Regex (.*)'</span>, content)<br>print(result.group())<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">54</span><br>Hello <span class="hljs-number">1234567</span> World_This <span class="hljs-keyword">is</span> a Regex Demo<br></code></pre></td></tr></table></figure>
-
 <p>因此，为了匹配方便，我们尽量使用<code>search()</code>方法。</p>
 <h3 id="findall方法"><a href="#findall方法" class="headerlink" title="findall方法"></a>findall方法</h3><p>如果想要获取正则表达式的所有内容，则需要借助 <code>findall()</code> 方法。</p>
 <p>该方法会搜索整个字符串，然后返回匹配正则表达式的所有内容。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">results = re.findall(RegEx, content, re.S) <span class="hljs-comment"># 匹配所有结果</span><br><span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> results:<br>    print(result)<br>    print(result[<span class="hljs-number">0</span>],result[<span class="hljs-number">1</span>],result[<span class="hljs-number">2</span>])	<span class="hljs-comment"># 这里相当于group(1),group(2)...</span><br></code></pre></td></tr></table></figure>
-
 <p>可以看出，返回的列表中的每个元素都是元组类型，可以用对应的索引依次取出即可。</p>
 <h3 id="sub方法"><a href="#sub方法" class="headerlink" title="sub方法"></a>sub方法</h3><p>除了使用正则表达式提取信息外，有时候还需要借助它来修改文本。</p>
 <p>比如要把一串文本中的所有数字都去掉，如果只用字符串的<code>replace()</code>方法，那就太繁琐了。</p>
 <p>可以使用<code>sub()</code>方法。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content = <span class="hljs-string">"Hello 1234567 World_This is a Regex Demo"</span><br>content = re.sub(<span class="hljs-string">' \d+'</span>, <span class="hljs-string">''</span>, content)<br>print(content)<br><br>******************************************************************<br><br>运行结果：<br>Hello World_This <span class="hljs-keyword">is</span> a Regex Demo<br></code></pre></td></tr></table></figure>
-
 <p>其中：</p>
 <ul>
 <li><strong>第一个参数：</strong>传入<code>\d+</code>来匹配所有的数字；</li>
@@ -448,7 +442,6 @@
 </ul>
 <h3 id="compile方法"><a href="#compile方法" class="headerlink" title="compile方法"></a>compile方法</h3><p><code>compile()</code>方法可以将正则字符串编译成正则表达式对象，以便在后面的匹配中复用。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>content1 = <span class="hljs-string">'2016-12-15 12:00'</span><br>content2 = <span class="hljs-string">'2016-12-17 12:55'</span><br>content3 = <span class="hljs-string">'2016-12-22 13:21'</span><br><br>pattern = re.compile(<span class="hljs-string">'\d&#123;2&#125;:\d&#123;2&#125;'</span>)<br><br>result1 = re.sub(pattern, <span class="hljs-string">''</span>, content1)<br>result2 = re.sub(pattern, <span class="hljs-string">''</span>, content2)<br>result3 = re.sub(pattern, <span class="hljs-string">''</span>, content3)<br><br>print(result1, result2, result3)<br><br>******************************************************************<br><br>运行结果：<br><span class="hljs-number">2016</span><span class="hljs-number">-12</span><span class="hljs-number">-15</span>  <span class="hljs-number">2016</span><span class="hljs-number">-12</span><span class="hljs-number">-17</span>  <span class="hljs-number">2016</span><span class="hljs-number">-12</span><span class="hljs-number">-22</span><br></code></pre></td></tr></table></figure>
-
 <p>例如，如果我们想要将三个日期中的时间去掉，此时可以借助<code>sub()</code>方法。</p>
 <p>该方法的第一个参数是正则表达式，但是这里没有必要重复写3个同样的正则表达式，此时可以借助<code>compile()</code>方法将正则表达式编译成一个正则表达式对象，以便复用。</p>
 <p>另外，<code>compile()</code>还可以传入修饰符，例如<code>re.S</code>等修饰符，这样在<code>search()</code>、<code>findall()</code>等方法中就不需要额外传了。例如：<code>pattern = re.compile(&#39;\d{2}:\d{2}&#39;, re.S)</code></p>

@@ -237,14 +237,13 @@
 <li>点运算</li>
 </ol>
 <a id="more"></a>
-
 <h4 id="基本算术运算"><a href="#基本算术运算" class="headerlink" title="基本算术运算"></a>基本算术运算</h4><p>matlab的基本算数运算有:+(加),-(减),*(乘),/(右除),\(左除),^(乘方)</p>
 <h5 id="矩阵加减运算"><a href="#矩阵加减运算" class="headerlink" title="矩阵加减运算"></a>矩阵加减运算</h5><p>a和b必须同型(即大小相同)</p>
 <h5 id="矩阵乘法运算"><a href="#矩阵乘法运算" class="headerlink" title="矩阵乘法运算"></a>矩阵乘法运算</h5><p>a为n×m矩阵,b为m×p矩阵才能进行乘法运算</p>
 <h5 id="矩阵除法运算"><a href="#矩阵除法运算" class="headerlink" title="矩阵除法运算"></a>矩阵除法运算</h5><ul>
-<li>在matlab中,有两种矩阵除法运算:/和\,分别表示左除和右除</li>
+<li>在matlab中,有两种矩阵除法运算:/和\\,分别表示左除和右除</li>
 <li>只有矩阵a的行列式不为零(即矩阵a为非奇异矩阵)才能进行实现</li>
-<li>a\b等效于a的逆左乘b矩阵,即inv(a)*b</li>
+<li>a\\b等效于a的逆左乘b矩阵,即inv(a)*b</li>
 <li>b/a等效于a的逆右乘b矩阵,即b*inv(a)</li>
 <li>对于标量的运算,两种除法运算的结果都相等</li>
 <li>对于矩阵来说,左除和右除代表两种不同的除数矩阵和被除数矩阵的关系</li>
@@ -257,7 +256,6 @@
 </li>
 <li><p>可以计算一个矩阵的方根,例如:</p>
 <figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br>a^<span class="hljs-number">0.1</span><br></code></pre></td></tr></table></figure>
-
 </li>
 </ul>
 <h4 id="点运算"><a href="#点运算" class="headerlink" title="点运算"></a>点运算</h4><p>在matlab中,有一种特殊的运算,因为其运算符是在有关算术运算符前面加点,所以叫点运算</p>
@@ -265,17 +263,12 @@
 <p>两矩阵进行点运算是指他们对应的对应元素进行相关运算,要求两矩阵的维数相同</p>
 <h5 id="a-b"><a href="#a-b" class="headerlink" title="a.*b"></a>a.*b</h5><p>表示a和b单个元素之间对应相乘,例如</p>
 <figure class="hljs highlight Matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br>b=[<span class="hljs-number">9</span>,<span class="hljs-number">8</span>,<span class="hljs-number">7</span>;<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>;<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>];<br>a.*b=<br>	<span class="hljs-number">9</span> <span class="hljs-number">16</span> <span class="hljs-number">21</span><br>	<span class="hljs-number">24</span> <span class="hljs-number">25</span> <span class="hljs-number">24</span><br>	<span class="hljs-number">21</span> <span class="hljs-number">16</span> <span class="hljs-number">9</span><br></code></pre></td></tr></table></figure>
-
 <h5 id="a-b与b-a"><a href="#a-b与b-a" class="headerlink" title="a./b与b.\a"></a>a./b与b.\a</h5><p>a./b等价于b.\a,例如</p>
 <figure class="hljs highlight Matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br>b=[<span class="hljs-number">-2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>;<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>];<br>a./b=<br>	<span class="hljs-number">-0.5</span> <span class="hljs-number">2.0</span> <span class="hljs-number">1.0</span><br>	<span class="hljs-number">-4.0</span> <span class="hljs-number">5.0</span> <span class="hljs-number">1.5</span><br>b.\a=<br>	<span class="hljs-number">-0.5</span> <span class="hljs-number">2.0</span> <span class="hljs-number">1.0</span><br>	<span class="hljs-number">-4.0</span> <span class="hljs-number">5.0</span> <span class="hljs-number">1.5</span><br></code></pre></td></tr></table></figure>
-
 <h5 id="a-b-1"><a href="#a-b-1" class="headerlink" title="a.^b"></a>a.^b</h5><p>若两个矩阵同型,则<strong>a.^b</strong>表示两矩阵对应元素进行乘方运算,例如:</p>
 <figure class="hljs highlight Matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br>b=[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br>a.^b=<br>	<span class="hljs-number">1</span> <span class="hljs-number">32</span> <span class="hljs-number">729</span><br></code></pre></td></tr></table></figure>
-
 <figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br>a.^<span class="hljs-number">2</span>=<br>	<span class="hljs-number">1</span> <span class="hljs-number">4</span> <span class="hljs-number">9</span><br></code></pre></td></tr></table></figure>
-
 <figure class="hljs highlight Matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br>b=[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br><span class="hljs-number">2.</span>^[a b]=<br>	<span class="hljs-number">2</span> <span class="hljs-number">4</span> <span class="hljs-number">8</span> <span class="hljs-number">16</span> <span class="hljs-number">32</span> <span class="hljs-number">64</span><br></code></pre></td></tr></table></figure>
-
 <figure class="hljs highlight Matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Matlab"><span class="hljs-comment">%当x分别为0.1,0.4,0.7,1时,分别求y=sin(x)cos(x)的值</span><br>x=[<span class="hljs-number">0.1</span>,<span class="hljs-number">0.4</span>,<span class="hljs-number">0.7</span>,<span class="hljs-number">1</span>];<br><span class="hljs-built_in">sin</span>(x).*<span class="hljs-built_in">cos</span>(x)=<br>	 <span class="hljs-number">0.10</span>          <span class="hljs-number">0.36</span>          <span class="hljs-number">0.49</span>          <span class="hljs-number">0.45</span><br></code></pre></td></tr></table></figure>
     </main>
     <footer class="post-footer">

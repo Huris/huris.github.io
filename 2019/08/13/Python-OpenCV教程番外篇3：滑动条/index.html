@@ -220,9 +220,6 @@
 <li>另外在回调函数中也可以获取滑块位置</li>
 </ul>
 <a id="more"></a>
-
-
-
 <h2 id="滑动条的使用"><a href="#滑动条的使用" class="headerlink" title="滑动条的使用"></a>滑动条的使用</h2><p>首先我们需要创建一个滑动条，如<code>cv2.createTrackbar(&#39;R&#39;,&#39;image&#39;,0,255,call_back)</code>，其中</p>
 <ul>
 <li>参数1：滑动条的名称</li>
@@ -235,11 +232,7 @@
 <p>也可以用：<code>cv2.getTrackbarPos()</code>得到，其中，参数1是滑动条的名称，参数2是窗口的名称。</p>
 <h2 id="实例：RGB调色板"><a href="#实例：RGB调色板" class="headerlink" title="实例：RGB调色板"></a>实例：RGB调色板</h2><p>下面我们实现一个RGB的调色板，理解下滑动条的用法：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">nothing</span><span class="hljs-params">(x)</span>:</span><br>    <span class="hljs-string">"""<br>    ### 回调函数,x表示滑块的位置,输出x<br>    """</span><br>    print(x)<br><br><br><span class="hljs-comment"># 创建一副300×512的纯黑色图</span><br>img = np.zeros((<span class="hljs-number">300</span>, <span class="hljs-number">512</span>, <span class="hljs-number">3</span>), np.uint8)<br>cv2.namedWindow(<span class="hljs-string">'image'</span>)<br><br><span class="hljs-comment"># 创建RGB三个滑动条</span><br>cv2.createTrackbar(<span class="hljs-string">'R'</span>, <span class="hljs-string">'image'</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, nothing)<br>cv2.createTrackbar(<span class="hljs-string">'G'</span>, <span class="hljs-string">'image'</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, nothing)<br>cv2.createTrackbar(<span class="hljs-string">'B'</span>, <span class="hljs-string">'image'</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, nothing)<br><br><span class="hljs-keyword">while</span> (<span class="hljs-literal">True</span>):<br>    cv2.imshow(<span class="hljs-string">'image'</span>, img)<br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) == ord(<span class="hljs-string">'q'</span>):<br>        <span class="hljs-keyword">break</span><br><br>    <span class="hljs-comment"># 获取滑块的值</span><br>    r = cv2.getTrackbarPos(<span class="hljs-string">'R'</span>, <span class="hljs-string">'image'</span>)<br>    g = cv2.getTrackbarPos(<span class="hljs-string">'G'</span>, <span class="hljs-string">'image'</span>)<br>    b = cv2.getTrackbarPos(<span class="hljs-string">'B'</span>, <span class="hljs-string">'image'</span>)<br>    <span class="hljs-comment"># 设定img的颜色</span><br>    img[:] = [b, g, r]<br></code></pre></td></tr></table></figure>
-
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/%E8%B0%83%E8%89%B2%E6%9D%BF.png" width="70%">
-
-
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/%E8%B0%83%E8%89%B2%E6%9D%BF.png" width="70%"></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
 <li><a href="https://docs.opencv.org/4.0.0/d7/dfc/group__highgui.html#gaf78d2155d30b728fc413803745b67a9b" target="_blank" rel="noopener">cv2.createTrackbar()</a></li>
 <li><a href="https://docs.opencv.org/4.0.0/d7/dfc/group__highgui.html#ga122632e9e91b9ec06943472c55d9cda8" target="_blank" rel="noopener">cv2.getTrackbarPos()</a></li>

@@ -234,17 +234,12 @@
       <p><strong>matlab学习笔记(4)主要介绍了以下内容:</strong></p>
 <p>矩阵</p>
 <a id="more"></a>
-
 <h3 id="矩阵的建立"><a href="#矩阵的建立" class="headerlink" title="矩阵的建立"></a>矩阵的建立</h3><h4 id="直接输入法建立矩阵"><a href="#直接输入法建立矩阵" class="headerlink" title="直接输入法建立矩阵"></a>直接输入法建立矩阵</h4><figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]<br></code></pre></td></tr></table></figure>
-
 <h4 id="冒号表达式建立一个向量"><a href="#冒号表达式建立一个向量" class="headerlink" title="冒号表达式建立一个向量"></a>冒号表达式建立一个向量</h4><figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=<span class="hljs-number">0</span>:<span class="hljs-number">1</span>:<span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
-
 <p>如果冒号表达式中省略第二个冒号,则默认步长为1</p>
 <h4 id="用linspace函数产生行向量"><a href="#用linspace函数产生行向量" class="headerlink" title="用linspace函数产生行向量"></a>用linspace函数产生行向量</h4><figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">linspace</span>(l,r,n)<br></code></pre></td></tr></table></figure>
-
 <p>其中l,r是生成向量的第一个元素和最后一个元素,n是元素总数,当n省略时,自动产生100个元素</p>
 <h4 id="利用已建好的小矩阵拼接成大矩阵"><a href="#利用已建好的小矩阵拼接成大矩阵" class="headerlink" title="利用已建好的小矩阵拼接成大矩阵"></a>利用已建好的小矩阵拼接成大矩阵</h4><figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>:<span class="hljs-number">2</span>:<span class="hljs-number">6</span>;<span class="hljs-number">2</span>:<span class="hljs-number">2</span>:<span class="hljs-number">6</span>];<br>b=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br>c=[a;b]<br></code></pre></td></tr></table></figure>
-
 <h3 id="矩阵的拆分"><a href="#矩阵的拆分" class="headerlink" title="矩阵的拆分"></a>矩阵的拆分</h3><h4 id="直接通过下标来引用"><a href="#直接通过下标来引用" class="headerlink" title="直接通过下标来引用"></a>直接通过下标来引用</h4><p>如<code>a(3,2)</code>表示a矩阵第3行第2列元素,通常情况下,是对矩阵的单个元素进行赋值或其他操作</p>
 <p><strong>如果给出的行下标或者列下标大于原矩阵的行数和列数,则matlab将自动扩展原来的矩阵,并将扩展后未赋值的元素置为0</strong></p>
 <h4 id="通过冒号表达式获得子矩阵"><a href="#通过冒号表达式获得子矩阵" class="headerlink" title="通过冒号表达式获得子矩阵"></a>通过冒号表达式获得子矩阵</h4><ol>
@@ -259,46 +254,47 @@
 </ol>
 <h4 id="利用空矩阵删除矩阵的元素"><a href="#利用空矩阵删除矩阵的元素" class="headerlink" title="利用空矩阵删除矩阵的元素"></a>利用空矩阵删除矩阵的元素</h4><p>在matlab中,定义[]为空矩阵,给变量x赋空矩阵的语句为</p>
 <figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x=[]<br></code></pre></td></tr></table></figure>
-
 <p><strong>x=[]与clear x不同,clear是将x从工作空间中删除,而空矩阵则存在于工作空间中,只是维数为0</strong></p>
 <p>将矩阵中的某些元素删除,可以采用空矩阵的方法,例如:</p>
 <figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">a=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>;<span class="hljs-number">7</span>,<span class="hljs-number">0</span>,<span class="hljs-number">9</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>;<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>];<br>a(:,<span class="hljs-number">2</span>:<span class="hljs-number">4</span>)=[]	       <span class="hljs-comment">%删除a的第2~4列元素</span><br>a(:,[<span class="hljs-number">2</span>,<span class="hljs-number">4</span>])=[]      <span class="hljs-comment">%删除a的第2列和第4列元素</span><br></code></pre></td></tr></table></figure>
-
 <h4 id="改变矩阵的形状"><a href="#改变矩阵的形状" class="headerlink" title="改变矩阵的形状"></a>改变矩阵的形状</h4><p>reshape(a,m,n)函数在矩阵总元素保持不变的前提下,将矩阵a重新排成m*n的二维矩阵</p>
 <figure class="hljs highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];<br>y=<span class="hljs-built_in">reshape</span>(a,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>);<br>y =<br><br>          <span class="hljs-number">1.00</span>          <span class="hljs-number">4.00</span>          <span class="hljs-number">7.00</span><br>          <span class="hljs-number">2.00</span>          <span class="hljs-number">5.00</span>          <span class="hljs-number">8.00</span><br>          <span class="hljs-number">3.00</span>          <span class="hljs-number">6.00</span>          <span class="hljs-number">9.00</span><br></code></pre></td></tr></table></figure>
-
 <ol>
 <li>在matlab中,矩阵元素<strong>按列存储</strong>,即首先存储矩阵第1列元素,然后存储第2列元素,…一直到矩阵的最后一列元素</li>
 <li>reshape函数只是改变原矩阵的行数和列数,即改变其逻辑结构,但并不改变原矩阵元素的个数及其存储结构</li>
 </ol>
-<h3 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h3><h4 id="通用的特殊矩阵"><a href="#通用的特殊矩阵" class="headerlink" title="通用的特殊矩阵"></a>通用的特殊矩阵</h4><table>
+<h3 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h3><h4 id="通用的特殊矩阵"><a href="#通用的特殊矩阵" class="headerlink" title="通用的特殊矩阵"></a>通用的特殊矩阵</h4><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">说明</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">zeros</td>
-<td align="center">产生全0矩阵(零矩阵)</td>
+<tbody>
+<tr>
+<td style="text-align:center">zeros</td>
+<td style="text-align:center">产生全0矩阵(零矩阵)</td>
 </tr>
 <tr>
-<td align="center">ones</td>
-<td align="center">产生全1矩阵(幺矩阵)</td>
+<td style="text-align:center">ones</td>
+<td style="text-align:center">产生全1矩阵(幺矩阵)</td>
 </tr>
 <tr>
-<td align="center">eye</td>
-<td align="center">产生单位矩阵</td>
+<td style="text-align:center">eye</td>
+<td style="text-align:center">产生单位矩阵</td>
 </tr>
 <tr>
-<td align="center">rand</td>
-<td align="center">产生(0,1)区间均匀分布的随机矩阵</td>
+<td style="text-align:center">rand</td>
+<td style="text-align:center">产生(0,1)区间均匀分布的随机矩阵</td>
 </tr>
 <tr>
-<td align="center">randn</td>
-<td align="center">产生均值为0,方差为1的标准正态分布随机矩阵</td>
+<td style="text-align:center">randn</td>
+<td style="text-align:center">产生均值为0,方差为1的标准正态分布随机矩阵</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>调用方式</strong></p>
 <ol>
 <li><strong>zeros(m)</strong>:产生m×m零矩阵</li>
@@ -326,7 +322,7 @@
 <ul>
 <li>调用函数hilb(n)</li>
 <li>求希尔伯特逆矩阵的函数 invhilb(n)</li>
-<li>希尔伯特矩阵是一种数学变换矩阵,它的每个元素h<del>ij</del>=1/(i+j-1)</li>
+<li>希尔伯特矩阵是一种数学变换矩阵,它的每个元素h~ij~=1/(i+j-1)</li>
 <li>希尔伯特矩阵是一个高度病态的矩阵,即任何一个元素发生微小变动,整个矩阵的值和逆矩阵都会发生很大的变化,病态程度和阶数有关</li>
 </ul>
 </li>
@@ -338,8 +334,9 @@
 </ul>
 </li>
 <li><p>伴随矩阵</p>
-<p>设多项式p(x)为:<br>$$<br>p\left( x\right) =a_{n}x^{n}+a_{n-1}x^{n-1}+…a_{1}x+a_{0}<br>$$</p>
-<ul>
+<p>设多项式p(x)为:</p>
+<script type="math/tex; mode=display">
+p\left( x\right) =a_{n}x^{n}+a_{n-1}x^{n-1}+...a_{1}x+a_{0}</script><ul>
 <li>调用函数compan(p)</li>
 <li>其中p是系数向量,高次幂系数排在前,低次幂排在后</li>
 </ul>

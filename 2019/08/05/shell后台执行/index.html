@@ -216,14 +216,9 @@
 <p>后台查看：<code>ps -ef | grep 13549</code></p>
 <p>终止进程：<code>kill -9 pid</code></p>
 <a id="more"></a>
-
-
-
 <h2 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nohup sh run.sh &gt;log.txt 2&gt;&amp;1 &amp;<br></code></pre></td></tr></table></figure>
-
 <p>输出</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[1] 13549  <span class="hljs-comment"># 进程号，后面查看相关信息用到。</span><br></code></pre></td></tr></table></figure>
-
 <p>这个命令分为五个部分，分别是<code>nohup</code>、<code>sh run.sh</code>、<code>&gt;log.txt</code>、<code>2&gt;&amp;1</code>、<code>&amp;</code>。</p>
 <ul>
 <li><code>nohup</code>和最后的<code>&amp;</code>：表示命令在后台执行</li>
@@ -238,10 +233,8 @@
 <li>2：stderr(标准错误)</li>
 </ul>
 <h2 id="后台查看"><a href="#后台查看" class="headerlink" title="后台查看"></a>后台查看</h2><h3 id="查看本地进程"><a href="#查看本地进程" class="headerlink" title="查看本地进程"></a>查看本地进程</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ps -ef | grep 13549<br></code></pre></td></tr></table></figure>
-
 <p>输出：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">work  12929 44118  0 11:36 pts/2    00:00:00 grep 13549<br></code></pre></td></tr></table></figure>
-
 <p>这个命令也是分五个部分<code>ps</code> 、<code>-ef</code>、 <code>|</code>、 <code>grep</code>、 <code>13549</code>。</p>
 <ul>
 <li><code>ps</code>表示将某个进程显示出来</li>
@@ -260,11 +253,8 @@
 <li>TIME 使用掉的 CPU 时间</li>
 </ul>
 <h3 id="查看hadoop进程"><a href="#查看hadoop进程" class="headerlink" title="查看hadoop进程"></a>查看hadoop进程</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim log.txt<br></code></pre></td></tr></table></figure>
-
 <h2 id="终止进程"><a href="#终止进程" class="headerlink" title="终止进程"></a>终止进程</h2><h3 id="终止本地进程"><a href="#终止本地进程" class="headerlink" title="终止本地进程"></a>终止本地进程</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">kill</span> -9 pid<br><span class="hljs-comment"># kill -9 13549</span><br></code></pre></td></tr></table></figure>
-
 <h3 id="终止hadoop进程"><a href="#终止hadoop进程" class="headerlink" title="终止hadoop进程"></a>终止hadoop进程</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hadoop job -<span class="hljs-built_in">kill</span> jobid<br><span class="hljs-comment"># hadoop job -kill job_20180809144936_572433</span><br></code></pre></td></tr></table></figure>
-
 
     </main>
     <footer class="post-footer">

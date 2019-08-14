@@ -214,17 +214,11 @@
     <main class="post-main" itemprop="articleBody">
       <p>完成一项任务很重要，高效地完成更重要。图像处理是对矩阵的操作，数据量巨大。如果代码写的不好，性能差距将很大，所以这节我们来了解下如何评估和提升代码性能。</p>
 <a id="more"></a>
-
-
-
 <h2 id="评估代码运行时间"><a href="#评估代码运行时间" class="headerlink" title="评估代码运行时间"></a>评估代码运行时间</h2><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br>start = cv2.getTickCount()<br><span class="hljs-comment"># 这里写测试代码...</span><br>end = cv2.getTickCount()<br>print((end - start) / cv2.getTickFrequency())<br></code></pre></td></tr></table></figure>
-
 <p>这段代码就是用来测量程序运行时间的（单位：s），其中<code>cv2.getTickCount()</code>函数得到电脑启动以来的时钟周期数，<code>cv2.getTickFrequency()</code>返回你电脑的主频，前后相减再除以主频就是你代码的运行时间（这样解释并不完全准确，但能理解就行）。另外，也可以用Python中的time模块计时：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br>start = time.clock()<br><span class="hljs-comment"># 这里写测试代码...</span><br>end = time.clock()<br>print(end - start)<br></code></pre></td></tr></table></figure>
-
 <h2 id="优化原则"><a href="#优化原则" class="headerlink" title="优化原则"></a>优化原则</h2><p>数据元素少时用Python语法，数据元素多时用Numpy：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> time<br><br>x = <span class="hljs-number">10</span><br>z = np.uint8([<span class="hljs-number">10</span>])<br><br><span class="hljs-comment"># 尝试比较下面三句话各自的运行时间</span><br>s1 = time.clock()<br>y1 = x * x * x<br>e1 = time.clock()<br>print(e1 - s1)  <span class="hljs-comment"># 1.2000000000012001e-05</span><br><br>s2 = time.clock()<br>y2 = x ** <span class="hljs-number">3</span><br>e2 = time.clock()<br>print(e2 - s2)  <span class="hljs-comment"># 8.999999999925734e-06</span><br><br>s3 = time.clock()<br>y3 = z * z * z<br>e3 = time.clock()<br>print(e3 - s3)  <span class="hljs-comment"># 0.003105999999999942</span><br></code></pre></td></tr></table></figure>
-
 <p>所以Numpy的运行速度并不一定比Python本身语法快，元素数量较少时，请用Python本身格式。</p>
 <ul>
 <li>尽量避免使用循环，尤其嵌套循环，因为极其慢！！！</li>

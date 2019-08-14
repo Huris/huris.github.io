@@ -234,22 +234,15 @@
       <p>大部分图像处理任务都需要先进行二值化操作，阈值的选取很关键，Otsu阈值法会自动计算阈值。</p>
 <p><a href="https://baike.baidu.com/item/otsu/16252828" target="_blank" rel="noopener">Otsu阈值法</a>（日本人大津展之提出的，也可称大津算法）非常适用于双峰图片，啥意思呢？</p>
 <a id="more"></a>
-
-
-
 <h2 id="双峰图片"><a href="#双峰图片" class="headerlink" title="双峰图片"></a>双峰图片</h2><p>双峰图片就是指图片的灰度直方图上有两个峰值，直方图就是每个值（0~255）的像素点个数统计，后面会详细介绍。</p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_bimodal_image_two_peaks.jpg">
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_bimodal_image_two_peaks.jpg"></p>
 <p>Otsu算法假设这副图片由前景色和背景色组成，通过统计学方法（最大类间方差）选取一个阈值，将前景和背景尽可能分开，我们先来看下代码，然后详细说明下算法原理。</p>
 <h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>下面这段代码对比了使用固定阈值和Otsu阈值后的不同结果：</p>
 <p>另外，对含噪点的图像，先进行滤波操作效果会更好。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt<br><br>img = cv2.imread(<span class="hljs-string">'noisy.jpg'</span>, <span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 固定阈值法</span><br>ret1, th1 = cv2.threshold(img, <span class="hljs-number">100</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY)<br><br><span class="hljs-comment"># Otsu阈值法</span><br>ret2, th2 = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br><br><span class="hljs-comment"># 先进行高斯滤波，再使用Otsu阈值法</span><br>blur = cv2.GaussianBlur(img, (<span class="hljs-number">5</span>, <span class="hljs-number">5</span>), <span class="hljs-number">0</span>)<br>ret3, th3 = cv2.threshold(blur, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br></code></pre></td></tr></table></figure>
-
 <p>下面我们用Matplotlib把原图、直方图和阈值图都显示出来：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python">images = [img, <span class="hljs-number">0</span>, th1,<br>          img, <span class="hljs-number">0</span>, th2,<br>          blur, <span class="hljs-number">0</span>, th3]<br><br>titles = [<span class="hljs-string">'Original'</span>, <span class="hljs-string">'Histogram'</span>, <span class="hljs-string">'Global(v=100)'</span>,<br>          <span class="hljs-string">'Original'</span>, <span class="hljs-string">'Histogram'</span>, <span class="hljs-string">"Otsu's"</span>,<br>          <span class="hljs-string">'Gaussian filtered Image'</span>, <span class="hljs-string">'Histogram'</span>, <span class="hljs-string">"Otsu's"</span>]<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    <span class="hljs-comment"># 绘制原图</span><br>    plt.subplot(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span>)<br>    plt.imshow(images[i * <span class="hljs-number">3</span>], <span class="hljs-string">'gray'</span>)<br>    plt.title(titles[i * <span class="hljs-number">3</span>], fontsize=<span class="hljs-number">8</span>)<br>    plt.xticks([]), plt.yticks([])<br><br>    <span class="hljs-comment"># 绘制直方图plt.hist，ravel函数将数组降成一维</span><br>    plt.subplot(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, i * <span class="hljs-number">3</span> + <span class="hljs-number">2</span>)<br>    plt.hist(images[i * <span class="hljs-number">3</span>].ravel(), <span class="hljs-number">256</span>)<br>    plt.title(titles[i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span>], fontsize=<span class="hljs-number">8</span>)<br>    plt.xticks([]), plt.yticks([])<br><br>    <span class="hljs-comment"># 绘制阈值图</span><br>    plt.subplot(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, i * <span class="hljs-number">3</span> + <span class="hljs-number">3</span>)<br>    plt.imshow(images[i * <span class="hljs-number">3</span> + <span class="hljs-number">2</span>], <span class="hljs-string">'gray'</span>)<br>    plt.title(titles[i * <span class="hljs-number">3</span> + <span class="hljs-number">2</span>], fontsize=<span class="hljs-number">8</span>)<br>    plt.xticks([]), plt.yticks([])<br>plt.show()<br></code></pre></td></tr></table></figure>
-
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_otsu_vs_simple_thresholding.jpg">
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_otsu_vs_simple_thresholding.jpg"></p>
 <p>可以看到，Otsu阈值明显优于固定阈值，省去了不断尝试阈值判断效果好坏的过程。其中，绘制直方图时，使用了numpy中的<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html" target="_blank" rel="noopener">ravel()</a>函数，它会将原矩阵压缩成一维数组，便于画直方图。</p>
 <h2 id="Otsu算法"><a href="#Otsu算法" class="headerlink" title="Otsu算法"></a>Otsu算法</h2><p>Otsu阈值法将整幅图分为前景（目标）和背景，以下是一些符号规定：</p>
 <ul>
@@ -264,19 +257,27 @@
 <li>$rows×cols$：图像的行数和列数</li>
 </ul>
 <p>结合下图会更容易理解一些，有一副大小为4×4的图片，假设阈值T为1，那么：</p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_otsu_theory_sample.jpg">
-
-<p>其实很好理解，$N_0+N_1$就是总的像素点个数，也就是行数乘列数：<br>$$<br>N_0 + N_1 = rows \times cols<br>$$<br>$w_0$和$w_1$是前/背景所占的比例，也就是：<br>$$<br>w_0 = \frac{N_0}{rows\times{cols}}<br>$$</p>
-<p>$$<br>w_1 = \frac{N_1}{rows\times{cols}}<br>$$</p>
-<p>$$<br>w_0+w_1=1<br>$$</p>
-<p>整幅图的平均像素值就是：<br>$$<br>\mu=w_0\times{\mu_0}+w_1\times{\mu_1}<br>$$<br>此时，我们定义一个前景$\mu_0$与背景$\mu_1$的方差$g$：<br>$$<br>g=w_0(\mu_0-\mu)^{2}+w_1(\mu_1-\mu)^{2}<br>$$<br>将前述的(4)、(5)、(6)公式整合在一起，便是：<br>$$<br>g=w_0w_1(\mu_0-\mu_1)^{2}<br>$$<br><strong>$g$就是前景与背景两类之间的方差，这个值越大，说明前景和背景的差别也就越大，效果越好。Otsu算法便是遍历阈值T，使得$g$最大，所以又称为最大类间方差法。</strong>基本上双峰图片的阈值T在两峰之间的谷底。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_otsu_theory_sample.jpg"></p>
+<p>其实很好理解，$N_0+N_1$就是总的像素点个数，也就是行数乘列数：</p>
+<script type="math/tex; mode=display">
+N_0 + N_1 = rows \times cols</script><p>$w_0$和$w_1$是前/背景所占的比例，也就是：</p>
+<script type="math/tex; mode=display">
+w_0 = \frac{N_0}{rows\times{cols}}</script><script type="math/tex; mode=display">
+w_1 = \frac{N_1}{rows\times{cols}}</script><script type="math/tex; mode=display">
+w_0+w_1=1</script><p>整幅图的平均像素值就是：</p>
+<script type="math/tex; mode=display">
+\mu=w_0\times{\mu_0}+w_1\times{\mu_1}</script><p>此时，我们定义一个前景$\mu_0$与背景$\mu_1$的方差$g$：</p>
+<script type="math/tex; mode=display">
+g=w_0(\mu_0-\mu)^{2}+w_1(\mu_1-\mu)^{2}</script><p>将前述的(4)、(5)、(6)公式整合在一起，便是：</p>
+<script type="math/tex; mode=display">
+g=w_0w_1(\mu_0-\mu_1)^{2}</script><p><strong>$g$就是前景与背景两类之间的方差，这个值越大，说明前景和背景的差别也就越大，效果越好。Otsu算法便是遍历阈值T，使得$g$最大，所以又称为最大类间方差法。</strong>基本上双峰图片的阈值T在两峰之间的谷底。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
 <li><a href="https://docs.opencv.org/4.0.0/d7/d1b/group__imgproc__misc.html#gaa9e58d2860d4afa658ef70a9b1115576" target="_blank" rel="noopener">cv2.ThresholdTypes</a></li>
 <li><a href="https://docs.opencv.org/4.0.0/d4/d86/group__imgproc__filter.html#gaabe8c836e97159a9193fb0b11ac52cf1" target="_blank" rel="noopener">cv2.GaussianBlur()</a></li>
 </ul>
 <h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
 <li><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html" target="_blank" rel="noopener">numpy.ravel</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Otsu's_method" target="_blank" rel="noopener">Otsu’s Method(wikipedia)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Otsu&#39;s_method" target="_blank" rel="noopener">Otsu’s Method(wikipedia)</a></li>
 <li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_thresholding/py_thresholding.html" target="_blank" rel="noopener">Image Thresholding</a></li>
 <li><a href="https://blog.csdn.net/u011776903/article/details/73274802" target="_blank" rel="noopener">一维OTSU法、最小交叉熵法、二维OTSU法及C++源码</a></li>
 <li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4310076" target="_blank" rel="noopener">Otsu N. A threshold selection method from gray-level histograms[J\]. IEEE transactions on systems, man, and cybernetics, 1979, 9(1): 62-66.</a></li>

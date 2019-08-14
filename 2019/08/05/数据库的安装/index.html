@@ -217,9 +217,6 @@
 <p>非关系型数据库如MongoDB、Redis它们的存储形式是键值对，存储形式更加灵活。</p>
 <p>本文主要介绍关系型数据库MySQL以及非关系型数据库MongoDB、Redis的安装。</p>
 <a id="more"></a>
-
-
-
 <h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p>MySQL是一个轻量级的关系型数据库。</p>
 <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
 <li>官方网站：<a href="https://www.mysql.com/cn" target="_blank" rel="noopener">https://www.mysql.com/cn</a></li>
@@ -245,10 +242,8 @@
 <p>然后创建一个新文件夹/data/db，用于存放MongoDB数据。</p>
 <p>启动MongoDB命令：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew services start mongodb<br>sudo mongod<br></code></pre></td></tr></table></figure>
-
 <p>停止和重启MongoDB服务的命令：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew services stop mongodb<br>brew services restart mongodb<br></code></pre></td></tr></table></figure>
-
 <h3 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h3><p>二选一即可。</p>
 <p><strong>RoboMongo/Robo 3T</strong>：</p>
 <ul>
@@ -271,12 +266,10 @@
 <h3 id="Mac下安装-2"><a href="#Mac下安装-2" class="headerlink" title="Mac下安装"></a>Mac下安装</h3><p>使用<strong>HomeBrew</strong>安装，直接执行brew命令即可：<code>brew install redis</code></p>
 <p>启动<strong>redis</strong>命令：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew services start redis<br>redis-server /usr/<span class="hljs-built_in">local</span>/etc/redis.conf<br></code></pre></td></tr></table></figure>
-
 <p>这里可以使用命令：<code>redis-cli</code>进入Redis命令行模式。</p>
 <p>Mac下的Redis配置文件路径是：<code>/usr/local/etc/redis.conf</code>，可以通过修改它来配置访问密码。</p>
 <p>修改配置文件后，需要重启Redis服务。停止和重启Redis服务的命令如下：</p>
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew services stop redis<br>brew services restart redis<br></code></pre></td></tr></table></figure>
-
 <p>另外Mac下可以安装<strong>Redis Desktop Manager</strong>可视化管理工具来管理Redis。</p>
 
     </main>

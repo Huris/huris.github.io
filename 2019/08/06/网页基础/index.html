@@ -215,9 +215,6 @@
       <p>用浏览器访问网站时，网页各不相同，本文简单介绍了网页的基本组成、结构和结点等内容。</p>
 <p>了解了这些内容，我们才有更加清晰的思路去解析和提取网页内容。</p>
 <a id="more"></a>
-
-
-
 <h2 id="网页的组成"><a href="#网页的组成" class="headerlink" title="网页的组成"></a>网页的组成</h2><p>网页可以分为三个部分(<strong>HTML</strong>、<strong>CSS</strong>和<strong>JavaScript</strong>)。</p>
 <p>如果把一个网页比作一个人的话，HTML相当于骨架，CSS相当于皮肤，JavaScript相当于肌肉。</p>
 <p>即，HTML定义了网页的内容和结构，CSS描述了网页的布局，JavaScript定义了网页的行为。</p>
@@ -226,18 +223,15 @@
 <p>网页包括文字、按钮、图片和视频等各种复杂元素，其基础架构就是HTML。</p>
 <p>不同类型的元素通过不同类型的标签来表示，如图片用<code>img</code>标签表示，视频用<code>video</code>标签表示，段落用<code>p</code>标签表示。</p>
 <p>它们之间的布局又常通过布局标签<code>div</code>嵌套组合而成，各种标签通过不同的排列和嵌套才形成了网页的框架。</p>
-<p>在浏览器中可以查看网页源代码，以下为<a href="http://www.baidu.com的网页源代码：" target="_blank" rel="noopener">www.baidu.com的网页源代码：</a></p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/%E7%99%BE%E5%BA%A6%E6%BA%90%E4%BB%A3%E7%A0%81.png" width="70%">
-
+<p>在浏览器中可以查看网页源代码，以下为www.baidu.com的网页源代码：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/%E7%99%BE%E5%BA%A6%E6%BA%90%E4%BB%A3%E7%A0%81.png" width="70%"></p>
 <p>这就是HTML，整个网页就是由各种标签嵌套组合而成的。这些标签定义的节点元素相互嵌套和组合形成了复杂的层次关系，就形成了网页的架构。</p>
 <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>HTML定义了网页的结构，但是只有HTML页面的布局并不美观，可能只是简单的节点元素的排列，为了让网页看起来更好看一些，可以借助CSS。</p>
 <p>CSS(Cascading Style Sheets，层叠样式表)。”层叠”是指当在HTML中引用了数个样式文件，并且样式发生冲突时，浏览器能依据层叠顺序处理。”样式”指网页中文字大小、颜色、元素间距、排列等格式。</p>
 <p>CSS是目前唯一的网页页面排版样式标准，有了它的帮助，页面才会变得更为美观。</p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/CSS.png" width="70%">
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/CSS.png" width="70%"></p>
 <p>上图中右边<strong>Styles</strong>中存放的即是CSS，例如：</p>
 <figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">1000px</span>;<br>    <span class="hljs-attribute">cursor</span>: default<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>就是一个CSS样式。</p>
 <p>在网页中，一般会统一定义整个网页的样式规则，并写入CSS文件中(其后缀为css)。在HTML中，只需要用link标签即可引入写好的CSS文件，这样整个页面就会变得美观、优雅。</p>
 <h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>JavaScript是一种脚本语言。</p>
@@ -249,7 +243,6 @@
 <p>新建一个文本文件，名字可以自取，后缀为<code>html</code>。</p>
 <p>内容如下：</p>
 <figure class="hljs highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>This is a Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wrapper"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title"</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text"</span>&gt;</span>Hello, this is a paragraph.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p>这就是一个最简单的HTML实例。</p>
 <p>开头用<strong>DOCTYPE</strong>定义了文档类型，其次最外层是<code>html</code>标签，最后还有对应的结束标签来表示闭合，其内部是<code>head</code>标签和<code>body</code>标签，分别代表网页头和网页体，它们也需要结束标签。</p>
 <p><code>head</code>标签内定义了一些页面的配置和引用，如：<code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code>指定了网页的编码为UTF-8。</p>
@@ -259,8 +252,7 @@
 <p><code>h2</code>标签代表一个二级标题。</p>
 <p><code>p</code>标签代表一个段落。</p>
 <p>将代码保存后，在浏览器中打开该文件，可以看到下图所示的内容。</p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/Demo%E7%BD%91%E9%A1%B5.png" width="70%">
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/Demo%E7%BD%91%E9%A1%B5.png" width="70%"></p>
 <p>这个实例便是网页的一般结构。一个网页的标准形式是<code>html</code>标签内嵌套<code>head</code>和<code>body</code>标签。</p>
 <h2 id="节点树及节点间的关系"><a href="#节点树及节点间的关系" class="headerlink" title="节点树及节点间的关系"></a>节点树及节点间的关系</h2><p>在HTML中，所有标签定义的内容都是节点，他们构成了一个<strong>HTML DOM树</strong>。</p>
 <p><strong>DOM(Document Object Model，文档对象模型)</strong>是W3C(万维网联盟)的标准，定义了访问HTML和XML文档的标准：</p>
@@ -282,8 +274,7 @@
 <li>注释是注释节点</li>
 </ul>
 <p><strong>HTML DOM</strong>将HTML文档视作树结构，这种结构被称为节点树，如下图所示：</p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/HTML%20DOM" width="70%">
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/HTML%20DOM" width="70%"></p>
 <p><em>通过HTML DOM树中所有的节点均可通过JavaScript访问</em>，所有HTML节点元素均可被修改，也可以被创建或删除。</p>
 <p>节点树中的节点彼此拥有层级关系。常用<strong>父(parent)、子(child)和兄弟(sibling)</strong>等术语描述这些关系。父节点拥有子节点，同级的子节点被称为兄弟。</p>
 <p>在节点树中，顶端节点称为根(root)。除了根结点之外，每个节点都有父节点，同时可拥有任意数量的子节点或兄弟结点。</p>

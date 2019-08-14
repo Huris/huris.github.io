@@ -216,9 +216,6 @@
 <p>把网的节点比作一个个网页，爬虫爬到这就相当于访问了该页面，获取了其信息。</p>
 <p>可以把节点间的连线比作网页与网页之间的链接关系，这样蜘蛛通过一个节点后，可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，网站的数据就可以被抓取下来了。</p>
 <a id="more"></a>
-
-
-
 <h2 id="爬虫概述"><a href="#爬虫概述" class="headerlink" title="爬虫概述"></a>爬虫概述</h2><p>简单来说，爬虫就是获取网页并提取和保存信息的自动化程序。</p>
 <h3 id="获取网页"><a href="#获取网页" class="headerlink" title="获取网页"></a>获取网页</h3><p>爬虫首先要做的工作就是获取网页，这里就是获取网页的源代码。源代码里包含了网页的部分有用信息，所以只要把源代码获取下来，，就可以从中提取想要的信息了。</p>
 <p><strong>最关键的部分就是构造一个请求并发送给服务器，然后接收到响应并将其解析出来。</strong></p>
@@ -239,7 +236,6 @@
 <h2 id="JavaScript渲染页面"><a href="#JavaScript渲染页面" class="headerlink" title="JavaScript渲染页面"></a>JavaScript渲染页面</h2><p>有时候，我们使用<code>urllib</code>和<code>requests</code>抓取网页时，得到的源代码实际和浏览器中看到的不一样。</p>
 <p>这是由于现在越来越多的网页采用<strong>Ajax</strong>、<strong>前端模块化工具</strong>来构建，整个网页可能都是由JavaScript渲染出来的，也就是说原始的HTML代码就是一个空壳，例如：</p>
 <figure class="hljs highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>This is a Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"app.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p><code>body</code>节点里面只有一个<strong>id为container</strong>的节点，但是需要注意在<code>body</code>节点后引入了<code>app.js</code>，它便负责整个网站的渲染。</p>
 <p>在浏览器中打开这个页面时，首先会加载这个HTML内容，接着浏览器会发现其中引入了一个<code>app.js</code>文件，然后便会接着去请求这个文件，获取到该文件后，便会执行其中的JavaScript代码，而JavaScript则会改变HTML中的节点，向其添加内容，最后得到完整的页面。</p>
 <p>但是用<code>urllib</code>或<code>requests</code>等库请求当前页面时，我们得到的只是这个HTML代码，它不会帮助我们继续去加载这个JavaScript文件，这样也就看不到浏览器中的内容了。</p>

@@ -226,48 +226,35 @@
 <li><code>img[y1:y2,x1:x2]</code>进行ROI截取，<code>cv2.split()/cv2.merge()</code>通道分割/合并。更推荐的获取单通道方式：<code>b = img[:, :, 0]</code>。</li>
 </ul>
 <a id="more"></a>
-
-
-
 <h2 id="获取和修改像素点值"><a href="#获取和修改像素点值" class="headerlink" title="获取和修改像素点值"></a>获取和修改像素点值</h2><p>先读取一张图片，通过行列的坐标来获取某像素点的值。</p>
 <p>对于彩色图，结果是B, G, R三个值的列表。</p>
 <p>对于灰度图或单通道，只有一个值。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br>img = cv2.imread(<span class="hljs-string">'lena.jpg'</span>)<br><br><span class="hljs-comment"># 获取像素的值</span><br>px = img[<span class="hljs-number">100</span>, <span class="hljs-number">90</span>]	<span class="hljs-comment"># 行对应y，列对应x，所以其实是img[y, x]</span><br>print(px)  <span class="hljs-comment"># [103 98 197]</span><br><br><span class="hljs-comment"># 只获取蓝色blue通道的值</span><br>px_blue = img[<span class="hljs-number">100</span>, <span class="hljs-number">90</span>, <span class="hljs-number">0</span>]<br>print(px_blue)  <span class="hljs-comment"># 103</span><br></code></pre></td></tr></table></figure>
-
 <p>修改像素的值也是同样的方式：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">img[<span class="hljs-number">100</span>, <span class="hljs-number">90</span>] = [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>]<br>print(img[<span class="hljs-number">100</span>, <span class="hljs-number">90</span>])  <span class="hljs-comment"># [255 255 255]</span><br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>经验之谈：还有一种性能更好的方式，获取：<code>img.item(100,100,0)</code>，修改：<code>img.itemset((100,100,0),255)</code>，但这种方式只能B,G,R逐一进行。</p>
 </blockquote>
 <p><strong>注意：这步操作只是内存中的img像素点值变了，因为没有保存，所以原图并没有更改。</strong></p>
 <h2 id="图片属性"><a href="#图片属性" class="headerlink" title="图片属性"></a>图片属性</h2><p><code>img.shape</code>获取图像的形状，图片是彩色的话，返回一个包含<strong>行数（高度）、列数（宽度）和通道数</strong>的元组，灰度图只返回行数和列数：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">print(img.shape)  <span class="hljs-comment"># (263, 247, 3)</span><br><span class="hljs-comment"># 形状中包括行数、列数和通道数</span><br>height, width, channels = img.shape<br><span class="hljs-comment"># img是灰度图的话：height, width = img.shape</span><br></code></pre></td></tr></table></figure>
-
 <p><code>img.size</code>获取图像总像素：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">print(img.size)  <span class="hljs-comment"># 263*247*3=194883</span><br></code></pre></td></tr></table></figure>
-
 <p><code>img.dtype</code>获取图像数据类型：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">print(img.dtype)  <span class="hljs-comment"># uint8</span><br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>经验之谈：多数错误是因为数据类型不对导致的，所以健壮的代码应该对这个属性加以判断。</p>
 </blockquote>
 <h2 id="ROI"><a href="#ROI" class="headerlink" title="ROI"></a>ROI</h2><p><a href="https://baike.baidu.com/item/ROI/1125333#viewPageContent" target="_blank" rel="noopener">ROI</a>：Region of Interest，感兴趣区域。</p>
 <p>例如：我们要检测眼睛，因为眼睛肯定在脸上，所以我们感兴趣的只有脸这部分，其他都不care，所以可以单独把脸截取出来，这样就可以大大节省计算量，提高运行速度。</p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lena_face_roi_crop.jpg">
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lena_face_roi_crop.jpg"></p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># ROI截取</span><br>face = img[<span class="hljs-number">100</span>:<span class="hljs-number">200</span>, <span class="hljs-number">115</span>:<span class="hljs-number">188</span>]<br>cv2.imshow(<span class="hljs-string">'face'</span>, face)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
-
 <h2 id="通道分割与合并"><a href="#通道分割与合并" class="headerlink" title="通道分割与合并"></a>通道分割与合并</h2><p>彩色图的BGR三个通道是可以分开单独访问的，也可以将单独的三个通道合并成一副图像。分别使用<code>cv2.split()</code>和<code>cv2.merge()</code>：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 通道分割与合并</span><br>b, g, r = cv2.split(img)<br>img = cv2.merge((b, g, r))<br></code></pre></td></tr></table></figure>
-
 <p><code>split()</code>函数比较耗时，<strong>更高效的方式是用numpy中的索引</strong>，如提取B通道：</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">b = img[:, :, <span class="hljs-number">0</span>]<br>cv2.imshow(<span class="hljs-string">'blue'</span>, b)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
-
 <h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>打开lena.jpg，将帽子部分（高：25~120，宽：50~220）的红色通道截取出来并显示。</p>
 <figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br>img = cv2.imread(<span class="hljs-string">'lena.jpg'</span>)<br><br><span class="hljs-comment"># 帽子ROI的红色通道</span><br>hat_r = img[<span class="hljs-number">25</span>:<span class="hljs-number">120</span>, <span class="hljs-number">50</span>:<span class="hljs-number">220</span>, <span class="hljs-number">2</span>]<br>cv2.imshow(<span class="hljs-string">'hat'</span>, hat_r)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
-
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
 <li><a href="https://docs.opencv.org/4.0.0/d2/de8/group__core__array.html#ga0547c7fed86152d7e9d0096029c8518a" target="_blank" rel="noopener">cv2.split()</a></li>
 <li><a href="https://docs.opencv.org/4.0.0/d2/de8/group__core__array.html#ga7d7b4d6c6ee504b30a20b1680029c7b4" target="_blank" rel="noopener">cv2.merge()</a></li>

@@ -214,9 +214,6 @@
     <main class="post-main" itemprop="articleBody">
       <p>在本文中，我们会详细了解HTTP的基本原理，了解在浏览器中敲入URL到获取网页内容之间发生了什么。</p>
 <a id="more"></a>
-
-
-
 <h2 id="URI和URL"><a href="#URI和URL" class="headerlink" title="URI和URL"></a>URI和URL</h2><ul>
 <li>URI：Uniform Resource Identifier，统一资源标志符。</li>
 <li>URL：Uniform Resource Locator，统一资源定位符。</li>
@@ -225,14 +222,10 @@
 <p>即有这样一个图标资源，我们用URL/URI来唯一指定了它的访问方式，这其中包括了<strong>访问协议https</strong>、<strong>访问路径(/即根目录)</strong>、<strong>资源名称</strong>(favicon.ico)。通过这样一个链接，我们便可以从互联网上找到这个资源，这就是URL/URI。</p>
 <p><strong>URL是URI的子集</strong>。URI还包括一个子类<strong>URN</strong>(Uniform Resource Name，即统一资源名称)。URN只命名资源而不指定如何定位资源，比如<code>urn:isbn:0451450523</code>指定了一本书的ISBN，可以唯一标识这本书，但是没有指定到哪里定位这本书。</p>
 <p>URL、URN和URI的关系如下图所示。</p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/HTTP%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/URN%3AURL%3AURI%E5%85%B3%E7%B3%BB.png" width="30%">
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/HTTP%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/URN%3AURL%3AURI%E5%85%B3%E7%B3%BB.png" width="30%"></p>
 <p>在目前的互联网中，URN用的非常少，所以几乎所有的URI都是URL。</p>
 <h2 id="超文本-Hypertext"><a href="#超文本-Hypertext" class="headerlink" title="超文本(Hypertext)"></a>超文本(Hypertext)</h2><p>我们在浏览器里看到的网页就是超文本解析而成的，其网页源代码是一系列HTML代码，里面包含了一系列标签，比如img显示图片，p指定显示段落等。浏览器解析这些标签后，便形成了平常看到的网页，而网页的源代码HTML就可以称作超文本。下图是百度网页的源代码。</p>
-<img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/HTTP%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/%E7%99%BE%E5%BA%A6%E7%BD%91%E9%A1%B5%E6%BA%90%E4%BB%A3%E7%A0%81.png" width="70%">
-
-
-
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/HTTP%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/%E7%99%BE%E5%BA%A6%E7%BD%91%E9%A1%B5%E6%BA%90%E4%BB%A3%E7%A0%81.png" width="70%"></p>
 <h3 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h3><p><strong>HTTP</strong>和<strong>HTTPS</strong>是访问资源所需要的协议类型，另外还有<strong>ftp</strong>、<strong>sftp</strong>、<strong>smb</strong>等。</p>
 <p><strong>HTTP</strong>(Hyper Text Transfer Protocol，超文本传输协议)。HTTP协议是用于从网络传输超文本数据到本地浏览器的传送协议，它能保证高效而准确地传送超文本文档。HTTP由<strong>万维网协会</strong>(World Wide Web Consortium)和<strong>Internet工作小组IETF</strong>(Internet Engineering Task Force)共同合作制定的规范，目前广泛使用的是<strong>HTTP1.1版本</strong>。</p>
 <p><strong>HTTPS</strong>(Hyper Text Transfer Protocol over Secure Socket Layer)，以安全为目标的HTTP通道，即HTTP下加入<strong>SSL层</strong>。HTTPS的安全基础是SSL，因此<em>通过它传输的内容都是经过SSL加密的</em>，主要作用可以分为两种：</p>
@@ -263,6 +256,7 @@
 </ul>
 <p>一般来说，登录时，需要提供账号和密码，其中包含了敏感信息，使用GET方法请求的话，密码就会暴露在URL里面，造成密码的泄露，所以最好选择POST方式传输。上传文件时，由于文件的内容比较大，也会选择使用POST方式。</p>
 <p>另外还有其他的一些请求方法，如下表所示：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -270,7 +264,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>GET</td>
 <td>请求网页，并返回页面内容</td>
 </tr>
@@ -302,7 +297,9 @@
 <td>TRACE</td>
 <td>回显服务器收到的请求，主要用于测试或诊断</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="请求网址"><a href="#请求网址" class="headerlink" title="请求网址"></a>请求网址</h3><p>请求的网址，即统一资源定位符URL，它可以唯一确定我们想请求的资源。</p>
 <h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>用来说明服务器要使用的附加信息，比较重要的信息有Cookie、Referer、User-Agent等。</p>
 <p>常用的请求头信息：</p>
@@ -314,11 +311,12 @@
 <li>Cookie：常用复数形式Cookies，这是网站为了辨别用户进行会话跟踪而存储在用户本地的数据。它的主要功能是维持当前访问会话。例如：我们输入用户名和密码成功登录某而过网站后，服务器会用会话保存登录状态信息，后面我们每次刷新或请求该站点的其他网页时，会发现都是登录状态，这就是Cookies的功劳。Cookies里有信息标识了我们所对应的服务器的会话，每次浏览器在请求该站点的页面时，都会在请求头中加入Cookies并将其发送给服务器，服务器通过Cookies识别出是我们自己，并且查出当前状态是登录状态，所以返回结果就是登录之后才能看到的网页内容。</li>
 <li>Referer：此内容用来标识这个请求时从哪个页面发过来的，服务器可以拿到这一信息并做出相应的处理，如做来源统计，防盗链处理等。</li>
 <li>User-Agent：简称UA，它是一个特殊的字符串头，可以是服务器识别客户使用的操作系统及版本、浏览器及版本信息。在做爬虫时加上此信息，可以伪装为浏览器；如果不加，很可能会被识别出为爬虫。</li>
-<li>Content-Type：也叫互联网媒体类型(Internet Media Type)或者MIME类型，在HTTP协议消息头中，它用来表示具体请求中的媒体类型信息。例如：text/html代表HTML格式，image/gif代表GIF图片，application/json代表JSON类型等(具体可以查看<a href="[http://tool.oschina.net/commons](http://tool.oschina.net/commons)">这里</a>)。</li>
+<li>Content-Type：也叫互联网媒体类型(Internet Media Type)或者MIME类型，在HTTP协议消息头中，它用来表示具体请求中的媒体类型信息。例如：text/html代表HTML格式，image/gif代表GIF图片，application/json代表JSON类型等(具体可以查看<a href="[http://tool.oschina.net/commons](http://tool.oschina.net/commons">这里</a>))。</li>
 </ul>
 <p>请求头是请求的重要组成部分，在写爬虫时，大部分情况下都需要设定请求头。</p>
 <h3 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h3><p>请求体一般承载的内容是<strong>POST请求中的表单数据</strong>，而对于GET请求，请求体则为空。</p>
 <p><strong>Content-Type</strong>和<strong>POST提交数据方式</strong>的联系。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -326,7 +324,8 @@
 <th>提交数据的方式</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>application/x-www-form-urlencoded</td>
 <td>表单数据</td>
 </tr>
@@ -342,7 +341,9 @@
 <td>text/xml</td>
 <td>XML数据</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>在爬虫时，如果要构造POST请求，需要使用正确的Content-Type，并了解各种请求库的各个参数设置时使用的是哪种Content-Type，不然可能会导致POST提交后无法正常相应。</p>
 <h2 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h2><p>由服务端返回给客户端，可以分为三部分：</p>
 <ul>
@@ -356,6 +357,7 @@
 <ul>
 <li>消息响应</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -364,7 +366,8 @@
 <th>详情</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>100</td>
 <td>继续</td>
 <td>请求者应当继续提出请求。服务器已收到请求的一部分，正在等待其他部分</td>
@@ -374,10 +377,13 @@
 <td>切换协议</td>
 <td>请求者已要求服务器切换协议，服务器已确认并准备切换</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>成功响应</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -386,7 +392,8 @@
 <th>详情</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>200</td>
 <td>成功</td>
 <td>服务器已成功处理了请求</td>
@@ -421,10 +428,13 @@
 <td>部分内容</td>
 <td>服务器成功处理了部分请求</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>重定向</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -433,7 +443,8 @@
 <th>详情</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>300</td>
 <td>多种选择</td>
 <td>针对请求，服务器可执行多种操作</td>
@@ -468,10 +479,13 @@
 <td>部分内容</td>
 <td>请求的资源临时从其他位置响应</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>客户端错误</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -480,7 +494,8 @@
 <th>详情</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>400</td>
 <td>错误请求</td>
 <td>服务器无法解析该请求</td>
@@ -565,10 +580,13 @@
 <td>未满足期望值</td>
 <td>服务器未满足期望请求标头字段的要求</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>服务器端错误</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -577,7 +595,8 @@
 <th>详情</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>500</td>
 <td>成功</td>
 <td>服务器遇到错误，无法完成请求</td>
@@ -602,7 +621,9 @@
 <td>网关超时</td>
 <td>服务器作为网关或代理。但是没有及时从上游服务器收到请求</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h3><p>响应头包含了服务器对请求的应答信息，如Content-Type、Server、Set-Cookie等。</p>
 <p>下面简要说明一些常用的头信息：</p>
 <ul>
