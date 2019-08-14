@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-14T02:26:19.708Z</updated>
+  <updated>2019-08-14T02:31:59.003Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python+OpenCV教程7：图像几何变换</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B7%EF%BC%9A%E5%9B%BE%E5%83%8F%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程7：图像几何变换/</id>
+    <published>2019-08-14T02:27:03.000Z</published>
+    <updated>2019-08-14T02:31:59.003Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习如何旋转、平移、缩放和翻转图片。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现旋转、平移、缩放和翻转图片&lt;/li&gt;
+&lt;li&gt;OpenCV函数：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cv2.resize()&lt;/code&gt;：&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.flip()&lt;/code&gt;：&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.warpAffine()&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图像的几何变换从原理上看主要包括两种：基于2×3矩阵的仿射变换（平移、缩放、旋转和翻转等）、基于3×3矩阵的透视变换，感兴趣的小伙伴可参考&lt;a href=&quot;http://ex2tron.wang/opencv-python-extra-warpaffine-warpperspective/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;番外篇：仿射变换与透视变换&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="几何变换" scheme="http://huris.xyz/tags/%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python+OpenCV教程番外篇4：Otsu阈值法</title>
     <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%874%EF%BC%9AOtsu%E9%98%88%E5%80%BC%E6%B3%95/"/>
     <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇4：Otsu阈值法/</id>
     <published>2019-08-14T01:37:53.000Z</published>
-    <updated>2019-08-14T02:26:19.708Z</updated>
+    <updated>2019-08-14T02:32:28.305Z</updated>
     
     <summary type="html">
     
@@ -54,7 +99,7 @@
     <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B6%EF%BC%9A%E9%98%88%E5%80%BC%E5%88%86%E5%89%B2/"/>
     <id>http://huris.xyz/2019/08/14/Python-OpenCV教程6：阈值分割/</id>
     <published>2019-08-14T01:05:40.000Z</published>
-    <updated>2019-08-14T01:37:11.728Z</updated>
+    <updated>2019-08-14T02:31:30.549Z</updated>
     
     <summary type="html">
     
@@ -650,30 +695,6 @@
       <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
       <category term="网页" scheme="http://huris.xyz/tags/%E7%BD%91%E9%A1%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP基本原理</title>
-    <link href="http://huris.xyz/2019/08/06/HTTP%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
-    <id>http://huris.xyz/2019/08/06/HTTP基本原理/</id>
-    <published>2019-08-05T23:55:44.000Z</published>
-    <updated>2019-08-06T12:13:57.885Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在本文中，我们会详细了解HTTP的基本原理，了解在浏览器中敲入URL到获取网页内容之间发生了什么。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="爬虫" scheme="http://huris.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="HTTP" scheme="http://huris.xyz/tags/HTTP/"/>
-    
-      <category term="计算机网络" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
