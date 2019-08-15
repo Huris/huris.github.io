@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-15T11:42:34.410Z</updated>
+  <updated>2019-08-15T12:20:20.991Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -21,17 +21,22 @@
     <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B15%EF%BC%9A%E7%9B%B4%E6%96%B9%E5%9B%BE/"/>
     <id>http://huris.xyz/2019/08/15/Python-OpenCV教程15：直方图/</id>
     <published>2019-08-15T11:42:01.000Z</published>
-    <updated>2019-08-15T11:42:34.410Z</updated>
+    <updated>2019-08-15T12:20:20.991Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a
-        
-      
+      &lt;p&gt;学习计算并绘制直方图，直方图均衡化等。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算并绘制直方图&lt;/li&gt;
+&lt;li&gt;（自适应）直方图均衡化&lt;/li&gt;
+&lt;li&gt;OpenCV函数：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cv2.calcHist()&lt;/code&gt;：计算直方图&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.equalizeHist()&lt;/code&gt;：均衡化直方图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;均衡化用来使图像的直方图分布更加均匀，提升亮度和对比度。&lt;/p&gt;
     
     </summary>
     
