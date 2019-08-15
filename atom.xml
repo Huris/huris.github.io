@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-15T07:56:45.560Z</updated>
+  <updated>2019-08-15T08:44:44.396Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,87 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python+OpenCV教程番外篇10：轮廓层级</title>
+    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%8710%EF%BC%9A%E8%BD%AE%E5%BB%93%E5%B1%82%E7%BA%A7/"/>
+    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程番外篇10：轮廓层级/</id>
+    <published>2019-08-15T08:14:47.000Z</published>
+    <updated>2019-08-15T08:44:44.396Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;了解轮廓间的层级关系。&lt;/p&gt;
+&lt;p&gt;前面我们使用&lt;code&gt;cv2.findContours()&lt;/code&gt;寻找轮廓时，参数3表示轮廓的寻找方式(RetrievalModes)，当时我们传入的是cv2.RETR_TREE，它表示什么意思呢？另外，函数返回值hierarchy有什么用途呢？&lt;/p&gt;
+&lt;p&gt;下面我们就来研究下这两个问题。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="轮廓层级" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93%E5%B1%82%E7%BA%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+OpenCV教程13：轮廓</title>
+    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B13%EF%BC%9A%E8%BD%AE%E5%BB%93/"/>
+    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程13：轮廓/</id>
+    <published>2019-08-15T07:57:27.000Z</published>
+    <updated>2019-08-15T08:14:15.388Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习如何寻找并绘制轮廓。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;了解轮廓的概念&lt;/li&gt;
+&lt;li&gt;寻找并绘制轮廓&lt;/li&gt;
+&lt;li&gt;OpenCV函数：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cv2.findContours()&lt;/code&gt;：寻找轮廓&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.drawContours()&lt;/code&gt;：绘制轮廓&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="轮廓" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python+OpenCV教程12：腐蚀与膨胀</title>
     <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B12%EF%BC%9A%E8%85%90%E8%9A%80%E4%B8%8E%E8%86%A8%E8%83%80/"/>
     <id>http://huris.xyz/2019/08/15/Python-OpenCV教程12：腐蚀与膨胀/</id>
     <published>2019-08-15T00:56:57.000Z</published>
-    <updated>2019-08-15T07:56:45.560Z</updated>
+    <updated>2019-08-15T08:00:50.292Z</updated>
     
     <summary type="html">
     
@@ -31,9 +107,9 @@
 &lt;li&gt;了解形态学操作的概念&lt;/li&gt;
 &lt;li&gt;学习膨胀、腐蚀、开运算和闭运算等形态学操作&lt;/li&gt;
 &lt;li&gt;OpenCV：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv2.erode()&lt;/code&gt;：&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.dilate()&lt;/code&gt;：&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.morphologyEx()&lt;/code&gt;：&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.erode()&lt;/code&gt;：腐蚀函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.dilate()&lt;/code&gt;：膨胀函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.morphologyEx()&lt;/code&gt;：开闭运算函数&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -732,71 +808,6 @@
     
     
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python字符串切片(slice)</title>
-    <link href="http://huris.xyz/2019/08/13/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87-slice/"/>
-    <id>http://huris.xyz/2019/08/13/Python字符串切片-slice/</id>
-    <published>2019-08-13T08:15:54.000Z</published>
-    <updated>2019-08-13T08:35:07.589Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;切片操作（slice）可以从一个字符串中获取子字符串（字符串的一部分）。我们使用&lt;strong&gt;一对方括号、起始偏移量start、终止偏移量end 以及可选的步长step 来定义一个分片&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;格式： &lt;code&gt;[start:end:step]&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;[:]&lt;/code&gt; 提取从开头（默认位置0）到结尾（默认位置-1）的整个字符串&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[start:]&lt;/code&gt; 从start 提取到结尾&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[:end]&lt;/code&gt; 从开头提取到end - 1&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[start:end]&lt;/code&gt; 从start 提取到end - 1&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[start:end:step]&lt;/code&gt; 从start 提取到end - 1，每step 个字符提取一个&lt;/li&gt;
-&lt;li&gt;左侧第一个字符的位置偏移量为0，右侧最后一个字符的位置偏移量为-1&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Python" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="字符串" scheme="http://huris.xyz/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程番外篇2：无损保存和Matplotlib使用</title>
-    <link href="http://huris.xyz/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%872%EF%BC%9A%E6%97%A0%E6%8D%9F%E4%BF%9D%E5%AD%98%E5%92%8CMatplotlib%E4%BD%BF%E7%94%A8/"/>
-    <id>http://huris.xyz/2019/08/13/Python-OpenCV教程番外篇2：无损保存和Matplotlib使用/</id>
-    <published>2019-08-13T07:50:54.000Z</published>
-    <updated>2019-08-13T08:32:44.168Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;了解常用图片格式和OpenCV高质量保存图片的方式，学习如何使用Matplotlib显示OpenCV图像。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="Matplotlib" scheme="http://huris.xyz/tags/Matplotlib/"/>
     
       <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
     
