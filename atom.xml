@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-15T01:05:52.566Z</updated>
+  <updated>2019-08-15T07:56:45.560Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B12%EF%BC%9A%E8%85%90%E8%9A%80%E4%B8%8E%E8%86%A8%E8%83%80/"/>
     <id>http://huris.xyz/2019/08/15/Python-OpenCV教程12：腐蚀与膨胀/</id>
     <published>2019-08-15T00:56:57.000Z</published>
-    <updated>2019-08-15T01:05:52.566Z</updated>
+    <updated>2019-08-15T07:56:45.560Z</updated>
     
     <summary type="html">
     
@@ -37,6 +37,10 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;形态学操作就是改变物体的形状，如腐蚀使物体”变瘦”，膨胀使物体”变胖”&lt;/p&gt;
+&lt;p&gt;先腐蚀后膨胀会分离物体，所以叫开运算，常用来&lt;strong&gt;去除小区域物体&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;先膨胀后腐蚀会&lt;strong&gt;消除物体内的小洞&lt;/strong&gt;，所以叫闭运算。&lt;/p&gt;
+&lt;p&gt;开/闭理解了之后很容易记忆噢(⊙o⊙)。&lt;/p&gt;
     
     </summary>
     
