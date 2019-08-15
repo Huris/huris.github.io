@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-14T12:11:33.684Z</updated>
+  <updated>2019-08-15T01:05:52.566Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python+OpenCV教程12：腐蚀与膨胀</title>
+    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B12%EF%BC%9A%E8%85%90%E8%9A%80%E4%B8%8E%E8%86%A8%E8%83%80/"/>
+    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程12：腐蚀与膨胀/</id>
+    <published>2019-08-15T00:56:57.000Z</published>
+    <updated>2019-08-15T01:05:52.566Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习常用形态学操作：腐蚀膨胀，开运算和闭运算。&lt;/p&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;了解形态学操作的概念&lt;/li&gt;
+&lt;li&gt;学习膨胀、腐蚀、开运算和闭运算等形态学操作&lt;/li&gt;
+&lt;li&gt;OpenCV：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cv2.erode()&lt;/code&gt;：&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.dilate()&lt;/code&gt;：&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cv2.morphologyEx()&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="形态学" scheme="http://huris.xyz/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/"/>
+    
+      <category term="腐蚀" scheme="http://huris.xyz/tags/%E8%85%90%E8%9A%80/"/>
+    
+      <category term="膨胀" scheme="http://huris.xyz/tags/%E8%86%A8%E8%83%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+OpenCV教程11：边缘检测</title>
+    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B11%EF%BC%9A%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B/"/>
+    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程11：边缘检测/</id>
+    <published>2019-08-14T12:12:37.000Z</published>
+    <updated>2019-08-15T00:56:38.234Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习使用Canny获取图像的边缘。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.computer.org/cms/Computer.org/Transactions Home Pages/TPAMI/PDFs/top_ten_6.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Canny J . A Computational Approach To Edge Detection[J\]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 1986, PAMI-8(6):679-698.&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Canny边缘检测的简单概念&lt;/li&gt;
+&lt;li&gt;OpenCV函数：&lt;code&gt;cv2.Canny()&lt;/code&gt;：进行Canny边缘检测&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="边缘" scheme="http://huris.xyz/tags/%E8%BE%B9%E7%BC%98/"/>
+    
+  </entry>
   
   <entry>
     <title>Python+OpenCV教程番外篇9：图像梯度</title>
@@ -706,71 +793,6 @@
       <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
       <category term="Matplotlib" scheme="http://huris.xyz/tags/Matplotlib/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程2：基本元素-图片</title>
-    <link href="http://huris.xyz/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B2%EF%BC%9A%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0-%E5%9B%BE%E7%89%87/"/>
-    <id>http://huris.xyz/2019/08/13/Python-OpenCV教程2：基本元素-图片/</id>
-    <published>2019-08-13T07:27:21.000Z</published>
-    <updated>2019-08-13T07:50:23.933Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习如何加载图片，显示并保存图片。&lt;/p&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;加载图片，显示图片，保存图片&lt;/li&gt;
-&lt;li&gt;OpenCV函数：&lt;code&gt;cv2.imread()&lt;/code&gt;加载图片、&lt;code&gt;cv2.imshow()&lt;/code&gt;显示图片、&lt;code&gt;cv2.imwrite()&lt;/code&gt;保存图片&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程番外篇1：代码性能优化</title>
-    <link href="http://huris.xyz/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%871%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    <id>http://huris.xyz/2019/08/13/Python-OpenCV教程番外篇1：代码性能优化/</id>
-    <published>2019-08-13T07:11:24.000Z</published>
-    <updated>2019-08-13T07:26:10.380Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;完成一项任务很重要，高效地完成更重要。图像处理是对矩阵的操作，数据量巨大。如果代码写的不好，性能差距将很大，所以这节我们来了解下如何评估和提升代码性能。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
     
       <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
     

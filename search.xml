@@ -4,6 +4,84 @@
   
     
     <entry>
+      <title>Python+OpenCV教程12：腐蚀与膨胀</title>
+      <link href="/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B12%EF%BC%9A%E8%85%90%E8%9A%80%E4%B8%8E%E8%86%A8%E8%83%80/"/>
+      <url>/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B12%EF%BC%9A%E8%85%90%E8%9A%80%E4%B8%8E%E8%86%A8%E8%83%80/</url>
+      
+        <content type="html"><![CDATA[<p>学习常用形态学操作：腐蚀膨胀，开运算和闭运算。</p><p>目标：</p><ul><li>了解形态学操作的概念</li><li>学习膨胀、腐蚀、开运算和闭运算等形态学操作</li><li>OpenCV：<ul><li><code>cv2.erode()</code>：</li><li><code>cv2.dilate()</code>：</li><li><code>cv2.morphologyEx()</code>：</li></ul></li></ul><a id="more"></a><h2 id="形态学操作"><a href="#形态学操作" class="headerlink" title="形态学操作"></a>形态学操作</h2><p>形态学操作其实就是<strong>改变物体的形状</strong>，比如腐蚀就是”变瘦”，膨胀就是”变胖”，看下图就明白了：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_understand_morphological.jpg"></p><blockquote><p>经验之谈：形态学操作一般作用于二值化图，来连接相邻的元素或分离成独立的元素。<strong>腐蚀和膨胀是针对图片中的白色部分！</strong></p></blockquote><h2 id="腐蚀"><a href="#腐蚀" class="headerlink" title="腐蚀"></a>腐蚀</h2><p>腐蚀的效果是把图片”变瘦”，其原理是在原图的小区域内取局部最小值。因为是二值化图，只有0和255，所以小区域内有一个是0该像素点就为0：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_understand_erosion.jpg"></p><p>这样原图中边缘地方就会变成0，达到了瘦身目的（小胖福利(●ˇ∀ˇ●)）</p><p>OpenCV中用<code>cv2.erode()</code>函数进行腐蚀，只需要指定核的大小就行：</p><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>img = cv2.imread(<span class="hljs-string">'j.bmp'</span>, <span class="hljs-number">0</span>)<br>kernel = np.ones((<span class="hljs-number">5</span>, <span class="hljs-number">5</span>), np.uint8)<br>erosion = cv2.erode(img, kernel)  <span class="hljs-comment"># 腐蚀</span><br></code></pre></td></tr></table></figure><blockquote><p>这个核也叫结构元素，因为形态学操作其实也是应用卷积来实现的。结构元素可以是矩形/椭圆/十字形，可以用<code>cv2.getStructuringElement()</code>来生成不同形状的结构元素，比如：</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机视觉 </category>
+          
+          <category> OpenCV </category>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> OpenCV </tag>
+            
+            <tag> 计算机视觉 </tag>
+            
+            <tag> 图像处理 </tag>
+            
+            <tag> 形态学 </tag>
+            
+            <tag> 腐蚀 </tag>
+            
+            <tag> 膨胀 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python+OpenCV教程11：边缘检测</title>
+      <link href="/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B11%EF%BC%9A%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B/"/>
+      <url>/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B11%EF%BC%9A%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B/</url>
+      
+        <content type="html"><![CDATA[<p>学习使用Canny获取图像的边缘。</p><blockquote><p><a href="https://www.computer.org/cms/Computer.org/Transactions Home Pages/TPAMI/PDFs/top_ten_6.pdf" target="_blank" rel="noopener">Canny J . A Computational Approach To Edge Detection[J\]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 1986, PAMI-8(6):679-698.</a></p></blockquote><p>目标：</p><ul><li>Canny边缘检测的简单概念</li><li>OpenCV函数：<code>cv2.Canny()</code>：进行Canny边缘检测</li></ul><a id="more"></a><h2 id="Canny边缘检测"><a href="#Canny边缘检测" class="headerlink" title="Canny边缘检测"></a>Canny边缘检测</h2><p>Canny边缘检测方法常被誉为边缘检测的最优方法，废话不多说，先看个例子：</p><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># Canny边缘检测</span><br>img = cv2.imread(<span class="hljs-string">'handwriting.jpg'</span>, <span class="hljs-number">0</span>)<br>edges = cv2.Canny(img, <span class="hljs-number">30</span>, <span class="hljs-number">70</span>)<br><br>cv2.imshow(<span class="hljs-string">'canny'</span>, np.hstack((img, edges)))<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_canny_edge_detection.jpg"></p><p><code>cv2.Canny()</code>进行边缘检测，参数2、3表示最低、高阈值，下面来解释下具体原理。</p><blockquote><p>经验之谈：之前我们用低通滤波的方式模糊了图片，那反过来，想得到物体的边缘，就需要用到高通滤波。推荐先阅读：<a href="[http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%879%EF%BC%9A%E5%9B%BE%E5%83%8F%E6%A2%AF%E5%BA%A6/](http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇9：图像梯度/">番外篇：图像梯度</a>)。</p></blockquote><p><strong>Canny边缘提取</strong>的具体步骤如下：</p><ol><li>使用5×5高斯滤波消除噪声：</li></ol><p>边缘检测本身属于锐化操作，对噪点比较敏感，所以需要进行平滑处理。</p><p>高斯滤波的具体内容参考前一篇：<a href="[http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B10%EF%BC%9A%E5%B9%B3%E6%BB%91%E5%9B%BE%E5%83%8F/](http://huris.xyz/2019/08/14/Python-OpenCV教程10：平滑图像/">平滑图像</a>)</p><script type="math/tex; mode=display">K=\frac{1}{256}\begin{bmatrix}1&4&6&4&1\\4&16&24&16&4\\6&24&36&24&6\\4&16&24&16&4\\1&4&6&4&1\end{bmatrix}</script><ol><li>计算图像梯度的方向</li></ol><p>首先使用<strong>Sobel算子</strong>计算两个方向上的梯度$G_x$和$G_y$，然后算出梯度的方向：</p><script type="math/tex; mode=display">\theta=\arctan(\frac{G_y}{G_x})</script><p>保留这四个方向的梯度：$0^{\circ}/45^{\circ}/90^{\circ}/135^{\circ}$，有什么用呢？我们接着看。</p><ol><li>取局部极大值</li></ol><p>梯度其实已经表示了轮廓，但为了进一步筛选，可以在上面的四个角度方向上再取局部极大值：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_understand_canny_direction.jpg"></p><p>比如，A点在45°方向上大于B/C点，那就保留它，把B/C设置为0。</p><ol><li>滞后阈值</li></ol><p>经过前面三步，就只剩下0和可能的边缘梯度值了，为了最终确定下来，需要设定高低阈值：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_understand_canny_max_min_val.jpg"></p><ul><li>像素点的值大于最高阈值，那肯定是边缘（上图A）</li><li>同理像素值小于最低阈值，那肯定不是边缘</li><li>像素值介于两者之间，如果与高于最高阈值的点连接，也算边缘，所以上图中C算，B不算</li></ul><p>Canny推荐的高低阈值比在2:1到3:1之间。</p><h2 id="先阈值分割后检测"><a href="#先阈值分割后检测" class="headerlink" title="先阈值分割后检测"></a>先阈值分割后检测</h2><p>其实很多情况下，阈值分割后再检测边缘，效果会更好：</p><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 先阈值，后边缘检测</span><br><span class="hljs-comment"># 阈值分割（使用到了番外篇讲到的Otsu自动阈值）</span><br>_, thresh = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br>edges = cv2.Canny(thresh, <span class="hljs-number">30</span>, <span class="hljs-number">70</span>)<br><br>cv2.imshow(<span class="hljs-string">'canny'</span>, np.hstack((img, thresh, edges)))<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure><p>代码中我用了<a href="[http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%874%EF%BC%9AOtsu%E9%98%88%E5%80%BC%E6%B3%95/](http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇4：Otsu阈值法/">番外篇：Otsu阈值法</a>)中的自动阈值分割，如果你不太了解，大可以使用传统的方法，不过如果是下面这种图片，推荐用Otsu阈值法。</p><p>另外Python中某个值不用的话，就写个下划线’_’。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_canny_edge_detection_threshold.jpg"></p><h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>如果你不太理解高低阈值的效果，创建两个滑动条来调节它们的值看看：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_trackbar_maxval_minval_canny.gif"></p><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">track_back</span><span class="hljs-params">(x)</span>:</span><br>    <span class="hljs-keyword">pass</span><br><br><br>img = cv2.imread(<span class="hljs-string">'sudoku.jpg'</span>, <span class="hljs-number">0</span>)<br>cv2.namedWindow(<span class="hljs-string">'window'</span>)<br><br><span class="hljs-comment"># 创建滑动条</span><br>cv2.createTrackbar(<span class="hljs-string">'maxVal'</span>, <span class="hljs-string">'window'</span>, <span class="hljs-number">100</span>, <span class="hljs-number">255</span>, track_back)<br>cv2.createTrackbar(<span class="hljs-string">'minVal'</span>, <span class="hljs-string">'window'</span>, <span class="hljs-number">200</span>, <span class="hljs-number">255</span>, track_back)<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 获取滑动条的值</span><br>    max_val = cv2.getTrackbarPos(<span class="hljs-string">'maxVal'</span>, <span class="hljs-string">'window'</span>)<br>    min_val = cv2.getTrackbarPos(<span class="hljs-string">'minVal'</span>, <span class="hljs-string">'window'</span>)<br><br>    edges = cv2.Canny(img, min_val, max_val)<br>    cv2.imshow(<span class="hljs-string">'window'</span>, edges)<br><br>    <span class="hljs-comment"># 按下ESC键退出</span><br>    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">30</span>) == <span class="hljs-number">27</span>:<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul><li><a href="https://docs.opencv.org/4.0.0/dd/d1a/group__imgproc__feature.html#ga04723e007ed888ddf11d9ba04e2232de" target="_blank" rel="noopener">cv2.Canny()</a></li></ul><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul><li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_canny/py_canny.html" target="_blank" rel="noopener">Canny Edge Detection</a></li><li><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/imgtrans/canny_detector/canny_detector.html" target="_blank" rel="noopener">Canny 边缘检测</a></li><li><a href="https://www.computer.org/cms/Computer.org/Transactions Home Pages/TPAMI/PDFs/top_ten_6.pdf" target="_blank" rel="noopener">Canny J . A Computational Approach To Edge Detection[J\]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 1986, PAMI-8(6):679-698.</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机视觉 </category>
+          
+          <category> OpenCV </category>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> OpenCV </tag>
+            
+            <tag> 计算机视觉 </tag>
+            
+            <tag> 图像处理 </tag>
+            
+            <tag> 边缘 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python+OpenCV教程番外篇9：图像梯度</title>
       <link href="/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%879%EF%BC%9A%E5%9B%BE%E5%83%8F%E6%A2%AF%E5%BA%A6/"/>
       <url>/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%879%EF%BC%9A%E5%9B%BE%E5%83%8F%E6%A2%AF%E5%BA%A6/</url>
