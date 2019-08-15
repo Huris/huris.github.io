@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Python+OpenCV教程14：轮廓特征 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/15/Python-OpenCV教程14：轮廓特征/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Python+OpenCV教程14：轮廓特征</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-15T17:26:16+08:00">2019-08-15 17:26:16</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>学习计算轮廓特征，如面积、周长、最小外接矩形等。</p>
+<p>目标：</p>
+<ul>
+<li>计算物体的周长、面积、质心、最小外接矩形等</li>
+<li>OpenCV函数：<ul>
+<li><code>cv2.contourArea()</code>：面积</li>
+<li><code>cv2.arcLength()</code>：周长</li>
+<li><code>cv2.boundingRect()</code>：外接矩</li>
+<li><code>cv2.minAreaRect()</code>：最小外接矩</li>
+<li><code>cv2.minEnclosingCircle()</code>：最小外接圆</li>
+<li><code>cv2.matchShapes()</code>：进行形状匹配</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="轮廓特征"><a href="#轮廓特征" class="headerlink" title="轮廓特征"></a>轮廓特征</h2><p>在计算轮廓特征之前，我们先用上一节的代码把轮廓找到：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_31_handwriting_sample.jpg"></p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>img = cv2.imread(<span class="hljs-string">'handwriting.jpg'</span>, <span class="hljs-number">0</span>)<br>_, thresh = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)<br>image, contours, hierarchy = cv2.findContours(thresh, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># 以数字3的轮廓为例</span><br>cnt = contours[<span class="hljs-number">0</span>]<br></code></pre></td></tr></table></figure>
+<p>为了便于绘制，我们创建出两幅彩色图，并把轮廓画在第一幅图上：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">img_color1 = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)<br>img_color2 = np.copy(img_color1)<br>cv2.drawContours(img_color1, [cnt], <span class="hljs-number">0</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="轮廓面积"><a href="#轮廓面积" class="headerlink" title="轮廓面积"></a>轮廓面积</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">area = cv2.contourArea(cnt)  <span class="hljs-comment"># 4386.5</span><br></code></pre></td></tr></table></figure>
+<p>注意轮廓特征计算的结果并不等同于像素点的个数，而是根据几何方法算出来的，所以有小数。</p>
+<blockquote>
+<p>如果统计二值图中像素点个数，应尽量避免循环，<strong>可以使用<code>cv2.countNonZero()</code></strong>，更加高效。</p>
+</blockquote>
+<h3 id="轮廓周长"><a href="#轮廓周长" class="headerlink" title="轮廓周长"></a>轮廓周长</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">perimeter = cv2.arcLength(cnt, <span class="hljs-literal">True</span>)  <span class="hljs-comment"># 585.7</span><br></code></pre></td></tr></table></figure>
+<p>参数2表示轮廓是否封闭，显然我们的轮廓是封闭的，所以是True。</p>
+<h3 id="图像矩"><a href="#图像矩" class="headerlink" title="图像矩"></a>图像矩</h3><p>矩可以理解为图像的各类几何特征，详情请参考：[<a href="http://en.wikipedia.org/wiki/Image_moment" target="_blank" rel="noopener">Image Moments</a>]</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">M = cv2.moments(cnt)<br></code></pre></td></tr></table></figure>
+<p>M中包含了很多轮廓的特征信息，比如M[‘m00’]表示轮廓面积，与前面<code>cv2.contourArea()</code>计算结果是一样的。</p>
+<p>质心也可以用它来算：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">cx, cy = M[<span class="hljs-string">'m10'</span>] / M[<span class="hljs-string">'m00'</span>], M[<span class="hljs-string">'m01'</span>] / M[<span class="hljs-string">'m00'</span>]  <span class="hljs-comment"># (205, 281)</span><br></code></pre></td></tr></table></figure>
+<h3 id="外接矩形"><a href="#外接矩形" class="headerlink" title="外接矩形"></a>外接矩形</h3><p>形状的外接矩形有两种，如下图，绿色的叫外接矩形，表示不考虑旋转并且能包含整个轮廓的矩形。蓝色的叫最小外接矩，考虑了旋转：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_min_rect_rect_bounding.jpg"></p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">x, y, w, h = cv2.boundingRect(cnt)  <span class="hljs-comment"># 外接矩形</span><br>cv2.rectangle(img_color1, (x, y), (x + w, y + h), (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br><br>rect = cv2.minAreaRect(cnt)  <span class="hljs-comment"># 最小外接矩形</span><br>box = np.int0(cv2.boxPoints(rect))  <span class="hljs-comment"># 矩形的四个角点取整</span><br>cv2.drawContours(img_color1, [box], <span class="hljs-number">0</span>, (<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+<p>其中<code>np.int0(x)</code>是把x取整的操作，比如377.93就会变成377，也可以用<code>x.astype(np.int)</code>。</p>
+<h3 id="最小外接圆"><a href="#最小外接圆" class="headerlink" title="最小外接圆"></a>最小外接圆</h3><p>外接圆跟外接矩形一样，找到一个能包围物体的最小圆：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">`(x, y), radius = cv2.minEnclosingCircle(cnt)(x, y, radius) = np.int0((x, y, radius))  <span class="hljs-comment"># 圆心和半径取整cv2.circle(img_color2, (x, y), radius, (0, 0, 255), 2)`</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_min_enclosing_circle.jpg"></p>
+<h3 id="拟合椭圆"><a href="#拟合椭圆" class="headerlink" title="拟合椭圆"></a>拟合椭圆</h3><p>我们可以用得到的轮廓拟合出一个椭圆：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">ellipse = cv2.fitEllipse(cnt)<br>cv2.ellipse(img_color2, ellipse, (<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_fitting_ellipse.jpg"></p>
+<h3 id="形状匹配"><a href="#形状匹配" class="headerlink" title="形状匹配"></a>形状匹配</h3><p><code>cv2.matchShapes()</code>可以检测两个形状之间的相似度，返回<strong>值越小，越相似</strong>。先读入下面这张图片：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_match_shape_shapes.jpg"></p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">img = cv2.imread(<span class="hljs-string">'shapes.jpg'</span>, <span class="hljs-number">0</span>)<br>_, thresh = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br>contours, hierarchy = cv2.findContours(thresh, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)<br>img_color = cv2.cvtColor(thresh, cv2.COLOR_GRAY2BGR)  <span class="hljs-comment"># 用于绘制的彩色图</span><br></code></pre></td></tr></table></figure>
+<p>图中有3条轮廓，我们用A/B/C表示：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">cnt_a, cnt_b, cnt_c = contours[<span class="hljs-number">0</span>], contours[<span class="hljs-number">1</span>], contours[<span class="hljs-number">2</span>]<br>print(cv2.matchShapes(cnt_b, cnt_b, <span class="hljs-number">1</span>, <span class="hljs-number">0.0</span>))  <span class="hljs-comment"># 0.0</span><br>print(cv2.matchShapes(cnt_b, cnt_c, <span class="hljs-number">1</span>, <span class="hljs-number">0.0</span>))  <span class="hljs-comment"># 2.17e-05</span><br>print(cv2.matchShapes(cnt_b, cnt_a, <span class="hljs-number">1</span>, <span class="hljs-number">0.0</span>))  <span class="hljs-comment"># 0.418</span><br></code></pre></td></tr></table></figure>
+<p>可以看到BC相似程度比AB高很多，并且图形的旋转或缩放并没有影响。其中，参数3是匹配方法，详情可参考：<a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#gaf2b97a230b51856d09a2d934b78c015f" target="_blank" rel="noopener">ShapeMatchModes</a>，参数4是OpenCV的预留参数，暂时没有实现，可以不用理会。</p>
+<p>形状匹配是通过图像的Hu矩来实现的(<code>cv2.HuMoments()</code>)，大家如果感兴趣，可以参考：<a href="http://en.wikipedia.org/wiki/Image_moment#Rotation_invariant_moments" target="_blank" rel="noopener">Hu-Moments</a></p>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
+<li>前面我们是对图片中的数字3进行轮廓特征计算的，大家换成数字1看看。</li>
+</ol>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 载入手写数字图片</span><br>img = cv2.imread(<span class="hljs-string">'handwriting.jpg'</span>, <span class="hljs-number">0</span>)<br>_, thresh = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)<br>contours, hierarchy = cv2.findContours(thresh, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># 创建出两幅彩色图用于绘制</span><br>img_color1 = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)<br>img_color2 = np.copy(img_color1)<br><br><span class="hljs-comment"># 计算数字1的轮廓特征</span><br>cnt = contours[<span class="hljs-number">1</span>]<br>cv2.drawContours(img_color1, [cnt], <span class="hljs-number">0</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># 1.轮廓面积</span><br>area = cv2.contourArea(cnt)  <span class="hljs-comment"># 6289.5</span><br>print(area)<br><br><br><span class="hljs-comment"># 2.轮廓周长</span><br>perimeter = cv2.arcLength(cnt, <span class="hljs-literal">True</span>)  <span class="hljs-comment"># 527.4041</span><br>print(perimeter)<br><br><br><span class="hljs-comment"># 3.图像矩</span><br>M = cv2.moments(cnt)<br>print(M)<br>print(M[<span class="hljs-string">'m00'</span>])  <span class="hljs-comment"># 同前面的面积：6289.5</span><br>cx, cy = M[<span class="hljs-string">'m10'</span>] / M[<span class="hljs-string">'m00'</span>], M[<span class="hljs-string">'m01'</span>] / M[<span class="hljs-string">'m00'</span>]  <span class="hljs-comment"># 质心</span><br>print(cx, cy)<br><br><span class="hljs-comment"># 4.图像外接矩形和最小外接矩形</span><br>x, y, w, h = cv2.boundingRect(cnt)  <span class="hljs-comment"># 外接矩形</span><br>cv2.rectangle(img_color1, (x, y), (x + w, y + h), (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br><br>rect = cv2.minAreaRect(cnt)  <span class="hljs-comment"># 最小外接矩形</span><br>box = np.int0(cv2.boxPoints(rect))  <span class="hljs-comment"># 矩形的四个角点并取整</span><br>cv2.drawContours(img_color1, [box], <span class="hljs-number">0</span>, (<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br><br>cv2.imshow(<span class="hljs-string">'contours'</span>, img_color1)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br><br><br><span class="hljs-comment"># 5.最小外接圆</span><br>(x, y), radius = cv2.minEnclosingCircle(cnt)<br>(x, y, radius) = map(int, (x, y, radius))  <span class="hljs-comment"># 这也是取整的一种方式噢</span><br>cv2.circle(img_color2, (x, y), radius, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)<br><br><br><span class="hljs-comment"># 6.拟合椭圆</span><br>ellipse = cv2.fitEllipse(cnt)<br>cv2.ellipse(img_color2, ellipse, (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br><br>cv2.imshow(<span class="hljs-string">'contours2'</span>, img_color2)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+<ol>
+<li>用形状匹配比较两个字母或数字（这相当于很简单的一个<a href="https://baike.baidu.com/item/光学字符识别/4162921?fr=aladdin&amp;fromid=25995&amp;fromtitle=OCR" target="_blank" rel="noopener">OCR</a>噢）。</li>
+</ol>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-comment"># 载入原图</span><br>img = cv2.imread(<span class="hljs-string">'abc.jpg'</span>, <span class="hljs-number">0</span>)<br>_, thresh = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br>contours, hierarchy = cv2.findContours(thresh, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)<br><span class="hljs-comment"># 找到ABC的轮廓</span><br>b, c, a = contours[<span class="hljs-number">0</span>], contours[<span class="hljs-number">3</span>], contours[<span class="hljs-number">4</span>]<br><br><span class="hljs-comment"># 载入标准模板图</span><br>img_a = cv2.imread(<span class="hljs-string">'template_a.jpg'</span>, <span class="hljs-number">0</span>)<br>_, th = cv2.threshold(img_a, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br>contours, hierarchy = cv2.findContours(th, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)<br><span class="hljs-comment"># 字母A的轮廓</span><br>template_a = contours[<span class="hljs-number">0</span>]<br><br>print(cv2.matchShapes(a, template_a, <span class="hljs-number">1</span>, <span class="hljs-number">0.0</span>))  <span class="hljs-comment"># 0.02557(最相似)</span><br>print(cv2.matchShapes(b, template_a, <span class="hljs-number">1</span>, <span class="hljs-number">0.0</span>))  <span class="hljs-comment"># 0.80585</span><br>print(cv2.matchShapes(c, template_a, <span class="hljs-number">1</span>, <span class="hljs-number">0.0</span>))  <span class="hljs-comment"># 3.26050</span><br></code></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h3><ul>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#ga2c759ed9f497d4a618048a2f56dc97f1" target="_blank" rel="noopener">cv2.contourArea()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#ga8d26483c636be6b35c3ec6335798a47c" target="_blank" rel="noopener">cv2.arcLength()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#ga556a180f43cab22649c23ada36a8a139" target="_blank" rel="noopener">cv2.moments()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#ga103fcbda2f540f3ef1c042d6a9b35ac7" target="_blank" rel="noopener">cv2.boundingRect()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#ga3d476a3417130ae5154aea421ca7ead9" target="_blank" rel="noopener">cv2.minAreaRect()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#ga8ce13c24081bbc7151e9326f412190f1" target="_blank" rel="noopener">cv2.minEnclosingCircle()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#gaf259efaad93098103d6c27b9e4900ffa" target="_blank" rel="noopener">cv2.fitEllipse()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#gaadc90cb16e2362c9bd6e7363e6e4c317" target="_blank" rel="noopener">cv2.matchShapes()</a></li>
+<li><a href="https://docs.opencv.org/4.0.0/d3/dc0/group__imgproc__shape.html#gaf2b97a230b51856d09a2d934b78c015f" target="_blank" rel="noopener">cv2.ShapeMatchModes</a></li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contour_features/py_contour_features.html" target="_blank" rel="noopener">Contour Features</a></li>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_more_functions/py_contours_more_functions.html" target="_blank" rel="noopener">Contours : More Functions</a></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/OpenCV/" rel="tag"><i class="fas fa-tags"></i>OpenCV</a>
+        
+        <a class="post-tag button" href="/tags/计算机视觉/" rel="tag"><i class="fas fa-tags"></i>计算机视觉</a>
+        
+        <a class="post-tag button" href="/tags/图像处理/" rel="tag"><i class="fas fa-tags"></i>图像处理</a>
+        
+        <a class="post-tag button" href="/tags/轮廓/" rel="tag"><i class="fas fa-tags"></i>轮廓</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/15/Python-OpenCV教程番外篇11：凸包及更多轮廓特征/" rel="next" title="Python+OpenCV教程番外篇11：凸包及更多轮廓特征"><i class="fas fa-angle-left"></i><span class="nav-title">Python+OpenCV教程番外篇11：凸包及更多轮廓特征</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/08/15/Python-OpenCV教程15：直方图/" rel="prev" title="Python+OpenCV教程15：直方图"><span class="nav-title">Python+OpenCV教程15：直方图</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">60</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">25</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">51</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#轮廓特征"><span class="toc-text">轮廓特征</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#轮廓面积"><span class="toc-text">轮廓面积</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#轮廓周长"><span class="toc-text">轮廓周长</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#图像矩"><span class="toc-text">图像矩</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#外接矩形"><span class="toc-text">外接矩形</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#最小外接圆"><span class="toc-text">最小外接圆</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#拟合椭圆"><span class="toc-text">拟合椭圆</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#形状匹配"><span class="toc-text">形状匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#练习"><span class="toc-text">练习</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#接口文档"><span class="toc-text">接口文档</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
