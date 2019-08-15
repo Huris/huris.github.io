@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-15T08:44:44.396Z</updated>
+  <updated>2019-08-15T09:24:21.473Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python+OpenCV教程番外篇11：凸包及更多轮廓特征</title>
+    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%8711%EF%BC%9A%E5%87%B8%E5%8C%85%E5%8F%8A%E6%9B%B4%E5%A4%9A%E8%BD%AE%E5%BB%93%E7%89%B9%E5%BE%81/"/>
+    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程番外篇11：凸包及更多轮廓特征/</id>
+    <published>2019-08-15T09:10:13.000Z</published>
+    <updated>2019-08-15T09:24:21.473Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;计算凸包及更多轮廓特征。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Python+OpenCV教程番外篇10：轮廓层级</title>
@@ -760,42 +790,6 @@
 &lt;li&gt;&lt;code&gt;cv2.createTrackbar(&amp;#39;R&amp;#39;, &amp;#39;image&amp;#39;, 0, 255, nothing)&lt;/code&gt;：创建滑动条&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;r = cv2.getTrackbarPos(&amp;#39;R&amp;#39;, &amp;#39;image&amp;#39;)&lt;/code&gt;：得到滑块位置&lt;/li&gt;
 &lt;li&gt;另外在回调函数中也可以获取滑块位置&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程3：打开摄像头</title>
-    <link href="http://huris.xyz/2019/08/13/Python-OpenCV%E6%95%99%E7%A8%8B3%EF%BC%9A%E6%89%93%E5%BC%80%E6%91%84%E5%83%8F%E5%A4%B4/"/>
-    <id>http://huris.xyz/2019/08/13/Python-OpenCV教程3：打开摄像头/</id>
-    <published>2019-08-13T08:33:42.000Z</published>
-    <updated>2019-08-13T09:15:31.246Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习打开摄像头捕获照片、播放本地视频、录制视频等。&lt;/p&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;打开摄像头并捕获照片&lt;/li&gt;
-&lt;li&gt;播放本地视频，录制视频&lt;/li&gt;
-&lt;li&gt;OpenCV函数：&lt;code&gt;cv2.VideoCapture()&lt;/code&gt;、&lt;code&gt;cv2.VideoWriter()&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>

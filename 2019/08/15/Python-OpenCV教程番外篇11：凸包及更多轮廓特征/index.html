@@ -135,7 +135,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>存储库的安装 | Huris' HeapStack - For you, a thousand times over.</title>
+    <title>Python+OpenCV教程番外篇11：凸包及更多轮廓特征 | Huris' HeapStack - For you, a thousand times over.</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -181,7 +181,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/05/存储库的安装/">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/15/Python-OpenCV教程番外篇11：凸包及更多轮廓特征/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="Huris">
        <meta itemprop="description" content="To be is to be perceived.">
@@ -192,11 +192,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">存储库的安装</h1>
+      <h1 class="post-title" itemprop="name headline">Python+OpenCV教程番外篇11：凸包及更多轮廓特征</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-05T11:15:24+08:00">2019-08-05 11:15:24</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-15T17:10:13+08:00">2019-08-15 17:10:13</time></span>
         </span>
         
         
@@ -205,65 +205,51 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/开发环境配置/" itemprop="url" rel="index"><span itemprop="name">开发环境配置</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
         </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>数据库想要和Python进行交互的话，还需要安装一些Python存储库，如：<strong>MySQL</strong>需要安装<strong>PyMySQL</strong>、<strong>MongoDB</strong>需要安装<strong>PyMongo</strong>等。</p>
-<p>本文主要说明这些存储库的安装方式。</p>
+      <p>计算凸包及更多轮廓特征。</p>
 <a id="more"></a>
-<h2 id="PyMySQL"><a href="#PyMySQL" class="headerlink" title="PyMySQL"></a>PyMySQL</h2><p>在<strong>Python3</strong>中，如果想要将数据存储到<strong>MySQL</strong>中，就需要借助<strong>PyMySQL</strong>来操作。</p>
-<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/PyMySQL/PyMySQL" target="_blank" rel="noopener">https://github.com/PyMySQL/PyMySQL</a></li>
-<li>官方文档：<a href="http://pymysql.readthedocs.io" target="_blank" rel="noopener">http://pymysql.readthedocs.io</a></li>
-<li>PyPI：<a href="https://pypi.python.org/pypi/PyMySQL" target="_blank" rel="noopener">https://pypi.python.org/pypi/PyMySQL</a></li>
+<h2 id="多边形逼近"><a href="#多边形逼近" class="headerlink" title="多边形逼近"></a>多边形逼近</h2><p>前面我们学习过最小外接矩和最小外接圆，那么可以用一个最小的多边形包围物体吗？当然可以：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 多边形逼近</span><br><span class="hljs-comment"># 1.先找到轮廓</span><br>img = cv2.imread(<span class="hljs-string">'unregular.jpg'</span>, <span class="hljs-number">0</span>)<br>_, thresh = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br>contours, hierarchy = cv2.findContours(thresh, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)<br>cnt = contours[<span class="hljs-number">0</span>]<br><br><span class="hljs-comment"># 2.进行多边形逼近，得到多边形的角点</span><br>approx = cv2.approxPolyDP(cnt, <span class="hljs-number">3</span>, <span class="hljs-literal">True</span>)<br><br><span class="hljs-comment"># 3.画出多边形</span><br>image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)<br>cv2.polylines(image, [approx], <span class="hljs-literal">True</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br>print(len(approx))  <span class="hljs-comment"># 角点的个数</span><br>cv2.imshow(<span class="hljs-string">'approxPloyDP'</span>, image)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+<p>其中<code>cv2.approxPolyDP()</code>的参数2(epsilon)是一个距离值，表示多边形的轮廓接近实际轮廓的程度，值越小，越精确；参数3表示是否闭合。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_understand_approxpoly.jpg"></p>
+<h2 id="凸包"><a href="#凸包" class="headerlink" title="凸包"></a>凸包</h2><p><a href="https://baike.baidu.com/item/凸包/179150?fr=aladdin" target="_blank" rel="noopener">凸包</a>跟多边形逼近很像，只不过它是物体最外层的”凸”多边形：集合A内连接任意两个点的直线都在A的内部，则称集合A是凸形的。</p>
+<p>如下图，红色的部分为手掌的凸包，双箭头部分表示凸缺陷(Convexity Defects)，凸缺陷常用来进行手势识别等：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_understand_convex.jpg"></p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 凸包</span><br><span class="hljs-comment"># 1.先找到轮廓</span><br>img = cv2.imread(<span class="hljs-string">'convex.jpg'</span>, <span class="hljs-number">0</span>)<br>_, thresh = cv2.threshold(img, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, cv2.THRESH_BINARY + cv2.THRESH_OTSU)<br>contours, hierarchy = cv2.findContours(thresh, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)<br>cnt = contours[<span class="hljs-number">0</span>]<br><br><span class="hljs-comment"># 2.寻找凸包，得到凸包的角点</span><br>hull = cv2.convexHull(cnt)<br><br><span class="hljs-comment"># 3.绘制凸包</span><br>image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)<br>cv2.polylines(image, [hull], <span class="hljs-literal">True</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-number">2</span>)<br>cv2.imshow(<span class="hljs-string">'convex hull'</span>, image)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_convex_hull.jpg"></p>
+<p>其中函数<code>cv2.convexHull()</code>有个可选参数returnPoints，默认是True，代表返回角点的x/y坐标；如果为False的话，表示返回轮廓中是凸包角点的索引，比如说：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">print(hull[<span class="hljs-number">0</span>])  <span class="hljs-comment"># [[362 184]]（坐标）</span><br>hull2 = cv2.convexHull(cnt, returnPoints=<span class="hljs-literal">False</span>)<br>print(hull2[<span class="hljs-number">0</span>])  <span class="hljs-comment"># [510]（cnt中的索引）</span><br>print(cnt[<span class="hljs-number">510</span>])  <span class="hljs-comment"># [[362 184]]</span><br></code></pre></td></tr></table></figure>
+<p>当使用<code>cv2.convexityDefects()</code>计算凸包缺陷时，returnPoints需为False，详情可参考：<a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_more_functions/py_contours_more_functions.html#contours-more-functions" target="_blank" rel="noopener">Convexity Defects</a></p>
+<p>另外可以用下面的语句来判断轮廓是否是凸形的：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">print(cv2.isContourConvex(hull))  <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
+<h2 id="点到轮廓的"><a href="#点到轮廓的" class="headerlink" title="点到轮廓的"></a>点到轮廓的</h2><p><code>cv2.pointPolygonTest()</code>函数计算点到轮廓的最短距离（也就是垂线），又称多边形测试：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">dist = cv2.pointPolygonTest(cnt, (<span class="hljs-number">100</span>, <span class="hljs-number">100</span>), <span class="hljs-literal">True</span>)  <span class="hljs-comment"># -3.53</span><br></code></pre></td></tr></table></figure>
+<p>其中参数3为True时表示计算距离值：点在轮廓外面值为负，点在轮廓上值为0，点在轮廓里面值为正；参数3为False时，只返回-1/0/1表示点相对轮廓的位置，不计算距离。</p>
+<p>更多轮廓特征，如当量直径、平均强度等，我目前也没用到过，以后用到再写吧，感兴趣的可以参看：<a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contour_properties/py_contour_properties.html" target="_blank" rel="noopener">Contour Properties</a>、<a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_hierarchy/py_contours_hierarchy.html" target="_blank" rel="noopener">Contours Hierarchy</a></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_more_functions/py_contours_more_functions.html#contours-more-functions" target="_blank" rel="noopener">Convexity Defects</a></li>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contour_properties/py_contour_properties.html" target="_blank" rel="noopener">Contour Properties</a></li>
+<li><a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_hierarchy/py_contours_hierarchy.html" target="_blank" rel="noopener">Contours Hierarchy</a></li>
 </ul>
-<h3 id="pip安装"><a href="#pip安装" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install pymysql</code></p>
-<h3 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import pymysql<br>&gt;&gt;&gt; pymysql.VERSION<br>(0, 9, 3, None)<br></code></pre></td></tr></table></figure>
-<p>如果成功输出了其版本内容，则证明PyMySQL成功安装。</p>
-<h2 id="PyMongoDB"><a href="#PyMongoDB" class="headerlink" title="PyMongoDB"></a>PyMongoDB</h2><p>在Python中，如果想要和<strong>MongoDB</strong>进行交互，就需要借助于<strong>PyMongo</strong>库。</p>
-<h3 id="相关链接-1"><a href="#相关链接-1" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/mongodb/mongo-python-driver" target="_blank" rel="noopener">https://github.com/mongodb/mongo-python-driver</a></li>
-<li>官方文档：<a href="http://api.mongodb.com/python/current" target="_blank" rel="noopener">http://api.mongodb.com/python/current</a></li>
-<li>PyPI：<a href="https://pypi.python.org/pypi/pymongo" target="_blank" rel="noopener">https://pypi.python.org/pypi/pymongo</a></li>
-</ul>
-<h3 id="pip安装-1"><a href="#pip安装-1" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install pymongo</code></p>
-<h3 id="验证安装-1"><a href="#验证安装-1" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import pymongo<br>&gt;&gt;&gt; pymongo.VERSION<br><span class="hljs-string">'3.8.0'</span><br></code></pre></td></tr></table></figure>
-<p>如果成功输出了其版本内容，则证明<strong>PyMongo</strong>成功安装。</p>
-<h2 id="redis-py"><a href="#redis-py" class="headerlink" title="redis-py"></a>redis-py</h2><p>在Python中，如果想要和<strong>Redis</strong>进行交互，就需要借助于<strong>redis-py</strong>库。</p>
-<h3 id="相关链接-2"><a href="#相关链接-2" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/andymccurdy/redis-py" target="_blank" rel="noopener">https://github.com/andymccurdy/redis-py</a></li>
-<li>官方文档：<a href="https://redis-py.readthedocs.io/" target="_blank" rel="noopener">https://redis-py.readthedocs.io/</a></li>
-</ul>
-<h3 id="pip安装-2"><a href="#pip安装-2" class="headerlink" title="pip安装"></a>pip安装</h3><p>安装命令：<code>pip3 install redis</code></p>
-<h3 id="验证安装-2"><a href="#验证安装-2" class="headerlink" title="验证安装"></a>验证安装</h3><p>使用以下命令进行验证：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python3<br>&gt;&gt;&gt; import redis<br>&gt;&gt;&gt; redis.VERSION<br>(3, 3, 5)<br></code></pre></td></tr></table></figure>
-<p>如果成功输出了其版本内容，则证明<strong>redis-py</strong>成功安装。</p>
-<h2 id="RedisDump"><a href="#RedisDump" class="headerlink" title="RedisDump"></a>RedisDump</h2><p>RedisDump是一个用于Redis数据导入/导出的工具，是基于Ruby实现的，所以要安装RedisDump，需要先安装Ruby。</p>
-<h3 id="相关链接-3"><a href="#相关链接-3" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
-<li>Github：<a href="https://github.com/delano/redis-dump" target="_blank" rel="noopener">https://github.com/delano/redis-dump</a></li>
-<li>官方文档：<a href="http://delanotes.com/redis-dump" target="_blank" rel="noopener">http://delanotes.com/redis-dump</a></li>
-</ul>
-<h3 id="gem安装"><a href="#gem安装" class="headerlink" title="gem安装"></a>gem安装</h3><p>安装Ruby(参考<a href="http://www.ruby-lang.org/zh_cn/documentation/installation" target="_blank" rel="noopener">这里</a>)后，利用<strong>gem命令</strong>安装RedisDump：<code>gem install redis-dump</code></p>
-<h3 id="验证安装-3"><a href="#验证安装-3" class="headerlink" title="验证安装"></a>验证安装</h3><p>安装成功后，可以执行如下两个命令：</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis-dump<br>redis-load<br></code></pre></td></tr></table></figure>
-<p>如果可以成功调用，则说明安装成功。</p>
 
     </main>
     <footer class="post-footer">
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/开发环境配置/" rel="tag"><i class="fas fa-tags"></i>开发环境配置</a>
-        
         <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
         
-        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        <a class="post-tag button" href="/tags/OpenCV/" rel="tag"><i class="fas fa-tags"></i>OpenCV</a>
+        
+        <a class="post-tag button" href="/tags/计算机视觉/" rel="tag"><i class="fas fa-tags"></i>计算机视觉</a>
+        
+        <a class="post-tag button" href="/tags/图像处理/" rel="tag"><i class="fas fa-tags"></i>图像处理</a>
         
       </div>
       
@@ -297,12 +283,10 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2019/08/05/数据库的安装/" rel="next" title="数据库的安装"><i class="fas fa-angle-left"></i><span class="nav-title">数据库的安装</span></a>
+      <a href="/2019/08/15/Python-OpenCV教程番外篇10：轮廓层级/" rel="next" title="Python+OpenCV教程番外篇10：轮廓层级"><i class="fas fa-angle-left"></i><span class="nav-title">Python+OpenCV教程番外篇10：轮廓层级</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/08/05/Web库的安装/" rel="prev" title="Web库的安装"><span class="nav-title">Web库的安装</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -375,7 +359,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#PyMySQL"><span class="toc-text">PyMySQL</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#PyMongoDB"><span class="toc-text">PyMongoDB</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-1"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装-1"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-1"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#redis-py"><span class="toc-text">redis-py</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-2"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#pip安装-2"><span class="toc-text">pip安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-2"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#RedisDump"><span class="toc-text">RedisDump</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#相关链接-3"><span class="toc-text">相关链接</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#gem安装"><span class="toc-text">gem安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#验证安装-3"><span class="toc-text">验证安装</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#多边形逼近"><span class="toc-text">多边形逼近</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#凸包"><span class="toc-text">凸包</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#点到轮廓的"><span class="toc-text">点到轮廓的</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></div>
     </div>
     
     
