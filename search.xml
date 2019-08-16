@@ -4,6 +4,68 @@
   
     
     <entry>
+      <title>目标检测背景</title>
+      <link href="/2019/08/16/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E8%83%8C%E6%99%AF/"/>
+      <url>/2019/08/16/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E8%83%8C%E6%99%AF/</url>
+      
+        <content type="html"><![CDATA[<p><strong>图像分类，检测及分割是计算机视觉领域的三大任务。</strong></p><p>图像分类模型是将图像划分为单个类别，通常对应于图像中最突出的物体。但在现实世界的很多图片通常包含不只一个物体，此时如果使用图像分类模型为图像分配一个单一标签其实是非常粗糙的，并不准确。</p><p>对于这样的情况，就需要目标检测模型，目标检测模型可以识别一张图片的多个物体，并可以定位出不同物体（给出边界框）。</p><p>目标检测在很多场景有用，如无人驾驶和安防系统。</p><p>以下是图像分类，目标检测与实例分割的对比。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%EF%BC%8C%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E7%9A%84%E5%AF%B9%E6%AF%94.png"></p><a id="more"></a><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>目前主流的目标检测算法主要是基于深度学习模型，其可以分成两大类：</p><ul><li><p>two-stage检测算法</p><p>  two-stage检测算法将检测问题划分为两个阶段，首先产生候选区域（region proposals），然后对候选区域分类（一般还需要对位置精修），这类算法的典型代表是基于region proposal的R-CNN系算法，如R-CNN、Fast R-CNN、Faster R-CNN等。</p></li><li><p>one-stage检测算法</p><p>  one-stage检测不需要region proposal阶段，直接产生物体的类别概率和位置坐标值，比较典型的算法如YOLO和SSD。</p></li></ul><p>目标检测模型的主要性能指标是检测<strong>准确度</strong>和<strong>速度</strong>。</p><p>一般情况下，two-stage算法在准确度上有优势，而one-stage算法在速度上有优势。</p><p>在这篇长文中，我们将对最新的目标检测算法做一个综述。在介绍目标检测算法之前，先简单介绍目标检测领域常用的数据集以及性能指标。</p><h2 id="数据集合性能指标"><a href="#数据集合性能指标" class="headerlink" title="数据集合性能指标"></a>数据集合性能指标</h2><h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p>PASCAL VOC（<a href="http://host.robots.ox.ac.uk/pascal/VOC/" target="_blank" rel="noopener">The PASCAL Visual Object Classification</a>）是目标检测，分类，分割等领域。从2005到2012年，共举办了8个不同的挑战赛。PASCAL VOC包含约10,000张带有边界框的图片用于训练和验证。但是，PASCAL VOC数据集仅包含20个类别，因此其被看成目标检测问题的一个基准数据集。</p><p><a href="http://www.image-net.org/" target="_blank" rel="noopener">ImageNet</a>在2013年放出了包含边界框的目标检测数据集。训练数据集包含500,000张图片，属于200类物体。由于数据集太大，训练所需计算量很大，因而很少使用。同时，由于类别数也比较多，目标检测的难度也相当大。</p><p>MS COCO（<a href="http://cocodataset.org/#home" target="_blank" rel="noopener">Common Objects in COntext</a>）数据集。这个数据集用于多种竞赛：图像标题生成，目标检测，关键点检测和物体分割。对于目标检测任务，COCO共包含80个类别，每年大赛的训练和验证数据集包含超过120,000个图片，超过40,000个测试图片。测试集最近被划分为两类，一类是test-dev数据集用于研究者，一类是test-challenge数据集用于竞赛者。测试集的标签数据没有公开，以避免在测试集上过拟合。</p><h3 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h3><p>目标检测问题同时是一个回归和分类问题。</p><p>首先，为了评估定位精度，需要计算IoU（Intersection over Union，介于0到1之间），其表示预测框与真实框（ground-truth box）之间的重叠程度。IoU越高，预测框的位置越准确。因而，在评估预测框时，通常会设置一个IoU阈值（如0.5）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机视觉 </category>
+          
+          <category> 目标检测 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机视觉 </tag>
+            
+            <tag> 目标检测 </tag>
+            
+            <tag> 背景 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>YOLO原理与实现</title>
+      <link href="/2019/08/16/YOLO%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+      <url>/2019/08/16/YOLO%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0/</url>
+      
+        <content type="html"><![CDATA[<p>本文主要介绍了YOLO算法</p><p>其全称是：You Only Look Once: Unified, Real-Time Object Detection</p><p>该名称基本上把Yolo算法的特点都概括全了：</p><ul><li>You Only Look Once：只需要一次CNN运算</li><li>Unified：一个统一的框架，提供end-to-end的预测</li><li>Real-Time：Yolo算法速度快</li></ul><a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机视觉 </category>
+          
+          <category> 基本模型 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机视觉 </tag>
+            
+            <tag> 基本模型 </tag>
+            
+            <tag> YOLO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python+OpenCV教程17：霍夫变换</title>
       <link href="/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B17%EF%BC%9A%E9%9C%8D%E5%A4%AB%E5%8F%98%E6%8D%A2/"/>
       <url>/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B17%EF%BC%9A%E9%9C%8D%E5%A4%AB%E5%8F%98%E6%8D%A2/</url>
@@ -2047,9 +2109,9 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -2058,9 +2120,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
