@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Python+OpenCV教程挑战任务：车道检测 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/16/Python-OpenCV教程挑战任务：车道检测/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Python+OpenCV教程挑战任务：车道检测</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-16T15:43:21+08:00">2019-08-16 15:43:21</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/OpenCV/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>挑战任务：实际公路的车道线检测。</p>
+<a id="more"></a>
+<h2 id="挑战内容"><a href="#挑战内容" class="headerlink" title="挑战内容"></a>挑战内容</h2><ol>
+<li>在所提供的公路图片上检测出车道线并标记</li>
+</ol>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_result_sample.jpg"></p>
+<ol>
+<li>在所提供的公路视频上检测出车道线并标记</li>
+</ol>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_white_lane_green_mark.mp4"></p>
+<p>本次挑战内容来自Udacity自动驾驶纳米学位课程，素材中车道保持不变，车道线清晰明确，易于检测，是车道检测的基础版本，网上也有很多针对复杂场景的高级实现，感兴趣的童鞋可以自行了解。</p>
+<h2 id="挑战解答"><a href="#挑战解答" class="headerlink" title="挑战解答"></a>挑战解答</h2><h3 id="挑战方案"><a href="#挑战方案" class="headerlink" title="挑战方案"></a>挑战方案</h3><p>要检测出当前车道，就是要检测出左右两条车道直线。</p>
+<p>由于无人车一直保持在当前车道，那么无人车上的相机拍摄的视频中，车道线的位置应该基本固定在某一个范围内：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_roi_sample.jpg"></p>
+<p>如果我们手动把这部分ROI区域抠出来，就会排除掉大部分干扰。接下来检测直线肯定是用霍夫变换，但ROI区域内的边缘直线信息还是很多，考虑到只有左右两条车道线，一条斜率为正，一条为负，可将所有的线分为两组，每组再通过均值或最小二乘法拟合的方式确定唯一一条线就可以完成检测。</p>
+<p>总体步骤如下：</p>
+<ol>
+<li>灰度化</li>
+<li>高斯模糊</li>
+<li>Canny边缘检测</li>
+<li>不规则ROI区域截取</li>
+<li>霍夫直线检测</li>
+<li>车道计算</li>
+</ol>
+<p>对于视频来说，只要一幅图能检查出来，合成下就可以了，问题不大。</p>
+<h3 id="图像预处理"><a href="#图像预处理" class="headerlink" title="图像预处理"></a>图像预处理</h3><p>灰度化和滤波操作是大部分图像处理的必要步骤。灰度化不必多说，因为不是基于色彩信息识别的任务，所以没有必要用彩色图，<strong>可以大大减少计算量</strong>。而滤波会削弱图像噪点，排除干扰信息。另外，根据前面学习的知识，边缘提取是基于图像梯度的，<strong>梯度对噪声很敏感，所以平滑滤波操作必不可少</strong>。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_gray_blur_result.jpg"></p>
+<p>这次的代码我们分模块来写，规范一点。其中<code>process_an_image()</code>是主要的图像处理流程：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 高斯滤波核大小</span><br>blur_ksize = <span class="hljs-number">5</span><br><span class="hljs-comment"># Canny边缘检测高低阈值</span><br>canny_lth = <span class="hljs-number">50</span><br>canny_hth = <span class="hljs-number">150</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_an_image</span><span class="hljs-params">(img)</span>:</span><br>    <span class="hljs-comment"># 1. 灰度化、滤波和Canny</span><br>    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)<br>    blur_gray = cv2.GaussianBlur(gray, (blur_ksize, blur_ksize), <span class="hljs-number">1</span>)<br>    edges = cv2.Canny(blur_gray, canny_lth, canny_hth)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:<br>    img = cv2.imread(<span class="hljs-string">'test_pictures/lane.jpg'</span>)<br>    result = process_an_image(img)<br>    cv2.imshow(<span class="hljs-string">"lane"</span>, np.hstack((img, result)))<br>    cv2.waitKey(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_canny_result.jpg"></p>
+<h3 id="ROI截取"><a href="#ROI截取" class="headerlink" title="ROI截取"></a>ROI截取</h3><p>按照前面描述的方案，只需保留边缘图中红线部分区域用于后续的霍夫直线检测，其余都是无用的信息：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_canny_roi_reserve.jpg"></p>
+<p>如何实现呢？还记得图像混合中的这张图吗？</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_understand_mask.jpg"></p>
+<p>我们可以创建一个梯形的mask掩膜，然后与边缘检测结果图混合运算，掩膜中白色的部分保留，黑色的部分舍弃。梯形的四个坐标需要手动标记：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_mask_sample.jpg"></p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_an_image</span><span class="hljs-params">(img)</span>:</span><br>    <span class="hljs-comment"># 1. 灰度化、滤波和Canny</span><br>	gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)<br>    blur_gray = cv2.GaussianBlur(gray, (blur_ksize, blur_ksize), <span class="hljs-number">1</span>)<br>    edges = cv2.Canny(blur_gray, canny_lth, canny_hth)<br>    <span class="hljs-comment"># 2. 标记四个坐标点用于ROI截取</span><br>    rows, cols = edges.shape<br>    points = np.array([[(<span class="hljs-number">0</span>, rows), (<span class="hljs-number">460</span>, <span class="hljs-number">325</span>), (<span class="hljs-number">520</span>, <span class="hljs-number">325</span>), (cols, rows)]])<br>    <span class="hljs-comment"># [[[0 540], [460 325], [520 325], [960 540]]]</span><br>    roi_edges = roi_mask(edges, points)<br>    <br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">roi_mask</span><span class="hljs-params">(img, corner_points)</span>:</span><br>    <span class="hljs-comment"># 创建掩膜</span><br>    mask = np.zeros_like(img)<br>    cv2.fillPoly(mask, corner_points, <span class="hljs-number">255</span>)<br><br>    masked_img = cv2.bitwise_and(img, mask)<br>    <span class="hljs-keyword">return</span> masked_img<br></code></pre></td></tr></table></figure>
+<p>这样，结果图”roi_edges”应该是：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_masked_roi_edges.jpg"></p>
+<h3 id="霍夫直线提取"><a href="#霍夫直线提取" class="headerlink" title="霍夫直线提取"></a>霍夫直线提取</h3><p>为了方便后续计算直线的斜率，我们使用统计概率霍夫直线变换（因为它能直接得到直线的起点和终点坐标）。霍夫变换的参数比较多，可以放在代码开头，便于修改：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 霍夫变换参数</span><br>rho = <span class="hljs-number">1</span><br>theta = np.pi / <span class="hljs-number">180</span><br>threshold = <span class="hljs-number">15</span><br>min_line_len = <span class="hljs-number">40</span><br>max_line_gap = <span class="hljs-number">20</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_an_image</span><span class="hljs-params">(img)</span>:</span><br>    <span class="hljs-comment"># 1. 灰度化、滤波和Canny</span><br>	gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)<br>    blur_gray = cv2.GaussianBlur(gray, (blur_ksize, blur_ksize), <span class="hljs-number">1</span>)<br>    edges = cv2.Canny(blur_gray, canny_lth, canny_hth)<br>    <br>    <span class="hljs-comment"># 2. 标记四个坐标点用于ROI截取</span><br>    rows, cols = edges.shape<br>    points = np.array([[(<span class="hljs-number">0</span>, rows), (<span class="hljs-number">460</span>, <span class="hljs-number">325</span>), (<span class="hljs-number">520</span>, <span class="hljs-number">325</span>), (cols, rows)]])<br>    <span class="hljs-comment"># [[[0 540], [460 325], [520 325], [960 540]]]</span><br>    roi_edges = roi_mask(edges, points)<br>    <br>    <span class="hljs-comment"># 3. 霍夫直线提取</span><br>    drawing, lines = hough_lines(roi_edges, rho, theta, threshold, min_line_len, max_line_gap)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hough_lines</span><span class="hljs-params">(img, rho, theta, threshold, min_line_len, max_line_gap)</span>:</span><br>    <span class="hljs-comment"># 统计概率霍夫直线变换</span><br>    lines = cv2.HoughLinesP(img, rho, theta, threshold, minLineLength=min_line_len, maxLineGap=max_line_gap)<br><br>    <span class="hljs-comment"># 新建一副空白画布</span><br>    drawing = np.zeros((img.shape[<span class="hljs-number">0</span>], img.shape[<span class="hljs-number">1</span>], <span class="hljs-number">3</span>), dtype=np.uint8)<br>    <span class="hljs-comment"># draw_lines(drawing, lines)     # 画出直线检测结果</span><br><br>    <span class="hljs-keyword">return</span> drawing, lines<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_lines</span><span class="hljs-params">(img, lines, color=[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>], thickness=<span class="hljs-number">1</span>)</span>:</span><br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>        <span class="hljs-keyword">for</span> x1, y1, x2, y2 <span class="hljs-keyword">in</span> line:<br>            cv2.line(img, (x1, y1), (x2, y2), color, thickness)<br></code></pre></td></tr></table></figure>
+<p><code>draw_lines()</code>是用来画直线检测的结果，后面我们会接着处理直线，所以这里注释掉了，可以取消注释看下效果：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_hough_lines_direct_result.jpg"></p>
+<p>对本例的这张测试图来说，如果打印出直线的条数<code>print(len(lines))</code>，应该是有16条。</p>
+<h3 id="车道计算"><a href="#车道计算" class="headerlink" title="车道计算"></a>车道计算</h3><p>这部分应该算是本次挑战任务的核心内容了：前面通过霍夫变换得到了多条直线的起点和终点，我们的目的是通过某种算法只得到左右两条车道线。</p>
+<p><strong>第一步、根据斜率正负划分某条线是左车道还是右车道。</strong></p>
+<script type="math/tex; mode=display">
+斜率=\frac{y_2-y_1}{x_2-x_1}(\le0:左，>0:右)</script><blockquote>
+<p>经验之谈：再次强调，斜率计算是在图像坐标系下，所以斜率正负/左右跟平面坐标有区别。</p>
+</blockquote>
+<p><strong>第二步、迭代计算各直线斜率与斜率均值的差，排除掉差值过大的异常数据。</strong></p>
+<p>注意这里迭代的含义，意思是第一次计算完斜率均值并排除掉异常值后，再在剩余的斜率中取均值，继续排除……这样迭代下去。</p>
+<p><strong>第三步、最小二乘法拟合左右车道线。</strong></p>
+<p>经过第二步的筛选，就只剩下可能的左右车道线了，这样只需从多条直线中拟合出一条就行。拟合方法有很多种，最常用的便是最小二乘法，它通过最小化误差的平方和来寻找数据的最佳匹配函数。</p>
+<p>具体来说，假设目前可能的左车道线有6条，也就是12个坐标点，包括12个x和12个y，我们的目的是拟合出这样一条直线：</p>
+<script type="math/tex; mode=display">
+f(x_i)=ax_i+b</script><p>使得误差平方和最小：</p>
+<script type="math/tex; mode=display">
+E=\sum[f(x_i)-y_i]^2</script><p>Python中可以直接使用<code>np.polyfit()</code>进行最小二乘法拟合。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_an_image</span><span class="hljs-params">(img)</span>:</span><br>    <span class="hljs-comment"># 1. 灰度化、滤波和Canny</span><br><br>    <span class="hljs-comment"># 2. 标记四个坐标点用于ROI截取</span><br><br>    <span class="hljs-comment"># 3. 霍夫直线提取</span><br><br>    <span class="hljs-comment"># 4. 车道拟合计算</span><br>    draw_lanes(drawing, lines)<br><br>    <span class="hljs-comment"># 5. 最终将结果合在原图上</span><br>    result = cv2.addWeighted(img, <span class="hljs-number">0.9</span>, drawing, <span class="hljs-number">0.2</span>, <span class="hljs-number">0</span>)<br><br>    <span class="hljs-keyword">return</span> result<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_lanes</span><span class="hljs-params">(img, lines, color=[<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], thickness=<span class="hljs-number">8</span>)</span>:</span><br>    <span class="hljs-comment"># a. 划分左右车道</span><br>    left_lines, right_lines = [], []<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>        <span class="hljs-keyword">for</span> x1, y1, x2, y2 <span class="hljs-keyword">in</span> line:<br>            k = (y2 - y1) / (x2 - x1)<br>            <span class="hljs-keyword">if</span> k &lt; <span class="hljs-number">0</span>:<br>                left_lines.append(line)<br>            <span class="hljs-keyword">else</span>:<br>                right_lines.append(line)<br><br>    <span class="hljs-keyword">if</span> (len(left_lines) &lt;= <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> len(right_lines) &lt;= <span class="hljs-number">0</span>):<br>        <span class="hljs-keyword">return</span><br><br>    <span class="hljs-comment"># b. 清理异常数据</span><br>    clean_lines(left_lines, <span class="hljs-number">0.1</span>)<br>    clean_lines(right_lines, <span class="hljs-number">0.1</span>)<br><br>    <span class="hljs-comment"># c. 得到左右车道线点的集合，拟合直线</span><br>    left_points = [(x1, y1) <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> left_lines <span class="hljs-keyword">for</span> x1, y1, x2, y2 <span class="hljs-keyword">in</span> line]<br>    left_points = left_points + [(x2, y2) <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> left_lines <span class="hljs-keyword">for</span> x1, y1, x2, y2 <span class="hljs-keyword">in</span> line]<br>    right_points = [(x1, y1) <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> right_lines <span class="hljs-keyword">for</span> x1, y1, x2, y2 <span class="hljs-keyword">in</span> line]<br>    right_points = right_points + [(x2, y2) <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> right_lines <span class="hljs-keyword">for</span> x1, y1, x2, y2 <span class="hljs-keyword">in</span> line]<br><br>    left_results = least_squares_fit(left_points, <span class="hljs-number">325</span>, img.shape[<span class="hljs-number">0</span>])<br>    right_results = least_squares_fit(right_points, <span class="hljs-number">325</span>, img.shape[<span class="hljs-number">0</span>])<br><br>    <span class="hljs-comment"># 注意这里点的顺序</span><br>    vtxs = np.array([[left_results[<span class="hljs-number">1</span>], left_results[<span class="hljs-number">0</span>], right_results[<span class="hljs-number">0</span>], right_results[<span class="hljs-number">1</span>]]])<br>    <span class="hljs-comment"># d. 填充车道区域</span><br>    cv2.fillPoly(img, vtxs, (<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>))<br><br>    <span class="hljs-comment"># 或者只画车道线</span><br>    <span class="hljs-comment"># cv2.line(img, left_results[0], left_results[1], (0, 255, 0), thickness)</span><br>    <span class="hljs-comment"># cv2.line(img, right_results[0], right_results[1], (0, 255, 0), thickness)</span><br>    <br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">clean_lines</span><span class="hljs-params">(lines, threshold)</span>:</span><br>    <span class="hljs-comment"># 迭代计算斜率均值，排除掉与差值差异较大的数据</span><br>    slope = [(y2 - y1) / (x2 - x1) <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines <span class="hljs-keyword">for</span> x1, y1, x2, y2 <span class="hljs-keyword">in</span> line]<br>    <span class="hljs-keyword">while</span> len(lines) &gt; <span class="hljs-number">0</span>:<br>        mean = np.mean(slope)<br>        diff = [abs(s - mean) <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> slope]<br>        idx = np.argmax(diff)<br>        <span class="hljs-keyword">if</span> diff[idx] &gt; threshold:<br>            slope.pop(idx)<br>            lines.pop(idx)<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">break</span><br>            <br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">least_squares_fit</span><span class="hljs-params">(point_list, ymin, ymax)</span>:</span><br>    <span class="hljs-comment"># 最小二乘法拟合</span><br>    x = [p[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> point_list]<br>    y = [p[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> point_list]<br><br>    <span class="hljs-comment"># polyfit第三个参数为拟合多项式的阶数，所以1代表线性</span><br>    fit = np.polyfit(y, x, <span class="hljs-number">1</span>)<br>    fit_fn = np.poly1d(fit)  <span class="hljs-comment"># 获取拟合的结果</span><br><br>    xmin = int(fit_fn(ymin))<br>    xmax = int(fit_fn(ymax))<br><br>    <span class="hljs-keyword">return</span> [(xmin, ymin), (xmax, ymax)]<br></code></pre></td></tr></table></figure>
+<p>这段代码比较多，请每个步骤单独来看。最后得到的是左右两条车道线的起点和终点坐标，可以选择画出车道线，这里我直接填充了整个区域：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_lane_detection_result_sample.jpg"></p>
+<h3 id="视频处理"><a href="#视频处理" class="headerlink" title="视频处理"></a>视频处理</h3><p>搞定了一张图，视频也就没什么问题了，关键就是视频帧的提取和合成，为此，我们要用到Python的视频编辑包<a href="https://pypi.org/project/moviepy/#files" target="_blank" rel="noopener">moviepy</a>：</p>
+<p>另外还需要ffmpeg，首次运行moviepy时会自动下载，也可<a href="https://github.com/imageio/imageio-binaries/tree/master/ffmpeg" target="_blank" rel="noopener">手动</a>下载。</p>
+<p>只需在开头导入moviepy，然后将主函数改掉就可以了，其余代码不需要更改：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 开头导入moviepy</span><br><span class="hljs-keyword">from</span> moviepy.editor <span class="hljs-keyword">import</span> VideoFileClip<br><br><span class="hljs-comment"># 主函数更改为：</span><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:<br>    output = <span class="hljs-string">'test_videos/output.mp4'</span><br>    clip = VideoFileClip(<span class="hljs-string">"test_videos/cv2_white_lane.mp4"</span>)<br>    out_clip = clip.fl_image(process_an_image)<br>    out_clip.write_videofile(output, audio=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
+<p>本文实现了车道检测的基础版本，如果你感兴趣的话，可以自行搜索或参考引用部分了解更多。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<li><a href="http://pic.ex2tron.top/cv2_lane_detection_material.zip" target="_blank" rel="noopener">图片和视频素材</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25354571" target="_blank" rel="noopener">从零开始学习无人驾驶技术 — 车道检测</a></li>
+<li><a href="https://blog.csdn.net/u010665216/article/details/80152458" target="_blank" rel="noopener">无人驾驶之高级车道线检测</a></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/OpenCV/" rel="tag"><i class="fas fa-tags"></i>OpenCV</a>
+        
+        <a class="post-tag button" href="/tags/计算机视觉/" rel="tag"><i class="fas fa-tags"></i>计算机视觉</a>
+        
+        <a class="post-tag button" href="/tags/图像处理/" rel="tag"><i class="fas fa-tags"></i>图像处理</a>
+        
+        <a class="post-tag button" href="/tags/车道检测/" rel="tag"><i class="fas fa-tags"></i>车道检测</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>如果它的价值大于一首歌, 荣幸至极!</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/08/16/目标检测背景/" rel="next" title="目标检测背景"><i class="fas fa-angle-left"></i><span class="nav-title">目标检测背景</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">65</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">27</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">58</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#挑战内容"><span class="toc-text">挑战内容</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#挑战解答"><span class="toc-text">挑战解答</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#挑战方案"><span class="toc-text">挑战方案</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#图像预处理"><span class="toc-text">图像预处理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#ROI截取"><span class="toc-text">ROI截取</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#霍夫直线提取"><span class="toc-text">霍夫直线提取</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#车道计算"><span class="toc-text">车道计算</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#视频处理"><span class="toc-text">视频处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

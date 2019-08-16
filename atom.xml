@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-16T07:36:07.471Z</updated>
+  <updated>2019-08-16T08:45:48.746Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python+OpenCV教程挑战任务：车道检测</title>
+    <link href="http://huris.xyz/2019/08/16/Python-OpenCV%E6%95%99%E7%A8%8B%E6%8C%91%E6%88%98%E4%BB%BB%E5%8A%A1%EF%BC%9A%E8%BD%A6%E9%81%93%E6%A3%80%E6%B5%8B/"/>
+    <id>http://huris.xyz/2019/08/16/Python-OpenCV教程挑战任务：车道检测/</id>
+    <published>2019-08-16T07:43:21.000Z</published>
+    <updated>2019-08-16T08:45:48.746Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;挑战任务：实际公路的车道线检测。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
+    
+      <category term="项目" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
+    
+      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
+    
+      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="车道检测" scheme="http://huris.xyz/tags/%E8%BD%A6%E9%81%93%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>目标检测背景</title>
@@ -761,38 +793,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="绘图" scheme="http://huris.xyz/tags/%E7%BB%98%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python-OpenCV教程番外篇5：仿射变换与透视变换</title>
-    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%875%EF%BC%9A%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E4%B8%8E%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2/"/>
-    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇5：仿射变换与透视变换/</id>
-    <published>2019-08-14T02:56:55.000Z</published>
-    <updated>2019-08-14T06:38:04.938Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;常见的2D图像变换从原理上讲主要包括基于2×3矩阵的&lt;a href=&quot;https://baike.baidu.com/item/仿射变换&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;仿射变换&lt;/a&gt;和基于3×3矩阵&lt;a href=&quot;https://baike.baidu.com/item/透视变换&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;透视变换&lt;/a&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="几何变换" scheme="http://huris.xyz/tags/%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/"/>
     
   </entry>
   
