@@ -235,7 +235,9 @@
 <p><a href="http://www.image-net.org/" target="_blank" rel="noopener">ImageNet</a>在2013年放出了包含边界框的目标检测数据集。训练数据集包含500,000张图片，属于200类物体。由于数据集太大，训练所需计算量很大，因而很少使用。同时，由于类别数也比较多，目标检测的难度也相当大。</p>
 <p>MS COCO（<a href="http://cocodataset.org/#home" target="_blank" rel="noopener">Common Objects in COntext</a>）数据集。这个数据集用于多种竞赛：图像标题生成，目标检测，关键点检测和物体分割。对于目标检测任务，COCO共包含80个类别，每年大赛的训练和验证数据集包含超过120,000个图片，超过40,000个测试图片。测试集最近被划分为两类，一类是test-dev数据集用于研究者，一类是test-challenge数据集用于竞赛者。测试集的标签数据没有公开，以避免在测试集上过拟合。</p>
 <h3 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h3><p>目标检测问题同时是一个回归和分类问题。</p>
-<p>首先，为了评估定位精度，需要计算IoU（Intersection over Union，介于0到1之间），其表示预测框与真实框（ground-truth box）之间的重叠程度。IoU越高，预测框的位置越准确。因而，在评估预测框时，通常会设置一个IoU阈值（如0.5）</p>
+<p>首先，为了评估定位精度，需要计算IoU（Intersection over Union，介于0到1之间），其表示预测框与真实框（ground-truth box）之间的重叠程度。IoU越高，预测框的位置越准确。因而，在评估预测框时，通常会设置一个IoU阈值（如0.5），只有当预测框与正式框的IoU值大于这个阈值的时候，该预测框才被认定为真阳性（True Positive，TP），反之就是假阳性（False Positive，FP）。</p>
+<p>对于二分类，AP（Average Precision）是一个重要的指标，这是信息检索中的一个概念，基于precision-recall曲线计算出来，可以参考<a href="https://en.wikipedia.org/w/index.php?title=Information_retrieval&amp;oldid=793358396#Average_precision" target="_blank" rel="noopener">这里</a>。对于目标检测，首先要单独计算各个类别的AP值，这是评估检测效果的重要指标。取各个类别的AP的平均值，就得到一个综合指标mAP（Mean Average Precision），mAP指标可以避免某些类别比较极端化而弱化其他类别的性能这个问题。</p>
+<p>对于目标检测，mAP一般在某个固定的IoU上计算，但是不同的IoU值会改变TP和FP的比例，从而造成mAP的差异。COCO数据集提供了<a href="https://github.com/cocodataset/cocoapi" target="_blank" rel="noopener">官方的评估指标</a>，它的AP是计算一系列IoU下（0.5 : 0.05 : 0.9, 见<a href="http://cocodataset.org/#detection-eval" target="_blank" rel="noopener">说明</a>）AP的平均值，这样可以消除IoU导致的AP波动。其实对于PASCAL VOC数据集也是这样，Facebook的Detectron上的有比较清晰的<a href="https://github.com/facebookresearch/Detectron/blob/05d04d3a024f0991339de45872d02f2f50669b3d/lib/datasets/voc_eval.py#L54" target="_blank" rel="noopener">实现</a>。</p>
 
     </main>
     <footer class="post-footer">
