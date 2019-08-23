@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-20T13:21:26.781Z</updated>
+  <updated>2019-08-23T13:31:53.077Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-7-整数反转</title>
+    <link href="http://huris.xyz/2019/08/23/leetcode-7-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
+    <id>http://huris.xyz/2019/08/23/leetcode-7-整数反转/</id>
+    <published>2019-08-23T13:06:40.000Z</published>
+    <updated>2019-08-23T13:31:53.077Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给出一个32位的有符号整数，你需要将这个整数中每位上的数字进行反转。&lt;/p&gt;
+&lt;p&gt;示例1：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：123&lt;/p&gt;
+&lt;p&gt;输出：321&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;示例2：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：-123&lt;/p&gt;
+&lt;p&gt;输出：-321&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;示例3：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：120&lt;/p&gt;
+&lt;p&gt;输出：21&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;p&gt;假设我们的环境只能存储得下32位的有符号整数，则其数值范围为$[-2^{31}, 2^{31}-1]$。请根据这个假设，如果反转后整数溢出那么就返回0&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="LeetCode" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://huris.xyz/tags/LeetCode/"/>
+    
+      <category term="算法与数据结构" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="溢出边界" scheme="http://huris.xyz/tags/%E6%BA%A2%E5%87%BA%E8%BE%B9%E7%95%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>Python+OpenCV教程挑战任务：车道检测</title>
@@ -727,53 +770,6 @@
 &lt;li&gt;OpenCV函数：&lt;code&gt;cv2.setMouseCallback()&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;要用鼠标绘图，需要用&lt;code&gt;cv2.setMouseCallback()&lt;/code&gt;定义回调函数，然后在回调函数中根据不同的event事件，执行不同的功能。&lt;/li&gt;
 &lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="绘图" scheme="http://huris.xyz/tags/%E7%BB%98%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程8：绘图功能</title>
-    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B8%EF%BC%9A%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/"/>
-    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程8：绘图功能/</id>
-    <published>2019-08-14T05:44:12.000Z</published>
-    <updated>2019-08-14T06:22:25.977Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习画线、圆和矩形等多种几何形状，给图片添加文字。&lt;/p&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;绘制各种几何形状、添加文字&lt;/li&gt;
-&lt;li&gt;OpenCV函数&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv2.line()&lt;/code&gt;：直线&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.circle()&lt;/code&gt;：圆&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.rectangle()&lt;/code&gt;：矩形&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.ellipse()&lt;/code&gt;：椭圆&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.polylines()&lt;/code&gt;：多边形&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.putText()&lt;/code&gt;：添加文字&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;画多条直线时，&lt;code&gt;cv2.polylines()&lt;/code&gt;要比&lt;code&gt;cv2.line()&lt;/code&gt;高效很多。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;所有绘图函数均会直接影响原图片，这点要注意。&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     

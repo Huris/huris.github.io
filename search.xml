@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>leetcode-7-整数反转</title>
+      <link href="/2019/08/23/leetcode-7-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
+      <url>/2019/08/23/leetcode-7-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</url>
+      
+        <content type="html"><![CDATA[<p>给出一个32位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p><p>示例1：</p><blockquote><p>输入：123</p><p>输出：321</p></blockquote><p>示例2：</p><blockquote><p>输入：-123</p><p>输出：-321</p></blockquote><p>示例3：</p><blockquote><p>输入：120</p><p>输出：21</p></blockquote><p>注意：</p><p>假设我们的环境只能存储得下32位的有符号整数，则其数值范围为$[-2^{31}, 2^{31}-1]$。请根据这个假设，如果反转后整数溢出那么就返回0</p><a id="more"></a><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>弹出和推入数字 &amp; 溢出前进行检查</p><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>我们可以一次构建反转整数的一位数字。在这样做的时候，我们可以预先检查向原整数附加另一位数字是否会导致溢出。</p><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>反转整数的方法可以与反转字符串进行类比。</p><p>我们想重复“弹出” $x$ 的最后一位数字，并将它“推入”到 $\text{rev}$ 的后面。最后，$\text{rev}$ 将与 $x$ 相反。</p><p>要在没有辅助堆栈 / 数组的帮助下 “弹出” 和 “推入” 数字，我们可以使用数学方法。</p><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//pop operation:</span><br>pop = x % <span class="hljs-number">10</span>;<br>x /= <span class="hljs-number">10</span>;<br><br><span class="hljs-comment">//push operation:</span><br>temp = rev * <span class="hljs-number">10</span> + pop;<br>rev = temp;<br></code></pre></td></tr></table></figure><p>但是，这种方法很危险，因为当 $\text{temp} = \text{rev} \cdot 10 + \text{pop}$ 时会导致溢出。</p><p>幸运的是，事先检查这个语句是否会导致溢出很容易。</p><p>为了便于解释，我们假设 $\text{rev}$ 是正数。</p><ol><li>如果 $temp = \text{rev} \cdot 10 + \text{pop}$ 导致溢出，那么一定有$ \text{rev} \geq \frac{INTMAX}{10}$ 。</li><li>如果 $\text{rev} &gt; \frac{INTMAX}{10}$ ，那么 $temp = \text{rev} \cdot 10 + \text{pop}$ 一定会溢出。</li><li>如果 $\text{rev} == \frac{INTMAX}{10}$ ，那么只要 $\text{pop} &gt; 7$ ，$temp = \text{rev} \cdot 10 + \text{pop}$ 就会溢出。</li></ol><p>当 $\text{rev}$ 为负时可以应用类似的逻辑。</p><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">reverse</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> rev = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">do</span>&#123;<br>            <span class="hljs-keyword">int</span> pop = x % <span class="hljs-number">10</span>;<br>            x /= <span class="hljs-number">10</span>;<br>            <span class="hljs-keyword">if</span> (rev &gt; INT_MAX/<span class="hljs-number">10</span> || (rev == INT_MAX / <span class="hljs-number">10</span> &amp;&amp; pop &gt; <span class="hljs-number">7</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span> (rev &lt; INT_MIN/<span class="hljs-number">10</span> || (rev == INT_MIN / <span class="hljs-number">10</span> &amp;&amp; pop &lt; <span class="hljs-number">-8</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            rev = rev * <span class="hljs-number">10</span> + pop;<br>        &#125;<span class="hljs-keyword">while</span> (x) ;<br>        <span class="hljs-keyword">return</span> rev;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：$O(\log(x))$，$x$ 中大约有 $\log_{10}(x)$ 位数字。</li><li>空间复杂度：$O(1)$。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数据结构 </category>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 算法与数据结构 </tag>
+            
+            <tag> 溢出边界 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python+OpenCV教程挑战任务：车道检测</title>
       <link href="/2019/08/16/Python-OpenCV%E6%95%99%E7%A8%8B%E6%8C%91%E6%88%98%E4%BB%BB%E5%8A%A1%EF%BC%9A%E8%BD%A6%E9%81%93%E6%A3%80%E6%B5%8B/"/>
       <url>/2019/08/16/Python-OpenCV%E6%95%99%E7%A8%8B%E6%8C%91%E6%88%98%E4%BB%BB%E5%8A%A1%EF%BC%9A%E8%BD%A6%E9%81%93%E6%A3%80%E6%B5%8B/</url>
@@ -1775,9 +1806,9 @@
             
             <tag> Python </tag>
             
-            <tag> Matplotlib </tag>
-            
             <tag> 画图 </tag>
+            
+            <tag> Matplotlib </tag>
             
         </tags>
       
@@ -1831,9 +1862,9 @@
       
         <tags>
             
-            <tag> 画图 </tag>
-            
             <tag> Matlab </tag>
+            
+            <tag> 画图 </tag>
             
         </tags>
       
