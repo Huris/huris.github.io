@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>激活函数</title>
+      <link href="/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+      <url>/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<p>恒等函数：$f(x)=x$</p><p>sigmoid函数：$\sigma(x)=sigm(x)=\frac{1}{1+e^{-x}}$</p><p>双曲正切函数tanh：$\tanh(x)=\frac{e^x-x^{-x}}{e^x+e^{-x}}$</p><p>硬限幅函数：$\begin{}$</p><a id="more"></a>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-26-删除排序数组中的重复项</title>
       <link href="/2019/08/24/leetcode-26-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/"/>
       <url>/2019/08/24/leetcode-26-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</url>
@@ -1141,13 +1154,13 @@
             
             <tag> Python </tag>
             
+            <tag> Matplotlib </tag>
+            
             <tag> OpenCV </tag>
             
             <tag> 计算机视觉 </tag>
             
             <tag> 图像处理 </tag>
-            
-            <tag> Matplotlib </tag>
             
         </tags>
       
@@ -1904,35 +1917,6 @@
     
     
     <entry>
-      <title>大数阶乘</title>
-      <link href="/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
-      <url>/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/</url>
-      
-        <content type="html"><![CDATA[<p><strong>本文主要介绍了以下内容:</strong></p><p>求n!具体值c++实现</p><a id="more"></a><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;//大数N!  </span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string.h&gt;  </span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;  <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>  <br></span>&#123;  <br>    <span class="hljs-keyword">int</span> n,a[<span class="hljs-number">100000</span>],i,j,wei,up;  <br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;n)!=EOF)  <br>    &#123;  <br>        <span class="hljs-built_in">memset</span>(a,<span class="hljs-number">0</span>,<span class="hljs-keyword">sizeof</span>(a));<span class="hljs-comment">//一定要清零  </span><br>        up=<span class="hljs-number">0</span>;  <br>        wei=<span class="hljs-number">1</span>;  <br>        a[<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;<span class="hljs-comment">//当前结果的位数，便于相乘和最后输出   </span><br>        <span class="hljs-keyword">if</span>(n==<span class="hljs-number">1</span>||n==<span class="hljs-number">0</span>)  <br>        &#123;  <br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"1\n"</span>);  <br>            <span class="hljs-keyword">continue</span>;<span class="hljs-comment">//如果为1!或0!则输出后直接进行下一个阶乘计算  </span><br>        &#125;  <br>        <span class="hljs-keyword">for</span>(i=<span class="hljs-number">2</span>; i&lt;=n; i++)<span class="hljs-comment">//N!中的每个数  </span><br>        &#123;  <br>            <span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>,up=<span class="hljs-number">0</span>; j&lt;=wei; j++)  <br>            &#123;  <br>                a[j]=a[j]*i+up; <span class="hljs-comment">//当前j数加 进位  </span><br>                up=a[j]/<span class="hljs-number">10</span>;<span class="hljs-comment">//进位整除10  </span><br>                a[j]=a[j]%<span class="hljs-number">10</span>;<span class="hljs-comment">//当前数取余存储  </span><br>            &#125;  <br>            <span class="hljs-keyword">while</span>(up&gt;<span class="hljs-number">0</span>)<span class="hljs-comment">//最后首位大于0则要取余进位  </span><br>            &#123;  <br>                a[j++]+=up%<span class="hljs-number">10</span>;<span class="hljs-comment">//j++的值为进位取余 注意 j++导致后面的j加了一  </span><br>                up=up/<span class="hljs-number">10</span>;  <br>            &#125;  <br>            wei=j<span class="hljs-number">-1</span>;<span class="hljs-comment">//减去上面的j++  </span><br>        &#125;  <br>        <span class="hljs-keyword">for</span>(i=wei; i&gt;=<span class="hljs-number">1</span>; i--)  <br>            (i!=<span class="hljs-number">1</span>)? <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>,a[i]) : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,a[i]);<span class="hljs-comment">//三目 判断是否为最后一位 则输出换行  </span><br>    &#125;  <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法与数据结构 </category>
-          
-          <category> 算法模板 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大数 </tag>
-            
-            <tag> 算法模板 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>vim速查表</title>
       <link href="/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
       <url>/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</url>
@@ -1954,6 +1938,35 @@
             <tag> vim </tag>
             
             <tag> 速查表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>大数阶乘</title>
+      <link href="/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
+      <url>/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/</url>
+      
+        <content type="html"><![CDATA[<p><strong>本文主要介绍了以下内容:</strong></p><p>求n!具体值c++实现</p><a id="more"></a><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;//大数N!  </span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string.h&gt;  </span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;  <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>  <br></span>&#123;  <br>    <span class="hljs-keyword">int</span> n,a[<span class="hljs-number">100000</span>],i,j,wei,up;  <br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;n)!=EOF)  <br>    &#123;  <br>        <span class="hljs-built_in">memset</span>(a,<span class="hljs-number">0</span>,<span class="hljs-keyword">sizeof</span>(a));<span class="hljs-comment">//一定要清零  </span><br>        up=<span class="hljs-number">0</span>;  <br>        wei=<span class="hljs-number">1</span>;  <br>        a[<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;<span class="hljs-comment">//当前结果的位数，便于相乘和最后输出   </span><br>        <span class="hljs-keyword">if</span>(n==<span class="hljs-number">1</span>||n==<span class="hljs-number">0</span>)  <br>        &#123;  <br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"1\n"</span>);  <br>            <span class="hljs-keyword">continue</span>;<span class="hljs-comment">//如果为1!或0!则输出后直接进行下一个阶乘计算  </span><br>        &#125;  <br>        <span class="hljs-keyword">for</span>(i=<span class="hljs-number">2</span>; i&lt;=n; i++)<span class="hljs-comment">//N!中的每个数  </span><br>        &#123;  <br>            <span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>,up=<span class="hljs-number">0</span>; j&lt;=wei; j++)  <br>            &#123;  <br>                a[j]=a[j]*i+up; <span class="hljs-comment">//当前j数加 进位  </span><br>                up=a[j]/<span class="hljs-number">10</span>;<span class="hljs-comment">//进位整除10  </span><br>                a[j]=a[j]%<span class="hljs-number">10</span>;<span class="hljs-comment">//当前数取余存储  </span><br>            &#125;  <br>            <span class="hljs-keyword">while</span>(up&gt;<span class="hljs-number">0</span>)<span class="hljs-comment">//最后首位大于0则要取余进位  </span><br>            &#123;  <br>                a[j++]+=up%<span class="hljs-number">10</span>;<span class="hljs-comment">//j++的值为进位取余 注意 j++导致后面的j加了一  </span><br>                up=up/<span class="hljs-number">10</span>;  <br>            &#125;  <br>            wei=j<span class="hljs-number">-1</span>;<span class="hljs-comment">//减去上面的j++  </span><br>        &#125;  <br>        <span class="hljs-keyword">for</span>(i=wei; i&gt;=<span class="hljs-number">1</span>; i--)  <br>            (i!=<span class="hljs-number">1</span>)? <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>,a[i]) : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,a[i]);<span class="hljs-comment">//三目 判断是否为最后一位 则输出换行  </span><br>    &#125;  <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数据结构 </category>
+          
+          <category> 算法模板 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数 </tag>
+            
+            <tag> 算法模板 </tag>
             
         </tags>
       

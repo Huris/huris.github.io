@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-24T01:05:51.179Z</updated>
+  <updated>2019-08-24T09:20:08.676Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>激活函数</title>
+    <link href="http://huris.xyz/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+    <id>http://huris.xyz/2019/08/24/激活函数/</id>
+    <published>2019-08-24T04:04:12.000Z</published>
+    <updated>2019-08-24T09:20:08.676Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;恒等函数：$f(x)=x$&lt;/p&gt;
+&lt;p&gt;sigmoid函数：$\sigma(x)=sigm(x)=\frac{1}{1+e^{-x}}$&lt;/p&gt;
+&lt;p&gt;双曲正切函数tanh：$\tanh(x)=\frac{e^x-x^{-x}}{e^x+e^{-x}}$&lt;/p&gt;
+&lt;p&gt;硬限幅函数：$\begin{}$&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>leetcode-26-删除排序数组中的重复项</title>
     <link href="http://huris.xyz/2019/08/24/leetcode-26-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/"/>
     <id>http://huris.xyz/2019/08/24/leetcode-26-删除排序数组中的重复项/</id>
     <published>2019-08-24T01:00:00.000Z</published>
-    <updated>2019-08-24T01:05:51.179Z</updated>
+    <updated>2019-08-24T09:19:54.730Z</updated>
     
     <summary type="html">
     
@@ -68,7 +87,7 @@
     <link href="http://huris.xyz/2019/08/23/leetcode-7-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
     <id>http://huris.xyz/2019/08/23/leetcode-7-整数反转/</id>
     <published>2019-08-23T13:06:40.000Z</published>
-    <updated>2019-08-24T01:06:10.776Z</updated>
+    <updated>2019-08-24T09:20:01.024Z</updated>
     
     <summary type="html">
     
@@ -765,39 +784,6 @@
       <category term="亮度" scheme="http://huris.xyz/tags/%E4%BA%AE%E5%BA%A6/"/>
     
       <category term="对比度" scheme="http://huris.xyz/tags/%E5%AF%B9%E6%AF%94%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程挑战任务：画动态时钟</title>
-    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E6%8C%91%E6%88%98%E4%BB%BB%E5%8A%A1%EF%BC%9A%E7%94%BB%E5%8A%A8%E6%80%81%E6%97%B6%E9%92%9F/"/>
-    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程挑战任务：画动态时钟/</id>
-    <published>2019-08-14T07:25:55.000Z</published>
-    <updated>2019-08-14T07:59:42.428Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;挑战任务：使用OpenCV绘制一个随系统时间动态变化的时钟，&lt;strong&gt;中间显示当前日期&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://huris.oss-cn-hangzhou.aliyuncs.com/blog/opencv/cv2_draw_clock_dynamic_sample.gif&quot; width=&quot;50%&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="项目" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="绘图" scheme="http://huris.xyz/tags/%E7%BB%98%E5%9B%BE/"/>
     
   </entry>
   
