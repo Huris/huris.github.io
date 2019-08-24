@@ -8,7 +8,7 @@
       <link href="/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
       <url>/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[<p>恒等函数：$f(x)=x$</p><p>sigmoid函数：$\sigma(x)=sigm(x)=\frac{1}{1+e^{-x}}$</p><p>双曲正切函数tanh：$\tanh(x)=\frac{e^x-x^{-x}}{e^x+e^{-x}}$</p><p>硬限幅函数：$\begin{}$</p><a id="more"></a>]]></content>
+        <content type="html"><![CDATA[<p>恒等函数：$f(x)=x$</p><p>sigmoid函数：$\sigma(x)=sigm(x)=\frac{1}{1+e^{-x}}$</p><p>双曲正切函数tanh：$\tanh(x)=\frac{e^x-x^{-x}}{e^x+e^{-x}}$</p><p>硬限幅函数：$\begin{equation}<br>\left\{\begin{array}{lr}1,x\ge{0} \\ 0,x&lt;0\end{array}\right.<br>\end{equation}$</p><a id="more"></a>]]></content>
       
       
       
@@ -1154,13 +1154,13 @@
             
             <tag> Python </tag>
             
-            <tag> Matplotlib </tag>
-            
             <tag> OpenCV </tag>
             
             <tag> 计算机视觉 </tag>
             
             <tag> 图像处理 </tag>
+            
+            <tag> Matplotlib </tag>
             
         </tags>
       
