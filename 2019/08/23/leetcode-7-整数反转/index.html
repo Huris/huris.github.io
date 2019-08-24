@@ -246,7 +246,7 @@
 <li>如果 $\text{rev} == \frac{INTMAX}{10}$ ，那么只要 $\text{pop} &gt; 7$ ，$temp = \text{rev} \cdot 10 + \text{pop}$ 就会溢出。</li>
 </ol>
 <p>当 $\text{rev}$ 为负时可以应用类似的逻辑。</p>
-<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">reverse</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> rev = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">do</span>&#123;<br>            <span class="hljs-keyword">int</span> pop = x % <span class="hljs-number">10</span>;<br>            x /= <span class="hljs-number">10</span>;<br>            <span class="hljs-keyword">if</span> (rev &gt; INT_MAX/<span class="hljs-number">10</span> || (rev == INT_MAX / <span class="hljs-number">10</span> &amp;&amp; pop &gt; <span class="hljs-number">7</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span> (rev &lt; INT_MIN/<span class="hljs-number">10</span> || (rev == INT_MIN / <span class="hljs-number">10</span> &amp;&amp; pop &lt; <span class="hljs-number">-8</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            rev = rev * <span class="hljs-number">10</span> + pop;<br>        &#125;<span class="hljs-keyword">while</span> (x) ;<br>        <span class="hljs-keyword">return</span> rev;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">reverse</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> rev = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">do</span>&#123;<br>            <span class="hljs-keyword">int</span> pop = x % <span class="hljs-number">10</span>;<br>            x /= <span class="hljs-number">10</span>;<br>            <span class="hljs-keyword">if</span> (rev &gt; INT_MAX/<span class="hljs-number">10</span> || (rev == INT_MAX / <span class="hljs-number">10</span> &amp;&amp; pop &gt; <span class="hljs-number">7</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span> (rev &lt; INT_MIN/<span class="hljs-number">10</span> || (rev == INT_MIN / <span class="hljs-number">10</span> &amp;&amp; pop &lt; <span class="hljs-number">-8</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            rev = rev * <span class="hljs-number">10</span> + pop;<br>        &#125;<span class="hljs-keyword">while</span> (x) ;<br>        <span class="hljs-keyword">return</span> rev;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
 <li>时间复杂度：$O(\log(x))$，$x$ 中大约有 $\log_{10}(x)$ 位数字。</li>
 <li>空间复杂度：$O(1)$。</li>
@@ -300,6 +300,8 @@
     </div>
     <div class="page-nav-prev page-nav-item">
       
+      <a href="/2019/08/24/leetcode-26-删除排序数组中的重复项/" rel="prev" title="leetcode-26-删除排序数组中的重复项"><span class="nav-title">leetcode-26-删除排序数组中的重复项</span><i class="fas fa-angle-right"></i></a>
+      
     </div>
   </nav>
   
@@ -333,7 +335,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">66</a></div>
+      <div><a href="/archives/">67</a></div>
     </div>
     
     
@@ -347,7 +349,7 @@
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">61</a></div>
+      <div><a href="/tags/">62</a></div>
     </div>
     
     
@@ -371,7 +373,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#方法"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#复杂度分析"><span class="toc-text">复杂度分析</span></a></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#方法"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#复杂度分析"><span class="toc-text">复杂度分析</span></a></li></ol></div>
     </div>
     
     

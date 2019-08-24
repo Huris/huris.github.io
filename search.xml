@@ -4,11 +4,42 @@
   
     
     <entry>
+      <title>leetcode-26-删除排序数组中的重复项</title>
+      <link href="/2019/08/24/leetcode-26-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/"/>
+      <url>/2019/08/24/leetcode-26-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</url>
+      
+        <content type="html"><![CDATA[<p>给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p><p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p><p>示例1：</p><blockquote><p>给定数组 nums = [1,1,2], </p><p>函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 </p><p>你不需要考虑数组中超出新长度后面的元素。</p></blockquote><p>示例2：</p><blockquote><p>给定 nums = [0,0,1,1,1,2,2,3,3,4],</p><p>函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。</p><p>你不需要考虑数组中超出新长度后面的元素。</p></blockquote><p>说明：</p><p>为什么返回数值是整数，但输出的答案是数组呢?</p><p>请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p><p>你可以想象内部操作如下:</p><blockquote><p>// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝<br>int len = removeDuplicates(nums);</p><p>// 在函数里修改输入数组对于调用者是可见的。<br>// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。<br>for (int i = 0; i &lt; len; i++) {<br>   print(nums[i]);<br>}</p></blockquote><a id="more"></a><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>双指针法</p><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>数组完成排序后，我们可以放置两个指针 $i$ 和 $j$，其中 $i$ 是慢指针，而 $j$ 是快指针。只要 $nums[i] = nums[j]$，我们就增加 $j$ 以跳过重复项。</p><p>当我们遇到 $nums[j] \neq nums[i]$ 时，跳过重复项的运行已经结束，因此我们必须把它（$nums[j]$）的值复制到 $nums[i + 1]$。然后递增 $i$，接着我们将再次重复相同的过程，直到 $j$ 到达数组的末尾为止。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(nums.size()==<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>,j=i+<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(j&lt;nums.size())&#123;<br>            <span class="hljs-keyword">if</span>(nums[i]==nums[j])&#123;<br>                j++;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                i++;<br>                nums[i]=nums[j];<br>                j++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> i+<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：$O(n)$，假设数组的长度是 $n$，那么 $i$ 和 $j$ 分别最多遍历 $n$ 步。</li><li>空间复杂度：$O(1)$。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数据结构 </category>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 算法与数据结构 </tag>
+            
+            <tag> 删除重复 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-7-整数反转</title>
       <link href="/2019/08/23/leetcode-7-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
       <url>/2019/08/23/leetcode-7-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</url>
       
-        <content type="html"><![CDATA[<p>给出一个32位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p><p>示例1：</p><blockquote><p>输入：123</p><p>输出：321</p></blockquote><p>示例2：</p><blockquote><p>输入：-123</p><p>输出：-321</p></blockquote><p>示例3：</p><blockquote><p>输入：120</p><p>输出：21</p></blockquote><p>注意：</p><p>假设我们的环境只能存储得下32位的有符号整数，则其数值范围为$[-2^{31}, 2^{31}-1]$。请根据这个假设，如果反转后整数溢出那么就返回0</p><a id="more"></a><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>弹出和推入数字 &amp; 溢出前进行检查</p><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>我们可以一次构建反转整数的一位数字。在这样做的时候，我们可以预先检查向原整数附加另一位数字是否会导致溢出。</p><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>反转整数的方法可以与反转字符串进行类比。</p><p>我们想重复“弹出” $x$ 的最后一位数字，并将它“推入”到 $\text{rev}$ 的后面。最后，$\text{rev}$ 将与 $x$ 相反。</p><p>要在没有辅助堆栈 / 数组的帮助下 “弹出” 和 “推入” 数字，我们可以使用数学方法。</p><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//pop operation:</span><br>pop = x % <span class="hljs-number">10</span>;<br>x /= <span class="hljs-number">10</span>;<br><br><span class="hljs-comment">//push operation:</span><br>temp = rev * <span class="hljs-number">10</span> + pop;<br>rev = temp;<br></code></pre></td></tr></table></figure><p>但是，这种方法很危险，因为当 $\text{temp} = \text{rev} \cdot 10 + \text{pop}$ 时会导致溢出。</p><p>幸运的是，事先检查这个语句是否会导致溢出很容易。</p><p>为了便于解释，我们假设 $\text{rev}$ 是正数。</p><ol><li>如果 $temp = \text{rev} \cdot 10 + \text{pop}$ 导致溢出，那么一定有$ \text{rev} \geq \frac{INTMAX}{10}$ 。</li><li>如果 $\text{rev} &gt; \frac{INTMAX}{10}$ ，那么 $temp = \text{rev} \cdot 10 + \text{pop}$ 一定会溢出。</li><li>如果 $\text{rev} == \frac{INTMAX}{10}$ ，那么只要 $\text{pop} &gt; 7$ ，$temp = \text{rev} \cdot 10 + \text{pop}$ 就会溢出。</li></ol><p>当 $\text{rev}$ 为负时可以应用类似的逻辑。</p><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">reverse</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> rev = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">do</span>&#123;<br>            <span class="hljs-keyword">int</span> pop = x % <span class="hljs-number">10</span>;<br>            x /= <span class="hljs-number">10</span>;<br>            <span class="hljs-keyword">if</span> (rev &gt; INT_MAX/<span class="hljs-number">10</span> || (rev == INT_MAX / <span class="hljs-number">10</span> &amp;&amp; pop &gt; <span class="hljs-number">7</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span> (rev &lt; INT_MIN/<span class="hljs-number">10</span> || (rev == INT_MIN / <span class="hljs-number">10</span> &amp;&amp; pop &lt; <span class="hljs-number">-8</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            rev = rev * <span class="hljs-number">10</span> + pop;<br>        &#125;<span class="hljs-keyword">while</span> (x) ;<br>        <span class="hljs-keyword">return</span> rev;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：$O(\log(x))$，$x$ 中大约有 $\log_{10}(x)$ 位数字。</li><li>空间复杂度：$O(1)$。</li></ul>]]></content>
+        <content type="html"><![CDATA[<p>给出一个32位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p><p>示例1：</p><blockquote><p>输入：123</p><p>输出：321</p></blockquote><p>示例2：</p><blockquote><p>输入：-123</p><p>输出：-321</p></blockquote><p>示例3：</p><blockquote><p>输入：120</p><p>输出：21</p></blockquote><p>注意：</p><p>假设我们的环境只能存储得下32位的有符号整数，则其数值范围为$[-2^{31}, 2^{31}-1]$。请根据这个假设，如果反转后整数溢出那么就返回0</p><a id="more"></a><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>弹出和推入数字 &amp; 溢出前进行检查</p><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>我们可以一次构建反转整数的一位数字。在这样做的时候，我们可以预先检查向原整数附加另一位数字是否会导致溢出。</p><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>反转整数的方法可以与反转字符串进行类比。</p><p>我们想重复“弹出” $x$ 的最后一位数字，并将它“推入”到 $\text{rev}$ 的后面。最后，$\text{rev}$ 将与 $x$ 相反。</p><p>要在没有辅助堆栈 / 数组的帮助下 “弹出” 和 “推入” 数字，我们可以使用数学方法。</p><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//pop operation:</span><br>pop = x % <span class="hljs-number">10</span>;<br>x /= <span class="hljs-number">10</span>;<br><br><span class="hljs-comment">//push operation:</span><br>temp = rev * <span class="hljs-number">10</span> + pop;<br>rev = temp;<br></code></pre></td></tr></table></figure><p>但是，这种方法很危险，因为当 $\text{temp} = \text{rev} \cdot 10 + \text{pop}$ 时会导致溢出。</p><p>幸运的是，事先检查这个语句是否会导致溢出很容易。</p><p>为了便于解释，我们假设 $\text{rev}$ 是正数。</p><ol><li>如果 $temp = \text{rev} \cdot 10 + \text{pop}$ 导致溢出，那么一定有$ \text{rev} \geq \frac{INTMAX}{10}$ 。</li><li>如果 $\text{rev} &gt; \frac{INTMAX}{10}$ ，那么 $temp = \text{rev} \cdot 10 + \text{pop}$ 一定会溢出。</li><li>如果 $\text{rev} == \frac{INTMAX}{10}$ ，那么只要 $\text{pop} &gt; 7$ ，$temp = \text{rev} \cdot 10 + \text{pop}$ 就会溢出。</li></ol><p>当 $\text{rev}$ 为负时可以应用类似的逻辑。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">reverse</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> rev = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">do</span>&#123;<br>            <span class="hljs-keyword">int</span> pop = x % <span class="hljs-number">10</span>;<br>            x /= <span class="hljs-number">10</span>;<br>            <span class="hljs-keyword">if</span> (rev &gt; INT_MAX/<span class="hljs-number">10</span> || (rev == INT_MAX / <span class="hljs-number">10</span> &amp;&amp; pop &gt; <span class="hljs-number">7</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span> (rev &lt; INT_MIN/<span class="hljs-number">10</span> || (rev == INT_MIN / <span class="hljs-number">10</span> &amp;&amp; pop &lt; <span class="hljs-number">-8</span>)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            rev = rev * <span class="hljs-number">10</span> + pop;<br>        &#125;<span class="hljs-keyword">while</span> (x) ;<br>        <span class="hljs-keyword">return</span> rev;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：$O(\log(x))$，$x$ 中大约有 $\log_{10}(x)$ 位数字。</li><li>空间复杂度：$O(1)$。</li></ul>]]></content>
       
       
       <categories>
@@ -1110,13 +1141,13 @@
             
             <tag> Python </tag>
             
-            <tag> Matplotlib </tag>
-            
             <tag> OpenCV </tag>
             
             <tag> 计算机视觉 </tag>
             
             <tag> 图像处理 </tag>
+            
+            <tag> Matplotlib </tag>
             
         </tags>
       
@@ -1873,35 +1904,6 @@
     
     
     <entry>
-      <title>vim速查表</title>
-      <link href="/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-      <url>/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</url>
-      
-        <content type="html"><![CDATA[<p><strong>本文主要介绍了以下内容:</strong></p><p>本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。</p><a id="more"></a><h2 id="VIM使用说明与快捷键"><a href="#VIM使用说明与快捷键" class="headerlink" title="VIM使用说明与快捷键"></a>VIM使用说明与快捷键</h2><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/vim%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg"></p><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><div class="table-container"><table><thead><tr><th style="text-align:center">移动方向</th><th style="text-align:center">快捷键</th></tr></thead><tbody><tr><td style="text-align:center">左</td><td style="text-align:center">h</td></tr><tr><td style="text-align:center">上</td><td style="text-align:center">j</td></tr><tr><td style="text-align:center">下</td><td style="text-align:center">k</td></tr><tr><td style="text-align:center">右</td><td style="text-align:center">l</td></tr></tbody></table></div><h3 id="进入插入模式"><a href="#进入插入模式" class="headerlink" title="进入插入模式"></a>进入插入模式</h3><div class="table-container"><table><thead><tr><th style="text-align:center">插入模式</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">i</td><td style="text-align:center">在光标前面插入</td></tr><tr><td style="text-align:center">I</td><td style="text-align:center">在光标所在行最前面插入</td></tr><tr><td style="text-align:center">a</td><td style="text-align:center">在光标后面插入</td></tr><tr><td style="text-align:center">A</td><td style="text-align:center">在光标所在行最后面插入</td></tr><tr><td style="text-align:center">o</td><td style="text-align:center">光标所在行的下一行插入</td></tr><tr><td style="text-align:center">O</td><td style="text-align:center">光标所在行的上一行插入</td></tr><tr><td style="text-align:center">s</td><td style="text-align:center">删除光标指向的字符并进入插入模式</td></tr><tr><td style="text-align:center">S</td><td style="text-align:center">删除光标所在的行并插入</td></tr></tbody></table></div><h3 id="操作范围"><a href="#操作范围" class="headerlink" title="操作范围"></a>操作范围</h3><div class="table-container"><table><thead><tr><th style="text-align:center">按键</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">将光标移到行首</td></tr><tr><td style="text-align:center">$</td><td style="text-align:center">将光标移到行尾</td></tr><tr><td style="text-align:center">b  (begin)</td><td style="text-align:center">将光标移到单词起始处</td></tr><tr><td style="text-align:center">e  (end)</td><td style="text-align:center">将光标移到单词末尾</td></tr><tr><td style="text-align:center">w</td><td style="text-align:center">将光标移到下一个单词的开头</td></tr><tr><td style="text-align:center">gg</td><td style="text-align:center">将光标移到文件的开头</td></tr><tr><td style="text-align:center">G</td><td style="text-align:center">将光标移到文件的末尾</td></tr></tbody></table></div><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><div class="table-container"><table><thead><tr><th style="text-align:center">按键</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">d0</td><td style="text-align:center">删除光标到行首的所有字符</td></tr><tr><td style="text-align:center">d$</td><td style="text-align:center">删除光标到行尾的所有字符</td></tr><tr><td style="text-align:center">db</td><td style="text-align:center">删除光标到该单词行首的所有字符</td></tr><tr><td style="text-align:center">de</td><td style="text-align:center">删除光标到该单词行尾的所有字符</td></tr><tr><td style="text-align:center">dw</td><td style="text-align:center">删除光标到下一个单词开头的所有字符</td></tr><tr><td style="text-align:center">dh</td><td style="text-align:center">删除光标所在字符的上一个字符</td></tr><tr><td style="text-align:center">dl</td><td style="text-align:center">删除光标所在字符</td></tr><tr><td style="text-align:center">dj</td><td style="text-align:center">删除光标所在行和下一行</td></tr><tr><td style="text-align:center">dk</td><td style="text-align:center">删除光标所在行和上一行</td></tr><tr><td style="text-align:center">dd</td><td style="text-align:center">删除光标所在行</td></tr><tr><td style="text-align:center">dgg</td><td style="text-align:center">删除光标所在行到文件开头所有字符</td></tr><tr><td style="text-align:center">dG</td><td style="text-align:center">删除光标所在行到文件末尾所有字符</td></tr></tbody></table></div>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机工具 </category>
-          
-          <category> vim </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> vim </tag>
-            
-            <tag> 速查表 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>大数阶乘</title>
       <link href="/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/"/>
       <url>/2019/08/02/%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98/</url>
@@ -1923,6 +1925,35 @@
             <tag> 大数 </tag>
             
             <tag> 算法模板 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vim速查表</title>
+      <link href="/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+      <url>/2019/08/02/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<p><strong>本文主要介绍了以下内容:</strong></p><p>本文主要介绍了vim的一些快捷键，方便自己要用的时候查找。</p><a id="more"></a><h2 id="VIM使用说明与快捷键"><a href="#VIM使用说明与快捷键" class="headerlink" title="VIM使用说明与快捷键"></a>VIM使用说明与快捷键</h2><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/vim%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg"></p><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><div class="table-container"><table><thead><tr><th style="text-align:center">移动方向</th><th style="text-align:center">快捷键</th></tr></thead><tbody><tr><td style="text-align:center">左</td><td style="text-align:center">h</td></tr><tr><td style="text-align:center">上</td><td style="text-align:center">j</td></tr><tr><td style="text-align:center">下</td><td style="text-align:center">k</td></tr><tr><td style="text-align:center">右</td><td style="text-align:center">l</td></tr></tbody></table></div><h3 id="进入插入模式"><a href="#进入插入模式" class="headerlink" title="进入插入模式"></a>进入插入模式</h3><div class="table-container"><table><thead><tr><th style="text-align:center">插入模式</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">i</td><td style="text-align:center">在光标前面插入</td></tr><tr><td style="text-align:center">I</td><td style="text-align:center">在光标所在行最前面插入</td></tr><tr><td style="text-align:center">a</td><td style="text-align:center">在光标后面插入</td></tr><tr><td style="text-align:center">A</td><td style="text-align:center">在光标所在行最后面插入</td></tr><tr><td style="text-align:center">o</td><td style="text-align:center">光标所在行的下一行插入</td></tr><tr><td style="text-align:center">O</td><td style="text-align:center">光标所在行的上一行插入</td></tr><tr><td style="text-align:center">s</td><td style="text-align:center">删除光标指向的字符并进入插入模式</td></tr><tr><td style="text-align:center">S</td><td style="text-align:center">删除光标所在的行并插入</td></tr></tbody></table></div><h3 id="操作范围"><a href="#操作范围" class="headerlink" title="操作范围"></a>操作范围</h3><div class="table-container"><table><thead><tr><th style="text-align:center">按键</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">将光标移到行首</td></tr><tr><td style="text-align:center">$</td><td style="text-align:center">将光标移到行尾</td></tr><tr><td style="text-align:center">b  (begin)</td><td style="text-align:center">将光标移到单词起始处</td></tr><tr><td style="text-align:center">e  (end)</td><td style="text-align:center">将光标移到单词末尾</td></tr><tr><td style="text-align:center">w</td><td style="text-align:center">将光标移到下一个单词的开头</td></tr><tr><td style="text-align:center">gg</td><td style="text-align:center">将光标移到文件的开头</td></tr><tr><td style="text-align:center">G</td><td style="text-align:center">将光标移到文件的末尾</td></tr></tbody></table></div><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><div class="table-container"><table><thead><tr><th style="text-align:center">按键</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">d0</td><td style="text-align:center">删除光标到行首的所有字符</td></tr><tr><td style="text-align:center">d$</td><td style="text-align:center">删除光标到行尾的所有字符</td></tr><tr><td style="text-align:center">db</td><td style="text-align:center">删除光标到该单词行首的所有字符</td></tr><tr><td style="text-align:center">de</td><td style="text-align:center">删除光标到该单词行尾的所有字符</td></tr><tr><td style="text-align:center">dw</td><td style="text-align:center">删除光标到下一个单词开头的所有字符</td></tr><tr><td style="text-align:center">dh</td><td style="text-align:center">删除光标所在字符的上一个字符</td></tr><tr><td style="text-align:center">dl</td><td style="text-align:center">删除光标所在字符</td></tr><tr><td style="text-align:center">dj</td><td style="text-align:center">删除光标所在行和下一行</td></tr><tr><td style="text-align:center">dk</td><td style="text-align:center">删除光标所在行和上一行</td></tr><tr><td style="text-align:center">dd</td><td style="text-align:center">删除光标所在行</td></tr><tr><td style="text-align:center">dgg</td><td style="text-align:center">删除光标所在行到文件开头所有字符</td></tr><tr><td style="text-align:center">dG</td><td style="text-align:center">删除光标所在行到文件末尾所有字符</td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机工具 </category>
+          
+          <category> vim </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vim </tag>
+            
+            <tag> 速查表 </tag>
             
         </tags>
       
