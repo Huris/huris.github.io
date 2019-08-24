@@ -8,7 +8,7 @@
       <link href="/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
       <url>/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[<p>恒等函数：$f(x)=x$</p><p>sigmoid函数：$\sigma(x)=sigm(x)=\frac{1}{1+e^{-x}}$</p><p>双曲正切函数tanh：$\tanh(x)=\frac{e^x-x^{-x}}{e^x+e^{-x}}$</p><p>硬限幅函数：$\begin{equation}<br>\left\{\begin{array}{lr}1,x\ge{0} \\ 0,x&lt;0\end{array}\right.<br>\end{equation}$</p><a id="more"></a>]]></content>
+        <content type="html"><![CDATA[<p>常见的激活函数</p><a id="more"></a><p>恒等函数：$f(x)=x$</p><p>sigmoid函数：$\sigma(x)=sigm(x)=\frac{1}{1+e^{-x}}$</p><p>双曲正切函数tanh：$\tanh(x)=\frac{e^x-x^{-x}}{e^x+e^{-x}}$</p><p>硬限幅函数：$\begin{equation}<br>\text{hardlim}(x)=\left\{\begin{array}{lr}1,x\ge{0} \\ 0,x&lt;0\end{array}\right.<br>\end{equation}$</p><p>斜面函数：$\begin{equation}<br>\text{ramp}(x)=\left\{\begin{array}{lr}1,x\ge{1} \\ x,-1&lt;x&lt;1 \\ -1,x\le{-1}\end{array}\right.<br>\end{equation}$</p><p>修正线性单元ReLU：$\text{ReLU}(x)=max(0,x)$</p><p>渗漏修正线性单元LReLU：$\begin{equation}<br>\text{LReLU}(x)=\left\{\begin{array}{lr}1,x\ge{0} \\ax,x&lt;0\end{array}\right.<br>\end{equation}$ ，其中，$a\in{(0,1)}$是一个固定值。</p><p>如果按照某个均匀分布取随机值，则称为RReLU ( Ramdomized LReLU )。</p><p>参数修正线性单元PReLU：$\begin{equation}<br>\text{PReLU}(x)=\left\{\begin{array}{lr}1,x\ge{0} \\ax,x&lt;0\end{array}\right.<br>\end{equation}$ ，其中，$a\le{1}$是一个可调参数，具体值需要通过学习得到。</p><p>指数线性单元ELU：$\begin{equation}<br>\text{ELU}(x)=\left\{\begin{array}{lr}1,x\ge{0} \\a(e^{x}-1),x&lt;0\end{array}\right.<br>\end{equation}$  ，其中，$a\ge{0}$ 是一个可调参数。</p><p>软加函数softplus：$f(x)=\ln(1+e^{x})$</p><p>最大输出函数maxout：$maxout(x)=max(x_{1},x_{2},…,x_{n})$</p><p>软最大输出函数softmax：$softmax(x_{1},x_{2},…,x_{n})=\frac{e^{x_i}}{\sum{_{i=1}^{n}}e^{x_i}}$</p>]]></content>
       
       
       
@@ -1154,13 +1154,13 @@
             
             <tag> Python </tag>
             
+            <tag> Matplotlib </tag>
+            
             <tag> OpenCV </tag>
             
             <tag> 计算机视觉 </tag>
             
             <tag> 图像处理 </tag>
-            
-            <tag> Matplotlib </tag>
             
         </tags>
       
