@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-24T14:39:24.530Z</updated>
+  <updated>2019-08-25T11:12:43.894Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,18 +17,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>梯度下降算法</title>
+    <link href="http://huris.xyz/2019/08/25/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/"/>
+    <id>http://huris.xyz/2019/08/25/梯度下降算法/</id>
+    <published>2019-08-25T10:33:42.000Z</published>
+    <updated>2019-08-25T11:12:43.894Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;梯度下降算法，又称为最速下降算法，是在无约束条件下计算连续可微函数极小值的基本方法。&lt;/p&gt;
+&lt;p&gt;这种方法的核心思想是用负梯度方向作为下降方向，在1874年由法国科学家Cauchy提出。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="预备知识" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="梯度下降" scheme="http://huris.xyz/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
+    
+      <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>激活函数</title>
     <link href="http://huris.xyz/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
     <id>http://huris.xyz/2019/08/24/激活函数/</id>
     <published>2019-08-24T04:04:12.000Z</published>
-    <updated>2019-08-24T14:39:24.530Z</updated>
+    <updated>2019-08-25T00:23:31.883Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;常见的激活函数&lt;/p&gt;
+      &lt;p&gt;一些常见的激活函数&lt;/p&gt;
     
     </summary>
     
+      <category term="机器学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="预备知识" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="激活函数" scheme="http://huris.xyz/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
@@ -747,40 +784,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="图像混合" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E6%B7%B7%E5%90%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程番外篇7：亮度与对比度</title>
-    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%877%EF%BC%9A%E4%BA%AE%E5%BA%A6%E4%B8%8E%E5%AF%B9%E6%AF%94%E5%BA%A6/"/>
-    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇7：亮度与对比度/</id>
-    <published>2019-08-14T07:58:26.000Z</published>
-    <updated>2019-08-14T08:17:16.608Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习如何调整图片的亮度和对比度。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="亮度" scheme="http://huris.xyz/tags/%E4%BA%AE%E5%BA%A6/"/>
-    
-      <category term="对比度" scheme="http://huris.xyz/tags/%E5%AF%B9%E6%AF%94%E5%BA%A6/"/>
     
   </entry>
   
