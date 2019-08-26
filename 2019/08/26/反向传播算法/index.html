@@ -263,15 +263,15 @@ E=\sum\limits^L_{l=1}E_l=\sum\limits^L_{l=1}\sum\limits_{n\in{OUT}}e_{n,l}</scri
 </li>
 <li><p><strong>for</strong> $i = 1$ to epoch <strong>do</strong></p>
 </li>
-<li>​       <strong>for</strong> $l = 1$ to $L$ <strong>do</strong></li>
-<li>​              如果$n$是输出节点，则计算其反传误差信号$\delta_{n,l}=(x_{n,l}-y_{n,l})f’_{n}(net_{n,l})$</li>
-<li>​              否则递归计算其反传误差信号$\delta_{n,l}=\Big (\sum\limits_{k\to{n}}w_{k\to{n}}\delta_{n,l}\Big)f’_{k}(net_{k,l})$</li>
-<li>​       <strong>end for</strong></li>
-<li><p>​       计算关于连接权的偏导$\Delta{w_{k\to{n}}}=\frac{\partial{E}}{\partial{w_{k\to{n}}}}=\sum\limits^{L}_{l=1}\delta_{n,l}x_{k,l}$</p>
+<li>$\quad$<strong>for</strong> $l = 1$ to $L$ <strong>do</strong></li>
+<li>$\qquad$如果$n$是输出节点，则计算其反传误差信号$\delta_{n,l}=(x_{n,l}-y_{n,l})f’_{n}(net_{n,l})$</li>
+<li>$\qquad$否则递归计算其反传误差信号$\delta_{n,l}=\Big (\sum\limits_{k\to{n}}w_{k\to{n}}\delta_{n,l}\Big)f’_{k}(net_{k,l})$</li>
+<li>$\quad$<strong>end for</strong></li>
+<li><p>$\quad$计算关于连接权的偏导$\Delta{w_{k\to{n}}}=\frac{\partial{E}}{\partial{w_{k\to{n}}}}=\sum\limits^{L}_{l=1}\delta_{n,l}x_{k,l}$</p>
 </li>
-<li><p>​       如果所有这些偏导产生的总梯度足够小，则停止</p>
+<li><p>$\quad$如果所有这些偏导产生的总梯度足够小，则停止</p>
 </li>
-<li>​       否则，更新连接权值$w_{k\to{n}}=w_{k\to{n}}-\eta\Delta{w_{k\to{n}}}$</li>
+<li>$\quad$否则，更新连接权值$w_{k\to{n}}=w_{k\to{n}}-\eta\Delta{w_{k\to{n}}}$</li>
 <li><strong>end for</strong></li>
 </ol>
 <p><strong>注意：</strong>epoch表示迭代次数，在实际应用中可能需要几十次、几百次，甚至成千上万次迭代，才能获得令人满意的学习训练效果。</p>
@@ -291,14 +291,14 @@ E=\sum\limits^L_{l=1}E_l=\sum\limits^L_{l=1}\sum\limits_{n\in{OUT}}e_{n,l}</scri
 <li>随机初始化$\pmb{W}^k\approx{0}$，$\pmb{b}^k\approx0$，$k=1$，…，$R$</li>
 <li>令$\pmb{h}_0^l=\pmb{x}^l$</li>
 <li><strong>for</strong> $i = 1$ to epoch <strong>do</strong></li>
-<li>​       <strong>for</strong> $l = 1$ to $L$ <strong>do</strong></li>
-<li>​              计算$\pmb{u}_k^l=\pmb{W}^k\pmb{h}_{k-1}^l+\pmb{b}^k$，$\pmb{h}^l_k=\sigma(\pmb{u}^l_k)$，$1\le{k}\le{R+1}$</li>
-<li>​              计算$\pmb{\delta}_{R+1}^l=(\pmb{o}^l-\pmb{y}^l)$，$\sigma’{\pmb{u}_{R+1}^l}$</li>
-<li>​              计算$\delta_k^l=[(\pmb{W}^{k+1})^T\delta^l_{k+1}]$，$\sigma’{\pmb{u}_{k}^l}$，$1\le{k}\le{R}$</li>
-<li>​       <strong>end for</strong></li>
-<li>​       计算$\frac{\partial{E}}{\partial{\pmb{W}^k}}=\sum\limits^{L}_{l=1}\pmb{\delta}^l_k(\pmb{h}^l_{k-1})^T$，$\frac{\partial{E}}{\partial{\pmb{b}^k}}=\sum\limits^{L}_{l=1}\pmb{\delta}^l_k$，$1\le{k}\le {R+1}$</li>
-<li>​       如果所有这些偏导产生的总梯度足够小，则停止</li>
-<li>​       否则，更新权值和偏置：$\pmb{W}^k\gets\pmb{W}^k-\eta\frac{\partial \pmb{L}_N}{\partial\pmb{W}^k}$，$\pmb{b}^k\gets\pmb{b}^k-\eta\frac{\partial \pmb{L}_N}{\partial \pmb{b}^k}$，$1\le k\le R+1$</li>
+<li>$\quad$<strong>for</strong> $l = 1$ to $L$ <strong>do</strong></li>
+<li>$\qquad$计算$\pmb{u}_k^l=\pmb{W}^k\pmb{h}_{k-1}^l+\pmb{b}^k$，$\pmb{h}^l_k=\sigma(\pmb{u}^l_k)$，$1\le{k}\le{R+1}$</li>
+<li>$\qquad$计算$\pmb{\delta}_{R+1}^l=(\pmb{o}^l-\pmb{y}^l)$，$\sigma’{\pmb{u}_{R+1}^l}$</li>
+<li>$\qquad$计算$\delta_k^l=[(\pmb{W}^{k+1})^T\delta^l_{k+1}]$，$\sigma’{\pmb{u}_{k}^l}$，$1\le{k}\le{R}$</li>
+<li>$\quad$<strong>end for</strong></li>
+<li>$\quad$计算$\frac{\partial{E}}{\partial{\pmb{W}^k}}=\sum\limits^{L}_{l=1}\pmb{\delta}^l_k(\pmb{h}^l_{k-1})^T$，$\frac{\partial{E}}{\partial{\pmb{b}^k}}=\sum\limits^{L}_{l=1}\pmb{\delta}^l_k$，$1\le{k}\le {R+1}$</li>
+<li>$\quad$如果所有这些偏导产生的总梯度足够小，则停止</li>
+<li>$\quad$否则，更新权值和偏置：$\pmb{W}^k\gets\pmb{W}^k-\eta\frac{\partial \pmb{L}_N}{\partial\pmb{W}^k}$，$\pmb{b}^k\gets\pmb{b}^k-\eta\frac{\partial \pmb{L}_N}{\partial \pmb{b}^k}$，$1\le k\le R+1$</li>
 <li><strong>end for</strong></li>
 </ol>
 <p><strong>注意：</strong>epoch表示迭代次数，在实际应用中可能需要几十次、几百次，甚至成千上万次迭代，才能获得令人满意的学习训练效果。</p>
