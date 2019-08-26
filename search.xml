@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>反向传播算法</title>
+      <link href="/2019/08/26/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/"/>
+      <url>/2019/08/26/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>卷积神经网络是一种特殊的前馈神经网络，通常也是一种深度神经网络。</p><p>深度学习是在克服反向传播算法对深度神经网络的训练困难过程中逐步发展和建立起来的。而深度神经网络的基本学习训练方法是反向传播算法。</p><p>作为一种有监督学习的算法，反向传播算法在本质上是一种具有递归结构的梯度下降算法，往往需要给定足够多的训练样本，才能获得满意的效果。</p><p>下面先给出任意前馈神经网络的<strong>通用反向传播算法</strong>，再讨论深层神经网络的<strong>逐层反向传播算法</strong>。</p><a id="more"></a><h2 id="通用反向传播算法"><a href="#通用反向传播算法" class="headerlink" title="通用反向传播算法"></a>通用反向传播算法</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>设前馈神经网络共有$N$个节点$\{u_1,u_2,…,u_N\}$，只有从编号较小的神经元才能连接到编号较大的神经元，没有反馈连接。</p><p>下图给出了前馈神经网络的一种可能的连接结构，共包含10个节点，其中两个为输入。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%A4%BA%E6%84%8F%E5%9B%BE.png" width="50%"></p><p>一般地，用$x_{n,l}$表示第$n$个节点对第$l$个输入样本的输出，其中$1\le{n}\le{N}$且$1\le{l}\le{L}$。</p><p>如果$u_n$是输入节点，那么它对第$l$个输入样本的输入为$net_{n,l}=x_{n,l}$；否则，$u_n$是隐含节点或输出节点，相应的输入为$net_{n,l}=\sum_{k}w_{k\to{n}}x_{k,l}$，输出为$x_{n,l}=f_n(net_{n,l})$。</p><p>其中，$w_{k\to{n}}(k&lt;n)$表示从第$k$个节点到第$n$个节点的有向连接$k\to{n}$的权值，$f_n$表示第$n$个节点的激活函数，比如sigmoid函数。</p><p>此外，若令$x_{0,l}=1$，则可用$w_{0\to{n}}$表示非输入节点$u_n$的偏置值。</p><p>最后，用OUT表示所有输出神经元的集合，且对任意$n\in{OUT}$，用$y_{n,l}$表示$x_{n,l}$的期望值，用$e_{n,l}$表示编号为$n$的输出神经元对第$l$个输入样本产生的输出误差。</p><p>因此，关于样本$l$的输出误差可以表示为：</p><script type="math/tex; mode=display">E_l=\sum\limits_{n\in{OUT}}e_{n,l}</script><p>总的输出误差为：</p><script type="math/tex; mode=display">E=\sum\limits^L_{l=1}E_l=\sum\limits^L_{l=1}\sum\limits_{n\in{OUT}}e_{n,l}</script><p>如果定义第$n$个神经网络关于第$l$个样本的反传误差信号（backpropagated error signal）或灵敏度（sensitivity）如下：</p><script type="math/tex; mode=display">\delta_{n,l}=\frac{\partial{E}}{\partial{net_{n,l}}}=\frac{\partial{E_l}}{\partial{net_{n,l}}}</script><p> 那么用链式法则可以得到：</p><script type="math/tex; mode=display">\forall{n}\in{OUT}，\frac{\partial{E}}{\partial{w_{k\to{n}}}}=\sum\limits^{L}_{l=1}\frac{\partial{E_l}}{\partial{net_{n,l}}}\frac{\partial{net_{n,l}}}{\partial{w_{k\to{n}}}}=\sum\limits^{L}_{l=1}\frac{\partial{E_l}}{\partial{x_{n,l}}}f'_{n}(net_{n,l})\frac{\partial{net_{n,l}}}{\partial{w_{k\to{n}}}}\\=\sum\limits^{L}_{l=1}\delta_{n,l}\frac{\partial{net_{n,l}}}{\partial{w_{k\to{n}}}}=\sum\limits^{L}_{n=1}\delta_{n,l}x_{k,l}</script><script type="math/tex; mode=display">\forall{k}\notin{OUT}，\frac{\partial{E}}{\partial{w_{j\to{k}}}}=\sum\limits^{L}_{l=1}\frac{\partial{E_l}}{\partial{net_{k,l}}}\frac{\partial{net_{k,l}}}{\partial{w_{j\to{k}}}}=\sum\limits^{L}_{l=1}(\sum\limits_{k\to{n}}\frac{\partial{E_l}}{\partial{net_{n,l}}}\frac{\partial{net_{n,l}}}{\partial{net_{k,l}}})\frac{\partial{net_{k,l}}}{\partial{w_{j\to{k}}}}\\=\sum\limits^{L}_{l=1}(\sum\limits_{k\to{n}}w_{k\to{n}}\delta_{n,l})f'_{k}(net_{k,l})\frac{\partial{net_{k,l}}}{\partial{w_{j\to{k}}}}=\sum\limits^{L}_{l=1}\delta_{k,l}\frac{\partial{net_{k,l}}}{\partial{w_{j\to{k}}}}=\sum\limits^{L}_{n=1}\delta_{k,l}x_{j,l}</script><p>如果对输出节点选择平方误差$e_{n,l}=\frac{1}{2}(x_{n,l}-y_{n,l})^2$，那么</p><script type="math/tex; mode=display">\forall{n}\in{OUT}，\delta_{n,l}=\frac{\partial{e_{n,l}}}{\partial{net_{n,l}}}=(x_{n,l}-y_{n,l})f'_{n}(net_{n,l})</script><script type="math/tex; mode=display">\forall{n}\notin{OUT}，\delta_{k,l}=(\sum\limits_{k\to{n}}w_{k\to{n}}\delta_{n,l})f'_{k}(net_{k,l})</script><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p><strong>输入：</strong>训练集$\{(\pmb{x}^l,\pmb{y}^l), 1\le{l}\le{L}\}$，学习率$\eta$，前馈网络结构，迭代次数epoch</p><p><strong>输出：</strong>所有前馈连接权值$w_{k\to{n}}$</p><ol><li><p>选择学习率$\eta&gt;0$，迭代次数epoch，随机初始化$w_{k\to{n}}$</p></li><li><p><strong>for</strong> $i = 1$ to epoch <strong>do</strong></p></li><li>​       <strong>for</strong> $l = 1$ to $L$ <strong>do</strong></li><li>​              如果$n$是输出节点，则计算其反传误差信号$\delta_{n,l}=(x_{n,l}-y_{n,l})f’_{n}(net_{n,l})$</li><li>​              否则递归计算其反传误差信号$\delta_{n,l}=\Big (\sum\limits_{k\to{n}}w_{k\to{n}}\delta_{n,l}\Big)f’_{k}(net_{k,l})$</li><li>​       <strong>end for</strong></li><li><p>​       计算关于连接权的偏导$\Delta{w_{k\to{n}}}=\frac{\partial{E}}{\partial{w_{k\to{n}}}}=\sum\limits^{L}_{l=1}\delta_{n,l}x_{k,l}$</p></li><li><p>​       如果所有这些偏导产生的总梯度足够小，则停止</p></li><li>​       否则，更新连接权值$w_{k\to{n}}=w_{k\to{n}}-\eta\Delta{w_{k\to{n}}}$</li><li><strong>end for</strong></li></ol><p><strong>注意：</strong>epoch表示迭代次数，在实际应用中可能需要几十次、几百次，甚至成千上万次迭代，才能获得令人满意的学习训练效果。</p><h2 id="逐层反向传播算法"><a href="#逐层反向传播算法" class="headerlink" title="逐层反向传播算法"></a>逐层反向传播算法</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>对于多层感知器来说，可以设计出更加简洁实用的<strong>逐层反向传播算法</strong>。</p><p>多层感知器由一个输出层、若干隐含层和一个输出层组成，如下图所示：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E5%99%A8%E7%A4%BA%E6%84%8F%E5%9B%BE.png" width="50%"></p><p>设输入层的维数为$m$，输入向量表示为$x=(x_1,x_2,…,x_m)^T\in{\pmb{R}}$。第$k$个隐含层包含$n_k$个神经元$(k=1,2,…,R)$，相应的隐含层向量表示为$\pmb{h}_k=(h_{k,1},h_{k,2},…,h_{k,n_k})^T\in{\pmb{R}}^{n_k}$。输出层包含$c$个神经元，输出向量表示为$\pmb{o}=(o_1,o_2,…,o_c)^T\in{\pmb{R}^c}$。输入层与第$1$个隐含层之间的权值矩阵用$\pmb{W}^1=(w^1_{ij})_{n_1\times{m}}$表示，第$k-1$个隐含层与第$k$个隐含层之间的权值矩阵用$\pmb{W}^k=(w^k_{ij})_{n_k\times n_{k-1}}(1&lt;k\le R)$表示，第$R$个隐含层与输出层之间的权值矩阵用$\pmb{W}^{R+1}=(w^{R+1}_{ij})_{c\times{n_R}}$表示。那么，这个多层感知器的各层神经元激活输出可以计算如下：</p><script type="math/tex; mode=display">\begin{cases} \pmb{h}_1=\sigma_{\pmb{h}_1}(\pmb{W}^1\pmb{x}+\pmb{b}^1) \\ \pmb{h}_k=\sigma_{\pmb{h}_k}(\pmb{W}^k\pmb{h}_{k-1}+\pmb{b}^k),2\le{k}\le{R} \\ \pmb{o}=\sigma_{\pmb{o}}(\pmb{W}^{R+1}\pmb{h}_{R}+\pmb{b}^{R+1}) \end{cases}</script><p>其中，$\pmb{b}^1$、$\pmb{b}^k$和$\pmb{b}^{R+1}$是各层的偏置，$\sigma_{\pmb{h}_1}$、$\sigma_{\pmb{h}_k}$和$\sigma_{\pmb{o}}$是各层的逐元向量函数，一般都取为逐元sigmoid函数。</p><h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><p><strong>输入：</strong>训练集$\{(\pmb{x}^l,\pmb{y}^l), 1\le{l}\le{L}\}$，学习率$\eta$，分层网络结构，隐含层数$\pmb{R}$、迭代次数epoch</p><p><strong>输出：</strong>所有权值和偏置$(\pmb{W}^k,\pmb{b}^k)(1\le{k}\le{R})$</p><ol><li>随机初始化$\pmb{W}^k\approx{0}$，$\pmb{b}^k\approx0$，$k=1$，…，$R$</li><li>令$\pmb{h}_0^l=\pmb{x}^l$</li><li><strong>for</strong> $i = 1$ to epoch <strong>do</strong></li><li>​       <strong>for</strong> $l = 1$ to $L$ <strong>do</strong></li><li>​              计算$\pmb{u}_k^l=\pmb{W}^k\pmb{h}_{k-1}^l+\pmb{b}^k$，$\pmb{h}^l_k=\sigma(\pmb{u}^l_k)$，$1\le{k}\le{R+1}$</li><li>​              计算$\pmb{\delta}_{R+1}^l=(\pmb{o}^l-\pmb{y}^l)$，$\sigma’{\pmb{u}_{R+1}^l}$</li><li>​              计算$\delta_k^l=[(\pmb{W}^{k+1})^T\delta^l_{k+1}]$，$\sigma’{\pmb{u}_{k}^l}$，$1\le{k}\le{R}$</li><li>​       <strong>end for</strong></li><li>​       计算$\frac{\partial{E}}{\partial{\pmb{W}^k}}=\sum\limits^{L}_{l=1}\pmb{\delta}^l_k(\pmb{h}^l_{k-1})^T$，$\frac{\partial{E}}{\partial{\pmb{b}^k}}=\sum\limits^{L}_{l=1}\pmb{\delta}^l_k$，$1\le{k}\le {R+1}$</li><li>​       如果所有这些偏导产生的总梯度足够小，则停止</li><li>​       否则，更新权值和偏置：$\pmb{W}^k\gets\pmb{W}^k-\eta\frac{\partial \pmb{L}_N}{\partial\pmb{W}^k}$，$\pmb{b}^k\gets\pmb{b}^k-\eta\frac{\partial \pmb{L}_N}{\partial \pmb{b}^k}$，$1\le k\le R+1$</li><li><strong>end for</strong></li></ol><p><strong>注意：</strong>epoch表示迭代次数，在实际应用中可能需要几十次、几百次，甚至成千上万次迭代，才能获得令人满意的学习训练效果。</p><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>为了对多层感知器中的权值和偏置进行学习，需要给定一组训练样本。</p><p>假定共有$L$个训练样本$(\pmb{x}^l,\pmb{y}^l)(1\le l\le L)$，输入是$\pmb{x}^l=(\pmb{x}^l_1,\pmb{x}^l_2,…,\pmb{x}^l_m)^T$，期望输出是$\pmb{y}^l=(y^l_1,y^l_2,…,y^l_c)^T$，实际输出是$\pmb{o}^l=(o^l_1,o^l_2,…,o^l_c)^T$。</p><p>优化函数选取平方误差：</p><script type="math/tex; mode=display">E=\frac{1}{2}\sum\limits^L_{l=1}\|\pmb{o}^l-\pmb{y}^l \|^2=\frac{1}{2}\sum\limits^L_{l=1}\sum\limits^c_{j=1}(o^l-y^l )^2</script><p>令$\pmb{h}^l_0=\pmb{x}^l$，$\pmb{u}_k^l=\pmb{W}^k\pmb{h}^l_{k-1}+\pmb{b}^k$，$\pmb{h}^l_k=\sigma(\pmb{u}^l_k)(1\le k \le R+1)$，$\pmb{o}^l=\pmb{h}^l_{R+1}=\sigma(\pmb{u}^l_{R+1})$</p><p>如果定义网络各层关于第$l$个样本的反传误差信号或灵敏度为：$\pmb{\delta}_k^l=\frac{\partial \pmb{E}}{\partial \pmb{u}^l_k}$</p><p>那么这些反传误差信号可以递归计算如下：</p><script type="math/tex; mode=display">\pmb{\delta}^l_{R+1}=\frac{\partial \pmb{E}}{\partial\pmb{u}^l_{R+1}}=\frac{\partial \pmb{E}}{\partial\pmb{o}^l}\frac{\partial\pmb{o}^l}{\partial\pmb{u}^l_{R+1}}=(\pmb{o}^l-\pmb{y}^l)\circ\sigma'(\pmb{u}^l_{R+1})=(\pmb{o}^l-\pmb{y}^l)\circ\pmb{o}^l\circ(1-\pmb{o}^l)</script><script type="math/tex; mode=display">\delta_k^l=\frac{\partial \pmb E}{\partial \pmb u^l_k}=\frac{\partial \pmb E}{\partial \pmb{u}^l_{k+1}}\frac{\partial \pmb{u}^l_{k+1}}{\partial \pmb u^l_k}=[(\pmb{W}^{k+1})^T\delta^l_{k+1}]\circ\sigma'(\pmb{u}^l_k),1\le k \le R</script><p>如果采用<strong>受限玻尔兹曼</strong>对多层感知器的权值和偏置进行预训练代理随机初始化，还可以进一步提高逐层反向传播算法的学习训练效果。</p><p>此外，学习训练过程优化的目标函数不一定是平方误差，还可以是其他函数，比如交叉熵：</p><script type="math/tex; mode=display">E=-\sum\limits^L_{l=1}\sum\limits^c_{j=1}(y^l_j\times log(o^l_j)+(1-y^l_j)\times log(1-o^l_j))</script><p>这时，相应的逐层反向传播算法只需把$\pmb{\delta}^l_{R+1}$的计算公式修改为：</p><script type="math/tex; mode=display">\pmb{\delta}^l_{R+1}=\pmb{o}^l-\pmb{y}^l</script><p>多层感知器在训练完之后，常常再被用softmax函数转换成伪概率输出。</p><p>虽然很多文献和代码都把这种softmax函数转换称为软最大输出，但从理论上严格地说，软最大输出应该是把输出层的计算定义为：</p><script type="math/tex; mode=display">\pmb{o}=softmax(\pmb{W}^{R+1}\pmb{h}_R+\pmb{b}^{R+1})</script><p>如果保持其他部分不变，但采用式$(14)$计算网络的输出，那么在采用平方误差$(9)$作为目标函数时，$\pmb{\delta}^l_{R+1}$的计算公式应改为：</p><script type="math/tex; mode=display">\pmb{\delta}^l_{R+1}=\frac{\partial \pmb{E}}{\partial\pmb{u}^l_{R+1}}=\frac{\partial \pmb{E}}{\partial\pmb{o}^l}\frac{\partial\pmb{o}^l}{\partial\pmb{u}^l_{R+1}}=[diag(\pmb{o}^l)-\pmb{o}^l(\pmb{o}^l)^T](\pmb{o}^l-\pmb{y}^l)</script><p>而在采用交叉熵作为目标函数时，$\pmb{\delta}^l_{R+1}$的计算公式应改为：</p><script type="math/tex; mode=display">\pmb{\delta}^l_{R+1}=\left(\begin{array}{cccc}     1 &  \frac{o^l_1}{o^l_2-1} & ... & \frac{o^l_1}{o^l_c-1} \\     \frac{o^l_2}{o^l_1-1} & 1  & ... & \frac{o^l_2}{o^l_c-1}\\     ... & ... & ... &...\\      \frac{o^l_c}{o^l_1-1} & \frac{o^l_c}{o^l_2-1} & ...& 1\end{array}\right)(\pmb{o}^l-\pmb{y}^l)\\=(diag(\pmb{1}./(\pmb{1}-\pmb{o}^l))-(\pmb{o}^l)^T(\pmb{1}./(\pmb{1}-\pmb{o}^l)))(\pmb{o}^l-\pmb{y}^l)</script><p>其中，$<code>\pmb{1}&quot;$表示一个分量全是1的向量，$</code>./“$表示向量的对应分量相除。</p><p>如果每个样本的期望输出$\pmb{y}^l$仅有一个分量，为$\pmb{y}^l_{jl}=1$，那么还可以选用退化交叉熵作为目标函数，即：</p><script type="math/tex; mode=display">E=-\sum\limits^{L}_{l=1}log(\pmb{o}^l_{jl})</script><p>同时，$\pmb{\delta}^l_{R+1}$的计算公式修正为：</p><script type="math/tex; mode=display">\pmb{\delta}^l_{R+1}=\pmb{o}^l-\pmb{y}^l</script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+          <category> 深度学习 </category>
+          
+          <category> 预备知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 反向传播 </tag>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>梯度下降算法</title>
       <link href="/2019/08/25/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/"/>
       <url>/2019/08/25/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/</url>
@@ -24,9 +55,9 @@
       
         <tags>
             
-            <tag> 梯度下降 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 梯度下降 </tag>
             
         </tags>
       
@@ -1899,9 +1930,9 @@
             
             <tag> Python </tag>
             
-            <tag> 画图 </tag>
-            
             <tag> Matplotlib </tag>
+            
+            <tag> 画图 </tag>
             
         </tags>
       
@@ -1955,9 +1986,9 @@
       
         <tags>
             
-            <tag> Matlab </tag>
-            
             <tag> 画图 </tag>
+            
+            <tag> Matlab </tag>
             
         </tags>
       

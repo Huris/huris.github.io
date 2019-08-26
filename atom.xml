@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-26T01:32:02.377Z</updated>
+  <updated>2019-08-26T06:17:50.520Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>反向传播算法</title>
+    <link href="http://huris.xyz/2019/08/26/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/"/>
+    <id>http://huris.xyz/2019/08/26/反向传播算法/</id>
+    <published>2019-08-26T00:30:24.000Z</published>
+    <updated>2019-08-26T06:17:50.520Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;卷积神经网络是一种特殊的前馈神经网络，通常也是一种深度神经网络。&lt;/p&gt;
+&lt;p&gt;深度学习是在克服反向传播算法对深度神经网络的训练困难过程中逐步发展和建立起来的。而深度神经网络的基本学习训练方法是反向传播算法。&lt;/p&gt;
+&lt;p&gt;作为一种有监督学习的算法，反向传播算法在本质上是一种具有递归结构的梯度下降算法，往往需要给定足够多的训练样本，才能获得满意的效果。&lt;/p&gt;
+&lt;p&gt;下面先给出任意前馈神经网络的&lt;strong&gt;通用反向传播算法&lt;/strong&gt;，再讨论深层神经网络的&lt;strong&gt;逐层反向传播算法&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="预备知识" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="反向传播" scheme="http://huris.xyz/tags/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/"/>
+    
+      <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>梯度下降算法</title>
@@ -37,9 +66,9 @@
       <category term="预备知识" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
     
     
-      <category term="梯度下降" scheme="http://huris.xyz/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
-    
       <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="梯度下降" scheme="http://huris.xyz/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
     
   </entry>
   
@@ -738,52 +767,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="卷积" scheme="http://huris.xyz/tags/%E5%8D%B7%E7%A7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程9：图像混合</title>
-    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B9%EF%BC%9A%E5%9B%BE%E5%83%8F%E6%B7%B7%E5%90%88/"/>
-    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程9：图像混合/</id>
-    <published>2019-08-14T08:19:09.000Z</published>
-    <updated>2019-08-14T08:46:23.690Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习图片间的数学运算，图像混合。&lt;/p&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;学习图片间的数学运算，如相加、按位运算等。&lt;/li&gt;
-&lt;li&gt;OpenCV函数：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv2.add()&lt;/code&gt;：叠加两幅图片。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.addWeighted()&lt;/code&gt;：叠加两幅图片，可自定义两幅图片的权重。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.bitwise_and()&lt;/code&gt;：执行按位与运算。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.bitwise_not()&lt;/code&gt;：执行按位非运算。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.bitwise_or()&lt;/code&gt;：执行按位或运算。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.bitwise_xor()&lt;/code&gt;：执行按位异或运算。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;掩膜就是用来对图片进行全局或局部的遮挡。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="图像混合" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E6%B7%B7%E5%90%88/"/>
     
   </entry>
   
