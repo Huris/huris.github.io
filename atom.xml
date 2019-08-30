@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-08-26T06:24:20.211Z</updated>
+  <updated>2019-08-30T12:12:00.340Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How a Kalman filter works, in pictures</title>
+    <link href="http://huris.xyz/2019/08/30/How-a-Kalman-filter-works-in-pictures/"/>
+    <id>http://huris.xyz/2019/08/30/How-a-Kalman-filter-works-in-pictures/</id>
+    <published>2019-08-30T08:38:41.000Z</published>
+    <updated>2019-08-30T12:12:00.340Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I have to tell you about the Kalman filter, because what it does is pretty damn amazing.&lt;/p&gt;
+&lt;p&gt;Surprisingly few software engineers and scientists seem to know about it, and that makes me sad because it is such a general and powerful tool for &lt;strong&gt;combining information&lt;/strong&gt; in the presence of uncertainty. At times its ability to extract accurate information seems almost magical— and if it sounds like I’m talking this up too much, then take a look at &lt;a href=&quot;https://www.bzarg.com/p/improving-imu-attitude-estimates-with-velocity-data&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;this previously posted video&lt;/a&gt; where I demonstrate a Kalman filter figuring out the &lt;em&gt;orientation&lt;/em&gt; of a free-floating body by looking at its &lt;em&gt;velocity&lt;/em&gt;. Totally neat!&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="常见模型" scheme="http://huris.xyz/categories/%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B/"/>
+    
+      <category term="卡尔曼滤波" scheme="http://huris.xyz/categories/%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/"/>
+    
+    
+      <category term="卡尔曼滤波" scheme="http://huris.xyz/tags/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode-101-对称二叉树</title>
+    <link href="http://huris.xyz/2019/08/28/leetcode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>http://huris.xyz/2019/08/28/leetcode-101-对称二叉树/</id>
+    <published>2019-08-28T00:53:29.000Z</published>
+    <updated>2019-08-28T09:43:28.533Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定一个二叉树，检查它是否是镜像对称的。&lt;/p&gt;
+&lt;p&gt;例如，二叉树 &lt;code&gt;[1,2,2,3,4,4,3]&lt;/code&gt; 是对称的。&lt;/p&gt;
+&lt;p&gt;示例1：&lt;/p&gt;
+&lt;figure class=&quot;hljs highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs c++&quot;&gt;    &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;&lt;br&gt;   / \&lt;br&gt;  &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;&lt;br&gt; / \ / \&lt;br&gt;&lt;span class=&quot;hljs-number&quot;&gt;3&lt;/span&gt;  &lt;span class=&quot;hljs-number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;hljs-number&quot;&gt;4&lt;/span&gt;  &lt;span class=&quot;hljs-number&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;但是下面这个 &lt;code&gt;[1,2,2,null,3,null,3]&lt;/code&gt;则不是镜像对称的:&lt;/p&gt;
+&lt;figure class=&quot;hljs highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs c++&quot;&gt;  &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;&lt;br&gt; / \&lt;br&gt;&lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;&lt;br&gt; \   \&lt;br&gt; &lt;span class=&quot;hljs-number&quot;&gt;3&lt;/span&gt;    &lt;span class=&quot;hljs-number&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="LeetCode" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://huris.xyz/tags/LeetCode/"/>
+    
+      <category term="算法与数据结构" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="二叉树" scheme="http://huris.xyz/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+      <category term="对称" scheme="http://huris.xyz/tags/%E5%AF%B9%E7%A7%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>反向传播算法</title>
@@ -683,90 +739,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="梯度" scheme="http://huris.xyz/tags/%E6%A2%AF%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程10：平滑图像</title>
-    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B10%EF%BC%9A%E5%B9%B3%E6%BB%91%E5%9B%BE%E5%83%8F/"/>
-    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程10：平滑图像/</id>
-    <published>2019-08-14T09:25:37.000Z</published>
-    <updated>2019-08-14T11:39:22.913Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习模糊/平滑图像，消除噪点。&lt;/p&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;模糊/平滑图片来消除图片噪声&lt;/li&gt;
-&lt;li&gt;OpenCV函数&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv2.blur()&lt;/code&gt;：均值滤波&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.GaussianBlur()&lt;/code&gt;：高斯滤波&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.medianBlur()&lt;/code&gt;：中值滤波&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.bilateralFilter()&lt;/code&gt;：双边滤波&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;小结：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在不知道用什么滤波器好的时候，优先高斯滤波&lt;code&gt;cv2.GaussianBlur()&lt;/code&gt;，然后均值滤波&lt;code&gt;cv2.blur()&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;斑点和椒盐噪声优先使用中值滤波&lt;code&gt;cv2.medianBlur()&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;要去除噪点的同时尽可能保留更多的边缘信息，使用双边滤波&lt;code&gt;cv2.bilateralFilter()&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;线性滤波方式：均值滤波、方框滤波、高斯滤波（速度相对快）。&lt;/li&gt;
-&lt;li&gt;非线性滤波方式：中值滤波、双边滤波（速度相对慢）。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="模糊" scheme="http://huris.xyz/tags/%E6%A8%A1%E7%B3%8A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程番外篇8：卷积基础(图片边框)</title>
-    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%878%EF%BC%9A%E5%8D%B7%E7%A7%AF%E5%9F%BA%E7%A1%80-%E5%9B%BE%E7%89%87%E8%BE%B9%E6%A1%86/"/>
-    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程番外篇8：卷积基础-图片边框/</id>
-    <published>2019-08-14T08:46:44.000Z</published>
-    <updated>2019-08-14T11:55:59.837Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;了解卷积/滤波的基础知识，给图片添加边框。如果你已了解相关理论，请直接跳到部分。&lt;/p&gt;
-&lt;p&gt;卷积的概念其实很好理解，下面我就给大家做个最简单的解释，绝对轻松加愉快的辣o(&lt;em&gt;￣▽￣&lt;/em&gt;)o&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="卷积" scheme="http://huris.xyz/tags/%E5%8D%B7%E7%A7%AF/"/>
     
   </entry>
   
