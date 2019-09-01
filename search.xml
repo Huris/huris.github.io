@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>卷积神经网络（CNN）模型结构可视化工具</title>
+      <link href="/2019/09/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/"/>
+      <url>/2019/09/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>深度学习中，CNN模型可视化有助于我们学习、分析网络模型。目前接触到的可视化有：特征图可视化、网络模型结构可视化。本文为大家介绍的就是网络模型结构可视化的两款小工具。</p><h2 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h2><p>本文主要介绍Netscope和ConvNetDraw。</p><a id="more"></a><h2 id="Netscope"><a href="#Netscope" class="headerlink" title="Netscope"></a>Netscope</h2><p>Netscope是一个在线编辑，用于可视化卷积神经网络模型结构的小工具。目前，支持Caffe的prototxt文件可视化。</p><p>支持自定义网络结构，可视化输出结构，只要按照prototxt的格式写即可。</p><p>可视化效果：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/trick-8-1.png" width="50%"></p><p>体验地址：<a href="https://cuijiahua.com/netscope/quickstart.html" target="_blank" rel="noopener">https://cuijiahua.com/netscope/quickstart.html</a></p><h2 id="ConvNetDraw"><a href="#ConvNetDraw" class="headerlink" title="ConvNetDraw"></a>ConvNetDraw</h2><p>ConvNetDraw也是一个用于可视化卷积神经网络模型结构的小工具。与Netscope不同的是，ConvNetDraw是使用可视化命令进行可视化的，而且命令很简单比如：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/trick-8-2.png" width="50%"></p><p>可视化效果：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/trick-8-3.png" width="50%"></p><p>体验地址：<a href="https://cuijiahua.com/convdraw/" target="_blank" rel="noopener">https://cuijiahua.com/convdraw/</a></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>两个工具都有些bug，对于前端可视化卷积神经网络感兴趣的朋友，可以去他们的Github开源项目看看，帮助完善就更赞了。</p><p>Netscope开源项目地址：<a href="https://cuijiahua.com/wp-content/themes/begin/inc/go.php?url=https://github.com/ethereon/netscope" target="_blank" rel="noopener">https://github.com/ethereon/netscope</a></p><p>ConvNetDraw开源项目地址：<a href="https://cuijiahua.com/wp-content/themes/begin/inc/go.php?url=https://github.com/cbovar/ConvNetDraw" target="_blank" rel="noopener">https://github.com/cbovar/ConvNetDraw</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机工具 </category>
+          
+          <category> 网络模型结构可视化工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CNN </tag>
+            
+            <tag> 模型结构 </tag>
+            
+            <tag> 可视化工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How a Kalman filter works, in pictures</title>
       <link href="/2019/08/30/How-a-Kalman-filter-works-in-pictures/"/>
       <url>/2019/08/30/How-a-Kalman-filter-works-in-pictures/</url>
@@ -1294,13 +1325,13 @@
             
             <tag> Python </tag>
             
-            <tag> Matplotlib </tag>
-            
             <tag> OpenCV </tag>
             
             <tag> 计算机视觉 </tag>
             
             <tag> 图像处理 </tag>
+            
+            <tag> Matplotlib </tag>
             
         </tags>
       
@@ -1990,9 +2021,9 @@
             
             <tag> Python </tag>
             
-            <tag> Matplotlib </tag>
-            
             <tag> 画图 </tag>
+            
+            <tag> Matplotlib </tag>
             
         </tags>
       
@@ -2046,9 +2077,9 @@
       
         <tags>
             
-            <tag> 画图 </tag>
-            
             <tag> Matlab </tag>
+            
+            <tag> 画图 </tag>
             
         </tags>
       
