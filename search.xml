@@ -1294,13 +1294,13 @@
             
             <tag> Python </tag>
             
+            <tag> Matplotlib </tag>
+            
             <tag> OpenCV </tag>
             
             <tag> 计算机视觉 </tag>
             
             <tag> 图像处理 </tag>
-            
-            <tag> Matplotlib </tag>
             
         </tags>
       
@@ -1990,9 +1990,9 @@
             
             <tag> Python </tag>
             
-            <tag> 画图 </tag>
-            
             <tag> Matplotlib </tag>
+            
+            <tag> 画图 </tag>
             
         </tags>
       
@@ -2046,9 +2046,9 @@
       
         <tags>
             
-            <tag> Matlab </tag>
-            
             <tag> 画图 </tag>
+            
+            <tag> Matlab </tag>
             
         </tags>
       
