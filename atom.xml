@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-09-01T13:18:14.646Z</updated>
+  <updated>2019-09-09T15:24:12.724Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>高数公式</title>
+    <link href="http://huris.xyz/2019/09/09/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
+    <id>http://huris.xyz/2019/09/09/高数公式/</id>
+    <published>2019-09-09T14:14:45.000Z</published>
+    <updated>2019-09-09T15:24:12.724Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;不定积分的基本积分公式&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;常见泰勒展开式&lt;/li&gt;
+&lt;li&gt;和差化积公式&lt;/li&gt;
+&lt;li&gt;积化和差公式&lt;/li&gt;
+&lt;li&gt;微分中值定理&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="数学之美" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
+    
+      <category term="高数公式" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
+    
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="高数" scheme="http://huris.xyz/tags/%E9%AB%98%E6%95%B0/"/>
+    
+      <category term="常见公式" scheme="http://huris.xyz/tags/%E5%B8%B8%E8%A7%81%E5%85%AC%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>卷积神经网络（CNN）模型结构可视化工具</title>
@@ -71,7 +104,7 @@
     <link href="http://huris.xyz/2019/08/28/leetcode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>http://huris.xyz/2019/08/28/leetcode-101-对称二叉树/</id>
     <published>2019-08-28T00:53:29.000Z</published>
-    <updated>2019-08-28T09:43:28.533Z</updated>
+    <updated>2019-09-09T14:53:27.769Z</updated>
     
     <summary type="html">
     
@@ -693,46 +726,6 @@
       <category term="腐蚀" scheme="http://huris.xyz/tags/%E8%85%90%E8%9A%80/"/>
     
       <category term="膨胀" scheme="http://huris.xyz/tags/%E8%86%A8%E8%83%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程11：边缘检测</title>
-    <link href="http://huris.xyz/2019/08/14/Python-OpenCV%E6%95%99%E7%A8%8B11%EF%BC%9A%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B/"/>
-    <id>http://huris.xyz/2019/08/14/Python-OpenCV教程11：边缘检测/</id>
-    <published>2019-08-14T12:12:37.000Z</published>
-    <updated>2019-08-15T00:56:38.234Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习使用Canny获取图像的边缘。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.computer.org/cms/Computer.org/Transactions Home Pages/TPAMI/PDFs/top_ten_6.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Canny J . A Computational Approach To Edge Detection[J\]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 1986, PAMI-8(6):679-698.&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Canny边缘检测的简单概念&lt;/li&gt;
-&lt;li&gt;OpenCV函数：&lt;code&gt;cv2.Canny()&lt;/code&gt;：进行Canny边缘检测&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="边缘" scheme="http://huris.xyz/tags/%E8%BE%B9%E7%BC%98/"/>
     
   </entry>
   

@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>高数公式</title>
+      <link href="/2019/09/09/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
+      <url>/2019/09/09/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<ul><li>不定积分的基本积分公式</li><li></li><li>常见泰勒展开式</li><li>和差化积公式</li><li>积化和差公式</li><li>微分中值定理</li></ul><a id="more"></a><h2 id="不定积分的基本积分公式"><a href="#不定积分的基本积分公式" class="headerlink" title="不定积分的基本积分公式"></a>不定积分的基本积分公式</h2><p>$\int x^\alpha dx=\frac{1}{1+\alpha}x^{1+\alpha}+C,(\alpha \ne -1)$</p><p>$\int \frac{1}{x} dx=\ln|x|+C$</p><p>$\int a^x dx=\frac{a^x}{\ln a}+C,\int e^x dx=e^x+C$</p><p>$\int\cos xdx=\sin x+C$</p><p>$\int\sin xdx=-\cos x+C$</p><p>$\int \sec^2xdx=\int\frac{1}{\cos^2x}dx=\tan{x}+C$</p><p>$\int \csc^2xdx=\int\frac{1}{\sin^2x}dx=-\cot{x}+C$</p><p>$\int\sec xdx=\ln|\sec x+\tan x|+C$</p><p>$\int\csc xdx=\ln|\csc x-\cot x|+C$</p><p>$\int\frac{1}{a^2+x^2}dx=\frac{1}{a}\arctan\frac{x}{a}+C,\int\frac{1}{1+x^2}dx=\arctan x+C$</p><p>$\int\frac{1}{\sqrt{a^2-x^2}}dx=\arcsin\frac{x}{a}+C,(a&gt;0),\int\frac{1}{\sqrt{1-x^2}}dx=\arcsin x+C,(a&gt;0)$</p><p>$\int\frac{1}{a^2-x^2}dx=\frac{1}{2a}\ln|\frac{a+x}{a-x}|+C$</p><p>$\int\frac{1}{\sqrt{x^2\pm a^2}}dx=\ln|x+\sqrt{x^2\pm a^2}|+C$</p><h2 id="常见泰勒展开式"><a href="#常见泰勒展开式" class="headerlink" title="常见泰勒展开式"></a>常见泰勒展开式</h2><p>$e^x=\sum\limits_{n=0}^{\infty}\frac{x^n}{n!}=1+x+\frac{x^2}{2!}+…+\frac{x^n}{n!}+…,-\infty&lt;x&lt;+\infty$</p><p>$\frac{1}{1+x}=\sum\limits_{n=0}^{\infty}(-1)^nx^n=1-x+x^2-x^3+…+(-1)^nx^n+…,-1&lt;x&lt;1$</p><p>$\frac{1}{1-x}=\sum\limits_{n=0}^{\infty}x^n=1+x+x^2+x^3+…+x^n+…,-1&lt;x&lt;1$</p><p>$\ln(1+x)=\sum\limits_{n=1}^{\infty}(-1)^{n-1}\frac{x^n}{n}=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+…+(-1)^{n-1}\frac{x^n}{n}+…,-1\le{x}\le{1}$</p><p>$\sin{x}=\sum\limits_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+…+(-1)^n\frac{x^{2n+1}}{(2n+1)!}+…,-\infty&lt;x&lt;+\infty$</p><p>$\cos{x}=\sum\limits_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!}=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+…+(-1)^n\frac{x^{2n}}{(2n)!}+…,-\infty&lt;x&lt;+\infty$</p><p>$(1+x)^{\alpha}=1+\alpha{x}+\frac{\alpha(\alpha-1)}{2!}x^2+…+\frac{\alpha(\alpha-1)…(\alpha-n+1)}{n!}x^n+…,$$\begin{cases}<br> \ x\in(-1,1),\alpha\le-1\\<br> \ x\in(-1,1],-1&lt;\alpha<0\\ \ x\in[-1,1],\alpha>0<br>\end{cases}$</0\\></p><p>$\tan{x}=x+\frac{1}{3}x^3+o(x^3)$</p><p>$\arcsin{x}=x+\frac{1}{6}x^3+o(x^3)$</p><p>$\arctan{x}=x-\frac{1}{3}x^3+o(x^3)$</p><h2 id="和差化积公式"><a href="#和差化积公式" class="headerlink" title="和差化积公式"></a>和差化积公式</h2><p>$\sin\alpha+\sin\beta=2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}$</p><p>$\sin\alpha-\sin\beta=2\sin\frac{\alpha-\beta}{2}\cos\frac{\alpha+\beta}{2}$</p><p>$\cos\alpha+\cos\beta=2\cos\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}$</p><p>$\cos\alpha-\cos\beta=-2\sin\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}$</p><h2 id="积化和差公式"><a href="#积化和差公式" class="headerlink" title="积化和差公式"></a>积化和差公式</h2><p>$\sin\alpha\sin\beta=\frac{1}{2}[\cos(\alpha-\beta)-\cos(\alpha+\beta)]$</p><p>$\cos\alpha\cos\beta=\frac{1}{2}[\cos(\alpha+\beta)+\cos(\alpha-\beta)]$</p><p>$\sin\alpha\cos\beta=\frac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)]$</p><p>$\cos\alpha\sin\beta=\frac{1}{2}[\sin(\alpha+\beta)-\sin(\alpha-\beta)]$</p><h2 id="微分中值定理"><a href="#微分中值定理" class="headerlink" title="微分中值定理"></a>微分中值定理</h2><h3 id="罗尔定理"><a href="#罗尔定理" class="headerlink" title="罗尔定理"></a>罗尔定理</h3><p>设$f(x)$在闭区间$[a,b]$上连续，在开区间$(a,b)$内可导，若$f(a)=f(b)$，则至少存在一点$\xi\in(a,b)$，使得$f’(\xi)=0$。</p><h3 id="拉格朗日中值定理"><a href="#拉格朗日中值定理" class="headerlink" title="拉格朗日中值定理"></a>拉格朗日中值定理</h3><p>设$f(x)$在闭区间$[a,b]$上连续，在开区间$(a,b)$内可导，则至少存在一点$\xi\in(a,b)$，使得$f(b)-f(a)=f’(\xi)(b-a)$。</p><h3 id="柯西中值定理"><a href="#柯西中值定理" class="headerlink" title="柯西中值定理"></a>柯西中值定理</h3><p>设$f(x)$，$g(x)$在闭区间$[a,b]$上连续，在开区间$(a,b)$内可导，且$g’(x)\ne 0$，$x\in(a,b)$，则至少存在一点$\xi\in(a,b)$，使得$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f’(\xi)}{g’(\xi)}$。</p><h3 id="泰勒定理"><a href="#泰勒定理" class="headerlink" title="泰勒定理"></a>泰勒定理</h3><h4 id="带拉格朗日余项的泰勒定理"><a href="#带拉格朗日余项的泰勒定理" class="headerlink" title="带拉格朗日余项的泰勒定理"></a>带拉格朗日余项的泰勒定理</h4><p>设$f(x)$在点$x_0$的某一领域内有直到$n+1$阶的导数，则对该领域内的任意点$x$，都有</p><script type="math/tex; mode=display">f(x)=f(x_0)+\frac{f'(x_0)}{1!}(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+...+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1} \nonumber</script><p>其中，$\xi$ 介于$x$，$x_0$之间。</p><h4 id="带皮亚诺余项的泰勒定理"><a href="#带皮亚诺余项的泰勒定理" class="headerlink" title="带皮亚诺余项的泰勒定理"></a>带皮亚诺余项的泰勒定理</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学之美 </category>
+          
+          <category> 高数公式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+            <tag> 高数 </tag>
+            
+            <tag> 常见公式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>卷积神经网络（CNN）模型结构可视化工具</title>
       <link href="/2019/09/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/"/>
       <url>/2019/09/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/</url>
@@ -1325,13 +1356,13 @@
             
             <tag> Python </tag>
             
+            <tag> Matplotlib </tag>
+            
             <tag> OpenCV </tag>
             
             <tag> 计算机视觉 </tag>
             
             <tag> 图像处理 </tag>
-            
-            <tag> Matplotlib </tag>
             
         </tags>
       
