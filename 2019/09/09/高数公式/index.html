@@ -233,6 +233,7 @@
     <main class="post-main" itemprop="articleBody">
       <ul>
 <li>不定积分的基本积分公式</li>
+<li>定积分的性质</li>
 <li>常见泰勒展开式</li>
 <li>和差化积公式</li>
 <li>积化和差公式</li>
@@ -252,6 +253,22 @@
 <p>$\int\frac{1}{\sqrt{a^2-x^2}}dx=\arcsin\frac{x}{a}+C,(a&gt;0),\int\frac{1}{\sqrt{1-x^2}}dx=\arcsin x+C,(a&gt;0)$</p>
 <p>$\int\frac{1}{a^2-x^2}dx=\frac{1}{2a}\ln|\frac{a+x}{a-x}|+C$</p>
 <p>$\int\frac{1}{\sqrt{x^2\pm a^2}}dx=\ln|x+\sqrt{x^2\pm a^2}|+C$</p>
+<h2 id="定积分性质"><a href="#定积分性质" class="headerlink" title="定积分性质"></a>定积分性质</h2><p>设$f(x)$，$g(x)$在区间$[a,b]$上可积，则</p>
+<ol>
+<li><p>$\int_{a}^bkf(x)dx=k\int_{a}^bf(x)dx$</p>
+</li>
+<li><p>$\int_a^b[f(x)\pm g(x)]dx=\int_a^bf(x)dx\pm \int_a^bg(x)dx$</p>
+</li>
+<li>$\int_a^b1\cdot dx=\int_a^bdx=b-a$</li>
+<li><p>若$f(x)$在由$a, b,c$构成的最大的区间上可积，则$\int_a^bf(x)dx=\int_a^cf(x)dx+\int_c^bf(x)dx$</p>
+</li>
+<li><p>若在区间$[a,b]$上$f(x)\le g(x)$，则$\int_a^bf(x)dx\le\int_a^bg(x)dx$</p>
+</li>
+<li><p><strong>定积分的估值定理：</strong>如果$f(x)$在q㢟$[a,b]$上的最大值与最小值分别为$M,m$，则$m(b-a)\le\int_a^bf(x)dx\le M(b-a)$</p>
+</li>
+<li><p><strong>积分中值定理：</strong>如果$f(x)$在区间$[a,b]$上连续，则$[a,b]$上至少存在一点$\xi$，使$\int_a^bf(x)dx=f(\xi)(b-a)$，称$\frac{1}{b-a}\int_a^bf(x)dx$为函数$y=f(x)$在区间$[a,b]$上的平均值</p>
+</li>
+</ol>
 <h2 id="常见泰勒展开式"><a href="#常见泰勒展开式" class="headerlink" title="常见泰勒展开式"></a>常见泰勒展开式</h2><p>$e^x=\sum\limits_{n=0}^{\infty}\frac{x^n}{n!}=1+x+\frac{x^2}{2!}+…+\frac{x^n}{n!}+…,-\infty&lt;x&lt;+\infty$</p>
 <p>$\frac{1}{1+x}=\sum\limits_{n=0}^{\infty}(-1)^nx^n=1-x+x^2-x^3+…+(-1)^nx^n+…,-1&lt;x&lt;1$</p>
 <p>$\frac{1}{1-x}=\sum\limits_{n=0}^{\infty}x^n=1+x+x^2+x^3+…+x^n+…,-1&lt;x&lt;1$</p>
@@ -403,7 +420,7 @@ f(x)=f(x_0)+\frac{f'(x_0)}{1!}(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+...+\frac{f^{
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#不定积分的基本积分公式"><span class="toc-text">不定积分的基本积分公式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常见泰勒展开式"><span class="toc-text">常见泰勒展开式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#和差化积公式"><span class="toc-text">和差化积公式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#积化和差公式"><span class="toc-text">积化和差公式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#微分中值定理"><span class="toc-text">微分中值定理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#罗尔定理"><span class="toc-text">罗尔定理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#拉格朗日中值定理"><span class="toc-text">拉格朗日中值定理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#柯西中值定理"><span class="toc-text">柯西中值定理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#泰勒定理"><span class="toc-text">泰勒定理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#带拉格朗日余项的泰勒定理"><span class="toc-text">带拉格朗日余项的泰勒定理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#带皮亚诺余项的泰勒定理"><span class="toc-text">带皮亚诺余项的泰勒定理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#几个常用函数的带皮亚诺余项的麦克劳林展开式"><span class="toc-text">几个常用函数的带皮亚诺余项的麦克劳林展开式</span></a></li></ol></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#不定积分的基本积分公式"><span class="toc-text">不定积分的基本积分公式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定积分性质"><span class="toc-text">定积分性质</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常见泰勒展开式"><span class="toc-text">常见泰勒展开式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#和差化积公式"><span class="toc-text">和差化积公式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#积化和差公式"><span class="toc-text">积化和差公式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#微分中值定理"><span class="toc-text">微分中值定理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#罗尔定理"><span class="toc-text">罗尔定理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#拉格朗日中值定理"><span class="toc-text">拉格朗日中值定理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#柯西中值定理"><span class="toc-text">柯西中值定理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#泰勒定理"><span class="toc-text">泰勒定理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#带拉格朗日余项的泰勒定理"><span class="toc-text">带拉格朗日余项的泰勒定理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#带皮亚诺余项的泰勒定理"><span class="toc-text">带皮亚诺余项的泰勒定理</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#几个常用函数的带皮亚诺余项的麦克劳林展开式"><span class="toc-text">几个常用函数的带皮亚诺余项的麦克劳林展开式</span></a></li></ol></li></ol></li></ol></div>
     </div>
     
     
