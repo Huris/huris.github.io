@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-09-09T23:57:56.912Z</updated>
+  <updated>2019-09-10T00:23:00.990Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>线性代数公式</title>
+    <link href="http://huris.xyz/2019/09/10/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
+    <id>http://huris.xyz/2019/09/10/线性代数公式/</id>
+    <published>2019-09-09T23:58:42.000Z</published>
+    <updated>2019-09-10T00:23:00.990Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;矩阵的秩&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="数学之美" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
+    
+      <category term="数学公式" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
+    
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="高数" scheme="http://huris.xyz/tags/%E9%AB%98%E6%95%B0/"/>
+    
+      <category term="数学公式" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>高数公式</title>
     <link href="http://huris.xyz/2019/09/09/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
     <id>http://huris.xyz/2019/09/09/高数公式/</id>
     <published>2019-09-09T14:14:45.000Z</published>
-    <updated>2019-09-09T23:57:56.912Z</updated>
+    <updated>2019-09-09T23:59:36.044Z</updated>
     
     <summary type="html">
     
@@ -675,57 +703,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="轮廓" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程12：腐蚀与膨胀</title>
-    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B12%EF%BC%9A%E8%85%90%E8%9A%80%E4%B8%8E%E8%86%A8%E8%83%80/"/>
-    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程12：腐蚀与膨胀/</id>
-    <published>2019-08-15T00:56:57.000Z</published>
-    <updated>2019-08-15T08:00:50.292Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习常用形态学操作：腐蚀膨胀，开运算和闭运算。&lt;/p&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;了解形态学操作的概念&lt;/li&gt;
-&lt;li&gt;学习膨胀、腐蚀、开运算和闭运算等形态学操作&lt;/li&gt;
-&lt;li&gt;OpenCV：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv2.erode()&lt;/code&gt;：腐蚀函数&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.dilate()&lt;/code&gt;：膨胀函数&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.morphologyEx()&lt;/code&gt;：开闭运算函数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;形态学操作就是改变物体的形状，如腐蚀使物体”变瘦”，膨胀使物体”变胖”&lt;/p&gt;
-&lt;p&gt;先腐蚀后膨胀会分离物体，所以叫开运算，常用来&lt;strong&gt;去除小区域物体&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;先膨胀后腐蚀会&lt;strong&gt;消除物体内的小洞&lt;/strong&gt;，所以叫闭运算。&lt;/p&gt;
-&lt;p&gt;开/闭理解了之后很容易记忆噢(⊙o⊙)。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="形态学" scheme="http://huris.xyz/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/"/>
-    
-      <category term="腐蚀" scheme="http://huris.xyz/tags/%E8%85%90%E8%9A%80/"/>
-    
-      <category term="膨胀" scheme="http://huris.xyz/tags/%E8%86%A8%E8%83%80/"/>
     
   </entry>
   

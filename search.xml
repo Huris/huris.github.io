@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>线性代数公式</title>
+      <link href="/2019/09/10/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
+      <url>/2019/09/10/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%85%AC%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<ul><li>矩阵的秩</li></ul><a id="more"></a><h2 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h2><p>设$A$是$m\times n$矩阵，$B$是满足有关矩阵运算要求的矩阵，则</p><ol><li>$0\le r(a)\le \min\{m,n\}$</li><li><p>$r(kA)=r(A),(k\ne 0)$</p></li><li><p>设$A$是$m\times n$矩阵，$P,Q$分别是$m$阶、$n$阶可逆矩阵，则$r(A)=r(PA)=r(AQ)=r(PAQ)$</p></li><li><p>$r(AB)\le \min\{r(A),r(B)\}$，注：若$r(AB)\le r(A)$，$B$为$n$阶矩阵，则$r(B)&lt;n$</p></li><li>$r(A+B)\le r(A)+r(B)$</li><li><p>$r\left(\begin{bmatrix}A &amp;O\\O&amp;B\end{bmatrix}\right)=r(A)+r(B)$</p></li><li><p>$r(A)+r(B)\le r\left(\begin{bmatrix}A &amp;O\\C&amp;B\end{bmatrix}\right)\le r(A)+r(B)+r(C)$</p></li><li>$r(AB)\ge r(A)+r(B)-n$，注：当$AB=0$时，$r(A)+r(B)\le n$，$n$是$A$的列数（或$B$的行数）</li><li>$r(A)=r(A^T)=r(AA^T)=r(A^TA)$</li><li>$r(A^*)=\begin{cases}<br>\ n,r(A)=n \\<br>\ 1,r(A)=n-1,其中A为n阶方阵 \\<br>\ 0,r(A)&lt;n-1<br>\end{cases}$</li><li>若$A$是$n$阶方阵，$A^2=A$，则$r(A)+r(E-A)=n$</li><li>若$A$是$n$阶方阵，$A^2=E$，则$r(A+E)=r(A-E)=n$</li><li>$Ax=0$，基础解系所含向量的个数$S=n-r(A)$</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学之美 </category>
+          
+          <category> 数学公式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+            <tag> 高数 </tag>
+            
+            <tag> 数学公式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>高数公式</title>
       <link href="/2019/09/09/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
       <url>/2019/09/09/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/</url>
@@ -2423,6 +2454,17 @@
     
     
     <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>about</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -2437,17 +2479,6 @@
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       

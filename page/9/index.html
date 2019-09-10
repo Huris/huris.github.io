@@ -182,6 +182,63 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/07/会话和Cookies/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Huris">
+        <meta itemprop="description" content="To be is to be perceived.">
+        <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/08/07/会话和Cookies/" itemprop="url">会话和Cookies</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-07T10:56:14+08:00">2019-08-07 10:56:14</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <p>在浏览网站的时候，我们经常会遇到需要登录的情况，有些页面只有登录之后才可以访问，而且登录之后可以连续访问很多次网站，但是有时候过一段时间就需要重新登录。</p>
+<p>还有一些网站，再打开浏览器时就自动登录了，而且很长时间都不会失效，这里面涉及会话(<strong>Session</strong>)和<strong>Cookies</strong>的相关知识。</p>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        
+        <a class="post-tag button" href="/tags/计算机网络/" rel="tag"><i class="fas fa-tags"></i>计算机网络</a>
+        
+        <a class="post-tag button" href="/tags/cookies/" rel="tag"><i class="fas fa-tags"></i>cookies</a>
+        
+        <a class="post-tag button" href="/tags/会话/" rel="tag"><i class="fas fa-tags"></i>会话</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/07/爬虫的基本原理/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Huris">
@@ -455,63 +512,6 @@
     </footer>
   </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/05/Web库的安装/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Huris">
-        <meta itemprop="description" content="To be is to be perceived.">
-        <meta itemprop="image" content="/images/avatar.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Huris' HeapStack">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/08/05/Web库的安装/" itemprop="url">Web库的安装</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-05T12:18:23+08:00">2019-08-05 12:18:23</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/开发环境配置/" itemprop="url" rel="index"><span itemprop="name">开发环境配置</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p>现在日常访问的网站都是Web服务程序搭建而成的。</p>
-<p>Python也有一些这样的Web服务程序，比如Flask、Django等，我们可以拿它来开发网站和接口等。</p>
-<p>在爬虫中主要使用这些Web服务程序来搭建一些API接口。例如：维护一个代理池，代理保存在Redis数据库中，我们要将代理池作为一个公共的组件使用，那么如何构建一个方便的平台来供我们获取这些代理呢？最合适不过的就是通过Web服务提供一个API接口，我们只需要请求接口即可获取新的代理，这样做，简单、高效、实用！</p>
-<p>本文主要介绍Web服务程序<strong>Flask</strong>和<strong>Tornado</strong>。</p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/开发环境配置/" rel="tag"><i class="fas fa-tags"></i>开发环境配置</a>
-        
-        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
-        
-        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
@@ -547,7 +547,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">74</a></div>
+      <div><a href="/archives/">75</a></div>
     </div>
     
     
