@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-09-10T00:23:00.990Z</updated>
+  <updated>2019-09-20T13:44:08.742Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>彻底理解红黑树</title>
+    <link href="http://huris.xyz/2019/09/20/%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
+    <id>http://huris.xyz/2019/09/20/彻底理解红黑树/</id>
+    <published>2019-09-20T13:38:58.000Z</published>
+    <updated>2019-09-20T13:44:08.742Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;当在10亿数据中只需要进行10几次比较就能查找到目标时，不禁感叹编程之魅力！人类之伟大呀！ —— 学红黑树有感。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;红黑树是一种比较难的数据结构，要完全搞懂非常耗时耗力，红黑树怎么自平衡？什么时候需要左旋或右旋？插入和删除破坏了树的平衡后怎么处理？等等问题。&lt;/p&gt;
+&lt;p&gt;本文将通过图文的方式讲解红黑树的知识点，并且不会涉及到任何代码，相信我，在懂得红黑树实现原理前，看代码会一头雾水的，当原理懂了，代码也就按部就班写而已，没任何难度。&lt;/p&gt;
+&lt;p&gt;阅读本文需要具备知识点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;二叉查找树&lt;/li&gt;
+&lt;li&gt;完美平衡二叉树&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="http://huris.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="http://huris.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="红黑树" scheme="http://huris.xyz/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
+    
+      <category term="数据结构" scheme="http://huris.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>线性代数公式</title>
@@ -661,48 +692,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="轮廓层级" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93%E5%B1%82%E7%BA%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程13：轮廓</title>
-    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B13%EF%BC%9A%E8%BD%AE%E5%BB%93/"/>
-    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程13：轮廓/</id>
-    <published>2019-08-15T07:57:27.000Z</published>
-    <updated>2019-08-15T08:14:15.388Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习如何寻找并绘制轮廓。&lt;/p&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;了解轮廓的概念&lt;/li&gt;
-&lt;li&gt;寻找并绘制轮廓&lt;/li&gt;
-&lt;li&gt;OpenCV函数：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv2.findContours()&lt;/code&gt;：寻找轮廓&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.drawContours()&lt;/code&gt;：绘制轮廓&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="轮廓" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93/"/>
     
   </entry>
   
