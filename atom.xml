@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-09-20T15:46:36.423Z</updated>
+  <updated>2019-11-29T06:58:09.962Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git基本内容</title>
+    <link href="http://huris.xyz/2019/11/29/git%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9/"/>
+    <id>http://huris.xyz/2019/11/29/git基本内容/</id>
+    <published>2019-11-29T06:55:35.000Z</published>
+    <updated>2019-11-29T06:58:09.962Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;参考官方教程 &lt;a href=&quot;https://git-scm.com/book/zh/v2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;progit&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Git" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/Git/"/>
+    
+    
+      <category term="Git" scheme="http://huris.xyz/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>彻底理解红黑树</title>
@@ -658,40 +680,6 @@
       <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程番外篇10：轮廓层级</title>
-    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%8710%EF%BC%9A%E8%BD%AE%E5%BB%93%E5%B1%82%E7%BA%A7/"/>
-    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程番外篇10：轮廓层级/</id>
-    <published>2019-08-15T08:14:47.000Z</published>
-    <updated>2019-08-15T08:44:44.396Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;了解轮廓间的层级关系。&lt;/p&gt;
-&lt;p&gt;前面我们使用&lt;code&gt;cv2.findContours()&lt;/code&gt;寻找轮廓时，参数3表示轮廓的寻找方式(RetrievalModes)，当时我们传入的是cv2.RETR_TREE，它表示什么意思呢？另外，函数返回值hierarchy有什么用途呢？&lt;/p&gt;
-&lt;p&gt;下面我们就来研究下这两个问题。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="轮廓层级" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93%E5%B1%82%E7%BA%A7/"/>
     
   </entry>
   
