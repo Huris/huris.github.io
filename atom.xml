@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2019-09-20T15:46:36.423Z</updated>
+  <updated>2020-03-01T01:28:03.013Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LearnOpenGL</title>
+    <link href="http://huris.xyz/2020/02/27/LearnOpenGL/"/>
+    <id>http://huris.xyz/2020/02/27/LearnOpenGL/</id>
+    <published>2020-02-27T05:20:56.000Z</published>
+    <updated>2020-03-01T01:28:03.013Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要总结了我在《LearnOpenGL》中学习的过程&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="框架" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="OpenGL" scheme="http://huris.xyz/tags/OpenGL/"/>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ICthroughVR: Illuminating Cataracts through Virtual Reality</title>
+    <link href="http://huris.xyz/2019/12/21/ICthroughVR-Illuminating-Cataracts-through-Virtual-Reality/"/>
+    <id>http://huris.xyz/2019/12/21/ICthroughVR-Illuminating-Cataracts-through-Virtual-Reality/</id>
+    <published>2019-12-21T01:44:19.000Z</published>
+    <updated>2019-12-23T06:27:15.065Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;ICthroughVR: Illuminating(照亮) Cataracts(白内障) through Virtual Reality&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ICthroughVR%3A%20Illuminating%20Cataracts%20through%20Virtual%20Reality/Figure%201.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Vision impairments, such as cataracts, affect the way many people interact with their environment, yet are rarely considered by &lt;strong&gt;architects and lighting designers&lt;/strong&gt; because of a lack of design tools.&lt;/p&gt;
+&lt;p&gt;we present a method to &lt;strong&gt;simulate vision impairments&lt;/strong&gt;, in particular cataracts, graphically in virtual reality (VR), using eye tracking for gaze-dependent(注视) effects. &lt;/p&gt;
+&lt;p&gt;We also conduct(进行) a VR user study to &lt;strong&gt;investigate the effects of lighting on visual perception(感知) for users with cataracts&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In contrast to existing approaches, &lt;strong&gt;which mostly provide only simplified simulations and are primarily targeted at educational or demonstrative(示范) purposes&lt;/strong&gt;, we account for the user’s vision and the hardware constraints(限制) of the VR headset.&lt;/p&gt;
+&lt;p&gt;This makes it possible to calibrate(矫正) our cataract simulation to the same level of degraded(降低) vision for all participants. &lt;/p&gt;
+&lt;p&gt;Our study results show that we are able to calibrate(矫正) the vision of all our participants to a similar level of impairment, that maximum recognition distances for escape route signs with simulated cataracts are significantly smaller than without, and that luminaires(灯具) visible in the field of view are perceived as especially disturbing due to the glare effects they create.&lt;/p&gt;
+&lt;p&gt;In addition, the results show that our realistic simulation increases the understanding of how people with cataracts see and could therefore also be informative for health care personnel or relatives of cataract patients.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="论文阅读" scheme="http://huris.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+      <category term="虚拟现实" scheme="http://huris.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E/"/>
+    
+    
+      <category term="虚拟现实" scheme="http://huris.xyz/tags/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E/"/>
+    
+      <category term="医疗康复" scheme="http://huris.xyz/tags/%E5%8C%BB%E7%96%97%E5%BA%B7%E5%A4%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>彻底理解红黑树</title>
@@ -628,70 +684,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="轮廓" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程番外篇11：凸包及更多轮廓特征</title>
-    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%8711%EF%BC%9A%E5%87%B8%E5%8C%85%E5%8F%8A%E6%9B%B4%E5%A4%9A%E8%BD%AE%E5%BB%93%E7%89%B9%E5%BE%81/"/>
-    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程番外篇11：凸包及更多轮廓特征/</id>
-    <published>2019-08-15T09:10:13.000Z</published>
-    <updated>2019-08-15T09:24:21.473Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;计算凸包及更多轮廓特征。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程番外篇10：轮廓层级</title>
-    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B%E7%95%AA%E5%A4%96%E7%AF%8710%EF%BC%9A%E8%BD%AE%E5%BB%93%E5%B1%82%E7%BA%A7/"/>
-    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程番外篇10：轮廓层级/</id>
-    <published>2019-08-15T08:14:47.000Z</published>
-    <updated>2019-08-15T08:44:44.396Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;了解轮廓间的层级关系。&lt;/p&gt;
-&lt;p&gt;前面我们使用&lt;code&gt;cv2.findContours()&lt;/code&gt;寻找轮廓时，参数3表示轮廓的寻找方式(RetrievalModes)，当时我们传入的是cv2.RETR_TREE，它表示什么意思呢？另外，函数返回值hierarchy有什么用途呢？&lt;/p&gt;
-&lt;p&gt;下面我们就来研究下这两个问题。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="轮廓层级" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93%E5%B1%82%E7%BA%A7/"/>
     
   </entry>
   

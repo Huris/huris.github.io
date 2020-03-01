@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>LearnOpenGL</title>
+      <link href="/2020/02/27/LearnOpenGL/"/>
+      <url>/2020/02/27/LearnOpenGL/</url>
+      
+        <content type="html"><![CDATA[<p>本文主要总结了我在《LearnOpenGL》中学习的过程</p><a id="more"></a><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol><li><p>由于OpenGL是一个<strong>图形API</strong>，并不是一个独立的平台，它需要一个编程语言来工作，本文使用<strong>c++语言</strong>（如果对c++不是很熟悉，可以<a href="www.learncpp.com">learncpp</a>上学习）。</p></li><li><p>数学知识（线性代数、几何、三角学）。</p></li></ol><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>LearnOpenGL被分解成许多大的主题。每个<strong>主题</strong>包括一些<strong>小节</strong>，每个小节中会对不同的概念进行详细的解释。</p><p>本文采用了<strong>方框</strong>和<strong>代码</strong>。</p><h3 id="方框"><a href="#方框" class="headerlink" title="方框"></a>方框</h3><table><tr><td bgcolor="Chartreuse">绿色方框是一些注释或者对于OpenGL或讨论主题有用的特性/提示</td></tr></table><table><tr><td bgcolor="LightCoral">红色方框是一些警告或者一些你需要特别注意的特性</td></tr></table><table><tr><td bgcolor="LightSkyBlue">蓝色方框是帮助读者理解附加的一些信息</td></tr></table><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>代码会放在代码框中</p><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 这个方框是代码</span><br></code></pre></td></tr></table></figure><p>这样只提供了代码片段，当需要的时候会提供<strong>链接</strong>到当前工程的源代码中。</p><h3 id="颜色标记"><a href="#颜色标记" class="headerlink" title="颜色标记"></a>颜色标记</h3><p>有一些词语会以不同的颜色显示出来，用来表示这些词语有不同的意义</p><ul><li><font color="Green">定义</font>：绿色的字是定义，即一个重要的概念或名称，这些词语常能看到。</li><li><font color="Red">程序逻辑</font>：红色的字是函数的名称或者是类名。</li><li><font color="blue">变量</font>：蓝色的字是变量，包括所有的OpenGL常量。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机图形学 </category>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OpenGL </tag>
+            
+            <tag> 计算机图形学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ICthroughVR: Illuminating Cataracts through Virtual Reality</title>
+      <link href="/2019/12/21/ICthroughVR-Illuminating-Cataracts-through-Virtual-Reality/"/>
+      <url>/2019/12/21/ICthroughVR-Illuminating-Cataracts-through-Virtual-Reality/</url>
+      
+        <content type="html"><![CDATA[<p><strong>ICthroughVR: Illuminating(照亮) Cataracts(白内障) through Virtual Reality</strong></p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ICthroughVR%3A%20Illuminating%20Cataracts%20through%20Virtual%20Reality/Figure%201.png"></p><p>Vision impairments, such as cataracts, affect the way many people interact with their environment, yet are rarely considered by <strong>architects and lighting designers</strong> because of a lack of design tools.</p><p>we present a method to <strong>simulate vision impairments</strong>, in particular cataracts, graphically in virtual reality (VR), using eye tracking for gaze-dependent(注视) effects. </p><p>We also conduct(进行) a VR user study to <strong>investigate the effects of lighting on visual perception(感知) for users with cataracts</strong>.</p><p>In contrast to existing approaches, <strong>which mostly provide only simplified simulations and are primarily targeted at educational or demonstrative(示范) purposes</strong>, we account for the user’s vision and the hardware constraints(限制) of the VR headset.</p><p>This makes it possible to calibrate(矫正) our cataract simulation to the same level of degraded(降低) vision for all participants. </p><p>Our study results show that we are able to calibrate(矫正) the vision of all our participants to a similar level of impairment, that maximum recognition distances for escape route signs with simulated cataracts are significantly smaller than without, and that luminaires(灯具) visible in the field of view are perceived as especially disturbing due to the glare effects they create.</p><p>In addition, the results show that our realistic simulation increases the understanding of how people with cataracts see and could therefore also be informative for health care personnel or relatives of cataract patients.</p><a id="more"></a><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Vision impairments affect 1.3 billion people worldwide, according to the <em>World Health Organization</em> (WHO), with cataracts being one of the leading causes.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+          <category> 虚拟现实 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 虚拟现实 </tag>
+            
+            <tag> 医疗康复 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>彻底理解红黑树</title>
       <link href="/2019/09/20/%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
       <url>/2019/09/20/%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3%E7%BA%A2%E9%BB%91%E6%A0%91/</url>
