@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-03-01T01:28:03.013Z</updated>
+  <updated>2020-03-22T15:38:26.335Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>unity学习</title>
+    <link href="http://huris.xyz/2020/03/22/unity%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://huris.xyz/2020/03/22/unity学习/</id>
+    <published>2020-03-22T15:36:33.000Z</published>
+    <updated>2020-03-22T15:38:26.335Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="unity" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/unity/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="unity" scheme="http://huris.xyz/tags/unity/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LearnOpenGL</title>
     <link href="http://huris.xyz/2020/02/27/LearnOpenGL/"/>
     <id>http://huris.xyz/2020/02/27/LearnOpenGL/</id>
     <published>2020-02-27T05:20:56.000Z</published>
-    <updated>2020-03-01T01:28:03.013Z</updated>
+    <updated>2020-03-22T15:35:59.445Z</updated>
     
     <summary type="html">
     
@@ -639,51 +669,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="直方图" scheme="http://huris.xyz/tags/%E7%9B%B4%E6%96%B9%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python+OpenCV教程14：轮廓特征</title>
-    <link href="http://huris.xyz/2019/08/15/Python-OpenCV%E6%95%99%E7%A8%8B14%EF%BC%9A%E8%BD%AE%E5%BB%93%E7%89%B9%E5%BE%81/"/>
-    <id>http://huris.xyz/2019/08/15/Python-OpenCV教程14：轮廓特征/</id>
-    <published>2019-08-15T09:26:16.000Z</published>
-    <updated>2019-08-15T11:41:51.057Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习计算轮廓特征，如面积、周长、最小外接矩形等。&lt;/p&gt;
-&lt;p&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;计算物体的周长、面积、质心、最小外接矩形等&lt;/li&gt;
-&lt;li&gt;OpenCV函数：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv2.contourArea()&lt;/code&gt;：面积&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.arcLength()&lt;/code&gt;：周长&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.boundingRect()&lt;/code&gt;：外接矩&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.minAreaRect()&lt;/code&gt;：最小外接矩&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.minEnclosingCircle()&lt;/code&gt;：最小外接圆&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cv2.matchShapes()&lt;/code&gt;：进行形状匹配&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/"/>
-    
-      <category term="教程" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/OpenCV/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="http://huris.xyz/tags/Python/"/>
-    
-      <category term="OpenCV" scheme="http://huris.xyz/tags/OpenCV/"/>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="轮廓" scheme="http://huris.xyz/tags/%E8%BD%AE%E5%BB%93/"/>
     
   </entry>
   
