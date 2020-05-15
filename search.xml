@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>向量</title>
+      <link href="/2020/05/11/%E5%90%91%E9%87%8F/"/>
+      <url>/2020/05/11/%E5%90%91%E9%87%8F/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学之美 </category>
+          
+          <category> 线性代数 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 向量 </tag>
+            
+            <tag> 数学 </tag>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OpenMP并行编程指南</title>
       <link href="/2020/04/20/OpenMP%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/"/>
       <url>/2020/04/20/OpenMP%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/</url>
