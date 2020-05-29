@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>OpenGL绘制一个三角形 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/05/29/OpenGL绘制一个三角形/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">OpenGL绘制一个三角形</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-05-29T17:12:56+08:00">2020-05-29 17:12:56</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/OpenGL/" itemprop="url" rel="index"><span itemprop="name">OpenGL</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/OpenGL/应用/" itemprop="url" rel="index"><span itemprop="name">应用</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>本文介绍了如何用OpenGL绘制一个三角形，大致分为5个步骤。</p>
+<ol>
+<li>初始化: 初始化GLFW和GLAD</li>
+<li>数据处理: 生成和绑定VBO和VAO, 设置属性指针</li>
+<li>着色器: 顶点和片段着色器</li>
+<li>渲染</li>
+<li>善后工作</li>
+</ol>
+<a id="more"></a>
+<h2 id="main-cpp"><a href="#main-cpp" class="headerlink" title="main.cpp"></a>main.cpp</h2><p><strong>注意：</strong>头文件顺序：先<code>glad/glad.h</code>再<code>GLFW/glfw3.h</code>，否则会报如下错误：</p>
+<p><code>#error :  OpenGL header already included, remove this include, glad already provides it</code></p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;glad/glad.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;GLFW/glfw3.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><br>    <span class="hljs-comment">// 在窗口中绘制一个三角形</span><br>    <span class="hljs-comment">// 1. 初始化: 初始化GLFW和GLAD</span><br>    <span class="hljs-comment">// 2. 数据处理: 生成和绑定VBO和VAO, 设置属性指针</span><br>    <span class="hljs-comment">// 3. 着色器: 顶点和片段着色器</span><br>    <span class="hljs-comment">// 4. 渲染</span><br>    <span class="hljs-comment">// 5. 善后工作</span><br><br>    <span class="hljs-comment">/**<br>     ** 初始化初始化GLFW和GLAD<br>     **/</span><br><br>    glfwInit();  <span class="hljs-comment">// 初始化GLFW</span><br><br>    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, <span class="hljs-number">3</span>);  <span class="hljs-comment">// OpenGL主版本号为3</span><br>    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, <span class="hljs-number">3</span>);  <span class="hljs-comment">// OpenGL次版本号为3</span><br><br>    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  <span class="hljs-comment">// 使用核心模式(无需向后兼容性)</span><br>    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);   <span class="hljs-comment">// Mac OS X系统加这句话</span><br><br>    glfwWindowHint(GLFW_RESIZABLE, <span class="hljs-literal">false</span>);  <span class="hljs-comment">// 不可改变窗口大小</span><br><br>    <span class="hljs-comment">// 窗口宽高</span><br>    <span class="hljs-keyword">int</span> screen_width = <span class="hljs-number">1280</span>;<br>    <span class="hljs-keyword">int</span> screen_height = <span class="hljs-number">720</span>;<br><br>    <span class="hljs-comment">// 创建窗口(宽/高/窗口名称)</span><br>    <span class="hljs-keyword">auto</span> window = glfwCreateWindow(screen_width, screen_height, <span class="hljs-string">"Computer Graphics"</span>, <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>);<br><br>    <span class="hljs-comment">// 如果窗口创建失败, 输出Failed to Create OpenGL Context</span><br>    <span class="hljs-keyword">if</span>(window == <span class="hljs-literal">nullptr</span>)&#123;<br>        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Failed to Create OpenGL Context"</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br>        glfwTerminate();<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 将窗口的上下文设置为当前线程的主上下文</span><br>    glfwMakeContextCurrent(window);<br><br>    <span class="hljs-comment">// 初始化GLAD, 加载OpenGL函数指针地址的函数</span><br>    <span class="hljs-keyword">if</span>(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))&#123;<br>        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Failed to initialize GLAD"</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 创建视口, 指定当前视口尺寸, 前两个参数为左下角位置, 后两个参数是渲染窗口宽和高</span><br>    glViewport(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, screen_width, screen_height);<br><br><br>    <span class="hljs-comment">/**<br>     ** 数据处理: 生成和绑定VBO和VAO, 设置属性指针<br>     **/</span><br><br>    <span class="hljs-comment">// 三角形的顶点数据, 规范化(x,y,z)都要映射到[-1,1]之间</span><br>    <span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> triangle[] = &#123;<br>        <span class="hljs-comment">// 位置</span><br>        <span class="hljs-number">-0.5f</span>, <span class="hljs-number">-0.5f</span>, <span class="hljs-number">0.0f</span>,  <span class="hljs-comment">// 左下</span><br>         <span class="hljs-number">0.5f</span>, <span class="hljs-number">-0.5f</span>, <span class="hljs-number">0.0f</span>,  <span class="hljs-comment">// 右下</span><br>         <span class="hljs-number">0.0f</span>,  <span class="hljs-number">0.5f</span>, <span class="hljs-number">0.0f</span>   <span class="hljs-comment">//正上</span><br>    &#125;;<br><br>    <span class="hljs-comment">// 生成并绑定立方体的VAO和VBO</span><br>    <span class="hljs-comment">// 核心模式需要使用VAO, 渲染时只需要调用一次VAO即可</span><br>    GLuint vertex_array_object; <span class="hljs-comment">// VAO</span><br>    glGenVertexArrays(<span class="hljs-number">1</span>, &amp;vertex_array_object);<br>    glBindVertexArray(vertex_array_object);<br><br>    GLuint vertex_buffer_object; <span class="hljs-comment">// VBO</span><br>    glGenBuffers(<span class="hljs-number">1</span>, &amp;vertex_buffer_object);<br>    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_object);<br><br>    <span class="hljs-comment">// 将顶点数据绑定到当前默认的缓冲中, 好处是不用将顶点数据一个一个地发送到显卡上, 可以借助VBO一次性发送所有顶点数据</span><br>    <span class="hljs-comment">// GL_STATIC_DRAW表示顶点数据不会被改变</span><br>    glBufferData(GL_ARRAY_BUFFER, <span class="hljs-keyword">sizeof</span>(triangle), triangle, GL_STATIC_DRAW);<br><br>    <span class="hljs-comment">// 设置顶点属性指针</span><br>    <span class="hljs-comment">// 第一个参数0: 顶点着色器的位置值</span><br>    <span class="hljs-comment">// 第二个参数3: 位置属性是一个三分量的向量</span><br>    <span class="hljs-comment">// 第三个参数: 顶点的类型</span><br>    <span class="hljs-comment">// 第四个参数: 是否希望数据标准化,映射到[0,1]</span><br>    <span class="hljs-comment">// 第五个参数: 步长,表示连续顶点属性之间的间隔,下一组的数据再3个float之后</span><br>    <span class="hljs-comment">// 第六个参数: 数据的偏移量, 位置属性在开头, 因此为0, 还需要强制类型转换</span><br>    glVertexAttribPointer(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, GL_FLOAT, GL_FALSE, <span class="hljs-number">3</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">float</span>), (<span class="hljs-keyword">void</span> *)<span class="hljs-number">0</span>);<br>    glEnableVertexAttribArray(<span class="hljs-number">0</span>); <span class="hljs-comment">// 开启0通道</span><br><br>    <span class="hljs-comment">// 解绑VAO和VBO: 防止之后绑定VAO或VBO后, 对当前VAO和VBO产生影响, 使代码更加灵活规范</span><br>    glBindVertexArray(<span class="hljs-number">0</span>);<br>    glBindBuffer(GL_ARRAY_BUFFER, <span class="hljs-number">0</span>);<br><br><br>    <span class="hljs-comment">/**<br>     ** 着色器: 顶点和片段着色器<br>     **/</span><br><br>    <span class="hljs-comment">// 着色器源码 -&gt; 生成并编译着色器 -&gt; 链接着色器到着色器程序 -&gt; 删除着色器</span><br>    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *vertex_shader_source =<br>            <span class="hljs-string">"#version 330 core\n"</span><br>            <span class="hljs-string">"layout(location = 0) in vec3 aPos;\n"</span> <span class="hljs-comment">// 位置变量属性设置为0</span><br>            <span class="hljs-string">"void main()\n"</span><br>            <span class="hljs-string">"&#123;\n"</span><br>            <span class="hljs-string">"    gl_Position = vec4(aPos, 1.0);\n"</span><br>            <span class="hljs-string">"&#125;\n\0"</span>;<br><br>    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *fragment_shader_source =<br>            <span class="hljs-string">"#version 330 core\n"</span><br>            <span class="hljs-string">"out vec4 FragColor;\n"</span><br>            <span class="hljs-string">"void main()\n"</span><br>            <span class="hljs-string">"&#123;\n"</span><br>            <span class="hljs-string">"    FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"</span><br>            <span class="hljs-string">"&#125;\n\0"</span>;<br><br>    <span class="hljs-comment">// 生成并编译着色器</span><br>    <span class="hljs-comment">// 顶点着色器</span><br>    <span class="hljs-keyword">int</span> vertex_shader = glCreateShader(GL_VERTEX_SHADER);<br>    glShaderSource(vertex_shader, <span class="hljs-number">1</span>, &amp;vertex_shader_source, <span class="hljs-literal">NULL</span>);<br>    glCompileShader(vertex_shader);<br><br>    <span class="hljs-keyword">int</span> success;<br>    <span class="hljs-keyword">char</span> info_log[<span class="hljs-number">512</span>];<br><br>    <span class="hljs-comment">// 检查着色器是否成功编译, 如果编译失败, 打印错误信息</span><br>    glGetShaderiv(vertex_shader, GL_COMPILE_STATUS, &amp;success);<br>    <span class="hljs-keyword">if</span>(!success)&#123;<br>        glGetShaderInfoLog(vertex_shader, <span class="hljs-number">512</span>, <span class="hljs-literal">NULL</span>, info_log);<br>        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"ERROR::SHADER::VERTEX::COMPILATION_FAIILED\n"</span> &lt;&lt; info_log &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 片段着色器</span><br>    <span class="hljs-keyword">int</span> fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);<br>    glShaderSource(fragment_shader, <span class="hljs-number">1</span>, &amp;fragment_shader_source, <span class="hljs-literal">NULL</span>);<br>    glCompileShader(fragment_shader);<br><br>    <span class="hljs-comment">// 检查着色器是否成功编译, 如果编译失败, 打印错误信息</span><br>    glGetShaderiv(fragment_shader, GL_COMPILE_STATUS, &amp;success);<br>    <span class="hljs-keyword">if</span>(!success)&#123;<br>        glGetShaderInfoLog(fragment_shader, <span class="hljs-number">512</span>, <span class="hljs-literal">NULL</span>, info_log);<br>        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"ERROR::SHADER::FRAGMENT::COMPILATION_FAIILED\n"</span> &lt;&lt; info_log &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 链接顶点和片段着色器至一个着色器程序</span><br>    <span class="hljs-keyword">int</span> shader_program = glCreateProgram();<br>    glAttachShader(shader_program, vertex_shader);<br>    glAttachShader(shader_program, fragment_shader);<br><br>    glLinkProgram(shader_program);<br><br>    <span class="hljs-comment">// 检查着色器是否成功链接, 如果链接失败, 打印错误信息</span><br>    glGetProgramiv(shader_program, GL_LINK_STATUS, &amp;success);<br>    <span class="hljs-keyword">if</span>(!success)&#123;<br>        glGetProgramInfoLog(shader_program, <span class="hljs-number">512</span>, <span class="hljs-literal">NULL</span>, info_log);<br>        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"ERROR::SHADER::PROGRAM::LINKING_FAIILED\n"</span> &lt;&lt; info_log &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 删除顶点和片段着色器</span><br>    glDeleteShader(vertex_shader);<br>    glDeleteShader(fragment_shader);<br><br><br>    <span class="hljs-comment">/**<br>     ** 渲染<br>     **/</span><br><br>    <span class="hljs-keyword">while</span>(!glfwWindowShouldClose(window)) &#123;<br>        <span class="hljs-comment">// 清空颜色缓冲</span><br>        glClearColor(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>, <span class="hljs-number">1.0f</span>);   <span class="hljs-comment">// 用黑色背景色来清空</span><br>        glClear(GL_COLOR_BUFFER_BIT);<br><br>        <span class="hljs-comment">// 使用着色器程序</span><br>        glUseProgram(shader_program);<br><br>        <span class="hljs-comment">// 绘制三角形</span><br>        glBindVertexArray(vertex_array_object); <span class="hljs-comment">// 绑定VAO</span><br>        glDrawArrays(GL_TRIANGLES, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// 绘制三角形, 绘制三角形, 顶点起始索引值, 绘制数量</span><br>        glBindVertexArray(<span class="hljs-number">0</span>); <span class="hljs-comment">// 解除绑定</span><br><br>        <span class="hljs-comment">// 交换缓冲并且检查是否有触发时间(比如键盘输入, 鼠标移动等)</span><br>        <span class="hljs-comment">// 双缓冲, 前置缓冲(保存输出图像), 后置缓冲/离屏缓冲(渲染指令在这里进行)</span><br>        glfwSwapBuffers(window);<br>        glfwPollEvents();   <span class="hljs-comment">// 检测是否会触发一些其他函数</span><br>    &#125;<br><br><br>    <span class="hljs-comment">/**<br>     ** 善后工作<br>     **/</span><br>    <span class="hljs-comment">// 删除VAO和VBO</span><br>    glDeleteVertexArrays(<span class="hljs-number">1</span>, &amp;vertex_array_object);<br>    glDeleteBuffers(<span class="hljs-number">1</span>, &amp;vertex_buffer_object);<br><br>    <span class="hljs-comment">// 清理所有的资源并正确退出程序</span><br>    glfwTerminate();<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h2><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c++">cmake_minimum_required(VERSION <span class="hljs-number">3.14</span>)<br>project(Learn-OpenGL)<br><br><span class="hljs-built_in">set</span>(CMAKE_CXX_STANDARD <span class="hljs-number">14</span>)<br><br>find_package(OpenCV)<br>include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)<br><br># 添加头文件<br><span class="hljs-built_in">set</span>(GLEW_H /usr/local/Cellar/glew/<span class="hljs-number">2.1</span><span class="hljs-number">.0</span>_1/include)<br><span class="hljs-built_in">set</span>(GLFW_H /usr/local/Cellar/glfw/<span class="hljs-number">3.3</span><span class="hljs-number">.2</span>/include)<br><span class="hljs-built_in">set</span>(GLAD_H /usr/local/include)<br>include_directories($&#123;GLEW_H&#125; $&#123;GLFW_H&#125; $&#123;GLAD_H&#125;)<br><br><br># 添加目标链接<br><span class="hljs-built_in">set</span>(GLEW_LINK /usr/local/Cellar/glew/<span class="hljs-number">2.1</span><span class="hljs-number">.0</span>_1/lib/libGLEW<span class="hljs-number">.2</span><span class="hljs-number">.1</span>.dylib)<br><span class="hljs-built_in">set</span>(GLFW_LINK /usr/local/Cellar/glfw/<span class="hljs-number">3.3</span><span class="hljs-number">.2</span>/lib/libglfw<span class="hljs-number">.3</span>.dylib)<br>link_libraries($&#123;OPENGL&#125; $&#123;GLEW_LINK&#125; $&#123;GLFW_LINK&#125;)<br><br><br># 执行编译命令<br><span class="hljs-built_in">set</span>(SOURCE_FILES glad.c main.cpp)<br>add_executable(ccc $&#123;SOURCE_FILES&#125;)<br><br>target_link_libraries(ccc $&#123;OpenCV_LIBS&#125;) # 链接库<br><br><span class="hljs-keyword">if</span> (APPLE)<br>    target_link_libraries(ccc <span class="hljs-string">"-framework OpenGL"</span>)<br>endif()<br></code></pre></td></tr></table></figure>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/OpenGL/" rel="tag"><i class="fas fa-tags"></i>OpenGL</a>
+        
+        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>把最实用的经验，分享给最需要的读者，希望每一位来访的朋友都能有所收获！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/05/19/向量/" rel="next" title="向量"><i class="fas fa-angle-left"></i><span class="nav-title">向量</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">83</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">45</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">85</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#main-cpp"><span class="toc-text">main.cpp</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#CMakeLists-txt"><span class="toc-text">CMakeLists.txt</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
