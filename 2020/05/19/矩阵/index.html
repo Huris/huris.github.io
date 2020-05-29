@@ -862,7 +862,86 @@ E_{ij}=\left\{
                                     0，如果i\neq j
                                     \end{matrix}
                                     \right.
-                                    \tag{47}</script>
+                                    \tag{47}</script><p>则乘积矩阵$EM$的元素可表示为：</p>
+<script type="math/tex; mode=display">
+(EM)_{ij}=\sum_{k=1}^{n}E_{ik}M_{kj}=\left\{ 
+             \begin{equation}
+             \begin{aligned}
+             & M_{ij},如果i\neq r,且i\neq s \\
+             & M_{sj},如果i = r \\
+             & M_{rj},如果i = s \\
+             \end{aligned}
+             \end{equation}
+             \right.
+             \tag{48}</script><p>结果，矩阵$M$的$r$行和$s$行进行了交换。</p>
+<ol>
+<li>若单位矩阵的$r$行乘以标量$a$后，得矩阵$E$，则$E$的元素可按下式计算：</li>
+</ol>
+<script type="math/tex; mode=display">
+E_{ij}=\left\{ 
+             \begin{equation}
+             \begin{aligned}
+             & \delta_{ij},如果i\neq r \\
+             & a\delta_{ij},如果i = r \\
+             \end{aligned}
+             \end{equation}
+             \right.
+             \tag{49}</script><p>则乘积矩阵$EM$的元素可表示为：</p>
+<script type="math/tex; mode=display">
+(EM)_{ij}=\sum_{k=1}^{n}E_{ik}M_{kj}=\left\{ 
+             \begin{equation}
+             \begin{aligned}
+             & M_{ij},如果i\neq r \\
+             & aM_{rj},如果i = r \\
+             \end{aligned}
+             \end{equation}
+             \right.
+             \tag{50}</script><p>得到矩阵$M$的$r$行乘以标量$a$的结果。</p>
+<ol>
+<li>若单位矩阵的$r$行乘以标量$a$，再加到$s$行后，得矩阵$E$，则$E$的元素可按下式计算：</li>
+</ol>
+<script type="math/tex; mode=display">
+E_{ij}=\left\{ 
+             \begin{equation}
+             \begin{aligned}
+             & \delta_{ij},如果i\neq s \\
+             & \delta_{ij}+a\delta_{rj},如果i = s \\
+             \end{aligned}
+             \end{equation}
+             \right.
+             \tag{51}</script><p>则乘积矩阵$EM$的元素可表示为</p>
+<script type="math/tex; mode=display">
+(EM)_{ij}=\sum_{k=1}^{n}E_{ik}M_{kj}=\left\{ 
+             \begin{equation}
+             \begin{aligned}
+             & M_{ij},如果i\neq s \\
+             & M_{ij}+aM_{rj},如果i = s \\
+             \end{aligned}
+             \end{equation}
+             \right.
+             \tag{52}</script><p>得到矩阵$M$的$r$行乘以标量$a$，再加到$s$行的结果。</p>
+<p><strong>证毕</strong></p>
+<p>单位矩阵经过和初等行变换得到的$n\times n$矩阵$E$被称为初等矩阵。如果将矩阵$M$变成相应的单位矩阵，需要$k$个初等行变换，则：</p>
+<script type="math/tex; mode=display">
+I=E_kE_{k-1}E_{k-2}...E_0M \tag{53}</script><p>其中，$E_0$，$E_2$，…，$E_k$是与单位矩阵的$k$个初等行变换对应初等矩阵，它们的乘积$E_kE_{k-1}…E_0$等于矩阵$M$的逆矩阵。</p>
+<p>如果矩阵$M$是奇异矩阵，则不存在初等矩阵$E_0,E_1,…,E_k$使得上式$(53)$成立，这是因为奇异矩阵的行向量是线性相关的。</p>
+<h2 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h2><p>当且仅当$n\times n$矩阵$M$的行向量形成线性无关的向量集合时，矩阵$M$可逆。</p>
+<p><strong>证明</strong></p>
+<p>矩阵$M$的行向量为$R_1^T,R_2^T,…,R_n^T$，分两部分证明。</p>
+<ol>
+<li><p>用反证法证明，若矩阵$M$可逆，$M$的行向量形成线性无关的向量集合。即证明若$M$的行向量形成线性相关的向量集合，则矩阵$M$是奇异矩阵。</p>
+<p> 假设$M$的行向量线性相关，那么存在一行$r$，可以用其他$k$行的线性组合表示如下式所示：</p>
+<script type="math/tex; mode=display">
+ R_r^T=a_1R_{s_1}^T+a_2R_{s_2}^T+...+a_kR_{s_k}^T \tag{54}</script><p> 其中，$a_i$为标量，$s_i$是矩阵$M$中除了行$r$以外的全部$k$行索引。令$n\times n$矩阵$E_i$为将第$s_i$乘以$a_i$后加到行$r$的初等变换对应的初等矩阵，可得：</p>
+<script type="math/tex; mode=display">
+ M=E_kE_{k-1}E_{k-2}...E_0M' \tag{55}</script><p> 此时，在矩阵$M’$中，除了第$r$行元素均为$0$外，其他元素均等于矩阵$M$中相应元素，由<strong>定理1</strong>可得，矩阵$M’$是奇异矩阵，而矩阵$M$也是奇异矩阵。</p>
+</li>
+<li><p>假设矩阵$M$的行向量形成线性无关的向量集合，已知对矩阵进行的初等行变换不会改变矩阵的行向量之间线性无关的特性。利用Gauss-Jordan消去算法计算$M$的逆矩阵，如果算法步骤$3$失败，则此时从$R_j^T$到行$R_n^T$至少有一个非$0$元素的列数量少于行的数量，所以矩阵的第$j$到$n$行形成线性相关向量集合，与假设矛盾，因此算法步骤$3$不可能失败，矩阵$M$一定可逆。</p>
+</li>
+</ol>
+<p><strong>证毕</strong></p>
+<p>所有奇异矩阵都可以写成一个初等矩阵和一个含有0行的矩阵的乘积。</p>
+<h1 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h1>
     </main>
     <footer class="post-footer">
       
@@ -984,7 +1063,7 @@ E_{ij}=\left\{
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#矩阵性质"><span class="toc-text">矩阵性质</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#基本性质"><span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#方阵"><span class="toc-text">方阵</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#对角矩阵"><span class="toc-text">对角矩阵</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#转置矩阵"><span class="toc-text">转置矩阵</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#矩阵运算"><span class="toc-text">矩阵运算</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#标量与矩阵积"><span class="toc-text">标量与矩阵积</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵加法"><span class="toc-text">矩阵加法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵乘法"><span class="toc-text">矩阵乘法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#单位矩阵"><span class="toc-text">单位矩阵</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理1"><span class="toc-text">定理1</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理2"><span class="toc-text">定理2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#线性方程组"><span class="toc-text">线性方程组</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#初等行变换"><span class="toc-text">初等行变换</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#阶梯形矩阵-简约矩阵"><span class="toc-text">阶梯形矩阵(简约矩阵)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#例1-非齐次线性方程组"><span class="toc-text">例1 非齐次线性方程组</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#例2-齐次线性方程组"><span class="toc-text">例2 齐次线性方程组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#逆矩阵"><span class="toc-text">逆矩阵</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理1-1"><span class="toc-text">定理1</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理2-1"><span class="toc-text">定理2</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理3"><span class="toc-text">定理3</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Gauss-Jordan消去法-求逆矩阵"><span class="toc-text">Gauss-Jordan消去法(求逆矩阵)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#算法-1"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#例子"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理4"><span class="toc-text">定理4</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#矩阵性质"><span class="toc-text">矩阵性质</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#基本性质"><span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#方阵"><span class="toc-text">方阵</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#对角矩阵"><span class="toc-text">对角矩阵</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#转置矩阵"><span class="toc-text">转置矩阵</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#矩阵运算"><span class="toc-text">矩阵运算</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#标量与矩阵积"><span class="toc-text">标量与矩阵积</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵加法"><span class="toc-text">矩阵加法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#矩阵乘法"><span class="toc-text">矩阵乘法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#单位矩阵"><span class="toc-text">单位矩阵</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理1"><span class="toc-text">定理1</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理2"><span class="toc-text">定理2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#线性方程组"><span class="toc-text">线性方程组</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#初等行变换"><span class="toc-text">初等行变换</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#阶梯形矩阵-简约矩阵"><span class="toc-text">阶梯形矩阵(简约矩阵)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#例1-非齐次线性方程组"><span class="toc-text">例1 非齐次线性方程组</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#例2-齐次线性方程组"><span class="toc-text">例2 齐次线性方程组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#逆矩阵"><span class="toc-text">逆矩阵</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理1-1"><span class="toc-text">定理1</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理2-1"><span class="toc-text">定理2</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理3"><span class="toc-text">定理3</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Gauss-Jordan消去法-求逆矩阵"><span class="toc-text">Gauss-Jordan消去法(求逆矩阵)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#算法-1"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#例子"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理4"><span class="toc-text">定理4</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定理5"><span class="toc-text">定理5</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#行列式"><span class="toc-text">行列式</span></a></li></ol></div>
     </div>
     
     
