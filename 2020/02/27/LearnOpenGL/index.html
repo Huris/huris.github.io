@@ -260,8 +260,27 @@
 <li>c++语言（如果对c++不是很熟悉，可以<a href="www.learncpp.com">learncpp</a>上学习）。</li>
 <li>数学知识（线性代数、几何、三角学）。</li>
 </ol>
-<h2 id="核心模式与立即渲染模式"><a href="#核心模式与立即渲染模式" class="headerlink" title="核心模式与立即渲染模式"></a>核心模式与立即渲染模式</h2><p>早期的OpenGL使用<font color="green">立即渲染模式</font>(Immediate mode, 也就是<font color="green">固定渲染模式</font>&gt;)，这个模式下绘制图形很方便。</p>
-
+<h2 id="核心模式与立即渲染模式"><a href="#核心模式与立即渲染模式" class="headerlink" title="核心模式与立即渲染模式"></a>核心模式与立即渲染模式</h2><p>早期的OpenGL使用<font color="green">立即渲染模式</font>(Immediate mode, 也就是<font color="green">固定渲染模式</font>)，这个模式下绘制图形很方便，容易使用和理解，但是效率太低。因此从OpenGL3.2开始，规范文档开始废弃立即渲染模式，并鼓励开发者在OpenGL的<font color="green">核心模式</font>(Core-profile)下进行开发，这个分支的规范完全移除了旧的特性，迫使我们使用现代的函数(具有更高的灵活性和效率，然而也更难于学习)。</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p><strong>OpenGL的一大特性就是对扩展(Extension)的支持</strong>。当一个显卡公司提出一个新特性或者渲染上的大优化，通常会以<font color="green">扩展</font>的方式在驱动中实现。</p>
+<p>如果一个程序在支持这个扩展的显卡上运行，开发者可以使用这个扩展提供的一些更先进更有效的图形功能。通过这种方式，开发者不必等待一个新的OpenGL规范面世，就可以使用这些新的渲染特性，只需要检查一下显卡是否支持此扩展。</p>
+<p>使用扩展的代码如下：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">if</span>(GL_ARB_extension_name)&#123;<br>    <span class="hljs-comment">// 使用硬件支持的全新的现代特性</span><br>&#125;<span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-comment">// 不支持此扩展: 用旧的方法做</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="状态机"><a href="#状态机" class="headerlink" title="状态机"></a>状态机</h2><p>OpenGL自身是一个巨大的状态机(State Machine)：一系列的变量描述OpenGL此刻应当如何运行。</p>
+<p>OpenGL的状态通常被称为OpenGL<font color="green">上下文</font>(Context)。</p>
+<p>我们通常使用如下途径去更改OpenGL状态：<code>设置选项-操作缓冲</code>，最后使用当前OpenGL上下文来渲染。</p>
+<p>假设当我们想告诉OpenGL去画线段而不是三角形，我们通过<strong>改变一些上下文变量来改变OpenGL状态</strong>，从而告诉OpenGL如何去绘图。一旦我们改变了OpenGL的状态为绘制线段，下一个绘制命令就会画出线段而不是三角形。</p>
+<p>当使用OpenGL的时候，我们会遇到一些<font color="green">状态设置函数</font>(State-changing Function)，这类函数将会改变上下文。以及<font color="green">状态使用函数</font>(State-using Function)，这类函数会根据当前OpenGL的状态执行一些操作。</p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>OpenGL的库是用C语言写的，同时也支持多种语言的派生，但其内核仍是一个C库。</p>
+<p>由于C的一些语言结构不易被翻译到其他高级语言，因此OpenGL开发的时候引入了一些抽象层，<strong>对象</strong>就是其中一个。</p>
+<p>在OpenGL中一个<font color="green">对象</font>是指一些选项的集合，它代表OpenGL状态的一个子集。比如，我们可以用一个对象来代表绘图窗口的设置，之后我们就可以设置它的大小、支持的颜色位数等等。可以把对象看做一个C风格的结构体(Struct)：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">object_name</span>&#123;</span><br>    <span class="hljs-keyword">float</span> option1;<br>    <span class="hljs-keyword">int</span> option2;<br>    <span class="hljs-keyword">char</span>[] name;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>当我们使用一个对象时，通常看起来像如下一样(把OpenGL上下文看作一个大的结构体)：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// OpenGL的状态</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">OpenGL_Contex</span>&#123;</span><br>    ...<br>    object* object_Window_Target;<br>    ...<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>OpenGL常见工作流：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 创建对象</span><br><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> objectId = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 用一个id保存它的引用(实际数据被存储到后台)</span><br>glGenObject(<span class="hljs-number">1</span>, &amp;objectId);<br><br><span class="hljs-comment">// 绑定对象至上下文的目标位置(例子中窗口对象目标的位置被定义成GL_WINDOW_TARGET)</span><br>glBindObject(GL_WINDOW_TARGET, ObjectId);<br><br><span class="hljs-comment">// 设置当前绑定到 GL_WINDOW_TARGET 的对象的一些选项</span><br>glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_WIDTH, <span class="hljs-number">800</span>);<br>glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_HEIGHT, <span class="hljs-number">600</span>);<br><br><span class="hljs-comment">// 将上下文对象id设回默认0，解绑这个对象</span><br>glBindObject(GL_WINDOW_TARGET, <span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
+<p>使用对象的好处是在程序中可以定义多个对象，每个对象可以做不同的设置。在执行一个使用OpenGL状态的操作的时候，只需要绑定含有需要的设置的对象即可。</p>
+<p>比如说我们有一些作为3D模型数据（一栋房子或一个人物）的容器对象，在我们想绘制其中任何一个模型的时候，只需绑定一个包含对应模型数据的对象就可以了（当然，我们需要先创建并设置对象的选项）。拥有数个这样的对象允许我们指定多个模型，在想画其中任何一个的时候，直接将对应的对象绑定上去，便不需要再重复设置选项了。</p>
+<h1 id="创建窗口"><a href="#创建窗口" class="headerlink" title="创建窗口"></a>创建窗口</h1>
     </main>
     <footer class="post-footer">
       
@@ -343,7 +362,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">81</a></div>
+      <div><a href="/archives/">82</a></div>
     </div>
     
     
@@ -357,7 +376,7 @@
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">84</a></div>
+      <div><a href="/tags/">85</a></div>
     </div>
     
     
@@ -381,7 +400,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#文档说明"><span class="toc-text">文档说明</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#结构"><span class="toc-text">结构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#方框"><span class="toc-text">方框</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#颜色标记"><span class="toc-text">颜色标记</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#核心模式与立即渲染模式"><span class="toc-text">核心模式与立即渲染模式</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#文档说明"><span class="toc-text">文档说明</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#结构"><span class="toc-text">结构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#方框"><span class="toc-text">方框</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#颜色标记"><span class="toc-text">颜色标记</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#核心模式与立即渲染模式"><span class="toc-text">核心模式与立即渲染模式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#扩展"><span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#状态机"><span class="toc-text">状态机</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#对象"><span class="toc-text">对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#创建窗口"><span class="toc-text">创建窗口</span></a></li></ol></div>
     </div>
     
     
