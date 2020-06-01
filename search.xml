@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>直线扫描转换算法</title>
+      <link href="/2020/05/29/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/"/>
+      <url>/2020/05/29/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>数值微分算法(DDA)，Bresenham算法。</p><a id="more"></a><h1 id="数值微分算法-DDA"><a href="#数值微分算法-DDA" class="headerlink" title="数值微分算法(DDA)"></a>数值微分算法(DDA)</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>数值微分法(Digital Differential Analyzer，DDA)，一种直接从直线的微分方程生成直线的方法。</p><p>通过给定直线的两端点坐标$P_0(x_0,y_0)$和$P_1(x_1,y_1)$，可以直接得到直线的微分方程：</p><script type="math/tex; mode=display">\frac{dy}{dx}=\frac{\triangle{y}}{\triangle{x}}=\frac{y_1-y_0}{x_1-x_0}=k \tag{1}</script><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/1.png" width="80%"></p><p>当$\epsilon$足够小时，精度会足够高。</p><p>由于设备的精度是有限的，因此通常令$\epsilon=\frac{1}{\max(|\triangle{x}|,|\triangle{y}|)}$，使得$\epsilon\triangle{x}$或$\epsilon\triangle{y}$中会有一个变成单位步长，算法在<strong>最大位移方向</strong>上，每次总是走一步，这样可以防止点与点之间的间距过大，产生一系列离散的点。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/2.png" width="80%"></p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">DDAline</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x0, <span class="hljs-keyword">int</span> y0, <span class="hljs-keyword">int</span> x1, <span class="hljs-keyword">int</span> y1)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> dx, dy, eps1, k;<br>    <span class="hljs-keyword">float</span> x, y, xIncre, yIncre;<br><br>    dx = x1 - x0; dy = y1 - y0;<br>    x = x0; y = y0;<br><br>  <span class="hljs-comment">// 最大位移方向判断</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">abs</span>(dx) &gt; <span class="hljs-built_in">abs</span>(dy)) eps1 = <span class="hljs-built_in">abs</span>(dx);<br>    <span class="hljs-keyword">else</span> eps1 = <span class="hljs-built_in">abs</span>(dy);<br><br>  <span class="hljs-comment">// x，y方向上增量的计算</span><br>    xIncre = (<span class="hljs-keyword">float</span>)dx / (<span class="hljs-keyword">float</span>)eps1;<br>    yIncre = (<span class="hljs-keyword">float</span>)dy / (<span class="hljs-keyword">float</span>)eps1;<br><br>  <span class="hljs-comment">// 输出最佳逼近的像素点</span><br>    <span class="hljs-keyword">for</span>(k = <span class="hljs-number">0</span>; k &lt;= eps1; k++)&#123;<br>        putpixel((<span class="hljs-keyword">int</span>)(x + <span class="hljs-number">0.5</span>), (<span class="hljs-keyword">int</span>)(y + <span class="hljs-number">0.5</span>));<br>        x += xIncre;<br>        y += yIncre;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="算法特点"><a href="#算法特点" class="headerlink" title="算法特点"></a>算法特点</h2><p>在一个迭代算法中，如果每一个$x$，$y$值是用前一步的值加上一个增量来获得的，那么，这种算法就称为增量算法。因此，DDA算法是一个<strong>增量算法</strong>。</p><p><strong>优点：</strong>DDA算法直观，易实现。</p><p><strong>缺点：</strong>有浮点数和浮点运算，效率不高。</p><h1 id="Bresenham算法"><a href="#Bresenham算法" class="headerlink" title="Bresenham算法"></a>Bresenham算法</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>输入：</strong>直线两个端点的坐标$P_0(x_0,y_0)$和$P_1(x_1,y_1)$。</p><p><strong>输出：</strong>最佳逼近这条直线的像素点集。</p><h2 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h2><p>通过给定直线的两端点坐标$P_0(x_0,y_0)$和$P_1(x_1,y_1)$，可得到直线斜截式表示：$y=kx+b$，它的隐式方程为：$F(x,y)=y-kx-b=0$，其中$k=\frac{\triangle{y}}{\triangle{x}}=\frac{y_1-y_0}{x_1-x_0}$。</p><p>选取中点$M(x_{i}+1,y_{i}+0.5)$，判断直线在$x_{i}+1$上的值与$y_i+0.5$的大小关系。</p><p><strong>构造判别式：</strong>$d=F(x_M,y_M)=F(x_i+1,y_i+0.5)=y_i+0.5-k(x_i+1)-b$</p><ol><li>当$d&lt;0$时，取右上方$P_u$，$y_{i+1}=y_i+1$；</li><li>当$d=0$时，任取一个，约定取$P_d$，$y_{i+1}=y_i$；</li><li>当$d&gt;0$时，取正右方的$P_d$，$y_{i+1}=y_i$。</li></ol><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/3.png" width="60%"></p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/4.png" width="60%"></p><p><strong>$d$的初值</strong></p><script type="math/tex; mode=display">\begin{equation}\begin{aligned}    d &= F(x_0+1,y_0+0.5)    \\      &= y_0+0.5-k(x_0+1)-b \\      &= y_0-kx_0-b-k+0.5 \\      &= 0.5-k\end{aligned}\end{equation}\tag{2}</script><p><strong>误差项递推</strong></p><ol><li>当$d&lt;0$时，下一个点的递推：</li></ol><script type="math/tex; mode=display">\begin{equation}\begin{aligned}    d &= F(x_i+2,y_i+1.5)    \\      &= y_i+1.5-k(x_i+2)-b \\      &= y_i+1.5-k(x_i+1)-b-k \\      &= d+1-k\end{aligned}\end{equation}\tag{3}</script><ol><li>当$d\geq 0$时，下一个点的递推：</li></ol><script type="math/tex; mode=display">\begin{equation}\begin{aligned}    d &= F(x_i+2,y_i+0.5)    \\      &= y_i+0.5-k(x_i+2)-b \\      &= y_i+0.5-k(x_i+1)-b-k \\      &= d-k\end{aligned}\end{equation}\tag{4}</script><p>由于$d$只用来判断正负，因此可以把$d$转化为整数方便计算。</p><p>$d$中有$0.5$和$k(k=\frac{\triangle{y}}{\triangle{x}})$，可以将$d$放大$2\triangle{x}$倍将其变为整数。</p><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>在$0\leq k\leq 1$情况下的整数的中点Bresenham算法：</p><ol><li><p>输入直线的两端点$P_0(x_0,y_0)$和$P_1(x_1,y_1)$；</p></li><li><p>计算初始值$\triangle{x}$，$\triangle{y}$，$d=\triangle{x}-2\triangle{y}$，$x=x_0$，$y=y_0$；</p></li><li><p>绘制点$(x,y)$，判断$d$的符号：</p><ol><li>当$d&lt;0$时，$(x，y)$更新为$(x+1,y+1)$，$d$=$d+2\triangle{x}-2\triangle{y}$；</li><li>当$d\geq 0$时，$(x，y)$更新为$(x+1,y)$，$d$=$d-2\triangle{y}$；</li></ol></li><li><p>重复步骤$3$至直线画完。</p></li></ol><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><strong>起点：</strong>$P_0(0,0)$，<strong>终点：</strong>$P_1(8.5)$</p><p>$d_0=\triangle{x}-2\triangle{y}=8-2\times 5=-2$</p><p>当$d&lt;0$时，往右上方时的增量为：$2\triangle{x}-2\triangle{y}=2\times 8-2\times 5=6$；</p><p>当$d\geq 0$时，往右上方时的增量为：$-2\triangle{y}=-2\times 5=-10$；</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/5.png" width="80%"></p><h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p><strong>改进一：</strong></p><ol><li><p>$d$的初值：$d_0=0$，令$e=d-0.5$，$e$的初值$e_0=-0.5$</p></li><li><p>$e$的变换及如何取点</p><p> $e=e+k$，$x_{i+1}=x_i+1$，$e&gt;0,y_{i+1}=y_i+1,e=e-1$，$e\leq0,y_{i+1}=y_i$</p></li></ol><p><strong>改进二：</strong></p><ol><li><p>$e$的初值$e_0=-\triangle{x}$</p></li><li><p>$e$的变换及如何取点</p><p> $e=e+2\triangle{y}$，$x_{i+1}=x_i+1$，$e&gt;0,y_{i+1}=y_i+1,e=e-e\triangle{x}$，$e\leq0,y_{i+1}=y_i$</p></li></ol><p><strong>过程：</strong></p><p>在$0\leq k\leq 1$情况下改进的Bresenham算法：</p><ol><li><p>输入直线的两端点$P_0(x_0,y_0)$和$P_1(x_1,y_1)$；</p></li><li><p>计算初始值$\triangle{x}$，$\triangle{y}$，$e=-\triangle{x}$，$x=x_0$，$y=y_0$；</p></li><li>绘制点$(x,y)$；</li><li><p>$e$更新为$e+2\triangle{y}$，判断$e$的符号：</p><ol><li>当$e&gt;0$时，$(x，y)$更新为$(x+1,y+1)$，同时将$e$更新为$e-2\triangle{x}$</li><li>当$e\leq 0$时，$(x，y)$更新为$(x+1,y)$</li></ol></li><li><p>重复步骤$3$和$4$至直线画完。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机图形学 </category>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> 直线生成 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OpenGL绘制一个三角形</title>
       <link href="/2020/05/29/OpenGL%E7%BB%98%E5%88%B6%E4%B8%80%E4%B8%AA%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
       <url>/2020/05/29/OpenGL%E7%BB%98%E5%88%B6%E4%B8%80%E4%B8%AA%E4%B8%89%E8%A7%92%E5%BD%A2/</url>
@@ -2676,9 +2705,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -2687,9 +2716,9 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       

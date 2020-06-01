@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>直线扫描转换算法 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/05/29/直线扫描转换算法/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">直线扫描转换算法</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-05-29T17:41:27+08:00">2020-05-29 17:41:27</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>数值微分算法(DDA)，Bresenham算法。</p>
+<a id="more"></a>
+<h1 id="数值微分算法-DDA"><a href="#数值微分算法-DDA" class="headerlink" title="数值微分算法(DDA)"></a>数值微分算法(DDA)</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>数值微分法(Digital Differential Analyzer，DDA)，一种直接从直线的微分方程生成直线的方法。</p>
+<p>通过给定直线的两端点坐标$P_0(x_0,y_0)$和$P_1(x_1,y_1)$，可以直接得到直线的微分方程：</p>
+<script type="math/tex; mode=display">
+\frac{dy}{dx}=\frac{\triangle{y}}{\triangle{x}}=\frac{y_1-y_0}{x_1-x_0}=k \tag{1}</script><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/1.png" width="80%"></p>
+<p>当$\epsilon$足够小时，精度会足够高。</p>
+<p>由于设备的精度是有限的，因此通常令$\epsilon=\frac{1}{\max(|\triangle{x}|,|\triangle{y}|)}$，使得$\epsilon\triangle{x}$或$\epsilon\triangle{y}$中会有一个变成单位步长，算法在<strong>最大位移方向</strong>上，每次总是走一步，这样可以防止点与点之间的间距过大，产生一系列离散的点。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/2.png" width="80%"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">DDAline</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x0, <span class="hljs-keyword">int</span> y0, <span class="hljs-keyword">int</span> x1, <span class="hljs-keyword">int</span> y1)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> dx, dy, eps1, k;<br>    <span class="hljs-keyword">float</span> x, y, xIncre, yIncre;<br><br>    dx = x1 - x0; dy = y1 - y0;<br>    x = x0; y = y0;<br><br>  	<span class="hljs-comment">// 最大位移方向判断</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">abs</span>(dx) &gt; <span class="hljs-built_in">abs</span>(dy)) eps1 = <span class="hljs-built_in">abs</span>(dx);<br>    <span class="hljs-keyword">else</span> eps1 = <span class="hljs-built_in">abs</span>(dy);<br>		<br>  	<span class="hljs-comment">// x，y方向上增量的计算</span><br>    xIncre = (<span class="hljs-keyword">float</span>)dx / (<span class="hljs-keyword">float</span>)eps1;<br>    yIncre = (<span class="hljs-keyword">float</span>)dy / (<span class="hljs-keyword">float</span>)eps1;<br>		<br>  	<span class="hljs-comment">// 输出最佳逼近的像素点</span><br>    <span class="hljs-keyword">for</span>(k = <span class="hljs-number">0</span>; k &lt;= eps1; k++)&#123;<br>        putpixel((<span class="hljs-keyword">int</span>)(x + <span class="hljs-number">0.5</span>), (<span class="hljs-keyword">int</span>)(y + <span class="hljs-number">0.5</span>));<br>        x += xIncre;<br>        y += yIncre;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="算法特点"><a href="#算法特点" class="headerlink" title="算法特点"></a>算法特点</h2><p>在一个迭代算法中，如果每一个$x$，$y$值是用前一步的值加上一个增量来获得的，那么，这种算法就称为增量算法。因此，DDA算法是一个<strong>增量算法</strong>。</p>
+<p><strong>优点：</strong>DDA算法直观，易实现。</p>
+<p><strong>缺点：</strong>有浮点数和浮点运算，效率不高。</p>
+<h1 id="Bresenham算法"><a href="#Bresenham算法" class="headerlink" title="Bresenham算法"></a>Bresenham算法</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>输入：</strong>直线两个端点的坐标$P_0(x_0,y_0)$和$P_1(x_1,y_1)$。</p>
+<p><strong>输出：</strong>最佳逼近这条直线的像素点集。</p>
+<h2 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h2><p>通过给定直线的两端点坐标$P_0(x_0,y_0)$和$P_1(x_1,y_1)$，可得到直线斜截式表示：$y=kx+b$，它的隐式方程为：$F(x,y)=y-kx-b=0$，其中$k=\frac{\triangle{y}}{\triangle{x}}=\frac{y_1-y_0}{x_1-x_0}$。</p>
+<p>选取中点$M(x_{i}+1,y_{i}+0.5)$，判断直线在$x_{i}+1$上的值与$y_i+0.5$的大小关系。</p>
+<p><strong>构造判别式：</strong>$d=F(x_M,y_M)=F(x_i+1,y_i+0.5)=y_i+0.5-k(x_i+1)-b$</p>
+<ol>
+<li>当$d&lt;0$时，取右上方$P_u$，$y_{i+1}=y_i+1$；</li>
+<li>当$d=0$时，任取一个，约定取$P_d$，$y_{i+1}=y_i$；</li>
+<li>当$d&gt;0$时，取正右方的$P_d$，$y_{i+1}=y_i$。</li>
+</ol>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/3.png" width="60%"></p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/4.png" width="60%"></p>
+<p><strong>$d$的初值</strong></p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    d &= F(x_0+1,y_0+0.5)    \\
+      &= y_0+0.5-k(x_0+1)-b \\
+      &= y_0-kx_0-b-k+0.5 \\
+      &= 0.5-k
+\end{aligned}
+\end{equation}
+\tag{2}</script><p><strong>误差项递推</strong></p>
+<ol>
+<li>当$d&lt;0$时，下一个点的递推：</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    d &= F(x_i+2,y_i+1.5)    \\
+      &= y_i+1.5-k(x_i+2)-b \\
+      &= y_i+1.5-k(x_i+1)-b-k \\
+      &= d+1-k
+\end{aligned}
+\end{equation}
+\tag{3}</script><ol>
+<li>当$d\geq 0$时，下一个点的递推：</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    d &= F(x_i+2,y_i+0.5)    \\
+      &= y_i+0.5-k(x_i+2)-b \\
+      &= y_i+0.5-k(x_i+1)-b-k \\
+      &= d-k
+\end{aligned}
+\end{equation}
+\tag{4}</script><p>由于$d$只用来判断正负，因此可以把$d$转化为整数方便计算。</p>
+<p>$d$中有$0.5$和$k(k=\frac{\triangle{y}}{\triangle{x}})$，可以将$d$放大$2\triangle{x}$倍将其变为整数。</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>在$0\leq k\leq 1$情况下的整数的中点Bresenham算法：</p>
+<ol>
+<li><p>输入直线的两端点$P_0(x_0,y_0)$和$P_1(x_1,y_1)$；</p>
+</li>
+<li><p>计算初始值$\triangle{x}$，$\triangle{y}$，$d=\triangle{x}-2\triangle{y}$，$x=x_0$，$y=y_0$；</p>
+</li>
+<li><p>绘制点$(x,y)$，判断$d$的符号：</p>
+<ol>
+<li>当$d&lt;0$时，$(x，y)$更新为$(x+1,y+1)$，$d$=$d+2\triangle{x}-2\triangle{y}$；</li>
+<li>当$d\geq 0$时，$(x，y)$更新为$(x+1,y)$，$d$=$d-2\triangle{y}$；</li>
+</ol>
+</li>
+<li><p>重复步骤$3$至直线画完。</p>
+</li>
+</ol>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><strong>起点：</strong>$P_0(0,0)$，<strong>终点：</strong>$P_1(8.5)$</p>
+<p>$d_0=\triangle{x}-2\triangle{y}=8-2\times 5=-2$</p>
+<p>当$d&lt;0$时，往右上方时的增量为：$2\triangle{x}-2\triangle{y}=2\times 8-2\times 5=6$；</p>
+<p>当$d\geq 0$时，往右上方时的增量为：$-2\triangle{y}=-2\times 5=-10$；</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/5.png" width="80%"></p>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p><strong>改进一：</strong></p>
+<ol>
+<li><p>$d$的初值：$d_0=0$，令$e=d-0.5$，$e$的初值$e_0=-0.5$</p>
+</li>
+<li><p>$e$的变换及如何取点</p>
+<p> $e=e+k$，$x_{i+1}=x_i+1$，$e&gt;0,y_{i+1}=y_i+1,e=e-1$，$e\leq0,y_{i+1}=y_i$</p>
+</li>
+</ol>
+<p><strong>改进二：</strong></p>
+<ol>
+<li><p>$e$的初值$e_0=-\triangle{x}$</p>
+</li>
+<li><p>$e$的变换及如何取点</p>
+<p> $e=e+2\triangle{y}$，$x_{i+1}=x_i+1$，$e&gt;0,y_{i+1}=y_i+1,e=e-e\triangle{x}$，$e\leq0,y_{i+1}=y_i$</p>
+</li>
+</ol>
+<p><strong>过程：</strong></p>
+<p>在$0\leq k\leq 1$情况下改进的Bresenham算法：</p>
+<ol>
+<li><p>输入直线的两端点$P_0(x_0,y_0)$和$P_1(x_1,y_1)$；</p>
+</li>
+<li><p>计算初始值$\triangle{x}$，$\triangle{y}$，$e=-\triangle{x}$，$x=x_0$，$y=y_0$；</p>
+</li>
+<li>绘制点$(x,y)$；</li>
+<li><p>$e$更新为$e+2\triangle{y}$，判断$e$的符号：</p>
+<ol>
+<li>当$e&gt;0$时，$(x，y)$更新为$(x+1,y+1)$，同时将$e$更新为$e-2\triangle{x}$</li>
+<li>当$e\leq 0$时，$(x，y)$更新为$(x+1,y)$</li>
+</ol>
+</li>
+<li><p>重复步骤$3$和$4$至直线画完。</p>
+</li>
+</ol>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
+        
+        <a class="post-tag button" href="/tags/直线生成/" rel="tag"><i class="fas fa-tags"></i>直线生成</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>把最实用的经验，分享给最需要的读者，希望每一位来访的朋友都能有所收获！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/05/29/OpenGL绘制一个三角形/" rel="next" title="OpenGL绘制一个三角形"><i class="fas fa-angle-left"></i><span class="nav-title">OpenGL绘制一个三角形</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">84</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">46</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">86</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#数值微分算法-DDA"><span class="toc-text">数值微分算法(DDA)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#算法特点"><span class="toc-text">算法特点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Bresenham算法"><span class="toc-text">Bresenham算法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#原理-1"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#过程"><span class="toc-text">过程</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#例子"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#改进"><span class="toc-text">改进</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

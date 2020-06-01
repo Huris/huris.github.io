@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-05-29T09:18:34.723Z</updated>
+  <updated>2020-06-01T12:39:15.801Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>直线扫描转换算法</title>
+    <link href="http://huris.xyz/2020/05/29/%E7%9B%B4%E7%BA%BF%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/"/>
+    <id>http://huris.xyz/2020/05/29/直线扫描转换算法/</id>
+    <published>2020-05-29T09:41:27.000Z</published>
+    <updated>2020-06-01T12:39:15.801Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数值微分算法(DDA)，Bresenham算法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="算法" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="直线生成" scheme="http://huris.xyz/tags/%E7%9B%B4%E7%BA%BF%E7%94%9F%E6%88%90/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenGL绘制一个三角形</title>
@@ -579,37 +603,6 @@
       <category term="图像处理" scheme="http://huris.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="车道检测" scheme="http://huris.xyz/tags/%E8%BD%A6%E9%81%93%E6%A3%80%E6%B5%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>目标检测背景</title>
-    <link href="http://huris.xyz/2019/08/16/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E8%83%8C%E6%99%AF/"/>
-    <id>http://huris.xyz/2019/08/16/目标检测背景/</id>
-    <published>2019-08-16T06:41:04.000Z</published>
-    <updated>2019-08-22T08:10:52.431Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;图像分类，检测及分割是计算机视觉领域的三大任务。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;图像分类模型是将图像划分为单个类别，通常对应于图像中最突出的物体。但在现实世界的很多图片通常包含不只一个物体，此时如果使用图像分类模型为图像分配一个单一标签其实是非常粗糙的，并不准确。&lt;/p&gt;
-&lt;p&gt;对于这样的情况，就需要目标检测模型，目标检测模型可以识别一张图片的多个物体，并可以定位出不同物体（给出边界框）。&lt;/p&gt;
-&lt;p&gt;目标检测在很多场景有用，如无人驾驶和安防系统。&lt;/p&gt;
-&lt;p&gt;以下是图像分类，目标检测与实例分割的对比。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%EF%BC%8C%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E7%9A%84%E5%AF%B9%E6%AF%94.png&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="目标检测" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-    
-      <category term="计算机视觉" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-      <category term="目标检测" scheme="http://huris.xyz/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-      <category term="背景" scheme="http://huris.xyz/tags/%E8%83%8C%E6%99%AF/"/>
     
   </entry>
   
