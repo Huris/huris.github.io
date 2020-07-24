@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>四元数 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/07/24/四元数/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">四元数</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-07-24T11:18:10+08:00">2020-07-24 11:18:10</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学之美/" itemprop="url" rel="index"><span itemprop="name">数学之美</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学之美/数学概念/" itemprop="url" rel="index"><span itemprop="name">数学概念</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>四元数是3D图形程序中用来表示旋转的数学方法。</p>
+<p>优点：</p>
+<ul>
+<li>所需的存储空间比矩阵少。</li>
+<li>合并四元数所需的代数操作少。</li>
+<li>对四元数的插值更容易实现，从而可以产生更连续的动画。</li>
+</ul>
+<a id="more"></a>
+<h1 id="四元数的数学"><a href="#四元数的数学" class="headerlink" title="四元数的数学"></a>四元数的数学</h1><p>四元数集合称为<strong>Hamilton四元数环</strong>，表示为$\H$，可以看做四维空间向量。</p>
+<p>元素$q$可表示为</p>
+<script type="math/tex; mode=display">
+q=<w,,x,y,z>=w+xi+yj+zk \tag{1}</script><p>四元数通常可以写成：$q=s+v$，$s$表示$w$对应的标量部分，$v$是$x$，$y$和$z$对应的向量部分。</p>
+<p>四元数集合是对复数集合的自然扩展，<strong>乘法可以用一般分配律</strong>计算。</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+        &i^2+j^2+k^2=-1 \\
+      &ij=-ji=k \\
+      &jk=-kj=i \\
+      &ki=-ik=j                                
+\end{aligned}
+\end{equation}
+\tag{2}</script><p>四元数<strong>乘法不满足交换律</strong>。</p>
+<p>给定两个四元数：$q_1=w_1+x_1i+y_1j+z_1k$和$q_2=w_2+x_2i+y_2j+z_2k$，它们的乘积$q_1q_2$可表示为：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+        q_1q_2 &=(w_1w_2-x_1x_2-y_1y_2-z_1z_2) \\
+                  &+(w_1x_2+x_1w_2+y_1z_2-z_1y_2)i \\
+                  &+(w_1y_2+y_1w_2+z_1x_2-x_1z_2)j \\
+                  &+(w_1z_2+z_1w_2+x_1y_2-y_1x_2)k \\
+\end{aligned}
+\end{equation}
+\tag{3}</script><p>给定两个四元数：$q_1=s_1+v_1$和$q_2=s_2+v_2$，它们的乘积$q_1q_2$可表示为：</p>
+<script type="math/tex; mode=display">
+q_1q_2=s_1s_2-v_1\cdot{v_2}+s_1v_2+s_2v_1+v_1\times v_2
+\tag{4}</script><p>四元数具有<strong>共轭性质</strong>。</p>
+<p>【定义】四元数$q=s+v$的共轭可以表示为$\bar{q}$，且$\bar{q}=s-v$。</p>
+<p>四元数$q$和它的共轭$\bar{q}$的乘积等于$q$与自己的内积，即<strong>$q$的大小的平方</strong>。</p>
+<script type="math/tex; mode=display">
+q\bar{q}=\bar{q}q=q\cdot q=\|q\|^2=q^2  \tag{5}</script><p>由此可以得到四元数倒数的计算方法</p>
+<p>【定理】非$0$四元数$q$的倒数可表示为$q^{-1}$，计算公式如下：</p>
+<script type="math/tex; mode=display">
+q^{-1}=\frac{\bar{q}}{q^2} \tag{6}</script><p><strong>证明</strong></p>
+<script type="math/tex; mode=display">
+qq^{-1}=\frac{q\bar{q}}{q^2}=\frac{q^2}{q^2}=1 \tag{7}</script><p>即：</p>
+<script type="math/tex; mode=display">
+q^{-1}q=\frac{\bar{q}q}{q^2}=\frac{q^2}{q^2}=1 \tag{8}</script><p><strong>证毕</strong></p>
+<h1 id="四元数旋转"><a href="#四元数旋转" class="headerlink" title="四元数旋转"></a>四元数旋转</h1><h2 id="三维空间"><a href="#三维空间" class="headerlink" title="三维空间"></a>三维空间</h2><p>三维空间的旋转可以看成函数$\varphi$在三维向量空间$\R^3$内的映射变换，由于是旋转变换，需保持长度、角度和偏手性不变，即，下式成立，则函数$\varphi$可保持旋转向量的长度不变性。</p>
+<script type="math/tex; mode=display">
+\|\varphi(P)\|=\|P\|  \tag{9}</script><p>对于$P_1$和$P_2$两点，连接坐标系<strong>原点与这两个点的线段之间的夹角</strong>如果满足以下条件，则在旋转过程中可保持不变。</p>
+<script type="math/tex; mode=display">
+\varphi(P_1)\cdot\varphi(P_2)=P_1\cdot P_2 \tag{10}</script><p>若下式成立，旋转过程中可保持偏手性不变。</p>
+<script type="math/tex; mode=display">
+\varphi(P_1)\times\varphi(P_2)=\varphi(P_1\times P_2) \tag{11}</script><h2 id="四维空间"><a href="#四维空间" class="headerlink" title="四维空间"></a>四维空间</h2><p>将函数$\varphi$扩展到四维向量空间$\H$，需$\varphi(s+v)=s+\varphi(v)$成立，则式$(10)$可写成如下形式：</p>
+<script type="math/tex; mode=display">
+\varphi(P_1)\cdot\varphi(P_2)=\varphi(P_1\cdot P_2) \tag{12}</script><p>其中，$P_1$和$P_2$可以看成标量部分为$0$的四元数，由于$P_1P_2=-P_1\cdot P_2+P_1\times P_2$，则式$(11)$和式$(12)$可组合在一起，得到同时保持<strong>角度不变性</strong>和<strong>偏手性不变</strong>的条件，即：</p>
+<script type="math/tex; mode=display">
+\varphi(P_1)\varphi(P_2)=\varphi(P_1P_2) \tag{13}</script><p>其中，满足式$(13)$的函数$\varphi$称为<strong>同态函数</strong>。</p>
+<p>同态函数$\varphi$满足以下条件：</p>
+<script type="math/tex; mode=display">
+\varphi_q(p)=qPq^{-1} \tag{14}</script><p>其中，$q$为非$0$的四元数，同态函数满足式$(9)$和式$(13)$，表示<strong>旋转变换函数的集合</strong>。</p>
+<p>可以证明，<strong>函数$\varphi_q$可保持长度不变性</strong>，即：</p>
+<script type="math/tex; mode=display">
+\|\varphi_q(P)\|=\|qPq^{-1}\|=\|q\|\|P\|\|q^{-1}\|=\|P\|\frac{\|q\|\|\bar{q}\|}{q^2}=\|P\| \tag{15}</script><p>由下式可得$\varphi_q$是同态函数：</p>
+<script type="math/tex; mode=display">
+\varphi_q(P_1)\varphi_q(P_2)=qP_1q^{-1}qP_2q^{-1}=qP_1P_2q^{-1}=\varphi_q(P_1P_2) \tag{16}</script><h3 id="绕轴-A-旋转-theta-角对应的四元数-q-表达式"><a href="#绕轴-A-旋转-theta-角对应的四元数-q-表达式" class="headerlink" title="绕轴$A$旋转$\theta$角对应的四元数$q$表达式"></a>绕轴$A$旋转$\theta$角对应的四元数$q$表达式</h3><p>因为$\varphi_q$为同态函数，对于标量$a\ne 0$，有$\varphi_{aq}=\varphi_q$，为使计算尽量简单，下面以单位四元数为示例。</p>
+<p>令$q=s+v$为一个单位四元数，则$q^{-1}=s-v$，对于点$P$，有</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+        qPq^{-1} &=(s+v)P(s-v) \\
+                    &=(-v\cdot P + sP + v\times P)(s-v) \\
+                    &=-sv\cdot P + s^2P + sv\times P + (v\cdot P)v - sPv - (v\times P)v \\
+                    &=s^2P + 2sv\times P + (v\cdot P)v - v\times P \times v \\
+\end{aligned}
+\end{equation}
+\tag{17}</script><p>因为$v\times P\times v=v^2P-(v\cdot P)v$，则：</p>
+<script type="math/tex; mode=display">
+qPq^{-1}=(s^2-v^2)P+2sv\times P + 2(v\cdot P)v \tag{18}</script><p>令$v=tA$，其中$A$为单位向量，则式$(18)$变为：</p>
+<script type="math/tex; mode=display">
+qPq^{-1}=(s^2-t^2)P+2stA\times P + 2t^2(A\cdot P)A \tag{19}</script><p>与绕任意轴旋转的旋转公式：$P’=P\cos\theta+(A\times P)\sin\theta+A(A\cdot P)(1-\cos\theta)$相比，可得如下等式：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+        s^2-t^2 &= \cos\theta \\
+               2st &= \sin\theta \\
+           2t^2 &= 1-\cos\theta \\
+\end{aligned}
+\end{equation}
+\tag{20}</script><p>由式$(20)$的第三个等式可得：</p>
+<script type="math/tex; mode=display">
+t=\sqrt{\frac{1-\cos\theta}{2}}=\sin\frac{\theta}{2}  \tag{21}</script><p>由式$(20)$的第一个和第三个等式可得：$s^2+t^2=1$，因此：$s=\cos\frac{\theta}{2}$，根据三角等式：$\sin2\theta=2\sin\theta\cos\theta$，可得：$2st=2\sin\frac{\theta}{2}\cos\frac{\theta}{2}=\sin\theta$，满足第二个等式。</p>
+<p>至此，可得<strong>绕轴$A$旋转$\theta$角对应的单位四元数$q$</strong>的表达式如下：</p>
+<script type="math/tex; mode=display">
+q=\cos\frac{\theta}{2}+A\sin\frac{\theta}{2}  \tag{22}</script><h3 id="标量乘以四元数表示相同旋转操作"><a href="#标量乘以四元数表示相同旋转操作" class="headerlink" title="标量乘以四元数表示相同旋转操作"></a>标量乘以四元数表示相同旋转操作</h3><p><strong>任意标量乘以四元数$q$都表示相同的旋转操作</strong>，因为：</p>
+<script type="math/tex; mode=display">
+(aq)P(aq)^{-1}=aqP\frac{q^{-1}}{a}=qPq^{-1}  \tag{23}</script><h3 id="多个四元数乘积表示旋转操作"><a href="#多个四元数乘积表示旋转操作" class="headerlink" title="多个四元数乘积表示旋转操作"></a>多个四元数乘积表示旋转操作</h3><p>两个四元数$q_1$和$q_2$的乘积也表示旋转操作，对于乘积$q_1q_2$来说，表示先进行$q_2$旋转，再进行$q_1$旋转，即：</p>
+<script type="math/tex; mode=display">
+q_1(q_2Pq_2^{-1})q_1^{-1}=(q_1q_2)P(q_1q_2)^{-1}  \tag{24}</script><p>由上式可知，可以<strong>将多个四元数合并成一个表示所有变换的四元数</strong>。</p>
+<p>计算<strong>两个四元数的乘积只需要16次乘加运算</strong>，而计算<strong>两个$3\times3$矩阵的乘积需要27次乘加运算</strong>。</p>
+<p>因此，当对一个对象进行多个旋转操作时，使用四元数进行变换可以提高计算效率。</p>
+<h3 id="四元数转换成-3-times3-旋转矩阵"><a href="#四元数转换成-3-times3-旋转矩阵" class="headerlink" title="四元数转换成$3\times3$旋转矩阵"></a>四元数转换成$3\times3$旋转矩阵</h3><p>将对物体进行的变换传递到3D图形库时，需要此操作。</p>
+<p>对于一个四元数$q=s+tA$，组合下式：</p>
+<script type="math/tex; mode=display">
+P\times Q=\left[
+                    \begin{matrix}
+                    0   & -P_z &  P_y \\
+                    P_z &    0 & -P_x \\
+                 -P_y & -P_x &    0 \\
+                \end{matrix}
+                    \right]
+
+                    \left[
+                    \begin{matrix}
+                    Q_x \\
+                    Q_y \\
+                  Q_z \\
+                \end{matrix}
+                    \right]
+                    \tag{25}</script><script type="math/tex; mode=display">
+proj_QP=\frac{1}{\|Q\|^2}
+                \left[
+                \begin{matrix}
+                Q_x^2  &    Q_xQ_y &    Q_xQ_z \\
+                Q_xQ_y &    Q_y^2  &    Q_yQ_z \\
+                Q_xQ_z &    Q_yQ_z  &    Q_z^2 \\
+                \end{matrix}
+                \right]
+                \left[
+                \begin{matrix}
+                P_x \\
+                P_y \\
+                P_z\\
+                \end{matrix}
+                \right]
+                \tag{26}</script><script type="math/tex; mode=display">
+qPq^{-1}=(s^2-t^2)P+2stA\times P + 2t^2(A\cdot P)A \tag{27}</script><p>可以获得其所对应的变换矩阵表达式，如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+qPq^{-1}&=\left[
+                    \begin{matrix}
+                    s^2-t^2&      0&      0 \\
+                          0&s^2-t^2&      0 \\
+                        0&      0&s^2-t^2 \\
+                \end{matrix}
+                    \right]
+                    P
+                    +
+                    \left[
+                    \begin{matrix}
+                          0&-2stA_z& 2stA_y \\
+                     2stA_z&      0&-2stA_x   \\
+                  -2stA_y& 2stA_x&      0 \\
+                \end{matrix}
+                    \right]
+                    P \\
+                    &+
+                    \left[
+                    \begin{matrix}
+                      2t^2A_x^2&2t^2A_xA_y&2t^2A_xA_z \\
+                     2t^2A_xA_y& 2t^2A_y^2&2t^2A_yA_z \\
+                     2t^2A_xA_z&2t^2A_yA_z& 2t^2A_z^2 \\
+                \end{matrix}
+                    \right]
+                    P
+\end{aligned}
+\end{equation}
+\tag{28}</script><p>将四元数写成四维向量的形式$q=<w,x,y,z>$，则$w=s$，$x=tA_x$，$y=tA_y$和$z=tA_z$，由于$A$是一个单位向量，则：</w,x,y,z></p>
+<script type="math/tex; mode=display">
+x^2+y^2+z^2=t^2A^2=t^2  \tag{29}</script><p>则式$(28)$写成$w$，$x$，$y$，$z$的表达式，如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+qPq^{-1}&=\left[
+                    \begin{matrix}
+                    w^2-x^2-y^2-z^2&      0&      0 \\
+                          0&w^2-x^2-y^2-z^2&      0 \\
+                        0&      0&w^2-x^2-y^2-z^2 \\
+                \end{matrix}
+                    \right]
+                    P \\
+                    &+
+                    \left[
+                    \begin{matrix}
+                          0&-2wz& 2wy \\
+                     2wz&      0&-2wx   \\
+                  -2wy& 2wx&      0 \\
+                \end{matrix}
+                    \right]
+                    P
+                    +
+                    \left[
+                    \begin{matrix}
+                      2x^2&2xy&2xz \\
+                     2xy& 2y^2&2yz \\
+                     2xz&2yz& 2z^2 \\
+                \end{matrix}
+                    \right]
+                    P
+\end{aligned}
+\end{equation}
+\tag{30}</script><p>由于$q$是一个单位四元数，有$w^2+x^2+y^2+z^2=1$，所以：</p>
+<script type="math/tex; mode=display">
+w^2-x^2-y^2-z^2=1-2x^2-2y^2-2z^2 \tag{31}</script><p>利用上式将式$(30)$中的三个矩阵合并可得与四元数$q$对应的旋转矩阵$R_q$，即：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+R_q&=\left[
+                    \begin{matrix}
+                    1-2y^2-2z^2&    2xy-2wz&    2xz+2wy \\
+                        2xy+2wz&1-2x^2-2z^2&    2yz-2wx \\
+                      2xz-2wy&    2yz+2wx&1-2x^2-2y^2 \\
+                \end{matrix}
+                    \right]
+                    P
+\end{aligned}
+\end{equation}
+\tag{32}</script><h1 id="球型线性插值"><a href="#球型线性插值" class="headerlink" title="球型线性插值"></a>球型线性插值</h1><p>由于四元数表示成向量的形式，它们非常适用于插值操作。</p>
+<p>在对象的动画过程中，<strong>插值可以产生对象在已计算好的关键帧之间的中间方向</strong>。</p>
+<h2 id="线性插值"><a href="#线性插值" class="headerlink" title="线性插值"></a>线性插值</h2><p>对于给定的两个四元数$q_1$和$q_2$，它们的线性插值$q(t)$等于：</p>
+<script type="math/tex; mode=display">
+q(t)=(1-t)q_1+tq_2 \tag{33}</script><p>当$t$从$0$到$1$时，函数$q(t)$将沿着连接$q_1$和$q_2$两点的线段平滑变化。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/%E5%9B%9B%E5%85%83%E6%95%B0/%E5%9B%9B%E5%85%83%E6%95%B0%E7%9A%84%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC.png" width="40%"></p>
+<p>如图所示，在式$(33)$中，$q(t)$不会保持$q_1$和$q_2$的单位长度，可以用下式保持$q(t)$规范化。</p>
+<script type="math/tex; mode=display">
+q(t)=\frac{(1-t)q_1+tq_2}{\|(1-t)q_1+tq_2\|} \tag{34}</script><p>该函数的插值结果可以在$q_1$和$q_2$两点之间形成一个圆弧，，上图为该<strong>函数在四维单位超球表面插值结果的二维截面形式</strong>。</p>
+<p>线性插值存在缺点：式$(34)$给出的插值函数$q(t)$随变量$t$的变化而变化的速率不是常数，如下图所示：</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/%E5%9B%9B%E5%85%83%E6%95%B0/%E5%87%BD%E6%95%B0%E6%9B%B2%E7%BA%BF.png" width="40%"></p>
+<p>从函数$\cos^{-1}(q(t)\cdot q_1)$曲线可以看出，$q(t)$与$q_1$之间的夹角可以表示变化速率，该角在$t=0$和$t=1$的两个端点处变化最慢，而在$t=\frac{1}{2}$处变化最快。</p>
+<h2 id="如何寻找一个好的插值函数-q-t"><a href="#如何寻找一个好的插值函数-q-t" class="headerlink" title="如何寻找一个好的插值函数$q(t)$"></a>如何寻找一个好的插值函数$q(t)$</h2><p>寻找一个插值函数$q(t)$，对四元数$q_1$和$q_2$进行插值的时候，可以<strong>保持四元数的单位长度</strong>，也可以<strong>保持从$q_1$和$q_2$之间的角度变化速率为常数</strong>。</p>
+<p>若$q_1$和$q_2$之间的夹角为$\theta$，则该函数产生的四元数$q(t)$与$q_1$之间的夹角$\theta t$随$t$从$1$到$0$变化而变化。</p>
+<p>如下图所示，四元数$q(t)$位于连接$q_1$和$q_2$的圆弧上，与$q_1$之间的夹角为$\theta t$，与$q_2$之间的夹角为$\theta(1-t)$，则$q(t)$的表达式如下：</p>
+<script type="math/tex; mode=display">
+q(t)=a(t)q_1+b(t)q_2 \tag{35}</script><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/%E5%9B%9B%E5%85%83%E6%95%B0/%E7%9B%B8%E4%BC%BC%E4%B8%89%E8%A7%92%E5%BD%A2%E6%B1%82%E5%88%86%E9%87%8F.png" width="60%"></p>
+<p>此处，$a(t)$表示$q(t)$沿$q_1$方向分量的长度，$b(t)$表示$q(t)$沿$q_2$方向分量的长度。</p>
+<p>如图$(a)$所示，通过构造相似的三角形，可计算长度$a(t)$，已知$q_1$到原点与$q_2$连接的垂直距离为$|q_1|\sin\theta$，$q(t)$到该线段的垂直距离为$|q(t)|\sin\theta(1-t)$，利用相似三角形的性质，可得：</p>
+<script type="math/tex; mode=display">
+\frac{a(t)}{\|q_1\|}=\frac{\|q(t)\|\sin\theta(1-t)}{\|q_1\|\sin\theta} \tag{36}</script><p>由于$|q_1|=1$和$|q(t)|=1$，上式可化简为：</p>
+<script type="math/tex; mode=display">
+a(t)=\frac{\sin\theta(1-t)}{\sin\theta}  \tag{37}</script><p>如图$(b)$所示，利用相同过程可以得到长度$b(t)$的表达式如下：</p>
+<script type="math/tex; mode=display">
+b(t)=\frac{\sin(\theta t)}{\sin\theta}  \tag{38}</script><p>由此，可得球型线性插值函数$q(t)$定义如下：</p>
+<script type="math/tex; mode=display">
+q(t)=\frac{\sin\theta(1-t)}{\sin\theta}q_1+\frac{\sin(\theta t)}{\sin\theta}q_2 \tag{39}</script><p>其中，$\theta$为：</p>
+<script type="math/tex; mode=display">
+\theta=\cos^{-1}(q_1\cdot q_2)  \tag{40}</script><p>也可以写成：</p>
+<script type="math/tex; mode=display">
+\sin\theta=\sqrt{1-(q_1\cdot q_2)^2}  \tag{41}</script><p>由于四元数$q$和$-q$表示相同的旋转，所以$q_1$和$q_2$的符号的选取应保证$q_1\cdot q_2\ge 0$，这可保证沿着$q_1$到$q_2$的最短路径插值。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
+        
+        <a class="post-tag button" href="/tags/四元数/" rel="tag"><i class="fas fa-tags"></i>四元数</a>
+        
+        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>把最实用的经验，分享给最需要的读者，希望每一位来访的朋友都能有所收获！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/07/07/程序员画图软件Graphviz/" rel="next" title="程序员画图软件Graphviz"><i class="fas fa-angle-left"></i><span class="nav-title">程序员画图软件Graphviz</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">87</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">49</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">91</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#四元数的数学"><span class="toc-text">四元数的数学</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#四元数旋转"><span class="toc-text">四元数旋转</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#三维空间"><span class="toc-text">三维空间</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#四维空间"><span class="toc-text">四维空间</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#绕轴-A-旋转-theta-角对应的四元数-q-表达式"><span class="toc-text">绕轴$A$旋转$\theta$角对应的四元数$q$表达式</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#标量乘以四元数表示相同旋转操作"><span class="toc-text">标量乘以四元数表示相同旋转操作</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#多个四元数乘积表示旋转操作"><span class="toc-text">多个四元数乘积表示旋转操作</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#四元数转换成-3-times3-旋转矩阵"><span class="toc-text">四元数转换成$3\times3$旋转矩阵</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#球型线性插值"><span class="toc-text">球型线性插值</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#线性插值"><span class="toc-text">线性插值</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#如何寻找一个好的插值函数-q-t"><span class="toc-text">如何寻找一个好的插值函数$q(t)$</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

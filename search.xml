@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>四元数</title>
+      <link href="/2020/07/24/%E5%9B%9B%E5%85%83%E6%95%B0/"/>
+      <url>/2020/07/24/%E5%9B%9B%E5%85%83%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<p>四元数是3D图形程序中用来表示旋转的数学方法。</p><p>优点：</p><ul><li>所需的存储空间比矩阵少。</li><li>合并四元数所需的代数操作少。</li><li>对四元数的插值更容易实现，从而可以产生更连续的动画。</li></ul><a id="more"></a><h1 id="四元数的数学"><a href="#四元数的数学" class="headerlink" title="四元数的数学"></a>四元数的数学</h1><p>四元数集合称为<strong>Hamilton四元数环</strong>，表示为$\H$，可以看做四维空间向量。</p><p>元素$q$可表示为</p><script type="math/tex; mode=display">q=<w,,x,y,z>=w+xi+yj+zk \tag{1}</script><p>四元数通常可以写成：$q=s+v$，$s$表示$w$对应的标量部分，$v$是$x$，$y$和$z$对应的向量部分。</p><p>四元数集合是对复数集合的自然扩展，<strong>乘法可以用一般分配律</strong>计算。</p><script type="math/tex; mode=display">\begin{equation}\begin{aligned}        &i^2+j^2+k^2=-1 \\      &ij=-ji=k \\      &jk=-kj=i \\      &ki=-ik=j                                \end{aligned}\end{equation}\tag{2}</script><p>四元数<strong>乘法不满足交换律</strong>。</p><p>给定两个四元数：$q_1=w_1+x_1i+y_1j+z_1k$和$q_2=w_2+x_2i+y_2j+z_2k$，它们的乘积$q_1q_2$可表示为：</p><script type="math/tex; mode=display">\begin{equation}\begin{aligned}        q_1q_2 &=(w_1w_2-x_1x_2-y_1y_2-z_1z_2) \\                  &+(w_1x_2+x_1w_2+y_1z_2-z_1y_2)i \\                  &+(w_1y_2+y_1w_2+z_1x_2-x_1z_2)j \\                  &+(w_1z_2+z_1w_2+x_1y_2-y_1x_2)k \\\end{aligned}\end{equation}\tag{3}</script><p>给定两个四元数：$q_1=s_1+v_1$和$q_2=s_2+v_2$，它们的乘积$q_1q_2$可表示为：</p><script type="math/tex; mode=display">q_1q_2=s_1s_2-v_1\cdot{v_2}+s_1v_2+s_2v_1+v_1\times v_2\tag{4}</script><p>四元数具有<strong>共轭性质</strong>。</p><p>【定义】四元数$q=s+v$的共轭可以表示为$\bar{q}$，且$\bar{q}=s-v$。</p><p>四元数$q$和它的共轭$\bar{q}$的乘积等于$q$与自己的内积，即<strong>$q$的大小的平方</strong>。</p><script type="math/tex; mode=display">q\bar{q}=\bar{q}q=q\cdot q=\|q\|^2=q^2  \tag{5}</script><p>由此可以得到四元数倒数的计算方法</p><p>【定理】非$0$四元数$q$的倒数可表示为$q^{-1}$，计算公式如下：</p><script type="math/tex; mode=display">q^{-1}=\frac{\bar{q}}{q^2} \tag{6}</script><p><strong>证明</strong></p><script type="math/tex; mode=display">qq^{-1}=\frac{q\bar{q}}{q^2}=\frac{q^2}{q^2}=1 \tag{7}</script><p>即：</p><script type="math/tex; mode=display">q^{-1}q=\frac{\bar{q}q}{q^2}=\frac{q^2}{q^2}=1 \tag{8}</script><p><strong>证毕</strong></p><h1 id="四元数旋转"><a href="#四元数旋转" class="headerlink" title="四元数旋转"></a>四元数旋转</h1><h2 id="三维空间"><a href="#三维空间" class="headerlink" title="三维空间"></a>三维空间</h2><p>三维空间的旋转可以看成函数$\varphi$在三维向量空间$\R^3$内的映射变换，由于是旋转变换，需保持长度、角度和偏手性不变，即，下式成立，则函数$\varphi$可保持旋转向量的长度不变性。</p><script type="math/tex; mode=display">\|\varphi(P)\|=\|P\|  \tag{9}</script><p>对于$P_1$和$P_2$两点，连接坐标系<strong>原点与这两个点的线段之间的夹角</strong>如果满足以下条件，则在旋转过程中可保持不变。</p><script type="math/tex; mode=display">\varphi(P_1)\cdot\varphi(P_2)=P_1\cdot P_2 \tag{10}</script><p>若下式成立，旋转过程中可保持偏手性不变。</p><script type="math/tex; mode=display">\varphi(P_1)\times\varphi(P_2)=\varphi(P_1\times P_2) \tag{11}</script><h2 id="四维空间"><a href="#四维空间" class="headerlink" title="四维空间"></a>四维空间</h2><p>将函数$\varphi$扩展到四维向量空间$\H$，需$\varphi(s+v)=s+\varphi(v)$成立，则式$(10)$可写成如下形式：</p><script type="math/tex; mode=display">\varphi(P_1)\cdot\varphi(P_2)=\varphi(P_1\cdot P_2) \tag{12}</script><p>其中，$P_1$和$P_2$可以看成标量部分为$0$的四元数，由于$P_1P_2=-P_1\cdot P_2+P_1\times P_2$，则式$(11)$和式$(12)$可组合在一起，得到同时保持<strong>角度不变性</strong>和<strong>偏手性不变</strong>的条件，即：</p><script type="math/tex; mode=display">\varphi(P_1)\varphi(P_2)=\varphi(P_1P_2) \tag{13}</script><p>其中，满足式$(13)$的函数$\varphi$称为<strong>同态函数</strong>。</p><p>同态函数$\varphi$满足以下条件：</p><script type="math/tex; mode=display">\varphi_q(p)=qPq^{-1} \tag{14}</script><p>其中，$q$为非$0$的四元数，同态函数满足式$(9)$和式$(13)$，表示<strong>旋转变换函数的集合</strong>。</p><p>可以证明，<strong>函数$\varphi_q$可保持长度不变性</strong>，即：</p><script type="math/tex; mode=display">\|\varphi_q(P)\|=\|qPq^{-1}\|=\|q\|\|P\|\|q^{-1}\|=\|P\|\frac{\|q\|\|\bar{q}\|}{q^2}=\|P\| \tag{15}</script><p>由下式可得$\varphi_q$是同态函数：</p><script type="math/tex; mode=display">\varphi_q(P_1)\varphi_q(P_2)=qP_1q^{-1}qP_2q^{-1}=qP_1P_2q^{-1}=\varphi_q(P_1P_2) \tag{16}</script><h3 id="绕轴-A-旋转-theta-角对应的四元数-q-表达式"><a href="#绕轴-A-旋转-theta-角对应的四元数-q-表达式" class="headerlink" title="绕轴$A$旋转$\theta$角对应的四元数$q$表达式"></a>绕轴$A$旋转$\theta$角对应的四元数$q$表达式</h3><p>因为$\varphi_q$为同态函数，对于标量$a\ne 0$，有$\varphi_{aq}=\varphi_q$，为使计算尽量简单，下面以单位四元数为示例。</p><p>令$q=s+v$为一个单位四元数，则$q^{-1}=s-v$，对于点$P$，有</p><script type="math/tex; mode=display">\begin{equation}\begin{aligned}        qPq^{-1} &=(s+v)P(s-v) \\                    &=(-v\cdot P + sP + v\times P)(s-v) \\                    &=-sv\cdot P + s^2P + sv\times P + (v\cdot P)v - sPv - (v\times P)v \\                    &=s^2P + 2sv\times P + (v\cdot P)v - v\times P \times v \\\end{aligned}\end{equation}\tag{17}</script><p>因为$v\times P\times v=v^2P-(v\cdot P)v$，则：</p><script type="math/tex; mode=display">qPq^{-1}=(s^2-v^2)P+2sv\times P + 2(v\cdot P)v \tag{18}</script><p>令$v=tA$，其中$A$为单位向量，则式$(18)$变为：</p><script type="math/tex; mode=display">qPq^{-1}=(s^2-t^2)P+2stA\times P + 2t^2(A\cdot P)A \tag{19}</script><p>与绕任意轴旋转的旋转公式：$P’=P\cos\theta+(A\times P)\sin\theta+A(A\cdot P)(1-\cos\theta)$相比，可得如下等式：</p><script type="math/tex; mode=display">\begin{equation}\begin{aligned}        s^2-t^2 &= \cos\theta \\               2st &= \sin\theta \\           2t^2 &= 1-\cos\theta \\\end{aligned}\end{equation}\tag{20}</script><p>由式$(20)$的第三个等式可得：</p><script type="math/tex; mode=display">t=\sqrt{\frac{1-\cos\theta}{2}}=\sin\frac{\theta}{2}  \tag{21}</script><p>由式$(20)$的第一个和第三个等式可得：$s^2+t^2=1$，因此：$s=\cos\frac{\theta}{2}$，根据三角等式：$\sin2\theta=2\sin\theta\cos\theta$，可得：$2st=2\sin\frac{\theta}{2}\cos\frac{\theta}{2}=\sin\theta$，满足第二个等式。</p><p>至此，可得<strong>绕轴$A$旋转$\theta$角对应的单位四元数$q$</strong>的表达式如下：</p><script type="math/tex; mode=display">q=\cos\frac{\theta}{2}+A\sin\frac{\theta}{2}  \tag{22}</script><h3 id="标量乘以四元数表示相同旋转操作"><a href="#标量乘以四元数表示相同旋转操作" class="headerlink" title="标量乘以四元数表示相同旋转操作"></a>标量乘以四元数表示相同旋转操作</h3><p><strong>任意标量乘以四元数$q$都表示相同的旋转操作</strong>，因为：</p><script type="math/tex; mode=display">(aq)P(aq)^{-1}=aqP\frac{q^{-1}}{a}=qPq^{-1}  \tag{23}</script><h3 id="多个四元数乘积表示旋转操作"><a href="#多个四元数乘积表示旋转操作" class="headerlink" title="多个四元数乘积表示旋转操作"></a>多个四元数乘积表示旋转操作</h3><p>两个四元数$q_1$和$q_2$的乘积也表示旋转操作，对于乘积$q_1q_2$来说，表示先进行$q_2$旋转，再进行$q_1$旋转，即：</p><script type="math/tex; mode=display">q_1(q_2Pq_2^{-1})q_1^{-1}=(q_1q_2)P(q_1q_2)^{-1}  \tag{24}</script><p>由上式可知，可以<strong>将多个四元数合并成一个表示所有变换的四元数</strong>。</p><p>计算<strong>两个四元数的乘积只需要16次乘加运算</strong>，而计算<strong>两个$3\times3$矩阵的乘积需要27次乘加运算</strong>。</p><p>因此，当对一个对象进行多个旋转操作时，使用四元数进行变换可以提高计算效率。</p><h3 id="四元数转换成-3-times3-旋转矩阵"><a href="#四元数转换成-3-times3-旋转矩阵" class="headerlink" title="四元数转换成$3\times3$旋转矩阵"></a>四元数转换成$3\times3$旋转矩阵</h3><p>将对物体进行的变换传递到3D图形库时，需要此操作。</p><p>对于一个四元数$q=s+tA$，组合下式：</p><script type="math/tex; mode=display">P\times Q=\left[                    \begin{matrix}                    0   & -P_z &  P_y \\                    P_z &    0 & -P_x \\                 -P_y & -P_x &    0 \\                \end{matrix}                    \right]                    \left[                    \begin{matrix}                    Q_x \\                    Q_y \\                  Q_z \\                \end{matrix}                    \right]                    \tag{25}</script><script type="math/tex; mode=display">proj_QP=\frac{1}{\|Q\|^2}                \left[                \begin{matrix}                Q_x^2  &    Q_xQ_y &    Q_xQ_z \\                Q_xQ_y &    Q_y^2  &    Q_yQ_z \\                Q_xQ_z &    Q_yQ_z  &    Q_z^2 \\                \end{matrix}                \right]                \left[                \begin{matrix}                P_x \\                P_y \\                P_z\\                \end{matrix}                \right]                \tag{26}</script><script type="math/tex; mode=display">qPq^{-1}=(s^2-t^2)P+2stA\times P + 2t^2(A\cdot P)A \tag{27}</script><p>可以获得其所对应的变换矩阵表达式，如下：</p><script type="math/tex; mode=display">\begin{equation}\begin{aligned}qPq^{-1}&=\left[                    \begin{matrix}                    s^2-t^2&      0&      0 \\                          0&s^2-t^2&      0 \\                        0&      0&s^2-t^2 \\                \end{matrix}                    \right]                    P                    +                    \left[                    \begin{matrix}                          0&-2stA_z& 2stA_y \\                     2stA_z&      0&-2stA_x   \\                  -2stA_y& 2stA_x&      0 \\                \end{matrix}                    \right]                    P \\                    &+                    \left[                    \begin{matrix}                      2t^2A_x^2&2t^2A_xA_y&2t^2A_xA_z \\                     2t^2A_xA_y& 2t^2A_y^2&2t^2A_yA_z \\                     2t^2A_xA_z&2t^2A_yA_z& 2t^2A_z^2 \\                \end{matrix}                    \right]                    P\end{aligned}\end{equation}\tag{28}</script><p>将四元数写成四维向量的形式$q=<w,x,y,z>$，则$w=s$，$x=tA_x$，$y=tA_y$和$z=tA_z$，由于$A$是一个单位向量，则：</w,x,y,z></p><script type="math/tex; mode=display">x^2+y^2+z^2=t^2A^2=t^2  \tag{29}</script><p>则式$(28)$写成$w$，$x$，$y$，$z$的表达式，如下：</p><script type="math/tex; mode=display">\begin{equation}\begin{aligned}qPq^{-1}&=\left[                    \begin{matrix}                    w^2-x^2-y^2-z^2&      0&      0 \\                          0&w^2-x^2-y^2-z^2&      0 \\                        0&      0&w^2-x^2-y^2-z^2 \\                \end{matrix}                    \right]                    P \\                    &+                    \left[                    \begin{matrix}                          0&-2wz& 2wy \\                     2wz&      0&-2wx   \\                  -2wy& 2wx&      0 \\                \end{matrix}                    \right]                    P                    +                    \left[                    \begin{matrix}                      2x^2&2xy&2xz \\                     2xy& 2y^2&2yz \\                     2xz&2yz& 2z^2 \\                \end{matrix}                    \right]                    P\end{aligned}\end{equation}\tag{30}</script><p>由于$q$是一个单位四元数，有$w^2+x^2+y^2+z^2=1$，所以：</p><script type="math/tex; mode=display">w^2-x^2-y^2-z^2=1-2x^2-2y^2-2z^2 \tag{31}</script><p>利用上式将式$(30)$中的三个矩阵合并可得与四元数$q$对应的旋转矩阵$R_q$，即：</p><script type="math/tex; mode=display">\begin{equation}\begin{aligned}R_q&=\left[                    \begin{matrix}                    1-2y^2-2z^2&    2xy-2wz&    2xz+2wy \\                        2xy+2wz&1-2x^2-2z^2&    2yz-2wx \\                      2xz-2wy&    2yz+2wx&1-2x^2-2y^2 \\                \end{matrix}                    \right]                    P\end{aligned}\end{equation}\tag{32}</script><h1 id="球型线性插值"><a href="#球型线性插值" class="headerlink" title="球型线性插值"></a>球型线性插值</h1><p>由于四元数表示成向量的形式，它们非常适用于插值操作。</p><p>在对象的动画过程中，<strong>插值可以产生对象在已计算好的关键帧之间的中间方向</strong>。</p><h2 id="线性插值"><a href="#线性插值" class="headerlink" title="线性插值"></a>线性插值</h2><p>对于给定的两个四元数$q_1$和$q_2$，它们的线性插值$q(t)$等于：</p><script type="math/tex; mode=display">q(t)=(1-t)q_1+tq_2 \tag{33}</script><p>当$t$从$0$到$1$时，函数$q(t)$将沿着连接$q_1$和$q_2$两点的线段平滑变化。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/%E5%9B%9B%E5%85%83%E6%95%B0/%E5%9B%9B%E5%85%83%E6%95%B0%E7%9A%84%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC.png" width="40%"></p><p>如图所示，在式$(33)$中，$q(t)$不会保持$q_1$和$q_2$的单位长度，可以用下式保持$q(t)$规范化。</p><script type="math/tex; mode=display">q(t)=\frac{(1-t)q_1+tq_2}{\|(1-t)q_1+tq_2\|} \tag{34}</script><p>该函数的插值结果可以在$q_1$和$q_2$两点之间形成一个圆弧，，上图为该<strong>函数在四维单位超球表面插值结果的二维截面形式</strong>。</p><p>线性插值存在缺点：式$(34)$给出的插值函数$q(t)$随变量$t$的变化而变化的速率不是常数，如下图所示：</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/%E5%9B%9B%E5%85%83%E6%95%B0/%E5%87%BD%E6%95%B0%E6%9B%B2%E7%BA%BF.png" width="40%"></p><p>从函数$\cos^{-1}(q(t)\cdot q_1)$曲线可以看出，$q(t)$与$q_1$之间的夹角可以表示变化速率，该角在$t=0$和$t=1$的两个端点处变化最慢，而在$t=\frac{1}{2}$处变化最快。</p><h2 id="如何寻找一个好的插值函数-q-t"><a href="#如何寻找一个好的插值函数-q-t" class="headerlink" title="如何寻找一个好的插值函数$q(t)$"></a>如何寻找一个好的插值函数$q(t)$</h2><p>寻找一个插值函数$q(t)$，对四元数$q_1$和$q_2$进行插值的时候，可以<strong>保持四元数的单位长度</strong>，也可以<strong>保持从$q_1$和$q_2$之间的角度变化速率为常数</strong>。</p><p>若$q_1$和$q_2$之间的夹角为$\theta$，则该函数产生的四元数$q(t)$与$q_1$之间的夹角$\theta t$随$t$从$1$到$0$变化而变化。</p><p>如下图所示，四元数$q(t)$位于连接$q_1$和$q_2$的圆弧上，与$q_1$之间的夹角为$\theta t$，与$q_2$之间的夹角为$\theta(1-t)$，则$q(t)$的表达式如下：</p><script type="math/tex; mode=display">q(t)=a(t)q_1+b(t)q_2 \tag{35}</script><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/%E5%9B%9B%E5%85%83%E6%95%B0/%E7%9B%B8%E4%BC%BC%E4%B8%89%E8%A7%92%E5%BD%A2%E6%B1%82%E5%88%86%E9%87%8F.png" width="60%"></p><p>此处，$a(t)$表示$q(t)$沿$q_1$方向分量的长度，$b(t)$表示$q(t)$沿$q_2$方向分量的长度。</p><p>如图$(a)$所示，通过构造相似的三角形，可计算长度$a(t)$，已知$q_1$到原点与$q_2$连接的垂直距离为$|q_1|\sin\theta$，$q(t)$到该线段的垂直距离为$|q(t)|\sin\theta(1-t)$，利用相似三角形的性质，可得：</p><script type="math/tex; mode=display">\frac{a(t)}{\|q_1\|}=\frac{\|q(t)\|\sin\theta(1-t)}{\|q_1\|\sin\theta} \tag{36}</script><p>由于$|q_1|=1$和$|q(t)|=1$，上式可化简为：</p><script type="math/tex; mode=display">a(t)=\frac{\sin\theta(1-t)}{\sin\theta}  \tag{37}</script><p>如图$(b)$所示，利用相同过程可以得到长度$b(t)$的表达式如下：</p><script type="math/tex; mode=display">b(t)=\frac{\sin(\theta t)}{\sin\theta}  \tag{38}</script><p>由此，可得球型线性插值函数$q(t)$定义如下：</p><script type="math/tex; mode=display">q(t)=\frac{\sin\theta(1-t)}{\sin\theta}q_1+\frac{\sin(\theta t)}{\sin\theta}q_2 \tag{39}</script><p>其中，$\theta$为：</p><script type="math/tex; mode=display">\theta=\cos^{-1}(q_1\cdot q_2)  \tag{40}</script><p>也可以写成：</p><script type="math/tex; mode=display">\sin\theta=\sqrt{1-(q_1\cdot q_2)^2}  \tag{41}</script><p>由于四元数$q$和$-q$表示相同的旋转，所以$q_1$和$q_2$的符号的选取应保证$q_1\cdot q_2\ge 0$，这可保证沿着$q_1$到$q_2$的最短路径插值。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学之美 </category>
+          
+          <category> 数学概念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> 四元数 </tag>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>程序员画图软件Graphviz</title>
       <link href="/2020/07/07/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%94%BB%E5%9B%BE%E8%BD%AF%E4%BB%B6Graphviz/"/>
       <url>/2020/07/07/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%94%BB%E5%9B%BE%E8%BD%AF%E4%BB%B6Graphviz/</url>
@@ -144,7 +175,7 @@
             
             <tag> 向量 </tag>
             
-            <tag> 数学 </tag>
+            <tag> 数学wa </tag>
             
             <tag> 线性代数 </tag>
             
@@ -1900,9 +1931,9 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
             <tag> 正则表达式 </tag>
             
@@ -1933,9 +1964,9 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
             <tag> 正则表达式 </tag>
             
@@ -2030,9 +2061,9 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
             <tag> 原理 </tag>
             
@@ -2088,9 +2119,9 @@
       
         <tags>
             
-            <tag> HTTP </tag>
-            
             <tag> 爬虫 </tag>
+            
+            <tag> HTTP </tag>
             
             <tag> 计算机网络 </tag>
             
@@ -2148,11 +2179,11 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2179,11 +2210,11 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2210,11 +2241,11 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2241,11 +2272,11 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2272,11 +2303,11 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2303,11 +2334,11 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
+            
+            <tag> 爬虫 </tag>
             
         </tags>
       

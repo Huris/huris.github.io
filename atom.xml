@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-07-07T02:10:22.393Z</updated>
+  <updated>2020-07-24T08:24:54.660Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>四元数</title>
+    <link href="http://huris.xyz/2020/07/24/%E5%9B%9B%E5%85%83%E6%95%B0/"/>
+    <id>http://huris.xyz/2020/07/24/四元数/</id>
+    <published>2020-07-24T03:18:10.000Z</published>
+    <updated>2020-07-24T08:24:54.660Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;四元数是3D图形程序中用来表示旋转的数学方法。&lt;/p&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所需的存储空间比矩阵少。&lt;/li&gt;
+&lt;li&gt;合并四元数所需的代数操作少。&lt;/li&gt;
+&lt;li&gt;对四元数的插值更容易实现，从而可以产生更连续的动画。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="数学之美" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
+    
+      <category term="数学概念" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="四元数" scheme="http://huris.xyz/tags/%E5%9B%9B%E5%85%83%E6%95%B0/"/>
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>程序员画图软件Graphviz</title>
@@ -128,7 +160,7 @@
     <link href="http://huris.xyz/2020/05/19/%E5%90%91%E9%87%8F/"/>
     <id>http://huris.xyz/2020/05/19/向量/</id>
     <published>2020-05-19T07:06:00.000Z</published>
-    <updated>2020-05-29T03:47:57.951Z</updated>
+    <updated>2020-07-24T06:07:18.843Z</updated>
     
     <summary type="html">
     
@@ -143,7 +175,7 @@
     
       <category term="向量" scheme="http://huris.xyz/tags/%E5%90%91%E9%87%8F/"/>
     
-      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+      <category term="数学wa" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6wa/"/>
     
       <category term="线性代数" scheme="http://huris.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
@@ -154,7 +186,7 @@
     <link href="http://huris.xyz/2020/05/19/%E7%9F%A9%E9%98%B5/"/>
     <id>http://huris.xyz/2020/05/19/矩阵/</id>
     <published>2020-05-19T06:53:01.000Z</published>
-    <updated>2020-07-24T03:06:48.461Z</updated>
+    <updated>2020-07-24T03:26:01.414Z</updated>
     
     <summary type="html">
     
@@ -531,53 +563,6 @@
       <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="激活函数" scheme="http://huris.xyz/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode-26-删除排序数组中的重复项</title>
-    <link href="http://huris.xyz/2019/08/24/leetcode-26-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/"/>
-    <id>http://huris.xyz/2019/08/24/leetcode-26-删除排序数组中的重复项/</id>
-    <published>2019-08-24T01:00:00.000Z</published>
-    <updated>2019-08-24T09:19:54.730Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。&lt;/p&gt;
-&lt;p&gt;不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。&lt;/p&gt;
-&lt;p&gt;示例1：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给定数组 nums = [1,1,2], &lt;/p&gt;
-&lt;p&gt;函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 &lt;/p&gt;
-&lt;p&gt;你不需要考虑数组中超出新长度后面的元素。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;示例2：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给定 nums = [0,0,1,1,1,2,2,3,3,4],&lt;/p&gt;
-&lt;p&gt;函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。&lt;/p&gt;
-&lt;p&gt;你不需要考虑数组中超出新长度后面的元素。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;说明：&lt;/p&gt;
-&lt;p&gt;为什么返回数值是整数，但输出的答案是数组呢?&lt;/p&gt;
-&lt;p&gt;请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。&lt;/p&gt;
-&lt;p&gt;你可以想象内部操作如下:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝&lt;br&gt;int len = removeDuplicates(nums);&lt;/p&gt;
-&lt;p&gt;// 在函数里修改输入数组对于调用者是可见的。&lt;br&gt;// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。&lt;br&gt;for (int i = 0; i &amp;lt; len; i++) {&lt;br&gt;   print(nums[i]);&lt;br&gt;}&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="算法与数据结构" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="LeetCode" scheme="http://huris.xyz/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/LeetCode/"/>
-    
-    
-      <category term="LeetCode" scheme="http://huris.xyz/tags/LeetCode/"/>
-    
-      <category term="算法与数据结构" scheme="http://huris.xyz/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="删除重复" scheme="http://huris.xyz/tags/%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D/"/>
     
   </entry>
   
