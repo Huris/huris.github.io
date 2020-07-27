@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-07-24T08:24:54.660Z</updated>
+  <updated>2020-07-27T07:24:23.899Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -17,11 +17,79 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>三维空间中的平面</title>
+    <link href="http://huris.xyz/2020/07/25/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E5%B9%B3%E9%9D%A2/"/>
+    <id>http://huris.xyz/2020/07/25/三维空间中的平面/</id>
+    <published>2020-07-25T07:17:38.000Z</published>
+    <updated>2020-07-27T07:24:23.899Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;一个三维点$P$与法向量$N$，则过点$P$并与$N$垂直的平面可以定义为满足$N\cdot (Q-P)=0$的点$Q$的集合。&lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="数学概念" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
+    
+      <category term="平面" scheme="http://huris.xyz/tags/%E5%B9%B3%E9%9D%A2/"/>
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三维空间中的直线</title>
+    <link href="http://huris.xyz/2020/07/25/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E7%9B%B4%E7%BA%BF/"/>
+    <id>http://huris.xyz/2020/07/25/三维空间中的直线/</id>
+    <published>2020-07-25T05:54:46.000Z</published>
+    <updated>2020-07-25T07:18:12.370Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;3D空间中两点$P_1$和$P_2$，通过这两点的直线参数化表达式：$P(t)=(1-t)P_1+tP_2$。&lt;/p&gt;
+&lt;p&gt;此处，$t$可为任意实数，若连接$P_1$至$P_2$的线段，则$t$值为$[0,1]$。&lt;/p&gt;
+&lt;p&gt;射线只有一个端点$S$，并沿着某一方向$V$无限延伸，射线的参数方程为：$P(t)=S+tV$。&lt;/p&gt;
+&lt;p&gt;此处，$t$是大于等于$0$的实数。&lt;/p&gt;
+&lt;p&gt;若令$S=P_1$，$V=P_2-P_1$，则可表示为一条直线。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="数学概念" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="直线" scheme="http://huris.xyz/tags/%E7%9B%B4%E7%BA%BF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>四元数</title>
     <link href="http://huris.xyz/2020/07/24/%E5%9B%9B%E5%85%83%E6%95%B0/"/>
     <id>http://huris.xyz/2020/07/24/四元数/</id>
     <published>2020-07-24T03:18:10.000Z</published>
-    <updated>2020-07-24T08:24:54.660Z</updated>
+    <updated>2020-07-26T06:23:04.524Z</updated>
     
     <summary type="html">
     
@@ -35,16 +103,16 @@
     
     </summary>
     
-      <category term="数学之美" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
-      <category term="数学概念" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"/>
+      <category term="数学概念" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"/>
     
     
       <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
-      <category term="四元数" scheme="http://huris.xyz/tags/%E5%9B%9B%E5%85%83%E6%95%B0/"/>
-    
       <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="四元数" scheme="http://huris.xyz/tags/%E5%9B%9B%E5%85%83%E6%95%B0/"/>
     
   </entry>
   
@@ -186,7 +254,7 @@
     <link href="http://huris.xyz/2020/05/19/%E7%9F%A9%E9%98%B5/"/>
     <id>http://huris.xyz/2020/05/19/矩阵/</id>
     <published>2020-05-19T06:53:01.000Z</published>
-    <updated>2020-07-24T03:26:01.414Z</updated>
+    <updated>2020-07-27T07:06:05.569Z</updated>
     
     <summary type="html">
     
@@ -510,59 +578,6 @@
       <category term="反向传播" scheme="http://huris.xyz/tags/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/"/>
     
       <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>梯度下降算法</title>
-    <link href="http://huris.xyz/2019/08/25/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/"/>
-    <id>http://huris.xyz/2019/08/25/梯度下降算法/</id>
-    <published>2019-08-25T10:33:42.000Z</published>
-    <updated>2019-08-26T06:24:29.740Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;梯度下降算法，又称为最速下降算法，是在无约束条件下计算连续可微函数极小值的基本方法。&lt;/p&gt;
-&lt;p&gt;这种方法的核心思想是用负梯度方向作为下降方向，在1874年由法国科学家Cauchy提出。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="深度学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="预备知识" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="梯度下降" scheme="http://huris.xyz/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>激活函数</title>
-    <link href="http://huris.xyz/2019/08/24/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
-    <id>http://huris.xyz/2019/08/24/激活函数/</id>
-    <published>2019-08-24T04:04:12.000Z</published>
-    <updated>2019-08-25T00:23:31.883Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一些常见的激活函数&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="深度学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="预备知识" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="激活函数" scheme="http://huris.xyz/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
