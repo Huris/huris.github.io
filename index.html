@@ -182,6 +182,65 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/07/27/视锥/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Huris">
+        <meta itemprop="description" content="To be is to be perceived.">
+        <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/07/27/视锥/" itemprop="url">视锥</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-07-27T15:27:48+08:00">2020-07-27 15:27:48</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/数学概念/" itemprop="url" rel="index"><span itemprop="name">数学概念</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <p>三维空间中，视锥是包含所有可视内容的空间体。</p>
+<p>视锥的形状像一个四棱锥，其顶点位于虚拟相机，表示相机通过一个矩形框看到的空间，这个矩形框就是计算机屏幕。</p>
+<p>视锥的边界由$6$个平面组成，其中$4$个与屏幕的边对应，分别称为左锥面、右锥面、顶锥面和底锥面，其余$2$个平面分别称为近锥面和远锥面，这两个锥平面定义了场景中可见对象对相机可见的最近和最远距离。</p>
+<p>视锥与相机空间（视察空间）对齐，相机位于坐标原点，$x$轴向右，$y$轴向上，$z$轴方向则与$3D$图形库有关（OpenGL中$z$轴方向与相机指向相反：右手坐标系，DirectX3D中$z$轴方向与相机指向相同：左手坐标系）。</p>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
+        
+        <a class="post-tag button" href="/tags/三维空间/" rel="tag"><i class="fas fa-tags"></i>三维空间</a>
+        
+        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
+        
+        <a class="post-tag button" href="/tags/视锥/" rel="tag"><i class="fas fa-tags"></i>视锥</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/07/25/三维空间中的平面/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Huris">
@@ -387,9 +446,9 @@ L'=(F^{-1})^{T}L  \tag{14}</script>
         
         <a class="post-tag button" href="/tags/三维空间/" rel="tag"><i class="fas fa-tags"></i>三维空间</a>
         
-        <a class="post-tag button" href="/tags/平面/" rel="tag"><i class="fas fa-tags"></i>平面</a>
-        
         <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
+        
+        <a class="post-tag button" href="/tags/平面/" rel="tag"><i class="fas fa-tags"></i>平面</a>
         
       </div>
       
@@ -447,9 +506,9 @@ L'=(F^{-1})^{T}L  \tag{14}</script>
         
         <a class="post-tag button" href="/tags/三维空间/" rel="tag"><i class="fas fa-tags"></i>三维空间</a>
         
-        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
-        
         <a class="post-tag button" href="/tags/直线/" rel="tag"><i class="fas fa-tags"></i>直线</a>
+        
+        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
         
       </div>
       
@@ -622,58 +681,6 @@ L'=(F^{-1})^{T}L  \tag{14}</script>
     </footer>
   </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/05/29/直线扫描转换算法/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Huris">
-        <meta itemprop="description" content="To be is to be perceived.">
-        <meta itemprop="image" content="/images/avatar.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Huris' HeapStack">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2020/05/29/直线扫描转换算法/" itemprop="url">直线扫描转换算法</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-05-29T17:41:27+08:00">2020-05-29 17:41:27</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p>数值微分算法(DDA)，Bresenham算法。</p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
-        
-        <a class="post-tag button" href="/tags/直线生成/" rel="tag"><i class="fas fa-tags"></i>直线生成</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
@@ -709,7 +716,7 @@ L'=(F^{-1})^{T}L  \tag{14}</script>
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">89</a></div>
+      <div><a href="/archives/">90</a></div>
     </div>
     
     
@@ -723,7 +730,7 @@ L'=(F^{-1})^{T}L  \tag{14}</script>
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">94</a></div>
+      <div><a href="/tags/">95</a></div>
     </div>
     
     

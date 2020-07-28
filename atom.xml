@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-07-27T07:24:23.899Z</updated>
+  <updated>2020-07-28T09:26:29.630Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>视锥</title>
+    <link href="http://huris.xyz/2020/07/27/%E8%A7%86%E9%94%A5/"/>
+    <id>http://huris.xyz/2020/07/27/视锥/</id>
+    <published>2020-07-27T07:27:48.000Z</published>
+    <updated>2020-07-28T09:26:29.630Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;三维空间中，视锥是包含所有可视内容的空间体。&lt;/p&gt;
+&lt;p&gt;视锥的形状像一个四棱锥，其顶点位于虚拟相机，表示相机通过一个矩形框看到的空间，这个矩形框就是计算机屏幕。&lt;/p&gt;
+&lt;p&gt;视锥的边界由$6$个平面组成，其中$4$个与屏幕的边对应，分别称为左锥面、右锥面、顶锥面和底锥面，其余$2$个平面分别称为近锥面和远锥面，这两个锥平面定义了场景中可见对象对相机可见的最近和最远距离。&lt;/p&gt;
+&lt;p&gt;视锥与相机空间（视察空间）对齐，相机位于坐标原点，$x$轴向右，$y$轴向上，$z$轴方向则与$3D$图形库有关（OpenGL中$z$轴方向与相机指向相反：右手坐标系，DirectX3D中$z$轴方向与相机指向相同：左手坐标系）。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="数学概念" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="视锥" scheme="http://huris.xyz/tags/%E8%A7%86%E9%94%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>三维空间中的平面</title>
@@ -46,9 +77,9 @@
     
       <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
     
-      <category term="平面" scheme="http://huris.xyz/tags/%E5%B9%B3%E9%9D%A2/"/>
-    
       <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="平面" scheme="http://huris.xyz/tags/%E5%B9%B3%E9%9D%A2/"/>
     
   </entry>
   
@@ -57,7 +88,7 @@
     <link href="http://huris.xyz/2020/07/25/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E7%9B%B4%E7%BA%BF/"/>
     <id>http://huris.xyz/2020/07/25/三维空间中的直线/</id>
     <published>2020-07-25T05:54:46.000Z</published>
-    <updated>2020-07-25T07:18:12.370Z</updated>
+    <updated>2020-07-27T07:58:41.982Z</updated>
     
     <summary type="html">
     
@@ -78,9 +109,9 @@
     
       <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
     
-      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="直线" scheme="http://huris.xyz/tags/%E7%9B%B4%E7%BA%BF/"/>
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -549,35 +580,6 @@
       <category term="二叉树" scheme="http://huris.xyz/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
       <category term="对称" scheme="http://huris.xyz/tags/%E5%AF%B9%E7%A7%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>反向传播算法</title>
-    <link href="http://huris.xyz/2019/08/26/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/"/>
-    <id>http://huris.xyz/2019/08/26/反向传播算法/</id>
-    <published>2019-08-26T00:30:24.000Z</published>
-    <updated>2019-08-26T06:24:20.211Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;卷积神经网络是一种特殊的前馈神经网络，通常也是一种深度神经网络。&lt;/p&gt;
-&lt;p&gt;深度学习是在克服反向传播算法对深度神经网络的训练困难过程中逐步发展和建立起来的。而深度神经网络的基本学习训练方法是反向传播算法。&lt;/p&gt;
-&lt;p&gt;作为一种有监督学习的算法，反向传播算法在本质上是一种具有递归结构的梯度下降算法，往往需要给定足够多的训练样本，才能获得满意的效果。&lt;/p&gt;
-&lt;p&gt;下面先给出任意前馈神经网络的&lt;strong&gt;通用反向传播算法&lt;/strong&gt;，再讨论深层神经网络的&lt;strong&gt;逐层反向传播算法&lt;/strong&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="深度学习" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="预备知识" scheme="http://huris.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="反向传播" scheme="http://huris.xyz/tags/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/"/>
-    
-      <category term="深度学习" scheme="http://huris.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
