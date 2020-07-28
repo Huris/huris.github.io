@@ -247,7 +247,17 @@ e=\frac{1}{\tan{(\alpha/2)}}    \tag{1}</script><p>焦距越短，则视场越�
 <p>视锥的$4$个边平面在从投影平面切出一个长方形，该长方形与相机距离为$e$，它的四条边分别位于$x=\pm 1$和$y=\pm a$处。</p>
 <p>在OpenGL中，函数<code>glFrustum()</code>需要用户定义一个与相机距离为$n$的长方形，其中$n$是近锥面距离。</p>
 <p>用比例系数$\frac{n}{e}$缩放该长方形，则它的左边位于$x=-\frac{n}{e}$，右边位于$x=\frac{n}{e}$，底边位于$y=-\frac{an}{e}$，顶边位于$y=\frac{an}{e}$。</p>
-<h1 id="锥平面"><a href="#锥平面" class="headerlink" title="锥平面"></a>锥平面</h1>
+<h1 id="锥平面"><a href="#锥平面" class="headerlink" title="锥平面"></a>锥平面</h1><p>$6$个视锥平面在相机空间的法向量如下图所示，其中$4$个边锥平面的法向量向内，指向视锥内部，可以通过将边平面中的边的方向向里旋转$90^o$获得。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img9.png" width="40%"></p>
+<p>由于每个边锥平面都经过坐标系原点，其平面四维表达式中的$D=0$。</p>
+<ul>
+<li>近锥面与原点距离为$n$，与原点的相对方向与其法向量相同，所以$D=-n$。</li>
+<li>远锥面与原点距离为$f$，与原点的相对方向与其法向量相反，所以$D=f$。</li>
+</ul>
+<p>下表总结了视锥的$6$个锥平面的四维平面表示向量，其中$4$个边锥平面的法向量已经规范化成长度为单位长度的向量。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img10.png"></p>
+<p>其中，$e$为焦距，$a$为高宽比，$n$为近锥面距离，$f$为远锥面距离。</p>
+
     </main>
     <footer class="post-footer">
       

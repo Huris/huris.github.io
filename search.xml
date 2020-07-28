@@ -8,7 +8,7 @@
       <link href="/2020/07/27/%E8%A7%86%E9%94%A5/"/>
       <url>/2020/07/27/%E8%A7%86%E9%94%A5/</url>
       
-        <content type="html"><![CDATA[<p>三维空间中，视锥是包含所有可视内容的空间体。</p><p>视锥的形状像一个四棱锥，其顶点位于虚拟相机，表示相机通过一个矩形框看到的空间，这个矩形框就是计算机屏幕。</p><p>视锥的边界由$6$个平面组成，其中$4$个与屏幕的边对应，分别称为左锥面、右锥面、顶锥面和底锥面，其余$2$个平面分别称为近锥面和远锥面，这两个锥平面定义了场景中可见对象对相机可见的最近和最远距离。</p><p>视锥与相机空间（视察空间）对齐，相机位于坐标原点，$x$轴向右，$y$轴向上，$z$轴方向则与$3D$图形库有关（OpenGL中$z$轴方向与相机指向相反：右手坐标系，DirectX3D中$z$轴方向与相机指向相同：左手坐标系）。</p><a id="more"></a><h1 id="视场"><a href="#视场" class="headerlink" title="视场"></a>视场</h1><p>投影平面是一个与相机指向垂直的平面，该平面与相机的距离为$e$（焦距），左锥面与右锥面分别与该平面在$x=-1$和$x=1$处相交，两锥面之间的夹角$\alpha$被称为水平视场角。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img7.png" width="40%"></p><p>对于给定的水平视场角$\alpha$，到投影平面的距离$e$可由以下三角关系表达式给出：</p><script type="math/tex; mode=display">e=\frac{1}{\tan{(\alpha/2)}}    \tag{1}</script><p>焦距越短，则视场越大。视场角越小，相机则进行放大成像，焦距变大。</p><p>底锥面和顶锥面与投影平面在$y=\pm a$处相交，$a$为显示器的高宽比，如下图三角形所示，则垂直视场角$\beta$的表达式如下：</p><script type="math/tex; mode=display">\beta=2\tan^{-1}(a/e)    \tag{2}</script><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img8.png" width="60%"></p><p>视锥的$4$个边平面在从投影平面切出一个长方形，该长方形与相机距离为$e$，它的四条边分别位于$x=\pm 1$和$y=\pm a$处。</p><p>在OpenGL中，函数<code>glFrustum()</code>需要用户定义一个与相机距离为$n$的长方形，其中$n$是近锥面距离。</p><p>用比例系数$\frac{n}{e}$缩放该长方形，则它的左边位于$x=-\frac{n}{e}$，右边位于$x=\frac{n}{e}$，底边位于$y=-\frac{an}{e}$，顶边位于$y=\frac{an}{e}$。</p><h1 id="锥平面"><a href="#锥平面" class="headerlink" title="锥平面"></a>锥平面</h1>]]></content>
+        <content type="html"><![CDATA[<p>三维空间中，视锥是包含所有可视内容的空间体。</p><p>视锥的形状像一个四棱锥，其顶点位于虚拟相机，表示相机通过一个矩形框看到的空间，这个矩形框就是计算机屏幕。</p><p>视锥的边界由$6$个平面组成，其中$4$个与屏幕的边对应，分别称为左锥面、右锥面、顶锥面和底锥面，其余$2$个平面分别称为近锥面和远锥面，这两个锥平面定义了场景中可见对象对相机可见的最近和最远距离。</p><p>视锥与相机空间（视察空间）对齐，相机位于坐标原点，$x$轴向右，$y$轴向上，$z$轴方向则与$3D$图形库有关（OpenGL中$z$轴方向与相机指向相反：右手坐标系，DirectX3D中$z$轴方向与相机指向相同：左手坐标系）。</p><a id="more"></a><h1 id="视场"><a href="#视场" class="headerlink" title="视场"></a>视场</h1><p>投影平面是一个与相机指向垂直的平面，该平面与相机的距离为$e$（焦距），左锥面与右锥面分别与该平面在$x=-1$和$x=1$处相交，两锥面之间的夹角$\alpha$被称为水平视场角。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img7.png" width="40%"></p><p>对于给定的水平视场角$\alpha$，到投影平面的距离$e$可由以下三角关系表达式给出：</p><script type="math/tex; mode=display">e=\frac{1}{\tan{(\alpha/2)}}    \tag{1}</script><p>焦距越短，则视场越大。视场角越小，相机则进行放大成像，焦距变大。</p><p>底锥面和顶锥面与投影平面在$y=\pm a$处相交，$a$为显示器的高宽比，如下图三角形所示，则垂直视场角$\beta$的表达式如下：</p><script type="math/tex; mode=display">\beta=2\tan^{-1}(a/e)    \tag{2}</script><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img8.png" width="60%"></p><p>视锥的$4$个边平面在从投影平面切出一个长方形，该长方形与相机距离为$e$，它的四条边分别位于$x=\pm 1$和$y=\pm a$处。</p><p>在OpenGL中，函数<code>glFrustum()</code>需要用户定义一个与相机距离为$n$的长方形，其中$n$是近锥面距离。</p><p>用比例系数$\frac{n}{e}$缩放该长方形，则它的左边位于$x=-\frac{n}{e}$，右边位于$x=\frac{n}{e}$，底边位于$y=-\frac{an}{e}$，顶边位于$y=\frac{an}{e}$。</p><h1 id="锥平面"><a href="#锥平面" class="headerlink" title="锥平面"></a>锥平面</h1><p>$6$个视锥平面在相机空间的法向量如下图所示，其中$4$个边锥平面的法向量向内，指向视锥内部，可以通过将边平面中的边的方向向里旋转$90^o$获得。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img9.png" width="40%"></p><p>由于每个边锥平面都经过坐标系原点，其平面四维表达式中的$D=0$。</p><ul><li>近锥面与原点距离为$n$，与原点的相对方向与其法向量相同，所以$D=-n$。</li><li>远锥面与原点距离为$f$，与原点的相对方向与其法向量相反，所以$D=f$。</li></ul><p>下表总结了视锥的$6$个锥平面的四维平面表示向量，其中$4$个边锥平面的法向量已经规范化成长度为单位长度的向量。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img10.png"></p><p>其中，$e$为焦距，$a$为高宽比，$n$为近锥面距离，$f$为远锥面距离。</p>]]></content>
       
       
       <categories>
@@ -59,9 +59,9 @@
             
             <tag> 三维空间 </tag>
             
-            <tag> 数学 </tag>
-            
             <tag> 平面 </tag>
+            
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -92,9 +92,9 @@
             
             <tag> 三维空间 </tag>
             
-            <tag> 直线 </tag>
-            
             <tag> 数学 </tag>
+            
+            <tag> 直线 </tag>
             
         </tags>
       
@@ -2524,9 +2524,9 @@
             
             <tag> Python </tag>
             
-            <tag> 画图 </tag>
-            
             <tag> Matplotlib </tag>
+            
+            <tag> 画图 </tag>
             
         </tags>
       
@@ -2580,9 +2580,9 @@
       
         <tags>
             
-            <tag> Matlab </tag>
-            
             <tag> 画图 </tag>
+            
+            <tag> Matlab </tag>
             
         </tags>
       

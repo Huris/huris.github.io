@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-07-28T09:26:29.630Z</updated>
+  <updated>2020-07-28T10:25:22.311Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://huris.xyz/2020/07/27/%E8%A7%86%E9%94%A5/"/>
     <id>http://huris.xyz/2020/07/27/视锥/</id>
     <published>2020-07-27T07:27:48.000Z</published>
-    <updated>2020-07-28T09:26:29.630Z</updated>
+    <updated>2020-07-28T10:25:22.311Z</updated>
     
     <summary type="html">
     
@@ -77,9 +77,9 @@
     
       <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
     
-      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="平面" scheme="http://huris.xyz/tags/%E5%B9%B3%E9%9D%A2/"/>
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -109,9 +109,9 @@
     
       <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
     
-      <category term="直线" scheme="http://huris.xyz/tags/%E7%9B%B4%E7%BA%BF/"/>
-    
       <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="直线" scheme="http://huris.xyz/tags/%E7%9B%B4%E7%BA%BF/"/>
     
   </entry>
   
