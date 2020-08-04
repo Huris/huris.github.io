@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>多项式求解 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/08/04/多项式求解/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">多项式求解</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-08-04T15:15:09+08:00">2020-08-04 15:15:09</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/数学概念/" itemprop="url" rel="index"><span itemprop="name">数学概念</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>求解一条直线与一个平面之间的交点，通常需要计算一个关于$t$的$n$阶多项式的根。</p>
+<p>直线的表达式：$P(t)=S+tV$</p>
+<ul>
+<li>由平面组成的表面，多项式的阶数为$1$；</li>
+<li>由球面或者圆柱面等二次曲面组成的表面，多项式的阶数为$2$；</li>
+<li>对于更复杂的表面，如<strong>样条曲面</strong>和<strong>圆环面</strong>，多项式的阶数为$3$或$4$。</li>
+</ul>
+<p>本文介绍<strong>二次、三次和四次多项式</strong>的解析，同时介绍<strong>牛顿迭代法</strong>。</p>
+<a id="more"></a>
+<h1 id="二次多项式"><a href="#二次多项式" class="headerlink" title="二次多项式"></a>二次多项式</h1><p>二次多项式求解过程：</p>
+<script type="math/tex; mode=display">
+at^2+bt+c=0 \tag{1}</script><p>两边减$c$，再除以$a$，可得：</p>
+<script type="math/tex; mode=display">
+t^2+\frac{b}{a}t=-\frac{c}{a}    \tag{2}</script><p>方程两边同加$\frac{b^2}{4a^2}$，可将左边成为完全平方式的展开形式：</p>
+<script type="math/tex; mode=display">
+t^2+\frac{b}{a}t+\frac{b^2}{4a^2}=-\frac{c}{a}+\frac{b^2}{4a^2} \tag{3}</script><p>将左边写成平方的形式，右边利用公分母通分，可得：</p>
+<script type="math/tex; mode=display">
+\left(t+\frac{b}{2a}\right)^2=\frac{b^2-4ac}{4a^2}    \tag{4}</script><p>求平方根，并从方程两边同减$\frac{b}{2a}$，可得：</p>
+<script type="math/tex; mode=display">
+t=\frac{-b\pm \sqrt{b^2-4ac}}{2a}    \tag{5}</script><p>令$D=b^2-4ac$，称为多项式解的判别式：</p>
+<ol>
+<li>若$D&gt;0$，则多项式有两个实根；</li>
+<li>若$D=0$，则多项式有一个实根；</li>
+<li>若$D&lt;0$，则多项式没有实根；</li>
+</ol>
+<p>利用判别式，可以在不计算光线与对象表面的实际交点的情况下，判断光线与对象表面的相交情况。</p>
+<h1 id="三次多项式"><a href="#三次多项式" class="headerlink" title="三次多项式"></a>三次多项式</h1><p>三次多项式求解过程：</p>
+<script type="math/tex; mode=display">
+t^3+at^2+bt+c=0    \tag{6}</script><p>令$t=x-\frac{a}{3}$，则可以消去二次项，因为：</p>
+<script type="math/tex; mode=display">
+\left(x-\frac{a}{3}\right)^3=x^3-3x^2\times \frac{a}{3}+3x\times\frac{a^2}{9}-\frac{a^3}{27}=x^3-ax^2+\frac{a^2x}{3}-\frac{a^3}{27}    \tag{7}</script><p>带入后可得表达式为：</p>
+<script type="math/tex; mode=display">
+x^3+px+q=0    \tag{8}</script><p>其中：</p>
+<script type="math/tex; mode=display">
+p=-\frac{1}{3}a^2+b     \tag{9}</script><script type="math/tex; mode=display">
+q=-\frac{2}{27}a^3-\frac{1}{3}ab+c    \tag{10}</script><p>故可先求解$x$，将其减去$\frac{a}{3}$可得到解$t$。</p>
+<p>三次多项式的解的判别式$D$如下：</p>
+<script type="math/tex; mode=display">
+D=-4p^3-27q^2    \tag{11}</script><p>令：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    r &= \sqrt[3]{-\frac{1}{2}q+\sqrt{-\frac{1}{108}D}}    \\
+    s &= \sqrt[3]{-\frac{1}{2}q-\sqrt{-\frac{1}{108}D}}
+\end{aligned}
+\end{equation}
+\tag{12}</script><p>则方程$(8)$的三个复数根为：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    x_1 &= r + s    \\
+    x_2 &= \rho r + \rho^2s \\
+    x_3 &= \rho^2r + \rho s
+\end{aligned}
+\end{equation}
+\tag{13}</script><p>这里$\rho$是完全立方根，$\rho=-\frac{1}{2}+\frac{\sqrt{3}}{2}i$，而$\rho^2=-\frac{1}{2}-\frac{\sqrt{3}}{2}i$。</p>
+<p>通过以下替代，可以化简根的判别式$D$：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    p'&=\frac{p}{3}=-\frac{1}{9}a^2+\frac{1}{3}b    \\
+    q'&=\frac{q}{2}=\frac{1}{27}a^3-\frac{1}{6}ab+\frac{1}{2}c
+\end{aligned}
+\end{equation}
+\tag{14}</script><p>替换后，$D$的表达式：</p>
+<script type="math/tex; mode=display">
+D=-108(p'^3+q'^2)    \tag{15}</script><p>令：</p>
+<script type="math/tex; mode=display">
+D'=\frac{D}{108}=-(p'^3+q'^2)    \tag{16}</script><p>则$r$和$s$可表示为：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    r &= \sqrt[3]{-q'+\sqrt{-D'}}    \\
+    s &= \sqrt[3]{-q'-\sqrt{-D'}}
+\end{aligned}
+\end{equation}
+\tag{17}</script><p>对于判别式$D’$：</p>
+<ol>
+<li>若$D’&lt;0$，则方程$(8)$仅有一个实数根，为式$(13)$中的$x_1$；</li>
+<li>若$D’=0$，则$r=s$，则方程$(8)$有两个不同实数根，$x_1=2r$，$x_2,x_3=(\rho+\rho^2)r=-r$；</li>
+<li>若$D’&gt;0$，则方程$(8)$有三个不同实数根，为式$(13)$中所述，需要进行复数运算求解。</li>
+</ol>
+<p>下面讲解巧妙方法求解三个不同根，主要利用三角恒等式（可用欧拉公式验证：$e^{\alpha i} =\cos\alpha+i\sin\alpha$）：</p>
+<script type="math/tex; mode=display">
+4\cos^3\theta-3\cos\theta=\cos(3\theta)    \tag{18}</script><p>令$m=\sqrt{-\frac{p}{3}}$，将$x=2m\cos\theta$，带入方程$(8)$，可得：</p>
+<script type="math/tex; mode=display">
+8m^3\cos^3\theta+2pm\cos\theta+q=0    \tag{19}</script><p>为了保证$D’$是正数，$p$必须是负数，令$p=-3m^2$，同时提取前两项公因数$2m^3$，可得：</p>
+<script type="math/tex; mode=display">
+2m^3(4\cos^3\theta-3\cos\theta)+q=0    \tag{20}</script><p>带入式$(18)$，求解该关于$\cos3\theta$的方程，可得：</p>
+<script type="math/tex; mode=display">
+\cos3\theta=\frac{-q}{2m^3}=\frac{-q/2}{\sqrt{-p^3/27}}=\frac{-q'}{\sqrt{-p'^3}}    \tag{21}</script><p>由于$D’&gt;0$，则从式$(16)$可得：$q’^2&lt;-p’^3$，因此，可保证式$(21)$右边的绝对值总小于$1$。</p>
+<p>由反余弦函数的定义，可以求出$\theta$：</p>
+<script type="math/tex; mode=display">
+\theta=\frac{1}{3}\cos^{-1}\left(\frac{-q'}{\sqrt{-p'^3}}\right)    \tag{22}</script><p>因此，方程$(8)$的一个解为：</p>
+<script type="math/tex; mode=display">
+x_1=2m\cos\theta=2\sqrt{-p'}\cos\theta    \tag{23}</script><p>对任意整数$k$，$\cos(3\theta+2\pi k)=\cos(3\theta)$，可得：</p>
+<script type="math/tex; mode=display">
+\theta_k=\frac{1}{3}\cos^{-1}\left(\frac{-q'}{\sqrt{-p'^3}}\right)-\frac{2\pi}{3}k    \tag{24}</script><p>通过选择$3$个分别与$0,1,2$除以$3$同余的不同整数$k$，可以获得$\cos\theta_k$的$3$个不同值。</p>
+<p>则令$k=\pm 1$，可得方程$(8)$的两个解，最后整理可以得到三个解为：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    x_1 &= 2\sqrt{-p'}\cos\theta\\
+    x_2 &= 2\sqrt{-p'}\cos(\theta+\frac{2\pi}{3})\\
+    x_3 &= 2\sqrt{-p'}\cos(\theta-\frac{2\pi}{3})
+\end{aligned}
+\end{equation}
+\tag{25}</script><h1 id="四次多项式"><a href="#四次多项式" class="headerlink" title="四次多项式"></a>四次多项式</h1><p>四次多项式求解过程：</p>
+<script type="math/tex; mode=display">
+t^4+at^3+bt^2+ct+d=0    \tag{26}</script><p>令$t=x-\frac{a}{4}$，可将三次项消去，带入式中可得：</p>
+<script type="math/tex; mode=display">
+x^4+px^2+qx+r=0    \tag{27}</script><p>其中：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    p &= -\frac{3}{8}a^2+b\\
+    q &= \frac{1}{8}a^3-\frac{1}{2}ab+c\\
+    r &= -\frac{3}{256}a^4+\frac{1}{16}a^2b-\frac{1}{4}ac+d
+\end{aligned}
+\end{equation}
+\tag{28}</script><p>要获取四次方程的根，首先需求解以下三次方程的根：</p>
+<script type="math/tex; mode=display">
+y^3-\frac{p}{2}y^2-ry+\frac{4rp-q^2}{8}=0    \tag{29}</script><p>令$y$是该方程的任意实数解：</p>
+<ol>
+<li>若$q\ge 0$，则四次方程的解等于以下两个二次方程的解：</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    x^2+x\sqrt{2y-p}+y-\sqrt{y^2-r} &= 0\\
+    x^2-x\sqrt{2y-p}+y+\sqrt{y^2-r} &= 0
+\end{aligned}
+\end{equation}
+\tag{30}</script><ol>
+<li>若$q&lt;0$，则四次方程的解等于以下两个二次方程的解：</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    x^2+x\sqrt{2y-p}+y+\sqrt{y^2-r} &= 0\\
+    x^2-x\sqrt{2y-p}+y-\sqrt{y^2-r} &= 0
+\end{aligned}
+\end{equation}
+\tag{31}</script><h1 id="牛顿迭代法"><a href="#牛顿迭代法" class="headerlink" title="牛顿迭代法"></a>牛顿迭代法</h1><p>牛顿迭代法（Newton-Raphson），是求任意连续函数的根的数值计算方法。</p>
+<p>该方法通过将与该函数及其导数相关的一个公式进行迭代计算而获得所需的根。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>对于下图中所示的函数$f$，计算它的根。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img11.png" width="50%"></p>
+<p>假设已知该函数的一个初始猜测根$x_0$，函数$f$的曲线在点$(x_0,f(x_0))$的切线的斜率等于导数$f’(x_0)$，根据直线的点斜式表示法，可得切线方程的表达式：</p>
+<script type="math/tex; mode=display">
+y-f(x_0)=f'(x_0)(x-x_0)    \tag{32}</script><p>可以看出，该切线与$x$轴的交点距离函数$f$的真正根比初始猜测值$x_0$更近。</p>
+<p>当$y=0$时，可求得：</p>
+<script type="math/tex; mode=display">
+x_{i+1}=x_i-\frac{f(x_i)}{f'(x_i)}    \tag{33}</script><p>其中，将$x$表示成$x_{i+1}$，$x_0$表示成$x_i$。</p>
+<p>重复式$(33)$可得到一个数值系列$x_0，x_1，x_2，…$，在正确条件下，该数值系列逐渐逼近函数$f$的根。</p>
+<p>牛顿迭代法收敛的速度非常快，经过很少的几步迭代就可达到所需的精度，具有<strong>平方收敛</strong>的特性。</p>
+<p>【证明】</p>
+<p>首先，令：</p>
+<script type="math/tex; mode=display">
+g(x)=\frac{f(x)}{f'(x)}    \tag{34}</script><p>再令$r$是函数$f$的实际根，即<strong>收敛目标</strong>，定义$\varepsilon_i$为第$i$个近似值$x_i$与根$r$之间的误差。</p>
+<script type="math/tex; mode=display">
+\varepsilon_i=x_i-r    \tag{35}</script><p>带入式$(33)$得：</p>
+<script type="math/tex; mode=display">
+\varepsilon_{i+1}=\varepsilon_i-g(x_i)    \tag{36}</script><p>可用Taylor级数的前三项近似表示函数$g(x_i)$：</p>
+<script type="math/tex; mode=display">
+g(x_i)=g(r+\varepsilon_i)\approx g(r)+\varepsilon_ig'(r)+\frac{\varepsilon_i^2}{2}g''(r)    \tag{37}</script><p>函数$g(x)$的一阶和二阶导数如下式：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    g'(x) &= 1-\frac{f(x)f''(x)}{[f'(x)]^2}\\
+    g''(x) &= \frac{2f(x)f'(x)[f''(x)]^2-[f'(x)]^2[f(x)f'''(x)+f'(x)f''(x)]}{[f'(x)]^4}
+\end{aligned}
+\end{equation}
+\tag{38}</script><p>由于$f(r)=0$，以上表达式在$x=r$时，可很大程度地简化。</p>
+<p>函数$g$及其一阶和二阶导数在$r$处的值如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    g(r) &= 0\\
+    g'(r) &= 1    \\
+    g''(r) &= -\frac{f''(r)}{f'(r)}
+\end{aligned}
+\end{equation}
+\tag{39}</script><p>将以上值带入方程$(37)$，可得：</p>
+<script type="math/tex; mode=display">
+g(x_i)\approx \varepsilon_i-\frac{\varepsilon_i^2}{2}\frac{f''(r)}{f'(r)}    \tag{40}</script><p>最后，将上式带入方程$(36)$可得：</p>
+<script type="math/tex; mode=display">
+\varepsilon_{i+1}\approx \frac{\varepsilon_i^2}{2}\frac{f''(r)}{f'(r)}    \tag{41}</script><p>【注意】</p>
+<ul>
+<li>牛顿迭代法不能总是保证收敛到方程的一个解。</li>
+<li>当初始猜测值被选在函数导数为$0$的一点时，该点的切线是水平的，不与$x$轴相交，迭代中止。</li>
+<li>为了保证收敛，尽量选在离函数的真实根近的初始猜测值。</li>
+<li>当计算光线与一个复杂对象表面的交点时，通常首先计算光线与复杂对象的包围盒的交点，并以该点对应的数值作为初始猜测值。（例如：如果计算光线$P(t)=S+tV$与圆环的交点，可首先计算光线与圆环的包围盒的交点处的$t$值，并将其作为与圆环交点的初始猜测值。）</li>
+</ul>
+<h1 id="倒数与平方根的精细化"><a href="#倒数与平方根的精细化" class="headerlink" title="倒数与平方根的精细化"></a>倒数与平方根的精细化</h1><p>现代大多数CPU和图形硬件都具有倒数和平方根倒数的近似计算指令，可将一个数的倒数和平方根倒数近似到至少几位的精度，这些指令产生的结果可用牛顿迭代法精确到更高的精度。</p>
+<p>通过计算以下方程的根可得到一个数$r$的倒数：</p>
+<script type="math/tex; mode=display">
+f(x)=x^{-1}-r    \tag{42}</script><p>由于$f(\frac{1}{r})=0$，带入方程$(33)$得：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    x_{n+1}    &= x_n-\frac{x_n^{-1}-r}{-x_n^{-2}}    \\
+                    &= x_n(2-rx_n)
+\end{aligned}
+\end{equation}
+\tag{43}</script><p>若$x_i&gt;0$，对该式进行迭代可获得数$r$的高精度倒数，这是因为函数$f(x)$在$x=0$处为<strong>奇点</strong>。</p>
+<p>利用该条件，由第一次迭代的计算结果$x_1$可知初始近似值$x_0$的所在区间。</p>
+<p>由于$x_1$必定大于$0$，则有：</p>
+<script type="math/tex; mode=display">
+x_0(2-rx_0)>0    \tag{44}</script><p>由上式可知$x_0$的约束条件：</p>
+<script type="math/tex; mode=display">
+0<x_0<\frac{2}{r}    \tag{45}</script><p>因此，初始近似值不能大于$r$的倒数的两倍。</p>
+<p>一个数$r$的平方根的倒数可通过计算以下方程的正根得到：</p>
+<script type="math/tex; mode=display">
+f(x)=x^{-2}-r    \tag{46}</script><p>将上式带入方程$(33)$得：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    x_{n+1}    &= x_n-\frac{x_n^{-2}-r}{-2x_n^{-3}}    \\
+                    &= \frac{1}{2}x_n(3-rx_n^2)
+\end{aligned}
+\end{equation}
+\tag{47}</script><p>如果所有$x_i&gt;0$，则该序列收敛，初始近似值$x_0$必须满足下式：</p>
+<script type="math/tex; mode=display">
+0<x_0<\sqrt{\frac{3}{r}}    \tag{48}</script><p>一旦平方根的倒数达到所要的精度，数$r$的平方根可通过一次乘法得到，这是因为$\sqrt{r}=r\cdot(1/\sqrt{r})$。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
+        
+        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
+        
+        <a class="post-tag button" href="/tags/多项式求解/" rel="tag"><i class="fas fa-tags"></i>多项式求解</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>把最实用的经验，分享给最需要的读者，希望每一位来访的朋友都能有所收获！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/07/27/视锥/" rel="next" title="视锥"><i class="fas fa-angle-left"></i><span class="nav-title">视锥</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">91</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">49</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">96</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#二次多项式"><span class="toc-text">二次多项式</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#三次多项式"><span class="toc-text">三次多项式</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#四次多项式"><span class="toc-text">四次多项式</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#牛顿迭代法"><span class="toc-text">牛顿迭代法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#示例"><span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#倒数与平方根的精细化"><span class="toc-text">倒数与平方根的精细化</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
