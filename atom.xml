@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-08-04T10:30:09.552Z</updated>
+  <updated>2020-09-25T11:07:30.757Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渲染流水线</title>
+    <link href="http://huris.xyz/2020/09/24/%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF/"/>
+    <id>http://huris.xyz/2020/09/24/渲染流水线/</id>
+    <published>2020-09-24T06:32:35.000Z</published>
+    <updated>2020-09-25T11:07:30.757Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Shader（着色器）。&lt;/p&gt;
+&lt;p&gt;渲染流水线的最终目的在于生成或者说是渲染一张二维纹理（显示器上看到的效果），它的输入是一个虚拟摄像机、一些光源、一些Shader以及纹理等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="基本概念" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="渲染" scheme="http://huris.xyz/tags/%E6%B8%B2%E6%9F%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fundamentals of Computer Graphics 4 阅读笔记-导论</title>
+    <link href="http://huris.xyz/2020/09/24/Fundamentals-of-Computer-Graphics-4-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E5%AF%BC%E8%AE%BA/"/>
+    <id>http://huris.xyz/2020/09/24/Fundamentals-of-Computer-Graphics-4-阅读笔记-导论/</id>
+    <published>2020-09-24T05:32:26.000Z</published>
+    <updated>2020-09-24T05:51:09.973Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="基础学习" scheme="http://huris.xyz/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>多项式求解</title>
@@ -281,9 +334,9 @@
       <category term="应用" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/OpenGL/%E5%BA%94%E7%94%A8/"/>
     
     
-      <category term="OpenGL" scheme="http://huris.xyz/tags/OpenGL/"/>
-    
       <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="OpenGL" scheme="http://huris.xyz/tags/OpenGL/"/>
     
   </entry>
   
@@ -403,9 +456,9 @@
       <category term="框架" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="OpenGL" scheme="http://huris.xyz/tags/OpenGL/"/>
-    
       <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="OpenGL" scheme="http://huris.xyz/tags/OpenGL/"/>
     
   </entry>
   
@@ -530,56 +583,6 @@
       <category term="高数" scheme="http://huris.xyz/tags/%E9%AB%98%E6%95%B0/"/>
     
       <category term="数学公式" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>卷积神经网络（CNN）模型结构可视化工具</title>
-    <link href="http://huris.xyz/2019/09/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/"/>
-    <id>http://huris.xyz/2019/09/01/卷积神经网络（CNN）模型结构可视化工具/</id>
-    <published>2019-09-01T13:13:17.000Z</published>
-    <updated>2019-09-01T13:18:14.646Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;深度学习中，CNN模型可视化有助于我们学习、分析网络模型。目前接触到的可视化有：特征图可视化、网络模型结构可视化。本文为大家介绍的就是网络模型结构可视化的两款小工具。&lt;/p&gt;
-&lt;h2 id=&quot;可视化工具&quot;&gt;&lt;a href=&quot;#可视化工具&quot; class=&quot;headerlink&quot; title=&quot;可视化工具&quot;&gt;&lt;/a&gt;可视化工具&lt;/h2&gt;&lt;p&gt;本文主要介绍Netscope和ConvNetDraw。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="网络模型结构可视化工具" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="CNN" scheme="http://huris.xyz/tags/CNN/"/>
-    
-      <category term="模型结构" scheme="http://huris.xyz/tags/%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="可视化工具" scheme="http://huris.xyz/tags/%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How a Kalman filter works, in pictures</title>
-    <link href="http://huris.xyz/2019/08/30/How-a-Kalman-filter-works-in-pictures/"/>
-    <id>http://huris.xyz/2019/08/30/How-a-Kalman-filter-works-in-pictures/</id>
-    <published>2019-08-30T08:38:41.000Z</published>
-    <updated>2019-08-30T12:12:00.340Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I have to tell you about the Kalman filter, because what it does is pretty damn amazing.&lt;/p&gt;
-&lt;p&gt;Surprisingly few software engineers and scientists seem to know about it, and that makes me sad because it is such a general and powerful tool for &lt;strong&gt;combining information&lt;/strong&gt; in the presence of uncertainty. At times its ability to extract accurate information seems almost magical— and if it sounds like I’m talking this up too much, then take a look at &lt;a href=&quot;https://www.bzarg.com/p/improving-imu-attitude-estimates-with-velocity-data&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;this previously posted video&lt;/a&gt; where I demonstrate a Kalman filter figuring out the &lt;em&gt;orientation&lt;/em&gt; of a free-floating body by looking at its &lt;em&gt;velocity&lt;/em&gt;. Totally neat!&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="常见模型" scheme="http://huris.xyz/categories/%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B/"/>
-    
-      <category term="卡尔曼滤波" scheme="http://huris.xyz/categories/%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/"/>
-    
-    
-      <category term="卡尔曼滤波" scheme="http://huris.xyz/tags/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/"/>
     
   </entry>
   

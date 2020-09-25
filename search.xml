@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>渲染流水线</title>
+      <link href="/2020/09/24/%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF/"/>
+      <url>/2020/09/24/%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF/</url>
+      
+        <content type="html"><![CDATA[<p>Shader（着色器）。</p><p>渲染流水线的最终目的在于生成或者说是渲染一张二维纹理（显示器上看到的效果），它的输入是一个虚拟摄像机、一些光源、一些Shader以及纹理等。</p><a id="more"></a><h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><p>渲染流水线的工作任务在于由一个三维场景出发、生成（渲染）一张二维图像。即，计算机需要从一系列的顶点数据、纹理等信息出发，把这些信息最终转换成一张人眼可以看到的图像。（由CPU和GPU共同完成。）</p><p>渲染流程三阶段：应用阶段（Application Stage）、几何阶段（Geometry Stage）、光栅化阶段（Rasterizer Stage）。</p><h2 id="应用阶段（程序员）"><a href="#应用阶段（程序员）" class="headerlink" title="应用阶段（程序员）"></a>应用阶段（程序员）</h2><p>由程序员主导（绝对控制权），CPU负责实现。</p><p>最重要的输出是渲染所需的几何信息，即<strong>渲染图元（rendering primitives）</strong>，包括点、线、三角面等。</p><p>主要任务：</p><ol><li>准备场景数据（摄像机位置、视锥体、场景模型、光源）</li><li>粗粒度剔除（culling），把不可见的物体剔除出去，提高渲染性能</li><li>设置每个模型的渲染状态：材质（漫反射颜色、高光反射颜色）、纹理、Shader</li></ol><h2 id="几何阶段（GPU）"><a href="#几何阶段（GPU）" class="headerlink" title="几何阶段（GPU）"></a>几何阶段（GPU）</h2><p>出来了所有要绘制的几何相关的事情，例如：决定绘制哪些图元，如何绘制，哪里绘制。</p><p>在GPU上进行。</p><p>负责和每个渲染图元打交道，进行逐顶点、逐多边形的操作。</p><p>把顶点坐标变换到屏幕空间中，再交给光栅器进行处理。</p><p>输出：屏幕空间的二维顶点坐标、顶点深度值、着色信息</p><h2 id="光栅化阶段（GPU）"><a href="#光栅化阶段（GPU）" class="headerlink" title="光栅化阶段（GPU）"></a>光栅化阶段（GPU）</h2><p>渲染最终图像。</p><p>GPU进行。</p><p>决定每个渲染图元中的哪些像素应该被绘制在屏幕上。</p><p>对上阶段的逐顶点数据（纹理坐标、顶点颜色）进行插值，再进行逐像素处理。</p><h1 id="CPU和GPU之间的通信"><a href="#CPU和GPU之间的通信" class="headerlink" title="CPU和GPU之间的通信"></a>CPU和GPU之间的通信</h1><p><strong>应用阶段</strong>分为三个阶段：</p><ol><li>把数据加载到显存中</li><li>设置渲染状态</li><li>调用Draw Call</li></ol><h2 id="把数据加载到显存中"><a href="#把数据加载到显存中" class="headerlink" title="把数据加载到显存中"></a>把数据加载到显存中</h2><p>所有渲染所需的数据都需要从<strong>硬盘</strong>（Hard Disk Drive, HDD）中加载到系统<strong>内存</strong>（Random Access Memory, RAM）中，之后，顶点位置、颜色、法线、网格和纹理等数据又被加载到<strong>显存</strong>（Video Random Access Memory, VRAM）中。</p><p>之后，开发者需要通过CPU来设置渲染状态，指导GPU进行渲染工作。</p><h2 id="设置渲染状态"><a href="#设置渲染状态" class="headerlink" title="设置渲染状态"></a>设置渲染状态</h2><p>渲染状态定义了场景中的网格是怎样被渲染的，例如：使用哪个顶点着色器（Vertex Shader）/ 片元着色器（Fragment Shader）、光源属性、材质等。</p><p>如果没有改变渲染状态，则所有网格都将使用同一种渲染状态。</p><h2 id="调用Draw-Call"><a href="#调用Draw-Call" class="headerlink" title="调用Draw Call"></a>调用Draw Call</h2><p>渲染命令：Draw Call</p><p>发起方：CPU，接收方：GPU</p><p>这个命令仅仅会指向一个需要被渲染的图元（primitives）列表，而不会再包含任何材质信息（在上一阶段已经做过）。</p><p>当给定了一个Draw Call时，GPU就会根据渲染状态（材质、纹理、着色器等）和所有输入的顶点数据来进行计算，最终输出成屏幕上显示的哪些漂亮的像素。</p><h1 id="GPU流水线"><a href="#GPU流水线" class="headerlink" title="GPU流水线"></a>GPU流水线</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>GPU渲染的过程就是<strong>GPU流水线</strong>。</p><p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF/GPU%E6%B5%81%E6%B0%B4%E7%BA%BF.png" width="80%"></p><p>几何阶段和光栅化阶段可以分为若干更小的流水线阶段，这些流水线阶段由GPU来实现。</p><p>每个阶段GPU提供了不同的可配置性或可编程性。</p><p>图中可以看出，GPU的渲染流水线接收<strong>顶点数据</strong>作为输入，这些顶点数据由应用阶段加载到显存中，再由Draw Call指定，随后被传递给顶点着色器。</p><p><strong>几何阶段：</strong></p><ul><li><strong>顶点着色器（Vertex Shader）</strong>：完全可编程，实现顶点的空间变换、顶点着色。</li><li><strong>曲面细分着色器（Tessellation Shader）</strong>：可选着色器，用于细分图元。</li><li><strong>几何着色器（Geometry Shader）</strong>：可选着色器，执行逐图元（Per-Primitive）着色操作。</li><li><strong>裁剪（Clipping）</strong>：将那些不在摄像机视野内的顶点裁掉，同时剔除某些三角图元的面片。该阶段可配置，例如，使用自定义裁剪平面配置裁剪区域，或通过指令控制裁剪三角图元的正面还是背面。</li><li><strong>屏幕映射（Screen Mapping）</strong>：不可配置和编程，负责把每个图元的坐标转换到屏幕坐标系中。</li></ul><p><strong>光栅化阶段：</strong></p><ul><li><strong>三角形设置（Triangle Setup）</strong></li><li><strong>三角形遍历（Triangle Traversal）</strong></li><li><strong>片元着色器（Fragment Shader）</strong>：完全可编程，实现逐片元（Per-Fragment）的着色操作</li><li><strong>逐片元操作（Per-Fragment Operations）</strong>：修改颜色、深度缓冲、进行混合等，不可编程，但具有很高的可配置性。</li></ul><h2 id="顶点着色器（Vertex-Shader）"><a href="#顶点着色器（Vertex-Shader）" class="headerlink" title="顶点着色器（Vertex Shader）"></a>顶点着色器（Vertex Shader）</h2><p>流水线第一个阶段，输入来自CPU。</p><p>顶点着色器的处理单位是<strong>顶点</strong>，即，输入进来的每个顶点都会调用一次顶点着色器。</p><p>顶点着色器本身不创建或者销毁任何顶点，而且无法得到顶点与顶点之间的关系。例如，无法得知两个顶点是否属于同一个三角网格。正是由于这个相互独立性，GPU可以利用本身的特性并行化处理每一个顶点，处理速度会很快。</p><p>主要工作：<strong>坐标变换</strong>（把顶点从模型空间转换到齐次裁剪空间，再由硬件做透视除法后，最终得到归一化的设备坐标，Normalized Device Coordinates，NDC）和<strong>逐顶点光照</strong>，还可以输出后续阶段所需的数据。</p><p>顶点着色器可以有不同的输出方式，最常见的输出路径是<strong>经光栅化后交给片元着色器</strong>进行处理。</p><h2 id="裁剪（Clipping）"><a href="#裁剪（Clipping）" class="headerlink" title="裁剪（Clipping）"></a>裁剪（Clipping）</h2><p>由于场景可能会很大，而摄像机的视野范围很有可能不会覆盖所有的场景物体，因此那些不在摄像机视野范围的物体不需要被处理。<strong>裁剪</strong>就是为了完成这个目的而被提出来的。</p><p>图元与摄像机视野的关系：</p><ol><li><strong>完全在视野内</strong>：继续传给下一个流水线阶段。</li><li><strong>部分在视野内</strong>：裁剪处理。例如，一条线段的一个顶点在视野内，另一个顶点在视野外，则在视野外部的顶点应该使用一个新的顶点来代替，这个新的顶点位于这条线段和视野边界的交点处。</li><li><strong>完全在视野外</strong>：不会继续向下传递，因为它们不需要被渲染。</li></ol><p>和顶点着色器不同，这一步是不可编程的，即无法通过编程来控制裁剪的过程，而是硬件上的固定操作，但我们可以自定义一个裁剪操作来对这一步进行配置。</p><h2 id="屏幕映射（Screen-Mapping）"><a href="#屏幕映射（Screen-Mapping）" class="headerlink" title="屏幕映射（Screen Mapping）"></a>屏幕映射（Screen Mapping）</h2><p>输入的坐标是三维坐标系下的坐标（范围在单位立方体内）。</p><p>任务：把每个图元的$x$和$y$坐标转换到屏幕坐标系（Screen Coordinates）。</p><p>缩放的过程。</p><p>屏幕映射不会对输入的$z$坐标做任何处理。</p><p>屏幕坐标系和$z$坐标一起构成了一个坐标系，叫做<strong>窗口坐标系（Window Corrdinates）</strong>，这些值会一起被传递到光栅化阶段。</p><ul><li><strong>OpenGL</strong>：把屏幕<strong>左下角</strong>当成最小的窗口坐标值。</li><li><strong>DirectX</strong>：把屏幕<strong>左上角</strong>当成最小的窗口坐标值。</li></ul><p>时刻小心这样的差异，<strong>如果发现得到的图像是倒转的</strong>，那么很有可能就是这个原因造成的。</p><h2 id="三角形设置（Triangle-Setup）"><a href="#三角形设置（Triangle-Setup）" class="headerlink" title="三角形设置（Triangle Setup）"></a>三角形设置（Triangle Setup）</h2><p>这一步开始进入光栅化阶段。</p><p>光栅化阶段目标：计算每个图元覆盖了哪些像素，以及为这些像素计算它们的颜色。</p><p>该阶段会计算光栅化一个三角网格所需的信息。</p><p>光栅化的第一个流水线阶段是<strong>三角形设置（Triangle Setup）</strong>。</p><p>该阶段会计算光栅化一个三角网格所需的信息。</p><p>上一阶段输出的都是三角网格的顶点，即得到的是三角网格每条边的两个顶点，但如果要得到整个三角网格对像素的覆盖情况，就必须计算每条边上的像素坐标。</p><p>为了能够计算边界像素的坐标信息，需要得到三角形边界的表示方式。</p><p>这样一个计算三角网格表示数据的过程叫做三角形设置。</p><h2 id="三角形遍历（Triangle-Traversal）"><a href="#三角形遍历（Triangle-Traversal）" class="headerlink" title="三角形遍历（Triangle Traversal）"></a>三角形遍历（Triangle Traversal）</h2><p>检查每个像素是否被一个三角网格所覆盖，如果被覆盖，就会生成一个片元（fragment），并使用三角网格3个顶点的顶点信息对整个覆盖区域的像素进行插值。</p><p>这个阶段也被称为<strong>扫描变换（Scan Conversion）</strong>。</p><p>这一步的输出可以得到一个<strong>片元序列</strong>。</p><p>一个片元并不是真正意义上的像素，而是<strong>包含了很多状态（屏幕坐标、深度信息、顶点信息、法线、纹理坐标）的集合</strong>，这些状态用于计算每个像素的最终颜色。</p><h2 id="片元着色器（Fragment-Shader）"><a href="#片元着色器（Fragment-Shader）" class="headerlink" title="片元着色器（Fragment Shader）"></a>片元着色器（Fragment Shader）</h2><p>可编程着色器阶段。</p><p>在DirectX中，片元着色器被称为<strong>像素着色器（Pixel Shader）</strong>。</p><ul><li>片元着色器的输入：上一个阶段对顶点信息插值得到的结果，即那些从顶点着色器中输出的数据插值得到的。</li><li>片元着色器的输出：一个或者多个颜色值。</li></ul><p>该阶段可以完成多个重要的渲染技术，其中最重要的技术之一就是<strong>纹理采样（通常会在顶点着色器阶段输出每个顶点对应的纹理坐标，然后经过光栅化阶段对三角网格的3个顶点对应的纹理坐标进行插值后，就可以得到其覆盖的偏远的纹理坐标了）</strong>。</p><p>局限性：仅可以影响单个片元，即，当执行片元着色器时，不可以将自己的任何结果直接发送给它的邻居们。<strong>但有一个情况例外</strong>：片元着色器可以访问到导数信息（gradient/derivative）。</p><h2 id="逐片元操作（Per-Fragment-Operations）"><a href="#逐片元操作（Per-Fragment-Operations）" class="headerlink" title="逐片元操作（Per-Fragment Operations）"></a>逐片元操作（Per-Fragment Operations）</h2><ul><li><strong>OpenGL：</strong>逐片元操作（Per-Fragment Operations）</li><li><strong>DirectX：</strong>输出合并阶段（Output-Merger）</li></ul><p><strong>主要任务：</strong></p><ol><li>决定每个片元的可见性。涉及很多测试工作，例如：深度测试、模板测试等。</li><li>如果一个片元通过了所有的测试，就需要把这个片元的颜色值和已经存储在颜色缓冲区中的颜色进行合并或混合。</li></ol><p>逐片元操作是高度<strong>可配置性</strong>的，即我们可以设置每一步的操作细节。</p><p>该阶段首先需要解决每个片元的可见性问题（获取和颜色缓冲区进行合并的资格），如果不可见，则这个片元就会被舍弃掉（之前所做的工作都白费了）。</p><p><strong>操作过程：</strong></p><p>片元—&gt;模板测试—&gt;深度测试—&gt;混合—&gt;颜色缓冲区</p><p><strong>【模板测试（Stencil Test）】</strong></p><p>与之相关的是<strong>模板缓冲（Stencil Buffer）</strong>，模板缓冲与颜色缓冲、深度缓冲是一类东西。</p><p>如果开启了模板测试，GPU会首先读取（使用读取掩码）模板缓冲区中该片元位置的模板值，然后将该值和读取（使用读取掩码）到的参考值（reference value）进行比较，这个比较函数可由开发者指定（例如：小于时舍弃该片元，或者大于等于时舍弃该片元）。</p><p>不管一个片元有没有通过模板测试，都可以根据模板测试和下面的深度测试结果来修改模板缓冲区，这个修改操作是由开发者指定的。</p><p>开发者可以设置不同结果下的修改操作，例如：在失败时模板缓冲区保持不变，通过时将模板缓冲区中对应位置的值加1等。</p><p>模板测试通常用于限制渲染的区域，还可以进行渲染阴影，轮廓渲染等。</p><p><strong>【深度测试（Depth Test）】</strong></p><p>可以高度配置。</p><p>若开启了深度测试，GPU会把该片元的深度值和已经存在于深度缓冲区中的深度值进行比较。该比较函数也可由开发者设置（通常设置为小于等于的关系，即如果该片元深度值大于等于当前深度缓存区中的值，则舍弃它，因为，我们总想只显示出离摄像机最近的物体，而那些被其他物体遮挡的就不需要出现在屏幕上）。</p><p>测试顺序不是惟一的，对于大多数GPU来说，它们会尽可能在执行片元着色器之前就进行这些测试（防止：当GPU在片元着色器阶段花了很大力气终于计算出片元的颜色后，却发现这个片元根本没有通过这些检验，则之前花费的计算成本全部浪费了）。</p><p>将深度测试提前执行的技术称为：Early-Z技术。</p><p>为了避免我们看到那些正在进行光栅化的图元，GPU会使用<strong>双重缓冲（Double Buffering）</strong>，即，对场景的渲染是在幕后发生的，即在<strong>后置缓冲（Back Buffer）</strong>中，一旦场景已经被渲染到了后置缓冲中，GPU就会交换后置缓冲区和<strong>前置缓冲（Front Buffer）</strong>中的内容，由此可以保证看到的图像总是连续的。</p><h1 id="OpenGL-DirectX"><a href="#OpenGL-DirectX" class="headerlink" title="OpenGL/DirectX"></a>OpenGL/DirectX</h1><p>图像应用编程接口，这些接口用于渲染二维或三维图形。</p><p>架起了上层应用程序和底层GPU的沟通桥梁。</p><p>一个应用程序向这些接口发送渲染命令，而这些接口会依次向显卡驱动（Graphics Driver）发送渲染命令，显卡驱动真正和GPU通信，将函数调用翻译成GPU能够听懂的语言，同时也负责将纹理等数据转换成GPU所支持的格式。</p><p>由于显卡驱动的存在，几乎所有的GPU都既可以和OpenGL合作，也可以和DirectX合作。</p><h1 id="HLSL-GLSL-CG"><a href="#HLSL-GLSL-CG" class="headerlink" title="HLSL/GLSL/CG"></a>HLSL/GLSL/CG</h1><p>在可编程管线出现之前，为了编写着色器代码，开发者需要用汇编语言。</p><p>为了方便开发者，就出现了更高级的<strong>着色语言（Shading Language）</strong>。</p><p>着色语言是专门用于编写着色器的，常见的着色语言有<strong>DirectX的HLSL</strong>（High Level Shading Language）、<strong>OpenGL的GLSL</strong>（OpenGL Shading Language）以及<strong>NVIDIA的CG</strong>（C for Graphic）。</p><p>这些语言会被编译成与机器无关的汇编语言，也被称为<strong>中间语言（Intermediate Language，IL）</strong>。</p><p>这些中间语言再交给显卡驱动来翻译成真正的机器语言，即GPU可以理解的语言。</p><p><strong>【GLSL】</strong></p><p>跨平台性，由于OpenGL没有提供着色器编译器，而是由显卡驱动来完成着色器的编译工作。即，只要显卡驱动支持对GLSL的编译它就可以运行。</p><p>好处：供应商完全了解自己的硬件构造，他们知道怎样做可以发挥出最大的作用。即，GLSL是依赖硬件，而非操作系统层级的。</p><p>但硬件提供商有很多（NVIDIA、ATI等），他们对GLSL的编译实现不尽相同，这可能会造成编译结果不一致的情况。</p><p><strong>【HLSL】</strong></p><p>微软控制着色器的编译，就算使用了不同的硬件，同一个着色器的编译结果也是一样的（版本相同的情况下）。</p><p>但是他支持的平台相比有限，几乎都是微软的产品（由于其他平台没有可以编译HLSL的编译器）。</p><p><strong>【CG】</strong></p><p>CG是真正意义上的跨平台。他会根据平台的不同，编译成相应的中间语言。</p><p>CG语言的跨平台性很大原因取决于微软的合作，这也导致CG语言的语法和HLSL非常相像，CG语言可以无缝移植成HLSL代码。</p><p>但缺点是可能无法完全发挥出OpenGL的最新特性。</p><p>在Unity Shader中，我们可以选择使用“CG/HLSL”或者“GLSL”，注意Unity里这些着色语言并不是真正意义上的对应的着色语言，尽管它们的语法几乎一样。</p><h1 id="Draw-Call"><a href="#Draw-Call" class="headerlink" title="Draw Call"></a>Draw Call</h1><p>CPU调用图像编程接口，例如：OpenGL中的<code>glDrawElements</code>或DirectX中的<code>DrawIndexedPrimitive</code>命令，以命令GPU进行渲染的操作。</p><h2 id="CPU和GPU如何实现并行工作"><a href="#CPU和GPU如何实现并行工作" class="headerlink" title="CPU和GPU如何实现并行工作"></a>CPU和GPU如何实现并行工作</h2><p>使用一个<strong>命令缓冲区（Command Buffer）</strong></p><p>命令缓冲区包含一个<strong>命令队列</strong>，由CPU向其中添加命令，而由GPU从中读取命令。（添加和读取的过程是互相独立的）</p><p>当CPU需要渲染一些对象时，它可以向命令缓冲区中添加命令，而当GPU完成了上一次的渲染任务后，它就可以从命令队列中再取出一个命令并执行它。</p><p>命令缓冲区中的命令有很多种类，<code>Draw Call</code>只是其中一种，其他命令还有改变渲染状态（改变使用的着色器、使用不同的纹理）等。</p><h2 id="为什么Draw-Call多了会影响帧率"><a href="#为什么Draw-Call多了会影响帧率" class="headerlink" title="为什么Draw Call多了会影响帧率"></a>为什么Draw Call多了会影响帧率</h2><p>在每次调用<code>Draw Call</code>之前，CPU需要向GPU发送很多内容，包括数据、状态和命令等。</p><p>在这一阶段，CPU需要完成很多工作，例如：检查渲染状态等。</p><p>一旦CPU完成了这些准备工作，GPU就可以开始本次渲染，GPU的渲染能力是很强的，渲染200个还是2000个三角网格通常没有什么区别，因此渲染速度往往快于CPU提交命令的速度。</p><p>如果<code>Draw Call</code>的数量太多，CPU就会把大量时间花费在提交<code>Draw Call</code>上，造成CPU过载。</p><h2 id="如果减少Draw-Call"><a href="#如果减少Draw-Call" class="headerlink" title="如果减少Draw Call"></a>如果减少Draw Call</h2><p><strong>批处理（Batching）</strong>：把很多小的<code>Draw Call</code>合并成一个大的<code>Draw Call</code>。</p><p>由于我们需要在CPU的内存中合并网格，而合并的过程是消耗时间的。因此，批处理技术更加适合于那些<strong>静态的物体</strong>，例如不会移动的大地，石头等，对于这些静态的物体，我们只需要合并一次即可。</p><p>如果对动态物体进行批处理，由于物体是不断运动的，因此每一帧都需要重新进行合并然后再发给GPU，这对空间和时间都会造成一定的影响。</p><ul><li>避免使用大量很小的网格。当不可避免地需要使用很小的网格结构时，考虑是否可以合并它们。</li><li>避免使用过多的材质。尽量在不同的网格之间共用同一个材质。</li></ul><h1 id="固定管线渲染"><a href="#固定管线渲染" class="headerlink" title="固定管线渲染"></a>固定管线渲染</h1><p>固定管线，又称<strong>固定函数的流水线（Fixed-Function Pipeline）</strong></p><p>指在较旧的GPU上实现的渲染流水线。这种流水线只给开发者提供一些配置操作，但开发者没有对流水线阶段的完全控制权。</p><p>固定管线通常提供了一系列接口（由开发者控制），这些接口包含了一个<strong>函数入口点（Function Entry Points）集合</strong>，这些函数入口点会匹配GPU上的一个特定的逻辑功能。</p><p>固定渲染管线是只可配置的管线。</p><p>随着GPU流水线越来越朝着更高的灵活性和可控性方向发展，可编程渲染管线应运而生，固定管线逐渐退出历史舞台。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机图形学 </category>
+          
+          <category> 基本概念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> 渲染 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Fundamentals of Computer Graphics 4 阅读笔记-导论</title>
+      <link href="/2020/09/24/Fundamentals-of-Computer-Graphics-4-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E5%AF%BC%E8%AE%BA/"/>
+      <url>/2020/09/24/Fundamentals-of-Computer-Graphics-4-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E5%AF%BC%E8%AE%BA/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机图形学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> 基础学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>多项式求解</title>
       <link href="/2020/08/04/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E8%A7%A3/"/>
       <url>/2020/08/04/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E8%A7%A3/</url>
@@ -274,9 +330,9 @@
       
         <tags>
             
-            <tag> OpenGL </tag>
-            
             <tag> 计算机图形学 </tag>
+            
+            <tag> OpenGL </tag>
             
         </tags>
       
@@ -407,9 +463,9 @@
       
         <tags>
             
-            <tag> OpenGL </tag>
-            
             <tag> 计算机图形学 </tag>
+            
+            <tag> OpenGL </tag>
             
         </tags>
       
@@ -2061,9 +2117,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 爬虫 </tag>
+            
+            <tag> Python </tag>
             
             <tag> 正则表达式 </tag>
             
@@ -2094,9 +2150,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 爬虫 </tag>
+            
+            <tag> Python </tag>
             
             <tag> 正则表达式 </tag>
             
@@ -2191,9 +2247,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 爬虫 </tag>
+            
+            <tag> Python </tag>
             
             <tag> 原理 </tag>
             
@@ -2249,9 +2305,9 @@
       
         <tags>
             
-            <tag> 爬虫 </tag>
-            
             <tag> HTTP </tag>
+            
+            <tag> 爬虫 </tag>
             
             <tag> 计算机网络 </tag>
             
@@ -2309,11 +2365,11 @@
       
         <tags>
             
+            <tag> 爬虫 </tag>
+            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2340,11 +2396,11 @@
       
         <tags>
             
+            <tag> 爬虫 </tag>
+            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2371,11 +2427,11 @@
       
         <tags>
             
+            <tag> 爬虫 </tag>
+            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2402,11 +2458,11 @@
       
         <tags>
             
+            <tag> 爬虫 </tag>
+            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2433,11 +2489,11 @@
       
         <tags>
             
+            <tag> 爬虫 </tag>
+            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 爬虫 </tag>
             
         </tags>
       
@@ -2464,11 +2520,11 @@
       
         <tags>
             
+            <tag> 爬虫 </tag>
+            
             <tag> 开发环境配置 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 爬虫 </tag>
             
         </tags>
       
