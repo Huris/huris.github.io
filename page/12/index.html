@@ -182,6 +182,63 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/11/代理的基本原理/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Huris">
+        <meta itemprop="description" content="To be is to be perceived.">
+        <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/08/11/代理的基本原理/" itemprop="url">代理的基本原理</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-11T07:54:14+08:00">2019-08-11 07:54:14</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/原理/" itemprop="url" rel="index"><span itemprop="name">原理</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <p>当我们在做爬虫的时候，刚开始可以正常抓取数据，然而一段时间过后可能会出现错误，比如<strong>403 Forbidden</strong>，这时候打开网页一看，可能会看到<strong>IP访问频率过高</strong>这样的提示。出现这种现象的原因是网站采取了反爬虫措施。</p>
+<p>当服务器检测到某个IP在单位时间内的请求次数，如果超过了这个阈值，就会直接拒绝服务，返回一些错误信息，这种情况可以称为封IP。</p>
+<p>既然服务器检测的是某个IP单位时间的请求次数，那么借助某种方式来伪装我们的IP，让服务器识别不出是由我们本机发起的请求，就可以防止封IP了。</p>
+<p>一种有效的方式就是使用代理，本文主要介绍了代理的一些基本原理。</p>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        
+        <a class="post-tag button" href="/tags/计算机网络/" rel="tag"><i class="fas fa-tags"></i>计算机网络</a>
+        
+        <a class="post-tag button" href="/tags/代理/" rel="tag"><i class="fas fa-tags"></i>代理</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/07/会话和Cookies/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Huris">
@@ -282,9 +339,9 @@
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
-        
         <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
         
         <a class="post-tag button" href="/tags/原理/" rel="tag"><i class="fas fa-tags"></i>原理</a>
         
@@ -391,9 +448,9 @@
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/HTTP/" rel="tag"><i class="fas fa-tags"></i>HTTP</a>
-        
         <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        
+        <a class="post-tag button" href="/tags/HTTP/" rel="tag"><i class="fas fa-tags"></i>HTTP</a>
         
         <a class="post-tag button" href="/tags/计算机网络/" rel="tag"><i class="fas fa-tags"></i>计算机网络</a>
         
@@ -456,62 +513,6 @@
     </footer>
   </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2019/08/05/App爬取相关库的安装/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Huris">
-        <meta itemprop="description" content="To be is to be perceived.">
-        <meta itemprop="image" content="/images/avatar.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Huris' HeapStack">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/08/05/App爬取相关库的安装/" itemprop="url">App爬取相关库的安装</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-05T17:13:21+08:00">2019-08-05 17:13:21</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/开发环境配置/" itemprop="url" rel="index"><span itemprop="name">开发环境配置</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p>爬虫也可以抓取App的数据。App中的页面要加载出来，首先需要获取数据，而这些数据一般是通过请求服务器的接口来获取的。由于App没有浏览器这种可以比较直观地看到后台请求的工具，所以主要用一些抓包技术来抓取数据。</p>
-<p>本文介绍的抓包工具有 <strong>Charles</strong> 、 <strong>mitmproxy</strong> 和 <strong>mitmdump</strong> 。一些简单的接口可以通过<strong>Charles</strong>或<strong>mitmproxy</strong>分析，找出规律，然后直接用程序模拟来抓取。但是如果遇到更复杂的接口，就需要利用<strong>mitmdump</strong>对接Python来对抓取的请求和响应进行实时处理和保存。</p>
-<p>另外，既然要做规模采集，就需要自动化App的操作而不是人工去采集，所以之力还需要一个工具叫做<strong>Appium</strong>，它可以对App进行自动化控制，如自动化模拟App的点击、下拉等操作。</p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
-        
-        <a class="post-tag button" href="/tags/开发环境配置/" rel="tag"><i class="fas fa-tags"></i>开发环境配置</a>
-        
-        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/11/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
@@ -547,7 +548,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">93</a></div>
+      <div><a href="/archives/">94</a></div>
     </div>
     
     
@@ -561,7 +562,7 @@
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">98</a></div>
+      <div><a href="/tags/">99</a></div>
     </div>
     
     

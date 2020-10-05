@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-09-25T11:07:30.757Z</updated>
+  <updated>2020-10-05T04:55:16.979Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity Shader基础</title>
+    <link href="http://huris.xyz/2020/09/26/Unity-Shader%E5%9F%BA%E7%A1%80/"/>
+    <id>http://huris.xyz/2020/09/26/Unity-Shader基础/</id>
+    <published>2020-09-26T11:46:02.000Z</published>
+    <updated>2020-10-05T04:55:16.979Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Shader其实就是渲染流水线中的某些特定阶段，如顶点着色器阶段、片元着色器阶段。&lt;/p&gt;
+&lt;p&gt;unity的出现改善了Shader的状况，它提供了一个地方能够让开发者更加轻松地管理着色器代码以及渲染设置（如开启/关闭混合、深度测试、设置渲染顺序等），而不需要管理多个文件和函数。&lt;/p&gt;
+&lt;p&gt;Unity提供这个“方便的地方”就是Unity Shader。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="unity" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/unity/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="Shader" scheme="http://huris.xyz/tags/Shader/"/>
+    
+      <category term="unity" scheme="http://huris.xyz/tags/unity/"/>
+    
+  </entry>
   
   <entry>
     <title>渲染流水线</title>
@@ -163,9 +191,9 @@
     
       <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
     
-      <category term="平面" scheme="http://huris.xyz/tags/%E5%B9%B3%E9%9D%A2/"/>
-    
       <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="平面" scheme="http://huris.xyz/tags/%E5%B9%B3%E9%9D%A2/"/>
     
   </entry>
   
@@ -195,9 +223,9 @@
     
       <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
     
-      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="直线" scheme="http://huris.xyz/tags/%E7%9B%B4%E7%BA%BF/"/>
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -536,39 +564,6 @@
     
       &lt;ul&gt;
 &lt;li&gt;矩阵的秩&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="数学之美" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
-    
-      <category term="数学公式" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
-    
-    
-      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="高数" scheme="http://huris.xyz/tags/%E9%AB%98%E6%95%B0/"/>
-    
-      <category term="数学公式" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>高数公式</title>
-    <link href="http://huris.xyz/2019/09/09/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
-    <id>http://huris.xyz/2019/09/09/高数公式/</id>
-    <published>2019-09-09T14:14:45.000Z</published>
-    <updated>2019-09-09T23:59:36.044Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;不定积分的基本积分公式&lt;/li&gt;
-&lt;li&gt;定积分的性质&lt;/li&gt;
-&lt;li&gt;常见泰勒展开式&lt;/li&gt;
-&lt;li&gt;和差化积公式&lt;/li&gt;
-&lt;li&gt;积化和差公式&lt;/li&gt;
-&lt;li&gt;微分中值定理&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Unity Shader基础 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/09/26/Unity-Shader基础/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Unity Shader基础</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-09-26T19:46:02+08:00">2020-09-26 19:46:02</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/unity/" itemprop="url" rel="index"><span itemprop="name">unity</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>Shader其实就是渲染流水线中的某些特定阶段，如顶点着色器阶段、片元着色器阶段。</p>
+<p>unity的出现改善了Shader的状况，它提供了一个地方能够让开发者更加轻松地管理着色器代码以及渲染设置（如开启/关闭混合、深度测试、设置渲染顺序等），而不需要管理多个文件和函数。</p>
+<p>Unity提供这个“方便的地方”就是Unity Shader。</p>
+<a id="more"></a>
+<h1 id="Unity-Shader-概述"><a href="#Unity-Shader-概述" class="headerlink" title="Unity Shader 概述"></a>Unity Shader 概述</h1><h2 id="一对好兄弟：材质和Unity-Shader"><a href="#一对好兄弟：材质和Unity-Shader" class="headerlink" title="一对好兄弟：材质和Unity Shader"></a>一对好兄弟：材质和Unity Shader</h2><p>在Unity中我们需要使用<strong>材质（Material）</strong>和<strong>Unity Shader</strong>才能达到需要的效果。</p>
+<p>【流程】</p>
+<ol>
+<li>创建一个材质；</li>
+<li>创建一个Unity Shader，并把它赋给上一步中创建的材质；</li>
+<li>把材质赋给要渲染的对象；</li>
+<li>在材质面板中调整Unity Shader的属性，以得到满意的结果。</li>
+</ol>
+<p>Unity Shader定义了渲染所需的各种代码（如顶点着色器和片元着色器）、属性（如使用哪些纹理）和指令（渲染和标签设置等），而材质则允许我们调节这些属性，并将其最终赋给某些模型。</p>
+<h2 id="Unity中的材质"><a href="#Unity中的材质" class="headerlink" title="Unity中的材质"></a>Unity中的材质</h2><p>Unity中的材质需要结合一个GameObject的<strong>Mesh</strong>或者<strong>Particle Systems</strong>组件来工作。</p>
+<p>创建一个新的材质：Assets-&gt;Create-&gt;Material</p>
+<p>可以通过把材质直接拖曳到<strong>Scene</strong>视图中的对象上来实现，或者在该对象的<strong>Mesh Renderer</strong>组件中直接赋值。</p>
+<h2 id="Unity中的Shader"><a href="#Unity中的Shader" class="headerlink" title="Unity中的Shader"></a>Unity中的Shader</h2><p>创建Unity Shader：Assets-&gt;Create-&gt;Shader</p>
+<p>Unity一共提供了4种Unity Shader模板：</p>
+<ul>
+<li>Standard Surface Shader（产生一个包含了标准光照模型的表面着色器模板）</li>
+<li>Unlit shader（产生一个不包含光照（但包含雾效）的基本的顶点/片元着色器）</li>
+<li>Image Effect Shader（为我们实现各种屏幕后处理效果提供了一个基本模板）</li>
+<li>Compute Shader（产生一种特殊的Shader文件，意在利用GPU的并行性来进行一些与常规渲染流水线无关的计算）</li>
+</ul>
+<p>Unity Shader必须与材质结合起来才能发挥作用。</p>
+<p>Unity Shader本质上是一个文本文件，和Unity中的很多外部文件类似，Unity Shader也有<strong>导入设置（Import Settings）</strong>面板，在<strong>Project</strong>视图中选中某个Unity Shader即可看到。</p>
+<p>在导入设置面板上：</p>
+<ul>
+<li><strong>Default Maps：</strong>指定该Unity Shader使用默认纹理，当任何材质第一次使用该Unity Shader时，这些纹理就会自动被赋予到相应的属性上。</li>
+<li><strong>Surface shader：</strong>是否是一个表面着色器</li>
+<li><strong>Fixed function：</strong>是否是一个固定函数着色器。</li>
+</ul>
+<p>还有一些信息时和我们在Unity Shader中的标签设置有关，例如：是否会投射阴影、使用渲染队列、LOD值等。</p>
+<p>导入面板还可以方便地查看其使用的渲染队列（Render queue）、是否关闭批处理（Disable batching）、属性列表（Properties）等信息。</p>
+<h1 id="Unity-Shader基础：ShaderLab"><a href="#Unity-Shader基础：ShaderLab" class="headerlink" title="Unity Shader基础：ShaderLab"></a>Unity Shader基础：ShaderLab</h1><blockquote>
+<p>计算机科学中的任何问题都可以通过增加一层抽象来解决。——大卫·惠勒</p>
+</blockquote>
+<p>通常情况下，为了自定义渲染效果往往需要和很多文件和设置打交道，这些过程很容易消磨掉初学者的耐心。同时一些细节问题也往往需要开发者花费较多的时间去解决。</p>
+<p>Unity为了解决上述问题，提供了一层抽象——Unity Shader。</p>
+<p>我们和这层抽象打交道的途径就是使用Unity提供的一种专门为Unity Shader服务的语言——ShaderLab。</p>
+<h2 id="ShaderLab"><a href="#ShaderLab" class="headerlink" title="ShaderLab"></a>ShaderLab</h2><blockquote>
+<p>ShaderLab is a friend you can afford.——Nicholas Francis</p>
+</blockquote>
+<p>Unity Shader是Unity为开发者提供的高层级的渲染抽象层。</p>
+<ul>
+<li>没有使用Unity Shader（左图）：开发者需要和很多文件和设置打交道，才能让画面呈现出想要的效果。</li>
+<li>使用Unity Shader（右图）：开发者只需要使用ShaderLab来编写Unity Shader文件就可以完成所有的工作。</li>
+</ul>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/Unity%20Shader%E5%9F%BA%E7%A1%80/ShaderLab%E4%BD%BF%E7%94%A8%E6%AF%94%E8%BE%83.png"></p>
+<p>在Unity中，所有的Unity Shader都是用ShaderLab来编写的。</p>
+<p>ShaderLab是Unity提供的编写Unity Shader的一种说明性语言，它使用了一些嵌套在花括号内部的<strong>语义（syntax）</strong>来描述一个Unity Shader文件的结构。</p>
+<p>这些结构包含了许多渲染所需的数据，例如<code>Properties</code>语句块中定义了着色器所需的各种属性，这些属性将会出现在材质面板中。</p>
+<p>从设计上来说，<strong>ShaderLab类似于CgFX和Direct3D Effects（.FX）语言</strong>，它们都定义了要显示一个材质所需的所有东西，而<strong>不仅仅是着色器代码</strong>。</p>
+<p>Unity Shader的基础结构如下：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">Shader <span class="hljs-string">"ShaderName"</span>&#123;<br>    Properties&#123;<br>        <span class="hljs-comment">// 属性   </span><br>    &#125;<br>    SubShader&#123;<br>        <span class="hljs-comment">// 显卡A使用的子着色器</span><br>    &#125;<br>    SubShader&#123;<br>        <span class="hljs-comment">// 显卡B使用的子着色器</span><br>    &#125;<br>    Fallback <span class="hljs-string">"VertexLit"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Unity在背后会<strong>根据使用的平台来把这些结构编译成真正的代码和Shader文件</strong>，而开发者只需要和Unity Shader打交道即可。</p>
+<h1 id="Unity-Shader的结构"><a href="#Unity-Shader的结构" class="headerlink" title="Unity Shader的结构"></a>Unity Shader的结构</h1><h2 id="给Shader起个名字"><a href="#给Shader起个名字" class="headerlink" title="给Shader起个名字"></a>给Shader起个名字</h2><p>每个Unity Shader文件的第一行都需要通过<code>Shader</code>语义来指定该<strong>Unity Shader</strong>的名字（由字符串定义）。</p>
+<p>当为材质选择使用的Unity Shader时，这些名称就会出现在材质面板的下拉列表里。</p>
+<p>通过在字符串中添加斜杠（”/“），可以控制Unity Shader在材质面板中出现的位置。</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Shader <span class="hljs-string">"Custom/MyShader"</span><br></code></pre></td></tr></table></figure>
+<p>则这个Unity Shader在材质面板中的位置就是：Shader-&gt;Custom-&gt;MyShader。</p>
+<h2 id="材质和Unity-Shader的桥梁：Properties"><a href="#材质和Unity-Shader的桥梁：Properties" class="headerlink" title="材质和Unity Shader的桥梁：Properties"></a>材质和Unity Shader的桥梁：Properties</h2><p><code>Properties</code>语义块中包含了一系列<strong>属性（Property）</strong>，这些属性将会出现在材质面板中。</p>
+<p><code>Properties</code>语义块的定义通常如下：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">Properties&#123;<br>    Name &#123;<span class="hljs-string">"display name"</span>, PropertyType&#125; = DefaultValues<br>    Name &#123;<span class="hljs-string">"display name"</span>, PropertyType&#125; = DefaultValues<br>    <span class="hljs-comment">// 更多属性</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>声明这些属性是为了在材质面板中能够方便地调整各种材质属性。</p>
+<p>如果需要在Shader中访问它们，则需要使用每个属性的<strong>名字（Name）</strong>，在Unity中，这些属性的名字通常由一个下划线开始。</p>
+<p><strong>显示的名称（display name）</strong>则是出现在材质面板上的名字。</p>
+<p>我们需要为每个属性指定它的<strong>类型（PropertyType）</strong>，常见的类型如下表所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性类型</th>
+<th style="text-align:center">默认值的定义语法</th>
+<th style="text-align:center">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Int</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">_Int(“Int”,Int)=2</td>
+</tr>
+<tr>
+<td style="text-align:center">Float</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">_Float(“Float”,Float)=1.5</td>
+</tr>
+<tr>
+<td style="text-align:center">Range(min,max)</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">_Range(“Range”,Range(0.0,5.0))=3.0</td>
+</tr>
+<tr>
+<td style="text-align:center">Color</td>
+<td style="text-align:center">(number,number,number,number)</td>
+<td style="text-align:center">_Color(“Color”,Color)</td>
+</tr>
+<tr>
+<td style="text-align:center">Vector</td>
+<td style="text-align:center">(number,number,number,number)</td>
+<td style="text-align:center">_Vector(“Vector”,Vector)=(2,3,6,1)</td>
+</tr>
+<tr>
+<td style="text-align:center">2D</td>
+<td style="text-align:center">“defaulttexture”{}</td>
+<td style="text-align:center">_2D(“2D”,2D)=””{}</td>
+</tr>
+<tr>
+<td style="text-align:center">Cube</td>
+<td style="text-align:center">“defaulttexture”{}</td>
+<td style="text-align:center">_Cube(“Cube”,Cube)=”white”{}</td>
+</tr>
+<tr>
+<td style="text-align:center">3D</td>
+<td style="text-align:center">“defaulttexture”{}</td>
+<td style="text-align:center">_3D(“3D”,3D)=”black”{}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>Int</strong>、<strong>Float</strong>、<strong>Range</strong>这些数字类型的属性，默认是一个单独的数字；</li>
+<li><strong>Color</strong>和<strong>Vector</strong>这类属性，默认值是用圆括号包围的一个四维向量；</li>
+<li><strong>2D</strong>、<strong>Cube</strong>、<strong>3D</strong>这3种纹理类型，默认值是通过一个字符串后跟一个花括号来指定的，其中，字符串要么是空的，要么是内置的纹理名称，如“white”、“black”、“gray”或者“bump”。</li>
+</ul>
+<p>展示所有属性类型的例子：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++">Shader <span class="hljs-string">"Custom/ShaderLabProperties"</span>&#123;<br>    Properties&#123;<br>        <span class="hljs-comment">// Numbers and Sliders</span><br>        _Int(<span class="hljs-string">"Int"</span>, Int) = <span class="hljs-number">2</span><br>        _Float(<span class="hljs-string">"Float"</span>, Float) = <span class="hljs-number">1.5</span><br>        _Range(<span class="hljs-string">"Range"</span>, Range(<span class="hljs-number">0.0</span>, <span class="hljs-number">5.0</span>)) = <span class="hljs-number">3.0</span><br>        <br>        <span class="hljs-comment">// Colors and Vectors</span><br>        _Color(<span class="hljs-string">"Color"</span>, Color) = (<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)<br>        _Vector(<span class="hljs-string">"Vector"</span>, Vector) = (<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>)<br>        <br>        <span class="hljs-comment">// Textures</span><br>        _2D(<span class="hljs-string">"2D"</span>, <span class="hljs-number">2</span>D) = <span class="hljs-string">""</span> &#123;&#125;<br>        _Cube(<span class="hljs-string">"Cube"</span>, Cube) = <span class="hljs-string">"white"</span> &#123;&#125;<br>        _3D(<span class="hljs-string">"3D"</span>, <span class="hljs-number">3</span>D) = <span class="hljs-string">"black"</span> &#123;&#125;<br>    &#125;<br>    FallBack <span class="hljs-string">"Diffuse"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>有时想在材质面板上显示更多类型的变量，例如使用布尔变量来控制Shader中使用哪种计算。</p>
+<p>Unity允许我们重建默认的材质编辑面板，以提供更多自定义的数据类型。</p>
+<h2 id="重量级成员：SubShader"><a href="#重量级成员：SubShader" class="headerlink" title="重量级成员：SubShader"></a>重量级成员：SubShader</h2><p>每一个Unity Shader文件可以包含多个SubShader语义块，但最少要有一个。</p>
+<p>当Unity需要加载这个Unity Shader时，Unity会扫描所有的SubShader语义块，然后选择第一个能够在目标平台上运行的SubShader。</p>
+<p>如果都不支持的话，Unity就会使用<code>Fallback</code>语义指定的Unity Shader。</p>
+<p>SubShader语义块中包含的定义如下：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">SubShader&#123;<br>    <span class="hljs-comment">// 可选的</span><br>    [tag]<br>    <br>    <span class="hljs-comment">// 可选的</span><br>    [RenderSetup]<br>    <br>    Pass&#123;<br>    <br>    &#125;<br>    <span class="hljs-comment">// Other Passes</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>SubShader定义了一系列Pass以及可选的<strong>状态（RenderSetup）</strong>和<strong>标签（Tags）</strong>。</p>
+<p>每个Pass定义了一次完整的渲染流程，如果Pass数目过多，往往会造成渲染性能下降。（尽量使用最小数目的Pass）</p>
+<p>可以在Pass中设置RenderSetup和Tags，如果在Pass外设置，则会用于所有的Pass。</p>
+<h3 id="状态设置（RenderSetup）"><a href="#状态设置（RenderSetup）" class="headerlink" title="状态设置（RenderSetup）"></a>状态设置（RenderSetup）</h3><p>ShaderLab提供了一系列渲染状态的设置指令，这些指令可以设置显卡的各种状态（例如是否开启混合/深度测试等）。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态名称</th>
+<th style="text-align:center">设置指令</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Cull</td>
+<td style="text-align:center">Cull Back\</td>
+<td style="text-align:center">Front\</td>
+<td>Off</td>
+<td>设置剔除模式：剔除背面/正面/关闭剔除</td>
+</tr>
+<tr>
+<td style="text-align:center">ZTest</td>
+<td style="text-align:center">ZTest Less Greater\</td>
+<td style="text-align:center">LEqual\</td>
+<td>GEqual\</td>
+<td>Equal\</td>
+<td>NotEqual\</td>
+<td>Always</td>
+<td>设置深度测试时使用的函数</td>
+</tr>
+<tr>
+<td style="text-align:center">ZWrite</td>
+<td style="text-align:center">ZWrite On\</td>
+<td style="text-align:center">Off</td>
+<td>开启/关闭深度写入</td>
+</tr>
+<tr>
+<td style="text-align:center">Blend</td>
+<td style="text-align:center">Blend SrcFactor DstFactor</td>
+<td style="text-align:center">开启并设置混合模式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="标签（Tags）"><a href="#标签（Tags）" class="headerlink" title="标签（Tags）"></a>标签（Tags）</h3><p>SubShader的标签（Tags）是一个<strong>键值对（Key/Value Pair）</strong>，它的键和值都是字符串类型。</p>
+<p>这些键值对是SubShader和渲染引擎之间的沟通桥梁，它们用来告诉Unity的渲染引擎：SubShader我希望怎样以及何时渲染这个对象。</p>
+<p>标签的结构如下：</p>
+<figure class="hljs highlight C++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C++">Tags&#123;<span class="hljs-string">"TagName1"</span>=<span class="hljs-string">"Value1"</span> <span class="hljs-string">"TagName2"</span>=<span class="hljs-string">"Value2"</span>&#125;<br></code></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标签类型</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Queue</td>
+<td style="text-align:center">控制渲染顺序，指定该物体属于哪一个渲染队列，通过这种方式可以保证所有的透明物体可以在所有不透明物体后面被渲染，也可以自定义使用的渲染队列来控制物体的渲染顺序。</td>
+<td style="text-align:center">Tags{“Queue”=”Transparent”}</td>
+</tr>
+<tr>
+<td style="text-align:center">RenderType</td>
+<td style="text-align:center">对着色器进行分类，例如是否为透明着色器，可以被用于着色器替换（Shader Replacement）功能。</td>
+<td style="text-align:center">Tags{“RenderType”=”Opaque”}</td>
+</tr>
+<tr>
+<td style="text-align:center">DisableBatching</td>
+<td style="text-align:center">可以通过该标签来直接指明是否对该SubShader使用批处理。</td>
+<td style="text-align:center">Tags{“DisableBatching”=”True”}</td>
+</tr>
+<tr>
+<td style="text-align:center">ForceNoShadowCasting</td>
+<td style="text-align:center">控制使用该SubShader的物体是否会投射阴影。</td>
+<td style="text-align:center">Tags{“ForceNoShadowCasting”=”True”}</td>
+</tr>
+<tr>
+<td style="text-align:center">IgnoreProjector</td>
+<td style="text-align:center">若该标签值为“True”，则使用该SubShader的物体将不会受Projector影响。通常用于半透明物体</td>
+<td style="text-align:center">Tags{“IgnoreProjector”=”True”}</td>
+</tr>
+<tr>
+<td style="text-align:center">CanUseSpriteAtlas</td>
+<td style="text-align:center">当该SubShader是用于sprites时，将该标签设置为“False”</td>
+<td style="text-align:center">Tags{“CanUseSpriteAtlas”=”False”}</td>
+</tr>
+<tr>
+<td style="text-align:center">PreviewType</td>
+<td style="text-align:center">指明材质面板将如何预览该材质。默认情况下，材质将显示为一个球形，可以通过把该标签的值设为“Plane”“SkyBox”来改变预览类型</td>
+<td style="text-align:center">Tags{“PreviewType”=”Plane”}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注意：上述标签仅可以在SubShader中声明，而不可以在Pass块中声明。</p>
+<h3 id="Pass语义块"><a href="#Pass语义块" class="headerlink" title="Pass语义块"></a>Pass语义块</h3><p>Pass语义块包含的语义如下：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++">Pass&#123;<br>    [Name]<br>    [Tags]<br>    [RenderSetup]<br>    <span class="hljs-comment">// Other code</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>可以在Pass中定义该Pass的名称，例如</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Name <span class="hljs-string">"MyPassName"</span><br></code></pre></td></tr></table></figure>
+<p>之后，可以使用ShaderLab的UsePass命令来直接使用其他Unity Shader中的Pass，例如：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">UsePass <span class="hljs-string">"MyShader/MYPASSNAME"</span><br></code></pre></td></tr></table></figure>
+<p>注意，Unity内部会把所有Pass的名称转换成大写字母的表示，因此，在使用UsePass命令时必须使用大写形式的名字。</p>
+<p>Pass标签：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标签类型</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">LightMode</td>
+<td style="text-align:center">定义该Pass在Unity的渲染流水线中的角色</td>
+<td style="text-align:center">Tags{“LightMode”=”ForwardBase”}</td>
+</tr>
+<tr>
+<td style="text-align:center">RequireOptions</td>
+<td style="text-align:center">用于指定当满足某些条件时才渲染该Pass，它的值是一个由空格分隔的字符串。目前，Unity支持的选项有：SoftVegetation。后续版本会增加更多的选项。</td>
+<td style="text-align:center">Tags{“RequireOptions”=”SoftVegetation”}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Fallback（留一条后路）"><a href="#Fallback（留一条后路）" class="headerlink" title="Fallback（留一条后路）"></a>Fallback（留一条后路）</h2><p>Fallback在各个SubShader语义块后面，它用于告诉Unity，“如果上面所有的SubShader在这块显卡上都不能运行，那么就使用这个最低级的Shader吧！”</p>
+<p>语义定义：</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++">Fallback <span class="hljs-string">"name"</span><br><span class="hljs-comment">// 或者</span><br>Fallback Off<br></code></pre></td></tr></table></figure>
+<p>可以给Fallback起名字，也可以关闭Fallback功能。</p>
+<h1 id="Unity-Shader的形式"><a href="#Unity-Shader的形式" class="headerlink" title="Unity Shader的形式"></a>Unity Shader的形式</h1><p>Unity Shader最重要的任务是指定各种着色器所需的代码。</p>
+<p>这些着色器代码可以写在SubShader语义块中（表面着色器的做法），也可以写在Pass语义块中（顶点/片元着色器和固定函数着色器的做法）。</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++">Shader <span class="hljs-string">"MyShader"</span>&#123;<br>    Properties&#123;<br>        <span class="hljs-comment">// 所需的各种属性</span><br>    &#125;<br>    SubShader&#123;<br>        <span class="hljs-comment">// 真正意义上的Shader代码会出现在这里</span><br>        <span class="hljs-comment">// 表面着色器（Surface Shader）或者</span><br>        <span class="hljs-comment">// 顶点/片元着色器（Vertex/Fragment Shader）或者</span><br>        <span class="hljs-comment">// 固定函数着色器（Fixed Function Shader）</span><br>    &#125;<br>    SubShader&#123;<br>        <span class="hljs-comment">// 和上一个SubShader类似</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="表面着色器（Surface-Shader）"><a href="#表面着色器（Surface-Shader）" class="headerlink" title="表面着色器（Surface Shader）"></a>表面着色器（Surface Shader）</h2><p>Unity自创的一种着色器代码类型，需要的代码量很少，Unity在背后做了很多工作（背后仍旧把它转换成对应的顶点/片元着色器），但渲染的代价比较大。</p>
+<figure class="hljs highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++">Shader <span class="hljs-string">"Custom/Simple Surface Shader"</span>&#123;<br>    SubShader &#123;<br>        Tags&#123;<span class="hljs-string">"RenderType"</span> = <span class="hljs-string">"Opaque"</span>&#125;<br>        CGPROGRAM<br>        #pragma surface surf Lambert<br>        struct Input&#123;<br>            float4 color : COLOR;<br>        &#125;;<br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">surf</span><span class="hljs-params">(Input IN, inout SurfaceOutput o)</span></span>&#123;<br>            o.Albedo = <span class="hljs-number">1</span>;<br>        &#125;<br>        ENDCG<br>    &#125;<br>    Fallback <span class="hljs-string">"Diffuse"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>表面着色器定义在SubShader语义块（而非Pass语义块）中的<strong>CGPROGRAM</strong>和<strong>ENDCG</strong>之间。</p>
+<p>原因：表面着色器不需要开发者关心使用多少个Pass、每个Pass如何渲染等问题，Unity会在背后为我们做好这些事情。</p>
+<p><strong>CGPROGRAM</strong>和<strong>ENDCG</strong>之间的代码是使用<strong>CG/HLSL</strong>编写的，即，我们需要把CG/GLSL语言嵌套在ShaderLab语言中。</p>
+<p>如果想和各种光源打交道，使用表面着色器，但需要小心它在移动平台的性能表现。</p>
+<h2 id="顶点-片元着色器（Vertex-Fragment-Shader）"><a href="#顶点-片元着色器（Vertex-Fragment-Shader）" class="headerlink" title="顶点/片元着色器（Vertex/Fragment Shader）"></a>顶点/片元着色器（Vertex/Fragment Shader）</h2><p>Unity中可是使用CG/HLSL语言来编写顶点/片元着色器。</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++">Shader "Custom/Simple VertexFragment Shader"&#123;<br>    SubShader &#123;<br>        Pass&#123;<br>            CGPROGRAM<br>            #pragma vertex vert<br>            #pragma fragment frag<br>            <br>            float4 vert(float4 v: POSITION): SV_POSITION&#123;<br>                return mul(UNITY_MATRIX_MVP, v);<br>            &#125;<br>            <br>            fixed4 frag(): SV_Target&#123;<br>                return fixed4(1.0, 0.0, 0.0, 1.0);<br>            &#125;<br>            ENDCG<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>顶点/片元着色器的代码也需要定义在<strong>CGPROGRAM</strong>和<strong>ENDCG</strong>之间。</p>
+<p>但需要注意，顶点/片元着色器时写在Pass语义块内，而非SubShader内的。</p>
+<p>如果有很多自定义的渲染效果，则使用顶点/片元着色器。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
+        
+        <a class="post-tag button" href="/tags/Shader/" rel="tag"><i class="fas fa-tags"></i>Shader</a>
+        
+        <a class="post-tag button" href="/tags/unity/" rel="tag"><i class="fas fa-tags"></i>unity</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>把最实用的经验，分享给最需要的读者，希望每一位来访的朋友都能有所收获！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/09/24/渲染流水线/" rel="next" title="渲染流水线"><i class="fas fa-angle-left"></i><span class="nav-title">渲染流水线</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">94</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">50</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">99</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Unity-Shader-概述"><span class="toc-text">Unity Shader 概述</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一对好兄弟：材质和Unity-Shader"><span class="toc-text">一对好兄弟：材质和Unity Shader</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Unity中的材质"><span class="toc-text">Unity中的材质</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Unity中的Shader"><span class="toc-text">Unity中的Shader</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Unity-Shader基础：ShaderLab"><span class="toc-text">Unity Shader基础：ShaderLab</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#ShaderLab"><span class="toc-text">ShaderLab</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Unity-Shader的结构"><span class="toc-text">Unity Shader的结构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#给Shader起个名字"><span class="toc-text">给Shader起个名字</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#材质和Unity-Shader的桥梁：Properties"><span class="toc-text">材质和Unity Shader的桥梁：Properties</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#重量级成员：SubShader"><span class="toc-text">重量级成员：SubShader</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#状态设置（RenderSetup）"><span class="toc-text">状态设置（RenderSetup）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#标签（Tags）"><span class="toc-text">标签（Tags）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Pass语义块"><span class="toc-text">Pass语义块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Fallback（留一条后路）"><span class="toc-text">Fallback（留一条后路）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Unity-Shader的形式"><span class="toc-text">Unity Shader的形式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#表面着色器（Surface-Shader）"><span class="toc-text">表面着色器（Surface Shader）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#顶点-片元着色器（Vertex-Fragment-Shader）"><span class="toc-text">顶点/片元着色器（Vertex/Fragment Shader）</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
