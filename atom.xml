@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-10-05T04:55:16.979Z</updated>
+  <updated>2020-11-11T15:14:19.299Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HRV学习</title>
+    <link href="http://huris.xyz/2020/11/11/HRV%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://huris.xyz/2020/11/11/HRV学习/</id>
+    <published>2020-11-11T09:51:56.000Z</published>
+    <updated>2020-11-11T15:14:19.299Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Heart rate variability（HRV）is about beat-to-beat variability in RR intervals.&lt;/p&gt;
+&lt;p&gt;Heart rate variability is a commonly used tool when trying to assess the functioning of cardiac autonomic regulation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/%E5%8C%BB%E5%AD%A6/RR.png&quot; width=&quot;50%&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="其他知识" scheme="http://huris.xyz/categories/%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/"/>
+    
+      <category term="医学" scheme="http://huris.xyz/categories/%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/%E5%8C%BB%E5%AD%A6/"/>
+    
+    
+      <category term="HRV" scheme="http://huris.xyz/tags/HRV/"/>
+    
+      <category term="心率变异性" scheme="http://huris.xyz/tags/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vulkan学习</title>
+    <link href="http://huris.xyz/2020/10/28/Vulkan%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://huris.xyz/2020/10/28/Vulkan学习/</id>
+    <published>2020-10-28T05:46:39.000Z</published>
+    <updated>2020-10-28T11:09:18.968Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录Vulkan学习，&lt;a href=&quot;https://vulkan-tutorial.com/Introduction&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;网址&lt;/a&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="Vulkan" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/Vulkan/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="Vulkan" scheme="http://huris.xyz/tags/Vulkan/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity Shader基础</title>
@@ -70,22 +120,15 @@
   </entry>
   
   <entry>
-    <title>Fundamentals of Computer Graphics 4 阅读笔记</title>
-    <link href="http://huris.xyz/2020/09/24/Fundamentals-of-Computer-Graphics-4-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    <id>http://huris.xyz/2020/09/24/Fundamentals-of-Computer-Graphics-4-阅读笔记/</id>
+    <title>Fundamentals of Computer Graphics 4 数学基础</title>
+    <link href="http://huris.xyz/2020/09/24/Fundamentals%20of%20Computer%20Graphics%204%20%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    <id>http://huris.xyz/2020/09/24/Fundamentals of Computer Graphics 4 数学基础/</id>
     <published>2020-09-24T05:32:26.000Z</published>
-    <updated>2020-10-12T06:31:23.380Z</updated>
+    <updated>2020-11-02T14:15:50.323Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;数学基础（Miscellaneous-Math）&quot;&gt;&lt;a href=&quot;#数学基础（Miscellaneous-Math）&quot; class=&quot;headerlink&quot; title=&quot;数学基础（Miscellaneous
-        
-      
+      &lt;p&gt;主要介绍第二章的数学基础&lt;/p&gt;
     
     </summary>
     
@@ -192,9 +235,9 @@
     
       <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
     
-      <category term="平面" scheme="http://huris.xyz/tags/%E5%B9%B3%E9%9D%A2/"/>
-    
       <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="平面" scheme="http://huris.xyz/tags/%E5%B9%B3%E9%9D%A2/"/>
     
   </entry>
   
@@ -224,9 +267,9 @@
     
       <category term="三维空间" scheme="http://huris.xyz/tags/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4/"/>
     
-      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="直线" scheme="http://huris.xyz/tags/%E7%9B%B4%E7%BA%BF/"/>
+    
+      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -520,65 +563,6 @@
       <category term="虚拟现实" scheme="http://huris.xyz/tags/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E/"/>
     
       <category term="医疗康复" scheme="http://huris.xyz/tags/%E5%8C%BB%E7%96%97%E5%BA%B7%E5%A4%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>彻底理解红黑树</title>
-    <link href="http://huris.xyz/2019/09/20/%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
-    <id>http://huris.xyz/2019/09/20/彻底理解红黑树/</id>
-    <published>2019-09-20T13:38:58.000Z</published>
-    <updated>2019-09-20T15:46:36.423Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;当在10亿数据中只需要进行10几次比较就能查找到目标时，不禁感叹编程之魅力！人类之伟大呀！ —— 学红黑树有感。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;红黑树是一种比较难的数据结构，要完全搞懂非常耗时耗力，红黑树怎么自平衡？什么时候需要左旋或右旋？插入和删除破坏了树的平衡后怎么处理？等等问题。&lt;/p&gt;
-&lt;p&gt;本文将通过图文的方式讲解红黑树的知识点，并且不会涉及到任何代码，相信我，在懂得红黑树实现原理前，看代码会一头雾水的，当原理懂了，代码也就按部就班写而已，没任何难度。&lt;/p&gt;
-&lt;p&gt;阅读本文需要具备知识点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;二叉查找树&lt;/li&gt;
-&lt;li&gt;完美平衡二叉树&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="数据结构与算法" scheme="http://huris.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="数据结构" scheme="http://huris.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="红黑树" scheme="http://huris.xyz/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
-    
-      <category term="数据结构" scheme="http://huris.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线性代数公式</title>
-    <link href="http://huris.xyz/2019/09/10/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
-    <id>http://huris.xyz/2019/09/10/线性代数公式/</id>
-    <published>2019-09-09T23:58:42.000Z</published>
-    <updated>2019-09-10T00:23:00.990Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;矩阵的秩&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="数学之美" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
-    
-      <category term="数学公式" scheme="http://huris.xyz/categories/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
-    
-    
-      <category term="数学" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="高数" scheme="http://huris.xyz/tags/%E9%AB%98%E6%95%B0/"/>
-    
-      <category term="数学公式" scheme="http://huris.xyz/tags/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
     
   </entry>
   

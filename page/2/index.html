@@ -182,6 +182,281 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/07/27/视锥/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Huris">
+        <meta itemprop="description" content="To be is to be perceived.">
+        <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/07/27/视锥/" itemprop="url">视锥</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-07-27T15:27:48+08:00">2020-07-27 15:27:48</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/数学概念/" itemprop="url" rel="index"><span itemprop="name">数学概念</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <p>三维空间中，视锥是包含所有可视内容的空间体。</p>
+<p>视锥的形状像一个四棱锥，其顶点位于虚拟相机，表示相机通过一个矩形框看到的空间，这个矩形框就是计算机屏幕。</p>
+<p>视锥的边界由$6$个平面组成，其中$4$个与屏幕的边对应，分别称为左锥面、右锥面、顶锥面和底锥面，其余$2$个平面分别称为近锥面和远锥面，这两个锥平面定义了场景中可见对象对相机可见的最近和最远距离。</p>
+<p>视锥与相机空间（视察空间）对齐，相机位于坐标原点，$x$轴向右，$y$轴向上，$z$轴方向则与$3D$图形库有关（OpenGL中$z$轴方向与相机指向相反：右手坐标系，DirectX3D中$z$轴方向与相机指向相同：左手坐标系）。</p>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
+        
+        <a class="post-tag button" href="/tags/三维空间/" rel="tag"><i class="fas fa-tags"></i>三维空间</a>
+        
+        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
+        
+        <a class="post-tag button" href="/tags/视锥/" rel="tag"><i class="fas fa-tags"></i>视锥</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/07/25/三维空间中的平面/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Huris">
+        <meta itemprop="description" content="To be is to be perceived.">
+        <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/07/25/三维空间中的平面/" itemprop="url">三维空间中的平面</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-07-25T15:17:38+08:00">2020-07-25 15:17:38</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/数学概念/" itemprop="url" rel="index"><span itemprop="name">数学概念</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <a id="more"></a>
+<p>一个三维点$P$与法向量$N$，则过点$P$并与$N$垂直的平面可以定义为满足$N\cdot (Q-P)=0$的点$Q$的集合。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img3.png" width="40%"></p>
+<p>平面方程通常表示为：$。Ax+By+Cz+D=0$，其中，$A$，$B$和$C$是法向量$N$的$x$，$y$和$z$分量，$D=-N\cdot P$。</p>
+<p>值$\frac{|D|}{|N|}$是过原点与该平面平行的平面到该平面的偏移距离。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img4.png" width="40%"></p>
+<p>法向量$N$通常规范化为单位长度，可使以下方程成立：</p>
+<script type="math/tex; mode=display">
+d=N\cdot Q+D \tag{1}</script><p>$d$为从任一点$Q$到该平面的符号距离。</p>
+<ul>
+<li>若$d=0$，则点$Q$位于平面上；</li>
+<li>若$d&gt;0$，则点$Q$位于平法向量所指的一侧；</li>
+<li>若$d&lt;0$，则点$Q$位于平面的负向侧。</li>
+</ul>
+<p>平面可简单表示为一个四维向量的形式，用缩写符号$<n,d>$可表示由满足条件$N\cdot Q+D=0$的$Q$点组成的平面。</n,d></p>
+<p>若将三维点看成$w$坐标为$1$的四维齐次坐标点，则可写成：$d=L\cdot Q$，其中：$L=<n,d>$，若$L\cdot Q=0$，则点$Q$位于平面上。</n,d></p>
+<h1 id="直线和平面的交点"><a href="#直线和平面的交点" class="headerlink" title="直线和平面的交点"></a>直线和平面的交点</h1><p>求直线与平面交点在<strong>多边形裁剪</strong>中被广泛使用。</p>
+<ul>
+<li>令$P(t)=S+tV$表示包含点$S$并与方向$V$平行的直线。</li>
+<li>用法向量$N$和到原点的符号距离$D$定义的平面。</li>
+</ul>
+<p>对以下关于$t$的方程求解，即可获得直线与平面的交点。</p>
+<script type="math/tex; mode=display">
+N\cdot P(t)+D=0 \tag{2}</script><p>带入$P(t)=S+tV$，可得：</p>
+<script type="math/tex; mode=display">
+N\cdot S+(N\cdot V)t+D=0 \tag{3}</script><p>可以求得$t$的结果，即：</p>
+<script type="math/tex; mode=display">
+t=\frac{-(N\cdot S+D)}{N\cdot V} \tag{4}</script><p>将$t$带入直线方程$P(t)=S+tV$即可得到交点。</p>
+<p>若$N\cdot V=0$，则直线与平面平行，平面法向量$N$与直线方向向量$V$垂直，此时，若$N\cdot S+D=0$，则直线位于平面内，否则无交点。</p>
+<p>式$(4)$给出的$t$值可以写成四维平面表示形式，若平面的四维表示形式为$L=<n,d>$，则有：</n,d></p>
+<script type="math/tex; mode=display">
+t=-\frac{L\cdot S}{L\cdot V} \tag{5}</script><p>由于$S$为一点，其$w$坐标为$1$，而$V$为方向向量，表示成齐次坐标时，其$w$坐标为$0$，因此可保证式$(4)$和式$(5)$成立。</p>
+<h1 id="三个平面斜交"><a href="#三个平面斜交" class="headerlink" title="三个平面斜交"></a>三个平面斜交</h1><p>一个<strong>空间区域</strong>通常表示成<strong>由一系列平面为边界的凸多面体的形式</strong>，该多面体的边和顶点可以通过执行多次三个平面的求交运算得出。</p>
+<p>令$L_1=<n_1,d_1>$，$L_2=<n_2,d_2>$和$L_3=<n_3,d_3>$为三个任意平面，通过以下方程组可以求出三个平面的交点。</n_3,d_3></n_2,d_2></n_1,d_1></p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+\left\{
+\begin{array}{**lr**}  
+        L_1\cdot Q = 0  \\
+        L_2\cdot Q = 0  \\
+        L_3\cdot Q = 0
+\end{array}
+\right.
+\end{aligned}
+\end{equation}
+\tag{6}</script><p>写成矩阵形式：</p>
+<script type="math/tex; mode=display">
+MQ=
+\left[
+\begin{matrix}
+    -D_1 \\
+    -D_2 \\
+    -D_3
+\end{matrix}
+\right]
+
+\tag{7}</script><p>矩阵$M$的表达式如下：</p>
+<script type="math/tex; mode=display">
+M=
+\left[
+\begin{matrix}
+    (N_1)_x & (N_1)_y & (N_1)_z \\
+    (N_2)_x & (N_2)_y & (N_2)_z \\
+    (N_3)_x & (N_3)_y & (N_3)_z \\
+\end{matrix}
+\right]
+
+\tag{8}</script><p>假设矩阵$M$可逆，按下式可计算三个平面的唯一交点$Q$：</p>
+<script type="math/tex; mode=display">
+Q=M^{-1}
+
+\left[
+\begin{matrix}
+    -D_1 \\
+    -D_2 \\
+    -D_3 \\
+\end{matrix}
+\right]
+\tag{9}</script><p>若矩阵$M$为奇异矩阵（即$detM=0$），这三个平面不相交于一点，此时三个平面法向量位于同一平面。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img5.png" width="40%"></p>
+<p>当两个不平行的平面$L_1=<n_1,d_1>$和$L_2=<n_2,d_2>$相交于一条直线时，交线的方向$V$与两个平面的法向量都垂直，克表示为$V=N_1\times N_2$。</n_2,d_2></n_1,d_1></p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/3D%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6/img6.png" width="50%"></p>
+<p>为了获得交线的完整表达式，还需要直线上一点。构造经过原点法向量为$V$的第三个平面$L_3=<v,0>$，这可确保三个平面交于一点，该点即为两个不平行平面$L_1$和$L_2$交线上的一点。</v,0></p>
+<p>利用式$(9)$可得到该点$Q$，表达式如下：</p>
+<script type="math/tex; mode=display">
+Q=
+\left[
+\begin{matrix}
+    (N_1)_x & (N_1)_y & (N_1)_z \\
+    (N_2)_x & (N_2)_y & (N_2)_z \\
+    V_x & V_y & V_z
+\end{matrix}
+\right]
+^{-1}
+
+\left[
+\begin{matrix}
+    -D_1 \\
+    -D_2 \\
+    0
+\end{matrix}
+\right]
+
+\tag{10}</script><p>则平面$L_1$和$L_2$交线的表达式为$P(t)=Q+tV$。</p>
+<h1 id="平面变换"><a href="#平面变换" class="headerlink" title="平面变换"></a>平面变换</h1><p>用一个$3\times 3$<strong>矩阵$M$</strong>和一个三维<strong>平移向量$T$</strong>去变换一个平面。</p>
+<p>已知原始平面中一点$P$，变换后平面到原点的符号距离可通过下式计算：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+    D' &= -[(M^{-1})^TN]\cdot(MP+T) \\
+       &= -[(M^{-1})^TN]^TMP-[(M^{-1})^TN]^TT \\
+       &= -N^TM^{-1}MP-N^TM^{-1}T \\
+       &= D-N\cdot M^{-1}T
+\end{aligned}
+\end{equation}
+\tag{11}</script><p>由$3\times 3$矩阵$M$和三维平移向量$T$合成的$4\times 4$矩阵$F$的逆矩阵表达式如下：</p>
+<script type="math/tex; mode=display">
+F^{-1}=
+    \left[
+    \begin{array}{c|c}
+    M^{-1} & -M^{-1}T \\ \hline 
+         0 &        1
+    \end{array}
+    \right]
+    =
+    \left[
+    \begin{array}{c|c}
+    \begin{matrix}
+    M_{11}^{-1} & M_{12}^{-1} & M_{13}^{-1} \\
+    M_{21}^{-1} & M_{22}^{-1} & M_{33}^{-1} \\
+    M_{31}^{-1} & M_{32}^{-1} & M_{33}^{-1} 
+    \end{matrix}
+    &
+    \begin{matrix}
+    -(M^{-1}T)_x\\
+    -(M^{-1}T)_y\\
+    -(M^{-1}T)_z
+    \end{matrix}
+
+     \\ \hline 
+     0
+   &
+   1
+    \end{array}
+    \right]
+
+    \tag{12}</script><p>其转置矩阵为：</p>
+<script type="math/tex; mode=display">
+(F^{-1})^T=
+\left[
+    \begin{array}{c|c}
+    (M^{-1})^T & 0 \\ \hline 
+         -M^{-1}T &     1
+    \end{array}
+    \right]
+    \tag{13}</script><p>可以看出：$D-N\cdot M^{-1}T$正好等于$(F^{-1})^T$的第四行与四维向量$<n_x,n_y,n_z,d>$之间的内积。</n_x,n_y,n_z,d></p>
+<p>因此，平面的变换可以像三维法向量变换那样进行四维向量的变换，唯一不同的是平面变换中使用$4\times 4$逆转矩阵。</p>
+<p>采用$4\times 4$矩阵的平面变换公式如下：</p>
+<script type="math/tex; mode=display">
+L'=(F^{-1})^{T}L  \tag{14}</script>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
+        
+        <a class="post-tag button" href="/tags/三维空间/" rel="tag"><i class="fas fa-tags"></i>三维空间</a>
+        
+        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
+        
+        <a class="post-tag button" href="/tags/平面/" rel="tag"><i class="fas fa-tags"></i>平面</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/07/25/三维空间中的直线/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Huris">
@@ -231,9 +506,9 @@
         
         <a class="post-tag button" href="/tags/三维空间/" rel="tag"><i class="fas fa-tags"></i>三维空间</a>
         
-        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
-        
         <a class="post-tag button" href="/tags/直线/" rel="tag"><i class="fas fa-tags"></i>直线</a>
+        
+        <a class="post-tag button" href="/tags/数学/" rel="tag"><i class="fas fa-tags"></i>数学</a>
         
       </div>
       
@@ -406,117 +681,6 @@
     </footer>
   </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/05/29/直线扫描转换算法/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Huris">
-        <meta itemprop="description" content="To be is to be perceived.">
-        <meta itemprop="image" content="/images/avatar.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Huris' HeapStack">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2020/05/29/直线扫描转换算法/" itemprop="url">直线扫描转换算法</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-05-29T17:41:27+08:00">2020-05-29 17:41:27</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p>数值微分算法(DDA)，Bresenham算法。</p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
-        
-        <a class="post-tag button" href="/tags/直线生成/" rel="tag"><i class="fas fa-tags"></i>直线生成</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/05/29/OpenGL绘制一个三角形/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Huris">
-        <meta itemprop="description" content="To be is to be perceived.">
-        <meta itemprop="image" content="/images/avatar.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Huris' HeapStack">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2020/05/29/OpenGL绘制一个三角形/" itemprop="url">OpenGL绘制一个三角形</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-05-29T17:12:56+08:00">2020-05-29 17:12:56</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/" itemprop="url" rel="index"><span itemprop="name">计算机图形学</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/OpenGL/" itemprop="url" rel="index"><span itemprop="name">OpenGL</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机图形学/OpenGL/应用/" itemprop="url" rel="index"><span itemprop="name">应用</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p>本文介绍了如何用OpenGL绘制一个三角形，大致分为5个步骤。</p>
-<ol>
-<li>初始化: 初始化GLFW和GLAD</li>
-<li>数据处理: 生成和绑定VBO和VAO, 设置属性指针</li>
-<li>着色器: 顶点和片段着色器</li>
-<li>渲染</li>
-<li>善后工作</li>
-</ol>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/计算机图形学/" rel="tag"><i class="fas fa-tags"></i>计算机图形学</a>
-        
-        <a class="post-tag button" href="/tags/OpenGL/" rel="tag"><i class="fas fa-tags"></i>OpenGL</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
@@ -552,21 +716,21 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">94</a></div>
+      <div><a href="/archives/">96</a></div>
     </div>
     
     
     
     <div class="categories-count count-block">
       <div class="site-count-title">分类</div>
-      <div><a href="/categories/">50</a></div>
+      <div><a href="/categories/">53</a></div>
     </div>
     
     
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">99</a></div>
+      <div><a href="/tags/">102</a></div>
     </div>
     
     

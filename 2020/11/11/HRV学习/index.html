@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>HRV学习 | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/11/11/HRV学习/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">HRV学习</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-11T17:51:56+08:00">2020-11-11 17:51:56</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他知识/" itemprop="url" rel="index"><span itemprop="name">其他知识</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他知识/医学/" itemprop="url" rel="index"><span itemprop="name">医学</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>Heart rate variability（HRV）is about beat-to-beat variability in RR intervals.</p>
+<p>Heart rate variability is a commonly used tool when trying to assess the functioning of cardiac autonomic regulation.</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/%E5%8C%BB%E5%AD%A6/RR.png" width="50%"></p>
+<a id="more"></a>
+<h1 id="Respiratory-Sinus-Arrhythmia-RSA"><a href="#Respiratory-Sinus-Arrhythmia-RSA" class="headerlink" title="Respiratory Sinus Arrhythmia(RSA)"></a>Respiratory Sinus Arrhythmia(RSA)</h1><ul>
+<li><p><strong>HRV consists of two periodic components</strong></p>
+<ul>
+<li><p><strong>High frequency（HF，0.15-0.5Hz）</strong></p>
+<p>  <strong>HF component</strong>, also knows as <strong>respiratory sinus arrhythmia</strong>, reflects parasympathetic nervous activity.（Peaks at respiratory frequency）</p>
+</li>
+<li><p><strong>Low frequency（LF，0.04-0.15Hz）</strong></p>
+<p>  <strong>LF component</strong> reflects both sympathetic and parasympathetic nervous activities.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>During inspiration</strong></p>
+<ul>
+<li>Diaphragm contracts and moves downward</li>
+<li>Chest cavity expands</li>
+<li>Intra-thoracic pressure lowers and air flows into the lungs</li>
+<li>Arterial blood pressure is also lowered, which activates baroreceptors</li>
+<li>Vagal tone is suppressed</li>
+<li><strong>Heart rate increases</strong></li>
+</ul>
+</li>
+<li><strong>During expiration</strong><ul>
+<li>Diaphragm relaxes and moves upward</li>
+<li>Chest cavity size decreases</li>
+<li>Intra-thoracic pressure increases and air flows out from the lungs</li>
+<li>Arterial blood pressure is also increased, which deactivates baroreceptor activity </li>
+<li>Vagal tone not suppressed</li>
+<li><strong>Heart rate decrease</strong></li>
+</ul>
+</li>
+</ul>
+<h1 id="Preprocessing-of-HRV-DATA"><a href="#Preprocessing-of-HRV-DATA" class="headerlink" title="Preprocessing of HRV DATA"></a>Preprocessing of HRV DATA</h1><p><strong>Careful preprocessing of HRV data is very important before applying any HRV analysis methods.</strong></p>
+<p> Any artefact in the RR interval time series may <strong>significantly interfere</strong> the analysis of these signals.</p>
+<p> The artefacts within HRV signals can be divided into <strong>technical and physiological artefacts</strong></p>
+<ul>
+<li><strong>The technical artifacts</strong> include missing, extra or misaligned beat detections. These artefacts may be due to measurement noise or due to inaccuracy of the detection algorithm. </li>
+<li><strong>Physiological artefacts</strong> include ectopic beats and arrhythmic events. </li>
+</ul>
+<p>In order to avoid the interference of such artefacts, the ECG recording and the corresponding event series should always <strong>be manually checked for artefacts and only artefact-free sections should be included in the analysis</strong>. </p>
+<p>Alternatively, if the amount of artefact-free data is insufficient, proper <strong>interpolation methods</strong> can be used to reduce these artefacts,</p>
+<p>In addition to artefacts, slow changes in mean <strong>HR</strong> during the recording can have undesirable effects on certain heart rate variability analysis parameters. </p>
+<ul>
+<li>Such slow nonstationarities are characteristic for HRV signals and should be considered before the analysis. </li>
+<li>The slow nonstationary trends can be easily removed from the HRV time series before analysis. </li>
+</ul>
+<h2 id="Kubios-HRV-beat-correction-methods"><a href="#Kubios-HRV-beat-correction-methods" class="headerlink" title="Kubios HRV beat correction methods"></a>Kubios HRV beat correction methods</h2><p>Kubios HRV software provides excellent tools for handling artefacts. </p>
+<ol>
+<li><p>First, beat detections can be corrected manually when <strong>raw ECG (or PPG) data is available</strong>. Such beat correction provides true beat intervals but is reasonable only when data includes a limited number of misdetections. </p>
+</li>
+<li><p>Secondly, the software includes <strong>two beat correction methods</strong>: </p>
+<p> 1) Threshold based beat correction</p>
+<p> 2) Automatic beat correction</p>
+</li>
+</ol>
+<h3 id="Threshold-based-beat-correction-algorithm"><a href="#Threshold-based-beat-correction-algorithm" class="headerlink" title="Threshold based beat correction algorithm"></a>Threshold based beat correction algorithm</h3><p>The threshold based beat correction algorithm <strong>compares every RR interval value against a local average interval</strong>. </p>
+<p>The local average is obtained by median filtering the RR interval time series, and thus, <strong>the local average is not affected by single outliers in RR interval time series</strong>. </p>
+<p>If an RR interval differs from the local average more than a specified threshold value, the interval is identified as an artefact and is marked for correction. </p>
+<p>The threshold value can be selected from:</p>
+<ul>
+<li>Very low: 0.45 sec (threshold in seconds)</li>
+<li>Low: 0.35 sec</li>
+<li>Medium: 0.25 sec</li>
+<li>Strong: 0.15 sec</li>
+<li>Very strong: 0.05 sec</li>
+<li>Custom, for setting a custom threshold in seconds</li>
+</ul>
+<p>For example, the “Medium” correction level will identify all RR intervals that are larger/smaller than 0.25 seconds compared to the local average. </p>
+<p>The correction is made by replacing the identified artefacts with interpolated values using a <strong>cubic spline interpolation</strong>. </p>
+<p>It should be noted, that <strong>these threshold are adjusted with mean heart rate</strong>. That is, thresholds shown above are for HR of 60 beats/min, but for higher HR the thresholds are smaller (because the variability is expected to decrease when HR increases) and vice versa for lower heart rates.</p>
+<p>Because the artefacts are identified by simple thresholding and normal heart rate variability level is highly individual, <strong>the correction level should be adjusted individually</strong> as follows. </p>
+<ul>
+<li>First, identify if there are any beat intervals that should be corrected. </li>
+<li>If there are such intervals, then select the lowest possible correction level, which corrects the abnormal beats but does not over correct the data.</li>
+</ul>
+<h3 id="Automatic-beat-correction-algorithm"><a href="#Automatic-beat-correction-algorithm" class="headerlink" title="Automatic beat correction algorithm"></a>Automatic beat correction algorithm</h3><p>In automatic beat correction algorithm, artefacts are detected from <strong>dRR series</strong>, which is a time series consisting of differences between <strong>successive RR intervals</strong>. <a href="https://www.kubios.com/hrv-preprocessing/#Lipponen2019" target="_blank" rel="noopener">Lipponen &amp; Tarvainen 2019</a></p>
+<p>The dRR series provides a robust way to <strong>separate ectopic and misplaced beats</strong> from the normal sinus rhythm. </p>
+<p>To separate ectopic and normal beats, <strong>time varying threshold (Th)</strong> is used. To ensure <strong>adaptation to different HRV levels</strong>, the threshold is estimated from the time-varying distribution of dRR series. </p>
+<p>For each beat, <strong>quartile deviation of the 90 surrounding beats</strong> is calculated and multiplied by factor 5.2. Beats within this range cover 99.95% of all beats if RR series is normally distributed. </p>
+<p>However, RR interval series <strong>is not often normally distributed</strong>, and thus, also some of the normal beats exceed the threshold. Therefore, decision algorithm is needed to detect artefact beats.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Beat types</th>
+<th style="text-align:center">Nbr of beats</th>
+<th style="text-align:center">Mean $\Delta t(ms)$</th>
+<th style="text-align:center">Detection(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Sinus beats</td>
+<td style="text-align:center">61 757</td>
+<td style="text-align:center">—-</td>
+<td style="text-align:center">99.963%</td>
+</tr>
+<tr>
+<td style="text-align:center">Missed beats</td>
+<td style="text-align:center">610</td>
+<td style="text-align:center">—-</td>
+<td style="text-align:center">100%</td>
+</tr>
+<tr>
+<td style="text-align:center">Extra beats</td>
+<td style="text-align:center">610</td>
+<td style="text-align:center">—-</td>
+<td style="text-align:center">100%</td>
+</tr>
+<tr>
+<td style="text-align:center">Misaligned beats(q=2)</td>
+<td style="text-align:center">610</td>
+<td style="text-align:center">58 ms</td>
+<td style="text-align:center">53.9%</td>
+</tr>
+<tr>
+<td style="text-align:center">Misaligned beats(q=4)</td>
+<td style="text-align:center">610</td>
+<td style="text-align:center">119 ms</td>
+<td style="text-align:center">99.3%</td>
+</tr>
+<tr>
+<td style="text-align:center">Misaligned beats(q=8)</td>
+<td style="text-align:center">610</td>
+<td style="text-align:center">238 ms</td>
+<td style="text-align:center">100%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ectopic beats form <strong>negative-positive-negative (NPN)</strong> or <strong>positive-negative-positive (PNP)</strong> patterns to the dRR series. Similarly long beats form <strong>positive-negative (PN)</strong> and short beats <strong>negative-positive (NP)</strong> patterns to the dRR series. Only dRR segments containing these patterns are classified as artefact beats. </p>
+<p>Missed or extra beats are detected by <strong>comparing current RR value with median of the surrounding 10 RR interval values (medRR)</strong>. A missed beat is detected if current RR interval (RR(i)) satisfies condition</p>
+<script type="math/tex; mode=display">
+\left|\frac{RR(i)}{2}-medRR(i)\right|  \tag{1} < 2Th</script><p>and an <strong>extra beat is detected</strong> if two successive RR intervals (RR(i) and RR(i+1)) satisfies condition</p>
+<script type="math/tex; mode=display">
+|RR(i)+RR(i+1)-medRR(i)|<2Th \tag{2}</script><p><strong>Correction of detected artefacts</strong>: Detected ectopic beats are corrected by <strong>replacing corrupted RR times by interpolated RR values</strong>. </p>
+<p>Similarly too long and short beats are corrected by <strong>interpolating new values</strong> to the RR time series. </p>
+<p>Missed beats are corrected by <strong>adding new R-wave occurrence time</strong> and extra beats are simply corrected by removing extra R-wave detection and recalculating RR interval series.</p>
+<h3 id="Detrending-of-RR-interval-data"><a href="#Detrending-of-RR-interval-data" class="headerlink" title="Detrending of RR interval data"></a>Detrending of RR interval data</h3><p>To <strong>avoid the effect of slow nonstationary trends</strong> (slow changes in mean HR basically) over HRV analysis results, such trends by default are removed in Kubios HRV software using a <strong>smoothness priors method</strong>. </p>
+<p>The theory behind the smoothness priors detrending method is described shortly here.  <a href="https://www.kubios.com/hrv-preprocessing/#Tarvainen2002" target="_blank" rel="noopener">Tarvainen et al. 2002</a>.</p>
+<p>Let $z\in N$ denote <strong>the RR interval time series</strong> which can be considered to consist of two components</p>
+<script type="math/tex; mode=display">
+z=z_{stat}+z_{trend} \tag{3}</script><p>$z_{stat}$ is <strong>the nearly stationary RR interval series of interest</strong>, $z_{trend}$ is <strong>the low frequency aperiodic trend component</strong>, and $N$ is <strong>the number of RR intervals</strong>. </p>
+<p>Suppose that <strong>the trend component</strong> can be modeled with a linear observation model as</p>
+<script type="math/tex; mode=display">
+z_{trend}=H\theta+e    \tag{4}</script><p>where $H\in N\times p$ is <strong>the observation matrix</strong>, $\theta\in p$ are <strong>the regression parameters</strong>, and $e$ is the <strong>observation error</strong>. </p>
+<p>The task is then to <strong>estimate the parameters</strong> by some fitting procedure so that $\hat{z}_{trend}=H\hat{\theta}$ can be used as <strong>the estimate of the trend</strong>. </p>
+<p>The properties of the estimate depend strongly on the properties of the basis vectors (columns of the matrix $H$) in the fitting. A widely used method for the solution of the estimate $\hat{\theta}$ is <strong>the least squares method</strong>. </p>
+<p>However, a more general approach for the estimation of $\hat{\theta}$ is used here. That is, the so-called regularized least squares solution</p>
+<script type="math/tex; mode=display">
+\hat{\theta}_{\lambda}=\arg \min \limits_{\theta}\{\|z-H\theta\|^2+\lambda^2\|D_2(H\theta)\|^2\}    \tag{5}</script><p>where $\lambda$ is the <strong>regularization parameter</strong> and $D_2$ indicates <strong>the discrete approximation of 2nd order derivative</strong>. </p>
+<p>This is a modification of the ordinary <strong>least squares solution</strong>, dragging the solution to the direction in which the norm $|D_2(H\theta)|$ gets smaller. </p>
+<p>In this way, prior information about the predicted trend $H\theta$ can be implemented to the estimation. The solution of previous equation can be written in the form</p>
+<script type="math/tex; mode=display">
+\hat{\theta}_{\lambda}=(H^TH+\lambda^2H^TD_2^TD_2H)^{-1}H^{T}z    \tag{6}</script><p>and the estimate for <strong>the trend</strong> which is to be removed can be written</p>
+<script type="math/tex; mode=display">
+\hat{z}_{trend}=H\hat{\theta}_{\lambda}    \tag{7}</script><p>The selection of the observation matrix $H$ can be implemented according to some known properties of the data $z$. </p>
+<p>However, here we use a trivial choice of identity matrix $H=I\in N\times N$. In this case, the regularization part of the minimized function simply draws the solution towards a curve for which the 2nd order difference is zero, i.e. towards first order linear curve. With these specific choices, the detrended nearly stationary RR series can be written as</p>
+<script type="math/tex; mode=display">
+\hat{z}_{stat}=z-H\hat{\theta}_{\lambda}=(I-(I+{\lambda}^2D^T_2D_2)^{-1})z  \tag{8}</script><p>This detrending method works like <strong>a time-varying highpass filter</strong>, where the cutoff frequency can be adjusted by changing the smoothing parameter $\lambda$. </p>
+<p>In Kubios HRV Premium software, <strong>the cutoff frequency</strong> related to the given smoothing parameter is presented. <strong>The smoothing parameter</strong> is by default selected to remove only VLF frequency components from the RR time series.</p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ol>
+<li>G.G. Berntson, J.T. Bigger Jr., D.L. Eckberg, P. Grossman, P.G. Kaufmann, M. Malik, H.N. Nagaraja, S.W. Porges, J.P. Saul, P.H. Stone, and M.W. Van Der Molen. Heart rate variability: Origins, methods, and interpretive caveats. Psychophysiol, 34:623–648, 1997.</li>
+<li>N. Lippman, K.M. Stein, and B.B. Lerman. Nonlinear predictive interpolation: a new method for the correction of ectopic beats for heart rate variability analysis. J Electrocardiol, 26:S14–S19, 1993.</li>
+<li>N. Lippman, K.M. Stein, and B.B. Lerman. Comparison of methods for removal of ectopy in measurement of heart rate variability. Am J Physiol, 267(1):H411–H418, July 1994.</li>
+<li>J.A. Lipponen and M.P. Tarvainen. A robust algorithm for heart rate variability time series artefact correction using novel beat classification. J Med Eng Technol, 43(3):173-181, 2019.</li>
+<li>D.A. Litvack, T.F. Oberlander, L.H. Carney, and J.P. Saul. Time and frequency domain methods for heart rate variability analysis: a methodological comparison. Psychophysiol, 32:492–504, 1995.</li>
+<li>J. Mateo and P. Laguna. Analysis of heart rate variability in the presence of ectopic beats using the heart timing signal. IEEE Trans Biomed Eng, 50(3):334–343, March 2003.</li>
+<li>I.P. Mitov. A method for assessment and processing of biomedical signals containing trend and periodic components. Med Eng Phys, 20(9):660–668, November-December 1998.</li>
+<li>S.W. Porges and R.E. Bohrer. The analysis of periodic processes in psychophysiological research. In J.T. Cacioppo and L.G. Tassinary, editors, Principles of Psychophysiology: Physical Social and Inferential Elements, pages 708–753. Cambridge University Press, 1990.</li>
+<li>M.P. Tarvainen, P.O. Ranta-aho, and P.A. Karjalainen. An advanced detrending method with application to HRV analysis. IEEE Trans Biomed Eng, 49(2):172–175, February 2002.</li>
+<li>Task force of the European society of cardiology and the North American society of pacing and electrophysiology. Heart rate variability – standards of measurement, physiological interpretation, and clinical use. Circulation, 93(5):1043–1065, March 1996.</li>
+</ol>
+<h1 id="HRV-Analysis-Methods"><a href="#HRV-Analysis-Methods" class="headerlink" title="HRV Analysis Methods"></a>HRV Analysis Methods</h1><p><a href="https://www.kubios.com/hrv-analysis-methods/#Taskforce1996" target="_blank" rel="noopener">Task Force 1996</a></p>
+<p><strong>Four categories</strong></p>
+<ul>
+<li>time-domain</li>
+<li>frequency-domain</li>
+<li>nonlinear</li>
+<li>time-varying</li>
+</ul>
+<h2 id="Time-domain-HRV-analysis-methods"><a href="#Time-domain-HRV-analysis-methods" class="headerlink" title="Time-domain HRV analysis methods"></a>Time-domain HRV analysis methods</h2><h3 id="Energy-expenditure-and-training-load"><a href="#Energy-expenditure-and-training-load" class="headerlink" title="Energy expenditure and training load"></a>Energy expenditure and training load</h3><p>Heart rate based energy expenditure models, provide a reliable estimates of daily energy expenditure.</p>
+<p>In Kubios HRV software the energy expenditure is divided into: </p>
+<ol>
+<li><strong>basal metabolic rate (BMR)</strong> computed using the Mifflin-St Jeor equation<a href="https://www.kubios.com/hrv-analysis-methods/#Mifflin1990" target="_blank" rel="noopener">Mifflin et al. 1990</a> </li>
+<li><strong>activity related energy expenditure (EE)</strong> computed using the Keytel’s formula<a href="https://www.kubios.com/hrv-analysis-methods/#Keytel2005" target="_blank" rel="noopener">Keytel et al. 2005</a>. </li>
+</ol>
+<p><strong>The energy expenditure</strong> computations are based on <strong>heart rate</strong>, <strong>body weight</strong>, <strong>height</strong> and <strong>age</strong>. </p>
+<p>In Kubios HRV, we compute the EE using <strong>beat-to-beat HR values</strong>, and thus, <strong>the instantaneous EE (kcal/min) can be realiably derived</strong>. The instantaneous values of EE can be used to assess how energy expenditure is distributed throughout the day.</p>
+<p>Training impulse (TRIMP) is a rather commonly used index for training volume. The TRIMP can be computed according to <strong>exponential Banister’s model</strong> <a href="https://www.kubios.com/hrv-analysis-methods/#Morton1990" target="_blank" rel="noopener">Morton et al. 1990</a>, which is defined for male and female subjects separately as</p>
+<script type="math/tex; mode=display">
+TRIMP=T\times \Delta{HR}\times 0.64e^{1.92\times \Delta HR} \tag{Male}</script><script type="math/tex; mode=display">
+TRIMP=T\times \Delta{HR}\times 0.86e^{1.67\times \Delta HR} \tag{Feale}</script><p>where $T$ is duration of exercise and $\Delta HR=\frac{HR_{ex}-HR_{rest}}{HR_{max}-HR_{rest}}$ is a <strong>heart rate reserve ratio</strong>. </p>
+<p>TRIMP accumulation <strong>rate increases exponentially</strong> as a function of exercise intensity, modelling lactate accumulation during exercise.</p>
+<p>In Kubios HRV, we compute the TRIMP using <strong>beat-to-beat HR values</strong>, and thus, <strong>instantaneous value of TRIMP (TRIMP/min)</strong> can be reliably derived. </p>
+<p>TRIMP/min can be used as an index of training intensity. <strong>The cumulative sum of TRIMP/min</strong>, on the other hand, gives an index of training load accumulation. The link between TRIMP/min values and training intensity is shown below. The figure also shows for a 60-min training session the link between TRIMP value and training load.</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/%E5%8C%BB%E5%AD%A6/Trimp-levels.png"></p>
+<h3 id="Mean-RR-SDNN-RMSSD-and-pNN50"><a href="#Mean-RR-SDNN-RMSSD-and-pNN50" class="headerlink" title="Mean RR, SDNN, RMSSD and pNN50"></a>Mean RR, SDNN, RMSSD and pNN50</h3><p><strong>The time-domain methods</strong> are derived from the beat-to-beat RR interval values in time domain. </p>
+<p>Let the RR interval time series include $N$ successive beat intervals, i.e. $RR=(RR_1,RR_2,…,RR_N)$. The mean RR interval ($\overline{RR}$) and the mean heart rate ($\overline{HR}$) are then defined as</p>
+<script type="math/tex; mode=display">
+\overline{RR} = \frac{1}{N}\sum^{N}_{n=1}RR_n, \qquad \overline{HR}=\frac{60}{\overline{RR}}    \tag{9}</script><p>where $RR_n$ denotes the value of $n$th RR interval. </p>
+<p>Several <strong>heart rate variability parameters</strong> that measure the variability within the RR time intervals in time-domain exist. <strong>The standard deviation of RR intervals (SDNN)</strong> is defined as</p>
+<script type="math/tex; mode=display">
+SDNN=\sqrt{\frac{1}{N-1}\sum^{N}_{n=1}(RR_n-\overline{RR})^2}    \tag{10}</script><p><strong>SDNN</strong> reflects <strong>the overall (both short-term and long-term) variation</strong> within the RR interval time series, whereas <strong>the standard deviation of successive RR interval differences(SDSD)</strong> given by</p>
+<script type="math/tex; mode=display">
+SDSD=\sqrt{E\{\Delta RR_n^2\}-E\{\Delta RR_n\}^2}    \tag{11}</script><p>is a measure of short-term (beat-by-beat) variability. For stationary RR series $E\{\Delta RR_n\}=E\{RR_{n+1}\}-E\{RR_n\}=0$ and <strong>SDSD equals the root mean square of successive differences (RMSSD)</strong> given by</p>
+<script type="math/tex; mode=display">
+RMSSD=\sqrt{\frac{1}{N-1}\sum^{N-1}_{n=1}(RR_{n+1}-RR_n)^2}    \tag{12}</script><p>Another measure calculated from <strong>successive RR interval differences</strong> is <strong>the NN50</strong> which is the number of successive intervals differing <strong>more than 50 ms or the corresponding relative amount</strong></p>
+<script type="math/tex; mode=display">
+pNN50=\frac{NN50}{N-1}\times 100%        \tag{13}</script><h3 id="Geometric-measures"><a href="#Geometric-measures" class="headerlink" title="Geometric measures"></a>Geometric measures</h3><p>In addition to the above statistical measures, there are <strong>some geometric measures that are calculated from the RR interval histogram</strong>. The HRV triangular index is obtained as the integral of the histogram (i.e. <strong>total number of RR intervals</strong>) divided by the height of the histogram which depends on the selected bin width. </p>
+<ul>
+<li>In order to obtain comparable results, <strong>a bin width of 1/128 seconds</strong> is recommended <a href="https://www.kubios.com/hrv-analysis-methods/#Taskforce1996" target="_blank" rel="noopener">Task Force 1996</a>. </li>
+<li>Another geometric measure is the TINN which is <strong>the baseline width of the RR histogram evaluated through triangular interpolation</strong>, see Fig. 2A.</li>
+</ul>
+<p>The Baevsky’s stress index (SI) is computed according to the formula <a href="https://www.kubios.com/hrv-analysis-methods/#Baevsky2009" target="_blank" rel="noopener">Baevsky 2009</a></p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/%E5%8C%BB%E5%AD%A6/GeometricMeasures-small.png"></p>
+<h3 id="HR-deceleration-and-acceleration-capacity"><a href="#HR-deceleration-and-acceleration-capacity" class="headerlink" title="HR deceleration and acceleration capacity"></a>HR deceleration and acceleration capacity</h3><p>Deceleration capacity (DC) of heart rate is a measure of cardiac parasympathetic modulation as it captures the lengthening of RR interval within 2-4 successive beats as explained below. Acceleration capacity (AC) of heart rate captures the opposite, i.e. shortening of RR interval within few successive beats. These parameters were originally proposed in <a href="https://www.kubios.com/hrv-analysis-methods/#Bauer2006" target="_blank" rel="noopener">Bauer et al. 2006</a> and refined in <a href="https://www.kubios.com/hrv-analysis-methods/#Nasario-Junior2014" target="_blank" rel="noopener">Nasario-Junior et al. 2014</a>.</p>
+<p>Computation of DC (AC) is performed as follows. First, one RR interval value from every deceleration (acceleration) phase of RR interval time series is identified as an anchor interval. The anchor intervals are those that show steepest change compared to previous RR interval value, i.e. strongest deceleration (acceleration) within every deceleration-acceleration phase (see Fig. 3).</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/%E5%8C%BB%E5%AD%A6/DC_AC.png"></p>
+<p>Next, all deceleration (acceleration) phases found from the RR interval data are aligned at the anchor points and an ensemble average is computed, i.e. phase rectified signal averaging (PRSA) is applied. Fig. 2 shows the ensemble average (black lines) and the standard deviation intervals (light-blue and light-grey areas) for both deceleration and acceleration phases. DC and AC are calculated from the ensemble averaged deceleration and acceleration phases as follows</p>
+<script type="math/tex; mode=display">
+DC = [RR(0)+RR(1)-RR(-1)-RR(-2)]/2 \\
+AC = [RR(0)+RR(1)-RR(-1)-RR(-2)]/2    \tag{14}</script><p>That is, DC and AC are computed as a four point difference from the deceleration and acceleration PRSA signals, respectively. To better capture the instantaneous deceleration and acceleration, a modified DC and AC parameters are also computed according to<a href="https://www.kubios.com/hrv-analysis-methods/#nasario-junior2014" target="_blank" rel="noopener">Nasario-Junior et al. 2014</a> as follows</p>
+<script type="math/tex; mode=display">
+DC_{mod}=[RR(0)-RR(-1)]    \\
+AC_{mod}=[RR(0)-RR(-1)]    \tag{15}</script><p><strong>Summary of time-domain HRV parameters calculated by Kubios HRV software.</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">PARAMETER</th>
+<th style="text-align:center">UNITS</th>
+<th style="text-align:left">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$EE$</td>
+<td style="text-align:center">[kcal/min]</td>
+<td style="text-align:left">Energy expenditure (EE) divided into Basal Metabolic Rate (BMR) and activity related energy expenditure. BMR is estimated with Mifflin-St Jeor formula and energy expenditure (EE) using Keytel’s model<a href="https://www.kubios.com/hrv-analysis-methods/#Mifflin1990" target="_blank" rel="noopener">Mifflin et al. 1990</a>, <a href="https://www.kubios.com/hrv-analysis-methods/#Keytel2005" target="_blank" rel="noopener">Keytel et al. 2005</a></td>
+</tr>
+<tr>
+<td style="text-align:center">$TRIMP$</td>
+<td style="text-align:center">[1/min]</td>
+<td style="text-align:left">Training impulse (TRIMP) is estimated using the exponential Banister’s model<a href="https://www.kubios.com/hrv-analysis-methods/#Morton1990" target="_blank" rel="noopener">Morton et al. 1990</a></td>
+</tr>
+<tr>
+<td style="text-align:center">$\overline{RR}$</td>
+<td style="text-align:center">[ms]</td>
+<td style="text-align:left">The mean of RR intervals</td>
+</tr>
+<tr>
+<td style="text-align:center">$STD$ $RR$（$SDNN$）</td>
+<td style="text-align:center">[ms]</td>
+<td style="text-align:left">Standard deviation of RR intervals</td>
+</tr>
+<tr>
+<td style="text-align:center">$\overline{HR}$</td>
+<td style="text-align:center">[beats/min]</td>
+<td style="text-align:left">The mean heart rate</td>
+</tr>
+<tr>
+<td style="text-align:center">$Min$ &amp; $Max$ $HR$</td>
+<td style="text-align:center">[beats/min]</td>
+<td style="text-align:left">Minimum and maximum HR computed using N beat moving average (default value: N=5)</td>
+</tr>
+<tr>
+<td style="text-align:center">$RMSSD$</td>
+<td style="text-align:center">[ms]</td>
+<td style="text-align:left">Square root of the mean squared differences between successive RR intervals</td>
+</tr>
+<tr>
+<td style="text-align:center">$NNxx$</td>
+<td style="text-align:center">[beats]</td>
+<td style="text-align:left">Number of successive RR interval pairs that differ more than xx ms (default value: xx=50)</td>
+</tr>
+<tr>
+<td style="text-align:center">$pNNxx$</td>
+<td style="text-align:center">[%]</td>
+<td style="text-align:left">NNxx divided by the total number of RR intervals</td>
+</tr>
+<tr>
+<td style="text-align:center">$HRV$ $triangular$ $index$</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">The integral of the RR interval histogram divided by the height of the histogram</td>
+</tr>
+<tr>
+<td style="text-align:center">$TINN$</td>
+<td style="text-align:center">[ms]</td>
+<td style="text-align:left">Baseline width of the RR interval histogram<a href="https://www.kubios.com/hrv-analysis-methods/#Taskforce1996" target="_blank" rel="noopener">Task Force 1996</a></td>
+</tr>
+<tr>
+<td style="text-align:center">$Stress$ $index$</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">Square root of Baevsky’s stress index<a href="https://www.kubios.com/hrv-analysis-methods/#Baevsky2009" target="_blank" rel="noopener">Baevsky 2009</a></td>
+</tr>
+<tr>
+<td style="text-align:center">$DC, AC$</td>
+<td style="text-align:center">[ms]</td>
+<td style="text-align:left">Deceleration capacity (DC) and acceleration capacity (AC) of heart rate computed as a four-point difference<a href="https://www.kubios.com/hrv-analysis-methods/#Bauer2006" target="_blank" rel="noopener">Bauer et al. 2006</a>, <a href="https://www.kubios.com/hrv-analysis-methods/#Nasario-Junior2014" target="_blank" rel="noopener">Nasario-Junior et al. 2014</a></td>
+</tr>
+<tr>
+<td style="text-align:center">$DC_{mod}$,$ AC_{mod}$</td>
+<td style="text-align:center">[ms]</td>
+<td style="text-align:left">Modified DC and AC computed as a two-point difference<a href="https://www.kubios.com/hrv-analysis-methods/#Bauer2006" target="_blank" rel="noopener">Bauer et al. 2006</a>, <a href="https://www.kubios.com/hrv-analysis-methods/#Nasario-Junior2014" target="_blank" rel="noopener">Nasario-Junior et al. 2014</a></td>
+</tr>
+<tr>
+<td style="text-align:center">$SDANN$</td>
+<td style="text-align:center">[ms]</td>
+<td style="text-align:left">Standard deviation of the averages of RR intervals in 5-min segments<a href="https://www.kubios.com/hrv-analysis-methods/#Taskforce1996" target="_blank" rel="noopener">Task Force 1996</a></td>
+</tr>
+<tr>
+<td style="text-align:center">$SDNNI$</td>
+<td style="text-align:center">[ms]</td>
+<td style="text-align:left">Mean of the standard deviations of RR intervals in 5-min segments<a href="https://www.kubios.com/hrv-analysis-methods/#Taskforce1996" target="_blank" rel="noopener">Task Force 1996</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Frequency-domain-HRV-analysis-methods"><a href="#Frequency-domain-HRV-analysis-methods" class="headerlink" title="Frequency-domain HRV analysis methods"></a>Frequency-domain HRV analysis methods</h3><center>    
+  <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/%E5%8C%BB%E5%AD%A6/DC_AC.png">    
+  <br>    
+  <div style="color:orange; border-bottom: 1px solid #d9d9d9;    
+              display: inline-block;    
+              color: #999;    
+              padding: 2px;">Figure 4: HRV spectrum estimates using FFT based Welch’s periodogram method (left) and autoregressive (AR) modelling based spectrum estimation method.
+    </div>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/HRV/" rel="tag"><i class="fas fa-tags"></i>HRV</a>
+        
+        <a class="post-tag button" href="/tags/心率变异性/" rel="tag"><i class="fas fa-tags"></i>心率变异性</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>把最实用的经验，分享给最需要的读者，希望每一位来访的朋友都能有所收获！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/10/28/Vulkan学习/" rel="next" title="Vulkan学习"><i class="fas fa-angle-left"></i><span class="nav-title">Vulkan学习</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">96</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">53</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">102</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Respiratory-Sinus-Arrhythmia-RSA"><span class="toc-text">Respiratory Sinus Arrhythmia(RSA)</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Preprocessing-of-HRV-DATA"><span class="toc-text">Preprocessing of HRV DATA</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Kubios-HRV-beat-correction-methods"><span class="toc-text">Kubios HRV beat correction methods</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Threshold-based-beat-correction-algorithm"><span class="toc-text">Threshold based beat correction algorithm</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Automatic-beat-correction-algorithm"><span class="toc-text">Automatic beat correction algorithm</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Detrending-of-RR-interval-data"><span class="toc-text">Detrending of RR interval data</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#References"><span class="toc-text">References</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#HRV-Analysis-Methods"><span class="toc-text">HRV Analysis Methods</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Time-domain-HRV-analysis-methods"><span class="toc-text">Time-domain HRV analysis methods</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Energy-expenditure-and-training-load"><span class="toc-text">Energy expenditure and training load</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Mean-RR-SDNN-RMSSD-and-pNN50"><span class="toc-text">Mean RR, SDNN, RMSSD and pNN50</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Geometric-measures"><span class="toc-text">Geometric measures</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#HR-deceleration-and-acceleration-capacity"><span class="toc-text">HR deceleration and acceleration capacity</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Frequency-domain-HRV-analysis-methods"><span class="toc-text">Frequency-domain HRV analysis methods</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
