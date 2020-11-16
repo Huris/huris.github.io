@@ -413,9 +413,55 @@ x=\frac{-B\pm\sqrt{B^2-4AC}}{2A}    \tag{1.11}</script><p>其中，$\pm$代表�
 </li>
 <li><p>若$0&lt;\alpha,\beta,\gamma&lt;1$，则点$p$在三角形内</p>
 </li>
-<li></li>
+<li><p>如果$\alpha,\beta,\gamma$中有一个为 $0$，其他两个在 $0$ 和 $1$ 之间，则该点在边上。</p>
+<p> 如果$\alpha,\beta,\gamma$中有两个个为 $0$，另外一个在 $0$ 和 $1$ 之间，则该点在顶点上。</p>
+</li>
+<li><p>重心坐标的求解</p>
+<ol>
+<li>解线性方程</li>
 </ol>
-<h1 id="向量（Vector）"><a href="#向量（Vector）" class="headerlink" title="向量（Vector）"></a>向量（Vector）</h1><h2 id="点乘（Dot-Product）"><a href="#点乘（Dot-Product）" class="headerlink" title="点乘（Dot Product）"></a>点乘（Dot Product）</h2><p>几何形式：$a\cdot b=|a||b|\cos \phi$</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+p=(1-\beta-\gamma)a+\beta b+\gamma c  \tag{1.12}</script><script type="math/tex; mode=display">
+\left[
+ \begin{matrix}
+   x_b-x_a & x_c-x_a \\
+   y_b-y_a & y_c-y_a \\
+  \end{matrix}
+  \right]
+   \left[
+ \begin{matrix}
+    \beta \\
+  \gamma \\
+  \end{matrix}
+  \right]
+  =
+  \left[
+ \begin{matrix}
+    x_p-x_a \\
+  y_p-y_a \\
+  \end{matrix}
+  \right]
+  \tag{1.13}</script><p>​         2. 几何方法</p>
+<script type="math/tex; mode=display">
+f_{ab}(x,y)\equiv (y_a-y_b)x+(x_b-x_a)y+x_ay_b-x_by_a=0    \tag{1.14}</script><script type="math/tex; mode=display">
+\gamma = \frac{(y_a-y_b)x+(x_b-x_a)y+x_ay_b-x_by_a}{(y_a-y_b)x_c+(x_b-x_a)y_c+x_ay_b-x_by_a}    \tag{1.15}</script><script type="math/tex; mode=display">
+\beta = \frac{(y_a-y_c)x+(x_c-x_a)y+x_ay_c-x_cy_a}{(y_a-y_c)x_c+(x_c-x_a)y_c+x_ay_c-x_cy_a}    \tag{1.16}</script><script type="math/tex; mode=display">
+\alpha=1-\beta-\gamma \tag{1.17}</script><p>​         3. 面积法</p>
+<script type="math/tex; mode=display">
+\alpha = A_a/A,\quad \beta=A_b/A,\quad \gamma=A_c/A    \tag{1.18}</script><p>​         4. 3D</p>
+<script type="math/tex; mode=display">
+n=(b-a)\times(c-a) \\
+area=\frac{1}{2}\|(b-a)\times(c-a)\| \\
+a\cdot b=\|a\|\|b\|\cos\phi \\
+n_a=(c-b)\times(p-b) \\
+n_b=(a-c)\times(p-c) \\
+n_c=(b-a)\times(p-a) \\
+\alpha = \frac{n\cdot n_a}{\|n\|^2}    \\
+\beta = \frac{n\cdot n_b}{\|n\|^2}    \\
+\gamma = \frac{n\cdot n_c}{\|n\|^2}    
+\tag{1.19}</script><h1 id="向量（Vector）"><a href="#向量（Vector）" class="headerlink" title="向量（Vector）"></a>向量（Vector）</h1><h2 id="点乘（Dot-Product）"><a href="#点乘（Dot-Product）" class="headerlink" title="点乘（Dot Product）"></a>点乘（Dot Product）</h2><p>几何形式：$a\cdot b=|a||b|\cos \phi$</p>
 <p>坐标形式：$a\cdot b=x_ax_b+y_ay_b+z_az_b$</p>
 <p>投影计算（$a$在$b$上的投影）：$a\rightarrow b=|a|\cos\phi=\frac{a\cdot b}{|b|}$</p>
 <h2 id="叉乘（Cross-Product）"><a href="#叉乘（Cross-Product）" class="headerlink" title="叉乘（Cross Product）"></a>叉乘（Cross Product）</h2><p>几何形式：$|a\times b|=|a||b|\sin\phi$，方向：四指与$a$同方向，之后转向$b$，则大拇指的方向就是$a\times b$的方向。</p>
