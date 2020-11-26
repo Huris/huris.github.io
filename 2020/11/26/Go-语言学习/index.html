@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Python, C++, ML/DL/CV">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Huris' HeapStack" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Go | Huris' HeapStack - For you, a thousand times over.</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Huris' HeapStack</a></h1>
+        <h2 class="subtitle">For you, a thousand times over.</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://huris.xyz/2020/11/26/Go-语言学习/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Huris">
+       <meta itemprop="description" content="To be is to be perceived.">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Huris' HeapStack">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Go</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-11-26T15:13:56+08:00">2020-11-26 15:13:56</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程语言/Go/" itemprop="url" rel="index"><span itemprop="name">Go</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>Go 语言也称Golang，兼具<strong>效率</strong>、<strong>性能</strong>、<strong>安全</strong>、<strong>健壮</strong>等特性。</p>
+<p><img src="https://huris.oss-cn-hangzhou.aliyuncs.com/blog/usergroups.png"></p>
+<a id="more"></a>
+<h1 id="Go-语言简介"><a href="#Go-语言简介" class="headerlink" title="Go 语言简介"></a>Go 语言简介</h1><p>Go 语言（Golang）起源于 2007 年，并在 2009 年正式对外发布。</p>
+<ul>
+<li><p>主要目标：兼具 <strong>Python 等动态语言的开发速度</strong>和<strong>C/C++等编译型语言的性能与安全性</strong>。</p>
+</li>
+<li><p>用途：网络编程、系统编程、并发编程、分布式编程。</p>
+</li>
+<li><p>优势：不损失应用性能的情况下降低代码的复杂性，“部署简单、并发性好、语言设计良好、执行性能好”</p>
+</li>
+</ul>
+<p>Go 从C语言继承了相似的<strong>表达式语法、控制流结构、基础数据类型、调用参数传值、指针</strong>等很多思想，还有C语言一直所看中的<strong>编译后机器码的运行效率</strong>以及<strong>和现有操作系统的无缝适配</strong>。</p>
+<h2 id="Go-是编译型语言"><a href="#Go-是编译型语言" class="headerlink" title="Go 是编译型语言"></a>Go 是编译型语言</h2><p>Go 使用编译器来编译代码。</p>
+<p>编译器将源代码编译成二进制（或字节码）格式；</p>
+<p>在编译代码时，编译器检查错误、优化性能并输出可在不同平台上运行的二进制文件。</p>
+<p>创建并运行 Go 程序，需要如下步骤：</p>
+<ol>
+<li>使用文本编辑器创建 Go 程序；</li>
+<li>保存文件；</li>
+<li>编译程序；</li>
+<li>运行编译得到的可执行文件。</li>
+</ol>
+<p>这不同于 Python、Ruby 和 JavaScript 等语言，它们不包含编译步骤。</p>
+<p>Go 自带了编译器，因此无须单独安装编译器。</p>
+<h1 id="Go-语言特性"><a href="#Go-语言特性" class="headerlink" title="Go 语言特性"></a>Go 语言特性</h1><p>静态强类型、编译型、并发型、并具有垃圾回收功能的编程语言。</p>
+<ul>
+<li>语法简单：规则严谨，没有歧义。</li>
+<li>并发模型<ul>
+<li>从根本上将一切都并发化，运行时用 Goroutine 运行所有的一切，包括 main.main 入口函数。</li>
+<li>用<strong>类协程</strong>的方式处理并发单元，在运行时层面做了更深度的优化处理（无需处理回调，无需关注协程切换）。</li>
+<li>搭配 channel，实现 CSP 模型。将并发单元间的数据解耦。</li>
+</ul>
+</li>
+<li>内存分配<ul>
+<li><code>tcmalloc</code>内存分配组件。</li>
+</ul>
+</li>
+<li>垃圾回收<ul>
+<li>并发标记，引入三色标记和写屏障</li>
+</ul>
+</li>
+<li>静态链接<ul>
+<li>只需编译后的一个可执行文件，无须附加任何东西就能部署。</li>
+</ul>
+</li>
+<li>标准库<ul>
+<li>标准库极为丰富。</li>
+</ul>
+</li>
+<li>工具链</li>
+</ul>
+<h1 id="Go-基本语法"><a href="#Go-基本语法" class="headerlink" title="Go 基本语法"></a>Go 基本语法</h1><h2 id="运行-Go"><a href="#运行-Go" class="headerlink" title="运行 Go"></a>运行 Go</h2><ol>
+<li>通过 Go 命令运行，保存为 <strong>hello.go</strong> 文件。</li>
+</ol>
+<figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">import</span> <span class="hljs-string">"fmt"</span> <br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>   fmt.Println(<span class="hljs-string">"Hello, World!"</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在 <code>hello.go</code>目录下运行命令：<code>go run hello.go</code>，即可。</p>
+<ol>
+<li>编译运行</li>
+</ol>
+<p>Go 代码可以直接编译成<code>exe 文件</code>或者<code>二进制文件</code>直接运行。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">go build hello.go<br>./hello<br></code></pre></td></tr></table></figure>
+<ol>
+<li>在浏览器中运行，输入<a href="https://play.golang.org/" target="_blank" rel="noopener">链接</a>。</li>
+</ol>
+<h2 id="格式化输入输出"><a href="#格式化输入输出" class="headerlink" title="格式化输入输出"></a>格式化输入输出</h2><h3 id="输入输出语法方法"><a href="#输入输出语法方法" class="headerlink" title="输入输出语法方法"></a>输入输出语法方法</h3><figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//  %[标记][宽度][.精度][arg索引]动词`</span><br><span class="hljs-comment">//  `Print(arg列表)`、`Println(arg列表)`、`Printf(格式字符串, arg列表)</span><br><br><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">"fmt"</span><br>	<span class="hljs-string">"time"</span><br>)<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	fmt.Println(<span class="hljs-string">"Hello World!"</span>)<br>	fmt.Println(<span class="hljs-string">"The time is"</span>, time.Now())<br>&#125;<br><br>-----------------------------------------------<br>Hello World!<br>The time is <span class="hljs-number">2020</span><span class="hljs-number">-11</span><span class="hljs-number">-26</span> <span class="hljs-number">16</span>:<span class="hljs-number">03</span>:<span class="hljs-number">49.841453</span> +<span class="hljs-number">0800</span> CST m=+<span class="hljs-number">0.000125104</span><br></code></pre></td></tr></table></figure>
+<h3 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h3><figure class="hljs highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs undefined">+ 总打印数值的正负号；对于%q（%+q）保证只输出ASCII编码的字符。<br><br>- 在右侧而非左侧填充空格（左对齐该区域）<br><br># 备用格式：为八进制添加前导 <span class="hljs-number">0</span>（%#o），为十六进制添加前导 <span class="hljs-number">0</span>x（%#x）或<br>  <span class="hljs-number">0</span>X（%#X），为 %p（%#p）去掉前导 <span class="hljs-number">0</span>x；对于 %q，若 strconv.CanBackquote<br>  返回 true，就会打印原始（即反引号围绕的）字符串；如果是可打印字符，<br>  %U（%#U）会写出该字符的Unicode编码形式（如字符 x 会被打印成 U+<span class="hljs-number">0078</span> <span class="hljs-string">'x'</span>）。<br>  <br><span class="hljs-string">' '</span> （空格）为数值中省略的正负号留出空白（% d）；<br>  以十六进制（% x, % X）打印字符串或切片时，在字节之间用空格隔开<br>  <br><span class="hljs-number">0</span>  填充前导的<span class="hljs-number">0</span>而非空格；对于数字，这会将填充移到正负号之后<br></code></pre></td></tr></table></figure>
+<ul>
+<li>其中 <code>0</code> 和 <code>-</code> 不能同时使用，优先使用 <code>-</code> 而忽略 <code>0</code>。</li>
+<li>标记有时会被占位符忽略，所以不要指望它们。例如十进制没有备用格式，因此 <code>%#d</code> 与 <code>%d</code> 的行为相同。</li>
+</ul>
+<h3 id="宽度和精度"><a href="#宽度和精度" class="headerlink" title="宽度和精度"></a>宽度和精度</h3><p><code>[宽度][.精度]</code>都可以写成以下三种形式：<code>数值</code>，<code>*</code>，<code>arg索引*</code></p>
+<ul>
+<li><code>数值</code> 表示使用指定的数值作为宽度值或精度值</li>
+<li><code>*</code> 表示使用当前正在处理的 arg 的值作为宽度值或精度值，如果这样的话，要格式化的 arg 将自动跳转到下一个。</li>
+<li><code>arg索引*</code> 表示使用指定 arg 的值作为宽度值或精度值，如果这样的话，要格式化的 arg 将自动跳转到指定 arg 的下一个。</li>
+</ul>
+<p>注意事项：</p>
+<ul>
+<li>宽度值：用于设置最小宽度。</li>
+<li>精度值：对于浮点型，用于控制小数位数，对于字符串或字节数组，用于控制字符数量（不是字节数量）。</li>
+<li>对于浮点型而言，动词 g/G 的精度值比较特殊，在适当的情况下，g/G 会设置总有效数字，而不是小数位数。</li>
+</ul>
+<h3 id="arg-索引"><a href="#arg-索引" class="headerlink" title="arg 索引"></a>arg 索引</h3><p>由中括号和 arg 序号组成（就像这个实例<code>&quot;abc%+ #8.3[3]vdef&quot;</code>中的[3])，用于指定当前要处理的 arg 的序号，序号从 1 开始：<code>&#39;[&#39; + arg序号 + &#39;]&#39;</code></p>
+<h3 id="动词-通用动词"><a href="#动词-通用动词" class="headerlink" title="动词/通用动词"></a>动词/通用动词</h3><ul>
+<li><code>v</code>：默认格式，不同类型的默认格式如下：</li>
+</ul>
+<blockquote>
+<p><strong>布尔型</strong>：<code>t</code> </p>
+<ul>
+<li>输出 true 或 false 字符串。</li>
+</ul>
+<p><strong>整　型</strong>：<code>d</code> </p>
+<ul>
+<li><code>b/o/d</code>：输出 2/8/10 进制格式</li>
+<li><code>x/X</code>：输出 16 进制格式（小写/大写）</li>
+<li><code>c</code>：输出数值所表示的 Unicode 字符</li>
+<li><code>q</code>：输出数值所表示的 Unicode 字符（带单引号）。对于无法显示的字符，将输出其转义字符。</li>
+<li><code>U</code>：输出 Unicode 码点（例如 U+1234，等同于字符串 “U+%04X” 的显示结果）</li>
+</ul>
+<p>对于 o/x/X：</p>
+<ul>
+<li>如果使用 “#” 标记，则会添加前导 0 或 0x。</li>
+</ul>
+<p>对于 U：</p>
+<ul>
+<li>如果使用 “#” 标记，则会在 Unicode 码点后面添加相应的 ‘字符’（前提是该字符必须可显示）</li>
+</ul>
+<p><strong>浮点型</strong>：<code>g</code> </p>
+<ul>
+<li><code>b</code>：科学计数法（以 2 为底）</li>
+<li><code>e/E</code>：科学计数法（以 10 为底，小写 e/大写 E）</li>
+<li><code>f/F</code>：普通小数格式（两者无区别）</li>
+<li><code>g/G</code>：大指数（指数 &gt;= 6）使用 %e/%E，其它情况使用 %f/%F</li>
+</ul>
+<p><strong>复数型</strong>：<code>g</code> </p>
+<p><strong>字符串</strong>：<code>s</code> </p>
+<ul>
+<li><code>s</code> ：普通字符串</li>
+<li><code>q</code> ：双引号引起来的 Go 语法字符串<ul>
+<li>如果使用了 <code>+</code> 标记，则将所有非 ASCII 字符都进行转义处理。</li>
+<li>如果使用了 <code>#</code> 标记，则输出反引号引起来的字符串（前提是</li>
+<li>字符串中不包含任何制表符以外的控制字符，否则忽略 # 标记）</li>
+</ul>
+</li>
+<li><code>x/X</code>：十六进制编码（小写/大写，以字节为元素进行编码，而不是字符）<ul>
+<li>如果使用了 “ “ 标记，则在每个元素之间添加空格。</li>
+<li>如果使用了 “#” 标记，则在十六进制格式之前添加 0x 前缀。</li>
+</ul>
+</li>
+</ul>
+<p><strong>通　道</strong>：<code>p</code> </p>
+<p><strong>指　针</strong>：<code>p</code></p>
+<ul>
+<li><p><code>p</code> ：带 0x 前缀的十六进制地址值。</p>
+</li>
+<li><p><code>#p</code>：不带 0x 前缀的十六进制地址值。</p>
+</li>
+<li><p>Go 没有指针运算。</p>
+</li>
+<li><p>Go 具有指针。 指针保存了变量的内存地址。</p>
+</li>
+<li><p>类型 *T 是指向类型 T 的值的指针。其零值是 nil </p>
+<p>  <code>var p *int</code></p>
+</li>
+<li><p>&amp; 符号会生成一个指向其作用对象的指针。</p>
+<p>  <code>i := 42</code></p>
+<p>  <code>p = &amp;i</code></p>
+</li>
+<li><p><code>*</code>符号表示指针指向的底层的值。</p>
+<p>  <code>fmt.Println(*p)</code>   // 通过指针 p 读取 i</p>
+<p>  <code>*p = 21</code>   // 通过指针 p 设置 i</p>
+</li>
+</ul>
+<p><strong>复合类型</strong>：</p>
+<ul>
+<li>结构体：{字段1  字段2  …}</li>
+<li>数组或切片：[元素0  元素1  …]</li>
+<li>映射：map[键1:值1  键2:值2  …]</li>
+</ul>
+<p>指向复合元素的指针：<code>&amp;{}</code>, <code>&amp;[]</code>, <code>&amp;map[]</code> 复合类型本身没有动词，动词将应用到复合类型的元素上。 结构体可以使用 “+v” 同时输出字段名。</p>
+</blockquote>
+<ul>
+<li><p><code>#v</code>：默认格式，以符合 Go 语法的方式输出。</p>
+<p>  特殊类型的 Go 语法格式如下：</p>
+<blockquote>
+<p>无符号整型：x</p>
+</blockquote>
+</li>
+<li><p><code>T</code>：输出 arg 的类型而不是值（使用 Go 语法格式）。</p>
+</li>
+</ul>
+<p>注意事项：<code>动词</code>不能省略，不同的数据类型支持的动词不一样。</p>
+<h3 id="格式化输入"><a href="#格式化输入" class="headerlink" title="格式化输入"></a>格式化输入</h3><figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 格式化输入：从输入端读取字符串（以空白分隔的值的序列），</span><br><span class="hljs-comment">// 并解析为具体的值存入相应的 arg 中，arg 必须是变量地址。</span><br><span class="hljs-comment">// 字符串中的连续空白视为单个空白，换行符根据不同情况处理。</span><br><span class="hljs-comment">// \r\n 被当做 \n 处理。</span><br><br><span class="hljs-comment">// 以动词 v 解析字符串，换行视为空白</span><br>Scan(arg列表)<br><span class="hljs-comment">// 以动词 v 解析字符串，换行结束解析</span><br>Scanln(arg列表)<br><span class="hljs-comment">// 根据格式字符串中指定的格式解析字符串</span><br><span class="hljs-comment">// 格式字符串中的换行符必须和输入端的换行符相匹配。</span><br>Scanf(格式字符串, arg列表)<br><br><span class="hljs-comment">// Scan 类函数会返回已处理的 arg 数量和遇到的错误信息。</span><br></code></pre></td></tr></table></figure>
+<h2 id="编程基础"><a href="#编程基础" class="headerlink" title="编程基础"></a>编程基础</h2><h3 id="内置关键字"><a href="#内置关键字" class="headerlink" title="内置关键字"></a>内置关键字</h3><figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">break</span>      <span class="hljs-keyword">default</span>       <span class="hljs-function"><span class="hljs-keyword">func</span>      <span class="hljs-title">interface</span>    <span class="hljs-title">select</span><br><span class="hljs-title">case</span>       <span class="hljs-title">defer</span>         <span class="hljs-title">go</span>        <span class="hljs-title">map</span>          <span class="hljs-title">struct</span><br><span class="hljs-title">chan</span>       <span class="hljs-title">else</span>          <span class="hljs-title">goto</span>      <span class="hljs-title">package</span>      <span class="hljs-title">switch</span><br><span class="hljs-title">const</span>      <span class="hljs-title">fallthrough</span>   <span class="hljs-title">if</span>        <span class="hljs-title">range</span>        <span class="hljs-title">type</span><br><span class="hljs-title">continue</span>   <span class="hljs-title">for</span>           <span class="hljs-title">import</span>    <span class="hljs-title">return</span>       <span class="hljs-title">var</span></span><br></code></pre></td></tr></table></figure>
+<h3 id="预定义标识符"><a href="#预定义标识符" class="headerlink" title="预定义标识符"></a>预定义标识符</h3><figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-built_in">append</span>  <span class="hljs-keyword">bool</span>    <span class="hljs-keyword">byte</span>    <span class="hljs-built_in">cap</span>     <span class="hljs-built_in">close</span>  <span class="hljs-built_in">complex</span> <span class="hljs-keyword">complex64</span> <span class="hljs-keyword">complex128</span> <span class="hljs-keyword">uint16</span><br><span class="hljs-built_in">copy</span>    <span class="hljs-literal">false</span>   <span class="hljs-keyword">float32</span> <span class="hljs-keyword">float64</span> <span class="hljs-built_in">imag</span>   <span class="hljs-keyword">int</span>     <span class="hljs-keyword">int8</span>      <span class="hljs-keyword">int16</span>      <span class="hljs-keyword">uint32</span><br><span class="hljs-keyword">int32</span>   <span class="hljs-keyword">int64</span>   <span class="hljs-literal">iota</span>    <span class="hljs-built_in">len</span>     <span class="hljs-built_in">make</span>   <span class="hljs-built_in">new</span>     <span class="hljs-literal">nil</span>       <span class="hljs-built_in">panic</span>      <span class="hljs-keyword">uint64</span><br><span class="hljs-built_in">print</span>   <span class="hljs-built_in">println</span> <span class="hljs-built_in">real</span>    <span class="hljs-built_in">recover</span> <span class="hljs-keyword">string</span> <span class="hljs-literal">true</span>    <span class="hljs-keyword">uint</span>      <span class="hljs-keyword">uint8</span>      <span class="hljs-keyword">uintptr</span><br></code></pre></td></tr></table></figure>
+<h3 id="行分割符"><a href="#行分割符" class="headerlink" title="行分割符"></a>行分割符</h3><ul>
+<li>在 Go 程序中，一行代表一个语句结束，不需要分隔符。</li>
+<li>打算将多个语句写在同一行，它们则必须使用 <code>;</code> 人为区分，并不鼓励这种做法。</li>
+</ul>
+<h3 id="注释方法"><a href="#注释方法" class="headerlink" title="注释方法"></a>注释方法</h3><figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 单行注释</span><br><br><span class="hljs-comment">/*<br>  多行注释<br>*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><ul>
+<li>标识符用来命名变量、类型等程序实体。</li>
+<li>第一个字符必须是字母或下划线而不能是数字</li>
+</ul>
+<p>有效标识符</p>
+<figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go">mahesh   kumar   abc   move_name   a_123<br>myname50   _temp   j   a23b9   retVal<br></code></pre></td></tr></table></figure>
+<p>无效标识符</p>
+<figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-number">1</span>ab  #（以数字开头）<br><span class="hljs-keyword">case</span> #（Go 语言的关键字）<br>a+b  #（运算符是不允许的）<br></code></pre></td></tr></table></figure>
+<h3 id="包引用"><a href="#包引用" class="headerlink" title="包引用"></a>包引用</h3><figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">import</span> <span class="hljs-string">"fmt"</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">"os"</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">"io"</span><br></code></pre></td></tr></table></figure>
+<p>简写方式如下</p>
+<figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">import</span> (<br>  <span class="hljs-string">"fmt"</span><br>  <span class="hljs-string">"os"</span><br>  <span class="hljs-string">"io"</span><br>)<br></code></pre></td></tr></table></figure>
+<p><strong>包引用介绍</strong></p>
+<figure class="hljs highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go">.<br>├── cal<br>│   ├── add.<span class="hljs-keyword">go</span><br>│   ├── multi<br>│   │   └── multiply.<span class="hljs-keyword">go</span><br>│   └── subtract.<span class="hljs-keyword">go</span><br>└── main.<span class="hljs-keyword">go</span><br></code></pre></td></tr></table></figure>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/编程语言/" rel="tag"><i class="fas fa-tags"></i>编程语言</a>
+        
+        <a class="post-tag button" href="/tags/Go/" rel="tag"><i class="fas fa-tags"></i>Go</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>把最实用的经验，分享给最需要的读者，希望每一位来访的朋友都能有所收获！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.jpg" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/Alipay.jpg" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2020/11/16/Fundamentals-of-Computer-Graphics-4-Raster-Images/" rel="next" title="Fundamentals of Computer Graphics 4 Raster Images"><i class="fas fa-angle-left"></i><span class="nav-title">Fundamentals of Computer Graphics 4 Raster Images</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Huris">
+  
+  <h1 class="author-name">Huris</h1>
+  <h2 class="author-description">To be is to be perceived.</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">98</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">54</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">103</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Go-语言简介"><span class="toc-text">Go 语言简介</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Go-是编译型语言"><span class="toc-text">Go 是编译型语言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Go-语言特性"><span class="toc-text">Go 语言特性</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Go-基本语法"><span class="toc-text">Go 基本语法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#运行-Go"><span class="toc-text">运行 Go</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#格式化输入输出"><span class="toc-text">格式化输入输出</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#输入输出语法方法"><span class="toc-text">输入输出语法方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#标记"><span class="toc-text">标记</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#宽度和精度"><span class="toc-text">宽度和精度</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#arg-索引"><span class="toc-text">arg 索引</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#动词-通用动词"><span class="toc-text">动词/通用动词</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#格式化输入"><span class="toc-text">格式化输入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#编程基础"><span class="toc-text">编程基础</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#内置关键字"><span class="toc-text">内置关键字</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#预定义标识符"><span class="toc-text">预定义标识符</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#行分割符"><span class="toc-text">行分割符</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注释方法"><span class="toc-text">注释方法</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#标识符"><span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#包引用"><span class="toc-text">包引用</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:huris102234@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/huris" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-zhihu"></i><a href="https://www.zhihu.com/people/xia-zhen-15-24/activities" target="_blank">Zhihu</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://www.yishimei.cn/" target="_blank">亦是美网络</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="http://bigjpg.com/" target="_blank">Bigjpg</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://pixabay.com/" target="_blank">pixabay</a></li>
+        
+        <li><i class="fab fa-weebly"></i><a href="https://tinypng.com/" target="_blank">tinypng</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Huris</span><span class="year"><i class="far fa-copyright"></i>2017 - 2020</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">BY-NC 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

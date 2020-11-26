@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huris.xyz/"/>
-  <updated>2020-11-13T05:20:47.044Z</updated>
+  <updated>2020-11-26T08:28:34.410Z</updated>
   <id>http://huris.xyz/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go</title>
+    <link href="http://huris.xyz/2020/11/26/Go-%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://huris.xyz/2020/11/26/Go-语言学习/</id>
+    <published>2020-11-26T07:13:56.000Z</published>
+    <updated>2020-11-26T08:28:34.410Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Go 语言也称Golang，兼具&lt;strong&gt;效率&lt;/strong&gt;、&lt;strong&gt;性能&lt;/strong&gt;、&lt;strong&gt;安全&lt;/strong&gt;、&lt;strong&gt;健壮&lt;/strong&gt;等特性。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://huris.oss-cn-hangzhou.aliyuncs.com/blog/usergroups.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Go" scheme="http://huris.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Go/"/>
+    
+    
+      <category term="编程语言" scheme="http://huris.xyz/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Go" scheme="http://huris.xyz/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fundamentals of Computer Graphics 4 Raster Images</title>
+    <link href="http://huris.xyz/2020/11/16/Fundamentals-of-Computer-Graphics-4-Raster-Images/"/>
+    <id>http://huris.xyz/2020/11/16/Fundamentals-of-Computer-Graphics-4-Raster-Images/</id>
+    <published>2020-11-16T04:35:48.000Z</published>
+    <updated>2020-11-16T05:21:08.050Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要讨论光栅图像和显示器的基础&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="基础学习" scheme="http://huris.xyz/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>HRV学习</title>
@@ -347,9 +394,9 @@
       <category term="Taichi" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/Taichi/"/>
     
     
-      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
       <category term="编程语言" scheme="http://huris.xyz/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
       <category term="Taichi" scheme="http://huris.xyz/tags/Taichi/"/>
     
@@ -507,62 +554,6 @@
       <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
       <category term="unity" scheme="http://huris.xyz/tags/unity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LearnOpenGL</title>
-    <link href="http://huris.xyz/2020/02/27/LearnOpenGL/"/>
-    <id>http://huris.xyz/2020/02/27/LearnOpenGL/</id>
-    <published>2020-02-27T05:20:56.000Z</published>
-    <updated>2020-05-15T05:09:42.056Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文主要总结了我在《LearnOpenGL》中学习的过程&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机图形学" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-      <category term="框架" scheme="http://huris.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E6%A1%86%E6%9E%B6/"/>
-    
-    
-      <category term="计算机图形学" scheme="http://huris.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-      <category term="OpenGL" scheme="http://huris.xyz/tags/OpenGL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ICthroughVR: Illuminating Cataracts through Virtual Reality</title>
-    <link href="http://huris.xyz/2019/12/21/ICthroughVR-Illuminating-Cataracts-through-Virtual-Reality/"/>
-    <id>http://huris.xyz/2019/12/21/ICthroughVR-Illuminating-Cataracts-through-Virtual-Reality/</id>
-    <published>2019-12-21T01:44:19.000Z</published>
-    <updated>2019-12-23T06:27:15.065Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;ICthroughVR: Illuminating(照亮) Cataracts(白内障) through Virtual Reality&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://huris.oss-cn-hangzhou.aliyuncs.com/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ICthroughVR%3A%20Illuminating%20Cataracts%20through%20Virtual%20Reality/Figure%201.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Vision impairments, such as cataracts, affect the way many people interact with their environment, yet are rarely considered by &lt;strong&gt;architects and lighting designers&lt;/strong&gt; because of a lack of design tools.&lt;/p&gt;
-&lt;p&gt;we present a method to &lt;strong&gt;simulate vision impairments&lt;/strong&gt;, in particular cataracts, graphically in virtual reality (VR), using eye tracking for gaze-dependent(注视) effects. &lt;/p&gt;
-&lt;p&gt;We also conduct(进行) a VR user study to &lt;strong&gt;investigate the effects of lighting on visual perception(感知) for users with cataracts&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;In contrast to existing approaches, &lt;strong&gt;which mostly provide only simplified simulations and are primarily targeted at educational or demonstrative(示范) purposes&lt;/strong&gt;, we account for the user’s vision and the hardware constraints(限制) of the VR headset.&lt;/p&gt;
-&lt;p&gt;This makes it possible to calibrate(矫正) our cataract simulation to the same level of degraded(降低) vision for all participants. &lt;/p&gt;
-&lt;p&gt;Our study results show that we are able to calibrate(矫正) the vision of all our participants to a similar level of impairment, that maximum recognition distances for escape route signs with simulated cataracts are significantly smaller than without, and that luminaires(灯具) visible in the field of view are perceived as especially disturbing due to the glare effects they create.&lt;/p&gt;
-&lt;p&gt;In addition, the results show that our realistic simulation increases the understanding of how people with cataracts see and could therefore also be informative for health care personnel or relatives of cataract patients.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="论文阅读" scheme="http://huris.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-      <category term="虚拟现实" scheme="http://huris.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E/"/>
-    
-    
-      <category term="虚拟现实" scheme="http://huris.xyz/tags/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E/"/>
-    
-      <category term="医疗康复" scheme="http://huris.xyz/tags/%E5%8C%BB%E7%96%97%E5%BA%B7%E5%A4%8D/"/>
     
   </entry>
   
